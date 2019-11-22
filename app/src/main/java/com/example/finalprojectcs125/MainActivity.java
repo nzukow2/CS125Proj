@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
         // Do this and then do that
     }
 
-    public int secretNameMethod() {
+    public void secretNameMethod() {
         //Set on click listener here
     String userNameInput = "set me up boss";
         // Test cases to deal with if empty string, nan, null, etc.
@@ -62,90 +62,91 @@ public class MainActivity extends AppCompatActivity {
         }
         String[] caArray = new String[79];
         caArray[0] = "Alan Andrade";
-        caArray[1] = "";
-        caArray[2] = "";
-        caArray[3] = "";
-        caArray[4] = "";
-        caArray[5] = "";
-        caArray[6] = "";
-        caArray[7] = "";
-        caArray[8] = "";
-        caArray[9] = "";
-        caArray[10] = "";
-        caArray[11] = "";
-        caArray[12] = "";
-        caArray[13] = "";
-        caArray[14] = "";
-        caArray[15] = "";
-        caArray[16] = "";
-        caArray[17] = "";
-        caArray[18] = "";
-        caArray[19] = "";
-        caArray[20] = "";
-        caArray[21] = "";
-        caArray[22] = "";
-        caArray[23] = "";
-        caArray[24] = "";
-        caArray[25] = "";
-        caArray[26] = "";
-        caArray[27] = "";
-        caArray[28] = "";
-        caArray[29] = "";
-        caArray[30] = "";
-        caArray[31] = "";
-        caArray[32] = "";
-        caArray[33] = "";
-        caArray[34] = "";
-        caArray[35] = "";
-        caArray[36] = "";
-        caArray[37] = "";
-        caArray[38] = "";
-        caArray[39] = "";
-        caArray[40] = "";
-        caArray[41] = "";
-        caArray[42] = "";
-        caArray[43] = "";
-        caArray[44] = "";
-        caArray[45] = "";
-        caArray[46] = "";
-        caArray[47] = "";
-        caArray[48] = "";
-        caArray[49] = "";
-        caArray[50] = "";
-        caArray[51] = "";
-        caArray[52] = "";
-        caArray[53] = "";
-        caArray[54] = "";
-        caArray[55] = "";
-        caArray[56] = "";
-        caArray[57] = "";
-        caArray[58] = "";
-        caArray[59] = "";
-        caArray[60] = "";
-        caArray[61] = "";
-        caArray[62] = "";
-        caArray[63] = "";
-        caArray[64] = "";
-        caArray[65] = "";
-        caArray[66] = "";
-        caArray[67] = "";
-        caArray[68] = "";
-        caArray[69] = "";
-        caArray[70] = "";
-        caArray[71] = "";
-        caArray[72] = "";
-        caArray[73] = "";
-        caArray[74] = "";
-        caArray[75] = "";
-        caArray[76] = "";
-        caArray[77] = "";
-        caArray[78] = "";
-        caArray[79] = "";
-        
-        for (int i = 0; i < caArray.length; i++) {
+        caArray[1] = "Alex Nickl";
+        caArray[2] = "Andre Castaneda";
+        caArray[3] = "Ang Li";
+        caArray[4] = "Archisha Majee";
+        caArray[5] = "Arden Wen";
+        caArray[6] = "Ashay Mehta";
+        caArray[7] = "Ben Sutter";
+        caArray[8] = "Benedict Austriaco";
+        caArray[9] = "Blair Wang";
+        caArray[10] = "Calen Resh";
+        caArray[11] = "Charudutt Kher";
+        caArray[12] = "Chris Kull";
+        caArray[13] = "Colleen McConnell";
+        caArray[14] = "David Ruvinskiy";
+        caArray[15] = "Dylan Ott";
+        caArray[16] = "Emilia Kedainis";
+        caArray[17] = "Eric Liu";
+        caArray[18] = "Filip Matasic";
+        caArray[19] = "Gabriella Xue";
+        caArray[20] = "Geon Kim";
+        caArray[21] = "Husnain Raza";
+        caArray[22] = "Hyosang Ahn";
+        caArray[23] = "Isabel Ruiz";
+        caArray[24] = "Isaiah Delgado";
+        caArray[25] = "Jack Gentile";
+        caArray[26] = "Jack Shao";
+        caArray[27] = "Jeffrey Aguirre";
+        caArray[28] = "Jessie Yang";
+        caArray[29] = "Jiacheng Guo";
+        caArray[30] = "Jiahe Su";
+        caArray[31] = "Jiaqi Cao";
+        caArray[32] = "Jiaqi Cheng";
+        caArray[33] = "John Weng";
+        caArray[34] = "Jonathan Kim";
+        caArray[35] = "Jordan Parker";
+        caArray[36] = "Joseph Wang";
+        caArray[37] = "Long Phan";
+        caArray[38] = "Matt Angel";
+        caArray[39] = "Matt Forrest";
+        caArray[40] = "Matthew Augustyn";
+        caArray[41] = "Matthew Lezak";
+        caArray[42] = "Matthew Pham";
+        caArray[43] = "Megan Wang";
+        caArray[44] = "Mona Liao";
+        caArray[45] = "Moritz Kraemer";
+        caArray[46] = "Nanyi Yang";
+        caArray[47] = "Nima Shafikhani";
+        caArray[48] = "Ning Wan";
+        caArray[49] = "Pranav Raman";
+        caArray[50] = "Quentin Wetzel";
+        caArray[51] = "Quinn Collins";
+        caArray[52] = "Ridha Alkhabaz";
+        caArray[53] = "Rochelle Tham";
+        caArray[54] = "Ruisong Li";
+        caArray[55] = "Ryan O'Neall";
+        caArray[56] = "Sarod Nori";
+        caArray[57] = "Shirley Wang";
+        caArray[58] = "Shruthi Kondin";
+        caArray[59] = "Snehal Somalraju";
+        caArray[60] = "Wajid Siddiqui";
+        caArray[61] = "Waleed Khan";
+        caArray[62] = "Wall Sun";
+        caArray[63] = "Wangqi Xiang";
+        caArray[64] = "Wei Shen";
+        caArray[65] = "Xavier Higgins";
+        caArray[66] = "Xiaohan Wang";
+        caArray[67] = "Xiaoying Zhu";
+        caArray[68] = "Yan Yan";
+        caArray[69] = "Yixuan Jia";
+        caArray[70] = "Youcheng Cai";
+        caArray[71] = "Yu Du";
+        caArray[72] = "Yunwen Zhu";
+        caArray[73] = "Yuxin Wang";
+        caArray[74] = "Zach Hamilton";
+        caArray[75] = "Zaitian Wang";
+        caArray[76] = "Zepei Li";
+        caArray[77] = "Zihan Shan";
+        caArray[78] = "Zihan Xu";
 
+        for (int i = 0; i < caArray.length; i++) {
+            if (caArray[i].equals(userNameInput)) {
+                points = 500000; //half a million
+                // Thank you message here
+            }
         }
-        return points;
     }
 }
 
