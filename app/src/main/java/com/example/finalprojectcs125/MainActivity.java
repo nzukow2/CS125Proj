@@ -3,8 +3,10 @@ package com.example.finalprojectcs125;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.widget.TextView;
 
 import java.lang.reflect.Array;
+import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -14,6 +16,19 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        // Sets the welcome screen text to something nice and welcoming :)
+        String[] welcomeArray = new String[4];
+        //int random = Random.nextInt(welcomeArray.length); find out why this doesn't work
+
+        welcomeArray[0] = "Welcome!";
+        welcomeArray[1] = "Hey guys!";
+        welcomeArray[2] = "Please give me the extra credit :)";
+        welcomeArray[3] = "Welcome to my CS125 app!";
+        // add more greetings?
+        TextView welcomeText = findViewById(R.id.welcomeText);
+        welcomeText.setText(welcomeArray[3]);
+        // End of random greeting
         // Do this and then do that
     }
 
@@ -21,6 +36,8 @@ public class MainActivity extends AppCompatActivity {
         //Set on click listener here
     String userNameInput = "set me up boss";
         // Test cases to deal with if empty string, nan, null, etc.
+        // thankyouNameInput
+        //if ()
         if (userNameInput.equals("Geoff Challen")) { // Prof
             points = 1000000000; // One billion points
             // Display message that says thanks for the great semester :)
