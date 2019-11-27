@@ -3,6 +3,7 @@ package com.example.finalprojectcs125;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import java.lang.reflect.Array;
@@ -34,50 +35,29 @@ public class MainActivity extends AppCompatActivity {
 
     public void secretNameMethod() {
         //Set on click listener here
-    String userNameInput = "set me up boss";
+        // TODO: 2019-11-26 Does editText need to be converted into string for comparison?
+        EditText userNameInput = findViewById(R.id.thankyouNameInput);
+        //String userNameInput = (String) userNameHolder; //??
         // Test cases to deal with if empty string, nan, null, etc.
-        // thankyouNameInput
-        //if ()
-        if (userNameInput.equals("Geoff Challen")) { // Prof
-            points = 1000000000; // One billion points
-            // Display message that says thanks for the great semester :)
+        if (userNameInput.equals("Geoff Challen")) {
+            points = 378456738;
+            // Thank you message
         }
-        if (userNameInput.equals("Ben Nordick")) { // The man
-            points = 1000000000;
-            // Display message that thanks him for his work
+        if (userNameInput.equals("Ben Nordick")) {
+            points = 3928407;
+            // Thank you message
         }
-        if (userNameInput.equals("Heather Huynh")) { // EMP
-            points = 1000000000;
-            // Display message that thanks her for her work! (EMP, TA)
-        }
-        if (userNameInput.equals("Aabhas Chauhan")) {
-            points = 1000000000;
-            // Display message that thanks him for his work
-        }
-        if (userNameInput.equals("Jishnu Dey")) {
-            points = 1000000000;
-            // Display message that thanks him for his work
-        }
-        if (userNameInput.equals("Mingkun Gao")) {
-            points = 1000000000;
-            // Display message that thanks him for his work
-        }
-        if (userNameInput.equals("Mohammed Hassan")) {
-            points = 1000000000;
-            // Display message that thanks him for his work
-        }
-        if (userNameInput.equals("Nerla Jean-Louis")) {
-            points = 1000000000;
-        }
-        if (userNameInput.equals("Silas Hsu")) {
-            points = 1000000000;
-            // Display message that thanks him for his work
-        }
-        if (userNameInput.equals("Vinith Krishnan")) {
-            points = 1000000000;
-            // Display message that thanks him for his work
-        }
-        String[] caArray = new String[79];
+        String[] taArray = new String[8];
+        taArray[0] = "Aabhas Chauhan";
+        taArray[1] = "Heather Huynh";
+        taArray[2] = "Jishnu Dey";
+        taArray[3] = "Mingkun Gao";
+        taArray[4] = "Mohammed Hassan";
+        taArray[5] = "Nerla Jean-Louis";
+        taArray[6] = "Silas Hsu";
+        taArray[7] = "Vinith Krishnan";
+
+        String[] caArray = new String[86];
         caArray[0] = "Alan Andrade";
         caArray[1] = "Alex Nickl";
         caArray[2] = "Andre Castaneda";
@@ -156,11 +136,23 @@ public class MainActivity extends AppCompatActivity {
         caArray[75] = "Zaitian Wang";
         caArray[76] = "Zepei Li";
         caArray[77] = "Zihan Shan";
-        caArray[78] = "Zihan Xu";
-
-        for (int i = 0; i < caArray.length; i++) {
+        caArray[78] = "Zihan Xu"; // Last CA ----
+        caArray[79] = "Ahmad Dinkins"; // Office hours captains vvv
+        caArray[80] = "Ajay Tatachar";
+        caArray[81] = "Amirthavarshini Sureshbabu";
+        caArray[82] = "Catherine Yuan";
+        caArray[83] = "Daniel Gleason";
+        caArray[84] = "Nikhil Garg";
+        caArray[85] = "Rima Bouhal";
+        for (int i = 0; i < taArray.length; i ++) {
+            if (taArray[i].equals(userNameInput)) {
+                points = 1000000; // million points
+                // Thank you message here
+            }
+        }
+        for (int i = 0; i < caArray.length; i++) { // CA thankyou array
             if (caArray[i].equals(userNameInput)) {
-                points = 500000; //half a million
+                points = 500000; //half a million points
                 // Thank you message here
             }
         }
