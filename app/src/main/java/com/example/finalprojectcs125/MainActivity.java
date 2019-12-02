@@ -53,8 +53,7 @@ public class MainActivity extends AppCompatActivity {
             EditText nameInputBar = findViewById(R.id.thankyouNameInput);
             nameInputBar.setVisibility(View.VISIBLE);
             ////
-
-            ////
+            
         });
 
 
