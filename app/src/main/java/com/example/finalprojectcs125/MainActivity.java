@@ -2,7 +2,10 @@ package com.example.finalprojectcs125;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -19,32 +22,74 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         // Sets the welcome screen text to something nice and welcoming :)
-        String[] welcomeArray = new String[4];
-        //int random = Random.nextInt(welcomeArray.length); find out why this doesn't work
+        String[] welcomeArray = new String[5];
+        // TODO: 2019-11-26 See below vvv How to create a random welcome message?
+        double random = (Math.random() * 4); // % welcomeArray.length;// find out why this doesn't work
+        int replacer = (int) Math.ceil(random);
+        System.out.println("The random number is: " + replacer);
 
         welcomeArray[0] = "Welcome!";
         welcomeArray[1] = "Hey guys!";
-        welcomeArray[2] = "Please give me the extra credit :)";
+        welcomeArray[2] = "How about that extra credit?";
         welcomeArray[3] = "Welcome to my CS125 app!";
+        welcomeArray[4] = "Hello there";
         // add more greetings?
         TextView welcomeText = findViewById(R.id.welcomeText);
-        welcomeText.setText(welcomeArray[3]);
+        welcomeText.setText(welcomeArray[replacer]); //Welcome text
         // End of random greeting
         // Do this and then do that
+
+        Button resetPoints = findViewById(R.id.resetPointsButton);
+        resetPoints.setOnClickListener(f -> {
+            points = 0;
+            System.out.println("The points are now: " + points);
+        });
+
+        Button secretButton = findViewById(R.id.secretButton);
+        secretButton.setOnClickListener(v -> { // Go to secret thankyou screen
+            setContentView(R.layout.secret_thankyou);
+            secretNameMethod();
+            System.out.println("atteJHNBFINDSOFDSIFSDOFDFMK");
+            EditText nameInputBar = findViewById(R.id.thankyouNameInput);
+            nameInputBar.setVisibility(View.VISIBLE);
+            ////
+
+            ////
+        });
+
+
+
+
     }
 
     public void secretNameMethod() {
+        boolean CS125Staff = false;
         //Set on click listener here
         // TODO: 2019-11-26 Does editText need to be converted into string for comparison?
+        // TODO: 2019-12-01 Set onclickListener to take the app from mainscreen to TA/CA/Person points screen
+        // TODO: 2019-12-01 Set onclickListener to take us back to main menu
         EditText userNameInput = findViewById(R.id.thankyouNameInput);
-        //String userNameInput = (String) userNameHolder; //??
+        String x = userNameInput.toString(); //??
         // Test cases to deal with if empty string, nan, null, etc.
+
+        Button returnToMain = findViewById(R.id.returnToMainMenuFromSecret);
+        returnToMain.setOnClickListener(f -> { // Returns to mainMenu from secret thankyou screen
+            setContentView(R.layout.activity_main);
+            Intent intent = getIntent();
+            recreate();
+            points++;
+            System.out.println("!!!!points are: " + points);
+            startActivity(intent);
+        });
+
         if (userNameInput.equals("Geoff Challen")) {
             points = 378456738;
+            CS125Staff = true;
             // Thank you message
         }
         if (userNameInput.equals("Ben Nordick")) {
             points = 3928407;
+            CS125Staff = true;
             // Thank you message
         }
         String[] taArray = new String[8];
@@ -144,17 +189,23 @@ public class MainActivity extends AppCompatActivity {
         caArray[83] = "Daniel Gleason";
         caArray[84] = "Nikhil Garg";
         caArray[85] = "Rima Bouhal";
-        for (int i = 0; i < taArray.length; i ++) {
+        for (int i = 0; i < taArray.length; i ++) { // TA thankyou array
             if (taArray[i].equals(userNameInput)) {
                 points = 1000000; // million points
+                CS125Staff = true;
                 // Thank you message here
             }
         }
         for (int i = 0; i < caArray.length; i++) { // CA thankyou array
             if (caArray[i].equals(userNameInput)) {
+                CS125Staff = true;
                 points = 500000; //half a million points
                 // Thank you message here
             }
+        }
+        if (CS125Staff == false) {
+            System.out.println("Not CS125 staff!");
+            // Do something?
         }
     }
 }
