@@ -15,7 +15,7 @@ import java.util.Random;
 public class MainActivity extends AppCompatActivity {
 
     public static int points;
-
+    //
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
