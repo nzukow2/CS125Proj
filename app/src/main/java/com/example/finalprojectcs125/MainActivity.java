@@ -22,8 +22,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         // Sets the welcome screen text to something nice and welcoming :)
-        String[] welcomeArray = new String[5];
-        double random = (Math.random() * 4);
+        String[] welcomeArray = new String[6];
+        double random = (Math.random() * (welcomeArray.length - 1));
         int replacer = (int) Math.ceil(random);
         System.out.println("The random number is: " + replacer);
 
@@ -32,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
         welcomeArray[2] = "How about that extra credit?";
         welcomeArray[3] = "Welcome to my CS125 app!";
         welcomeArray[4] = "Hello there";
+        welcomeArray[5] = "Hey guys welcome to my CS125 Project walkthrough";
         // add more greetings?
         TextView welcomeText = findViewById(R.id.welcomeText);
         welcomeText.setText(welcomeArray[replacer]); //Welcome text
@@ -61,12 +62,11 @@ public class MainActivity extends AppCompatActivity {
 
     public void secretNameMethod() {
         boolean CS125Staff = false;
-        //Set on click listener here
-        // TODO: 2019-11-26 Does editText need to be converted into string for comparison?
-        // TODO: 2019-12-01 Set onclickListener to take the app from mainscreen to TA/CA/Person points screen
-        // TODO: 2019-12-01 Set onclickListener to take us back to main menu
+
         EditText userNameInput = findViewById(R.id.thankyouNameInput);
-        String x = userNameInput.toString(); //??
+        String compareName = userNameInput.toString(); //??
+
+        // TODO: 2019-12-02 find way to make clean transition instead of choppy blackscreen
         // Test cases to deal with if empty string, nan, null, etc.
 
         Button returnToMain = findViewById(R.id.returnToMainMenuFromSecret);
@@ -79,12 +79,12 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
         });
 
-        if (userNameInput.equals("Geoff Challen")) {
+        if (compareName.equals("Geoff Challen")) {
             points = 378456738;
             CS125Staff = true;
             // Thank you message
         }
-        if (userNameInput.equals("Ben Nordick")) {
+        if (compareName.equals("Ben Nordick")) {
             points = 3928407;
             CS125Staff = true;
             // Thank you message
@@ -187,16 +187,18 @@ public class MainActivity extends AppCompatActivity {
         caArray[84] = "Nikhil Garg";
         caArray[85] = "Rima Bouhal";
         for (int i = 0; i < taArray.length; i ++) { // TA thankyou array
-            if (taArray[i].equals(userNameInput)) {
+            if (taArray[i].equals(compareName)) {
                 points = 1000000; // million points
                 CS125Staff = true;
                 // Thank you message here
             }
         }
         for (int i = 0; i < caArray.length; i++) { // CA thankyou array
-            if (caArray[i].equals(userNameInput)) {
+            if (caArray[i].equals(compareName)) {
                 CS125Staff = true;
                 points = 500000; //half a million points
+
+
                 // Thank you message here
             }
         }
