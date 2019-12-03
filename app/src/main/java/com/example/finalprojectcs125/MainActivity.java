@@ -33,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
         welcomeArray[3] = "Welcome to my CS125 app!";
         welcomeArray[4] = "Hello there";
         welcomeArray[5] = "Hey guys welcome to my CS125 Project walkthrough";
+        welcomeArray[6] = "die";
         // add more greetings?
         TextView welcomeText = findViewById(R.id.welcomeText);
         welcomeText.setText(welcomeArray[replacer]); //Welcome text
