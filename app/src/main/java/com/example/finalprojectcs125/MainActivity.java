@@ -23,8 +23,7 @@ public class MainActivity extends AppCompatActivity {
 
         // Sets the welcome screen text to something nice and welcoming :)
         String[] welcomeArray = new String[5];
-        // TODO: 2019-11-26 See below vvv How to create a random welcome message?
-        double random = (Math.random() * 4); // % welcomeArray.length;// find out why this doesn't work
+        double random = (Math.random() * 4);
         int replacer = (int) Math.ceil(random);
         System.out.println("The random number is: " + replacer);
 
@@ -37,7 +36,6 @@ public class MainActivity extends AppCompatActivity {
         TextView welcomeText = findViewById(R.id.welcomeText);
         welcomeText.setText(welcomeArray[replacer]); //Welcome text
         // End of random greeting
-        // Do this and then do that
 
         Button resetPoints = findViewById(R.id.resetPointsButton);
         resetPoints.setOnClickListener(f -> {
@@ -53,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
             EditText nameInputBar = findViewById(R.id.thankyouNameInput);
             nameInputBar.setVisibility(View.VISIBLE);
             ////
-            
+
         });
 
 
