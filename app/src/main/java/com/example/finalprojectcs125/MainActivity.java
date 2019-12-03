@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
         // add more greetings?
         TextView welcomeText = findViewById(R.id.welcomeText);
         welcomeText.setText(welcomeArray[replacer]); //Welcome text
-        // End of random greeting
+        // End of random greeting 
 
         Button resetPoints = findViewById(R.id.resetPointsButton);
         resetPoints.setOnClickListener(f -> {
