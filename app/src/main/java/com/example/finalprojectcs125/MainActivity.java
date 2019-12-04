@@ -22,17 +22,49 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         // Sets the welcome screen text to something nice and welcoming :)
-        String[] welcomeArray = new String[6];
+        String[] welcomeArray = new String[21];
         double random = (Math.random() * (welcomeArray.length - 1));
         int replacer = (int) Math.ceil(random);
         System.out.println("The random number is: " + replacer);
 
-        welcomeArray[0] = "Welcome!";
+        welcomeArray[0] = "Welcome!";;
         welcomeArray[1] = "Hey guys!";
         welcomeArray[2] = "How about that extra credit?";
         welcomeArray[3] = "Welcome to my CS125 app!";
-        welcomeArray[4] = "Hello there";
-        welcomeArray[5] = "Hey guys welcome to my CS125 Project walkthrough";
+        welcomeArray[4] = "Hello there :D";
+        welcomeArray[5] = "Hey guys, welcome to my CS125 Project walkthrough :)";
+        welcomeArray[6] = "Did you do today's CS 125 HW?";
+        welcomeArray[7] = "CS 125 was great. I hear the sequel, CS 225, is even 'greater'....";
+        welcomeArray[8] = "So a student and a CA walk into office hours... " +
+                "Just kidding! there's no such thing as CAs in office hours!";
+        welcomeArray[9] = "Hey you!, Python is better than java... " +
+                "Don't tell Geoff I said that, though.";
+        welcomeArray[10] = "Welcome! What keeps you up at night? " +
+                "For me, it's my CS 125 quiz average";
+        welcomeArray[11] = "Ready to get Arthritis? Good. Start Clicking!";
+        welcomeArray[12] = "Welcome to my app. Take a look around :)";
+        welcomeArray[13] = "howdy!";
+        welcomeArray[14] =  "bienvenidos ustedes!";
+        welcomeArray[15] = "Nothing special here. Just the welcome screen :). Have we met?";
+        welcomeArray[16] = "Hey you! Are you a 10xer? Please help me improve my app :)";
+        welcomeArray[17] = "Greetings. Ready or not, this app will be fun, " +
+                "I promise. If it isn't, " +
+                "you can yell at us using that feedback button on your left :)";
+        welcomeArray[18] = "Gooooooooodmorningggg Siebel!";
+        welcomeArray[19] = "Hello there, ready for some fun?";
+        welcomeArray[20] = "Enter at your own risk. " +
+                "App may crash your phone. Just kidding. Have fun!";
+
+
+
+
+
+
+
+
+
+
+
         // add more greetings?
         TextView welcomeText = findViewById(R.id.welcomeText);
         welcomeText.setText(welcomeArray[replacer]); //Welcome text
