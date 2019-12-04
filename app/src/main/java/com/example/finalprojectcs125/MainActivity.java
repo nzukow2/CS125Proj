@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         // Sets the welcome screen text to something nice and welcoming :)
-        String[] welcomeArray = new String[12];
+        String[] welcomeArray = new String[16];
         double random = (Math.random() * (welcomeArray.length - 1));
         int replacer = (int) Math.ceil(random);
         System.out.println("The random number is: " + replacer);
@@ -42,7 +42,13 @@ public class MainActivity extends AppCompatActivity {
         welcomeArray[10] = "Welcome! What keeps you up at night? " +
                 "For me, it's my CS 125 quiz average";
         welcomeArray[11] = "Ready to get Arthritis? Good. Start Clicking!";
-        
+        welcomeArray[12] = "Welcome to my app. Take a look around :)";
+        welcomeArray[13] = "howdy!";
+        welcomeArray[14] =  "bienvenidos ustedes!";
+        welcomeArray[15] = "Nothing special here. Just the welcome screen :). Have we met?";
+
+
+
 
 
 
