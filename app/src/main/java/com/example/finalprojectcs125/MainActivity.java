@@ -2,15 +2,12 @@ package com.example.finalprojectcs125;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import java.lang.reflect.Array;
-import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -33,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
         welcomeArray[3] = "Welcome to my CS125 app!";
         welcomeArray[4] = "Hello there :D";
         welcomeArray[5] = "Hey guys, welcome to my CS125 Project walkthrough :)";
+        // Do we really need this many greetings? xd
         welcomeArray[6] = "Did you do today's CS 125 HW?";
         welcomeArray[7] = "CS 125 was great. I hear the sequel, CS 225, is even 'greater'....";
         welcomeArray[8] = "So a student and a CA walk into office hours... " +
@@ -57,15 +55,6 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-
-
-
-
-
-
-
-
-        // add more greetings?
         TextView welcomeText = findViewById(R.id.welcomeText);
         welcomeText.setText(welcomeArray[replacer]); //Welcome text
         // End of random greeting
@@ -78,13 +67,54 @@ public class MainActivity extends AppCompatActivity {
         
         Button secretButton = findViewById(R.id.secretButton);
         secretButton.setOnClickListener(v -> { // Go to secret thankyou screen
-            setContentView(R.layout.secret_thankyou);
-            secretNameMethod();
-            System.out.println("atteJHNBFINDSOFDSIFSDOFDFMK");
-            EditText nameInputBar = findViewById(R.id.thankyouNameInput);
-            nameInputBar.setVisibility(View.VISIBLE);
-            ////
+            secretNameMethodTransition();
 
+        });
+    }
+
+    /** secretNameMethodTransition
+     * Transitions us from main menu to the secretNameMethod
+     */
+    public void secretNameMethodTransition() {
+        setContentView(R.layout.secret_thankyou);
+        EditText nameInputBar = findViewById(R.id.thankyouNameInput);
+        nameInputBar.setVisibility(View.VISIBLE);
+
+        // TODO: 2019-12-04 Initialize the button to get points when user types in a name
+
+        //Reinitializes the button to take us back to the main menu
+        Button returnToMain = findViewById(R.id.returnToMainMenuFromSecret);
+        returnToMain.setOnClickListener(f -> { //Returns to mainMenu from secret thankyou screen
+            setContentView(R.layout.activity_main);
+            System.out.println("!!!!points are: " + points);
+            mainMenuButtonReinitializer();
+        });
+
+    }
+
+
+
+
+
+
+    /** mainMenuButtonReinitializer
+     * reinitializes all the buttons and sutff on the main menu!
+     */
+    public void mainMenuButtonReinitializer() {
+
+        // TODO: 2019-12-04 Make it so the greeting is randomly changed when going back to main 
+        
+        // Reinitializes the secretButton
+        Button secretButton = findViewById(R.id.secretButton);
+        secretButton.setOnClickListener(v -> { // Go to secret thankyou screen
+            secretNameMethodTransition();
+        });
+
+        // Reinitializes the resetPointsButton
+        Button resetPoints = findViewById(R.id.resetPointsButton);
+        resetPoints.setOnClickListener(j -> {
+            points = 0;
+            System.out.println("The points are now: " + points);
         });
     }
 
@@ -96,22 +126,15 @@ public class MainActivity extends AppCompatActivity {
         EditText userNameInput = findViewById(R.id.thankyouNameInput);
         String compareName = userNameInput.toString(); //??
 
-        // TODO: 2019-12-02 find way to make clean transition instead of choppy blackscreen
+        TextView thankYouMessage = findViewById(R.id.thankyouMessage);
+        thankYouMessage.setText(""); // clears the text box each time the screen is accessed & button is pressed
         // Test cases to deal with if empty string, nan, null, etc.
 
-        Button returnToMain = findViewById(R.id.returnToMainMenuFromSecret);
-        returnToMain.setOnClickListener(f -> { // Returns to mainMenu from secret thankyou screen
-            setContentView(R.layout.activity_main);
-            Intent intent = getIntent();
-            recreate();
-            points++;
-            System.out.println("!!!!points are: " + points);
-            startActivity(intent);
-        });
 
         if (compareName.equals("Geoff Challen")) {
             points = 378456738;
             CS125Staff = true;
+            thankYouMessage.setText("Testing 123! Does this thing work?");
             // Thank you message
         }
         if (compareName.equals("Ben Nordick")) {
