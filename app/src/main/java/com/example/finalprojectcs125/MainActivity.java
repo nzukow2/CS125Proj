@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
         welcomeArray[7] = "CS 125 was great. I hear the sequel, CS 225, is even 'greater'....";
         welcomeArray[8] = "So a student and a CA walk into office hours... " +
                 "Just kidding! there's no such thing as CAs in office hours!";
-        welcomeArray[9] = "Hey you!, Python is better than java. " +
+        welcomeArray[9] = "Hey you!, Python is better than java... " +
                 "Don't tell Geoff I said that, though.";
         welcomeArray[10] = "Welcome! What keeps you up at night? " +
                 "For me, it's my CS 125 quiz average";
