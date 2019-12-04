@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
         int replacer = (int) Math.ceil(random);
         System.out.println("The random number is: " + replacer);
 
-        welcomeArray[0] = "Welcome!";
+        welcomeArray[0] = "Welcome!";;
         welcomeArray[1] = "Hey guys!";
         welcomeArray[2] = "How about that extra credit?";
         welcomeArray[3] = "Welcome to my CS125 app!";
