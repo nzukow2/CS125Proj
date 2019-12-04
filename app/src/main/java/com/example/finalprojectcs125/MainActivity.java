@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
             points = 0;
             System.out.println("The points are now: " + points);
         });
-
+        
         Button secretButton = findViewById(R.id.secretButton);
         secretButton.setOnClickListener(v -> { // Go to secret thankyou screen
             setContentView(R.layout.secret_thankyou);
@@ -54,11 +54,9 @@ public class MainActivity extends AppCompatActivity {
             ////
 
         });
-
-
-
-
     }
+
+
 
     public void secretNameMethod() {
         boolean CS125Staff = false;
