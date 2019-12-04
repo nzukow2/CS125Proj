@@ -2,15 +2,15 @@ package com.example.finalprojectcs125;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
+import android.content.Context;
+import android.util.Log;
 import android.os.Bundle;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import java.lang.reflect.Array;
-import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         // Sets the welcome screen text to something nice and welcoming :)
-        String[] welcomeArray = new String[21];
+        String[] welcomeArray = new String[6];
         double random = (Math.random() * (welcomeArray.length - 1));
         int replacer = (int) Math.ceil(random);
         System.out.println("The random number is: " + replacer);
@@ -33,39 +33,10 @@ public class MainActivity extends AppCompatActivity {
         welcomeArray[3] = "Welcome to my CS125 app!";
         welcomeArray[4] = "Hello there :D";
         welcomeArray[5] = "Hey guys, welcome to my CS125 Project walkthrough :)";
-        welcomeArray[6] = "Did you do today's CS 125 HW?";
-        welcomeArray[7] = "CS 125 was great. I hear the sequel, CS 225, is even 'greater'....";
-        welcomeArray[8] = "So a student and a CA walk into office hours... " +
-                "Just kidding! there's no such thing as CAs in office hours!";
-        welcomeArray[9] = "Hey you!, Python is better than java... " +
-                "Don't tell Geoff I said that, though.";
-        welcomeArray[10] = "Welcome! What keeps you up at night? " +
-                "For me, it's my CS 125 quiz average";
-        welcomeArray[11] = "Ready to get Arthritis? Good. Start Clicking!";
-        welcomeArray[12] = "Welcome to my app. Take a look around :)";
-        welcomeArray[13] = "howdy!";
-        welcomeArray[14] =  "bienvenidos ustedes!";
-        welcomeArray[15] = "Nothing special here. Just the welcome screen :). Have we met?";
-        welcomeArray[16] = "Hey you! Are you a 10xer? Please help me improve my app :)";
-        welcomeArray[17] = "Greetings. Ready or not, this app will be fun, " +
-                "I promise. If it isn't, " +
-                "you can yell at us using that feedback button on your left :)";
-        welcomeArray[18] = "Gooooooooodmorningggg Siebel!";
-        welcomeArray[19] = "Hello there, ready for some fun?";
-        welcomeArray[20] = "Enter at your own risk. " +
-                "App may crash your phone. Just kidding. Have fun!";
+        // Do we really need this many greetings? xd
 
 
 
-
-
-
-
-
-
-
-
-        // add more greetings?
         TextView welcomeText = findViewById(R.id.welcomeText);
         welcomeText.setText(welcomeArray[replacer]); //Welcome text
         // End of random greeting
@@ -75,46 +46,92 @@ public class MainActivity extends AppCompatActivity {
             points = 0;
             System.out.println("The points are now: " + points);
         });
-
+        
         Button secretButton = findViewById(R.id.secretButton);
         secretButton.setOnClickListener(v -> { // Go to secret thankyou screen
-            setContentView(R.layout.secret_thankyou);
-            secretNameMethod();
-            System.out.println("atteJHNBFINDSOFDSIFSDOFDFMK");
-            EditText nameInputBar = findViewById(R.id.thankyouNameInput);
-            nameInputBar.setVisibility(View.VISIBLE);
-            ////
+            secretNameMethodTransition();
 
         });
+    }
 
+    /** secretNameMethodTransition
+     * Transitions us from main menu to the secretNameMethod
+     */
+    public void secretNameMethodTransition() {
+        setContentView(R.layout.secret_thankyou);
+        EditText nameInputBar = findViewById(R.id.thankyouNameInput);
+        nameInputBar.setVisibility(View.VISIBLE);
 
+        // TODO: 2019-12-04 Initialize the button to get points when user types in a name
 
+        Button submitNameButton = findViewById(R.id.submitNameButton);
+        EditText thankYouNameInput = findViewById(R.id.thankyouNameInput);
+        submitNameButton.setOnClickListener(l -> {
+            String x = thankYouNameInput.getText().toString();
+            secretNameMethod(x);
+            thankYouNameInput.setText("");
+            View view = this.getCurrentFocus();
+            if (view != null) { // Hides the keyboard after we input something
+                InputMethodManager managerABC = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+                managerABC.hideSoftInputFromWindow(view.getWindowToken(), 0);
+            }
+        });
+
+        //Reinitializes the button to take us back to the main menu
+        Button returnToMain = findViewById(R.id.returnToMainMenuFromSecret);
+        returnToMain.setOnClickListener(f -> { //Returns to mainMenu from secret thankyou screen
+            setContentView(R.layout.activity_main);
+            System.out.println("!!!!points are: " + points);
+            mainMenuButtonReinitializer();
+        });
 
     }
 
-    public void secretNameMethod() {
-        boolean CS125Staff = false;
 
-        EditText userNameInput = findViewById(R.id.thankyouNameInput);
-        String compareName = userNameInput.toString(); //??
 
-        // TODO: 2019-12-02 find way to make clean transition instead of choppy blackscreen
-        // Test cases to deal with if empty string, nan, null, etc.
 
-        Button returnToMain = findViewById(R.id.returnToMainMenuFromSecret);
-        returnToMain.setOnClickListener(f -> { // Returns to mainMenu from secret thankyou screen
-            setContentView(R.layout.activity_main);
-            Intent intent = getIntent();
-            recreate();
-            points++;
-            System.out.println("!!!!points are: " + points);
-            startActivity(intent);
+
+
+    /** mainMenuButtonReinitializer
+     * reinitializes all the buttons and sutff on the main menu!
+     */
+    public void mainMenuButtonReinitializer() {
+
+        // TODO: 2019-12-04 Make it so the greeting is randomly changed when going back to main 
+        
+        // Reinitializes the secretButton
+        Button secretButton = findViewById(R.id.secretButton);
+        secretButton.setOnClickListener(v -> { // Go to secret thankyou screen
+            secretNameMethodTransition();
         });
 
-        if (compareName.equals("Geoff Challen")) {
+        // Reinitializes the resetPointsButton
+        Button resetPoints = findViewById(R.id.resetPointsButton);
+        resetPoints.setOnClickListener(j -> {
+            points = 0;
+            System.out.println("The points are now: " + points);
+        });
+    }
+
+
+
+    public void secretNameMethod(String input) {
+        boolean CS125Staff = false;
+
+        String compareName = input; //??
+
+        TextView thankYouMessage = findViewById(R.id.thankyouMessage);
+        thankYouMessage.setText(""); // clears the text box each time the screen is accessed & button is pressed
+
+        // TODO: 2019-12-04 add test cases to prevent null or any problems if needed
+
+
+        if (compareName.equals("Geoff Challen") || compareName.equals("t")) {
             points = 378456738;
+            Log.i("SecretNameMethod","---------------");
+            Log.i("SecretNameMethod","JDHSBKLMDSFNSD our points are: " + points);
             CS125Staff = true;
-            // Thank you message
+            thankYouMessage.setText("Thanks for the great semester!");
         }
         if (compareName.equals("Ben Nordick")) {
             points = 3928407;
