@@ -114,6 +114,7 @@ public class MainActivity extends AppCompatActivity {
         settingsButton.setOnClickListener(v -> {
             setContentView(R.layout.activity_main);
             secretNameMethodTransition();
+            settingsButton.setVisibility(View.VISIBLE);
         });
     }
 
