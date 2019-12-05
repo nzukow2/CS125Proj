@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
         feedtext.setVisibility(View.VISIBLE);
 
         Button returnMain = findViewById(R.id.returnMain);
-        returnMain.setOnClickListener(f -> { //Returns to mainMenu from secret thankyou screen
+        returnMain.setOnClickListener(f -> { //Returns to mainMenu from feedback screen
             setContentView(R.layout.activity_main);
             mainMenuButtonReinitializer();
         });
