@@ -48,6 +48,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="152dp"
+            android:layout_marginTop="104dp"
             android:text="Dark Mode"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -68,8 +69,11 @@
             android:text="Settings"
             android:visibility="visible"
             app:layout_constraintBottom_toTopOf="@+id/feedbackButton"
+            app:layout_constraintEnd_toStartOf="@+id/resetPointsButton"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
             tools:visibility="visible" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

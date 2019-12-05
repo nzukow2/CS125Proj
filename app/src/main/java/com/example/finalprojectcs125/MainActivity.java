@@ -112,7 +112,7 @@ public class MainActivity extends AppCompatActivity {
         });
         Button settingsButton = findViewById(R.id.settingsButton);
         settingsButton.setOnClickListener(v -> {
-            setContentView(R.layout.activity_main);
+            //setContentView(R.layout.activity_main);
             secretNameMethodTransition();
             settingsButton.setVisibility(View.VISIBLE);
         });
