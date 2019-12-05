@@ -12,4 +12,10 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         tools:text="Down below are our emails if you've any reccomendations." />
 
+    <Button
+        android:id="@+id/returnMain"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Main Menu" />
+
 </LinearLayout>

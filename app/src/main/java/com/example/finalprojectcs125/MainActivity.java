@@ -58,10 +58,9 @@ public class MainActivity extends AppCompatActivity {
         TextView feedtext = findViewById(R.id.feedtext);
         feedtext.setVisibility(View.VISIBLE);
 
-        Button returnToMain = findViewById(R.id.returnToMainMenuFromSecret);
-        returnToMain.setOnClickListener(f -> { //Returns to mainMenu from secret thankyou screen
+        Button returnMain = findViewById(R.id.returnMain);
+        returnMain.setOnClickListener(f -> { //Returns to mainMenu from secret thankyou screen
             setContentView(R.layout.activity_main);
-            System.out.println("!!!!points are: " + points);
             mainMenuButtonReinitializer();
         });
 
