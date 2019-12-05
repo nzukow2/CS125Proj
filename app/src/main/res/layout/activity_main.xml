@@ -49,14 +49,6 @@
             app:layout_constraintTop_toBottomOf="@+id/feedbackButton" />
 
         <Button
-            android:id="@+id/resetPointsButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Reset"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <Button
             android:id="@+id/settingsButton"
             style="@style/Widget.AppCompat.Button.Colored"
             android:layout_width="168dp"
@@ -75,7 +67,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="165dp"
             android:layout_marginTop="17dp"
-            android:text="Button"
+            android:text="ClickerGameButton"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/welcomeText" />
 

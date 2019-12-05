@@ -1,7 +1,6 @@
 package com.example.finalprojectcs125;
 
 import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -10,11 +9,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Switch;
 import android.widget.TextView;
-import android.widget.VideoView;
 
 import androidx.appcompat.app.AppCompatActivity;
-
-import javax.xml.transform.sax.TemplatesHandler;
 
 /** Discussion page! This is where we will communicate so we know what we want & any issues we have - be as descriptive as possible
 /** IF a task needs to be done, use the TODO text to do so
@@ -25,10 +21,12 @@ import javax.xml.transform.sax.TemplatesHandler;
  *
  * Settings Page ---------------
  * TODO add settings ofc - reset points button
+ * Todo !!!!(ANGEL)!!!! Can you sort out the UI here? and check if everything looks neat and cool?
+ * Be careful when sorting the UI ^^^^^ The points screen needs ample size to display the score ex: points of 100 or 100000000
  * What settings are going to be stored?
  *
  * Secret Thank You Page -------------
- *
+ * todo fix the clunkiness of thank you
  *
  *
  *
@@ -46,6 +44,9 @@ import javax.xml.transform.sax.TemplatesHandler;
 
 public class MainActivity extends AppCompatActivity {
 
+    /** points
+     * Does what it says! Holds and stores the points that we have accumulated
+     */
     public static int points;
 
     @Override
@@ -67,31 +68,35 @@ public class MainActivity extends AppCompatActivity {
         welcomeText.setText(welcomeArray[replacer]); //sets the welcome text
         // End of welcome text setting stuff!
 
-        Button resetPoints = findViewById(R.id.resetPointsButton);
-        resetPoints.setOnClickListener(f -> {
-            points = 0;
-            System.out.println("The points are now: " + points);
-        });
 
+        // Takes us to the feedback menu
         Button feedbackMenuButton = findViewById(R.id.feedbackButton);
         feedbackMenuButton.setOnClickListener(e -> {
             setContentView(R.layout.feedback_layout);
             feedbackTransition();
         });
 
+        // Takes us to the secret/staff menu
         Button secretButton = findViewById(R.id.secretButton);
-        secretButton.setOnClickListener(o -> { // Go to secret thankyou screen
+        secretButton.setOnClickListener(o -> {
             secretNameMethodTransition();
         });
 
+        // Takes us to the clicker game
         Button clickerGameButton = findViewById(R.id.clickergameButton);
         clickerGameButton.setOnClickListener(iw -> {
             setContentView(R.layout.clickergame_gaming);
         });
+
+        // Takes us to the settingsButton
+        Button settingsMenuButton = findViewById(R.id.settingsButton);
+        settingsMenuButton.setOnClickListener(heyooo -> {
+            settingsMenuTransition();
+        });
     }
 
     /** feedbackTransition
-     *
+     * transitions us to the feedbackMenu and initializes all the buttons
      */
     public void feedbackTransition() {
         setContentView(R.layout.feedback_layout);
@@ -105,47 +110,40 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    /** secretNameMethodTransition
-     * Transitions us from main menu to the secretNameMethod
-     */
-    public void secretNameMethodTransition() {
-        setContentView(R.layout.secret_thankyou);
-        EditText nameInputBar = findViewById(R.id.thankyouNameInput);
-        nameInputBar.setVisibility(View.VISIBLE);
-
-        // TODO: 2019-12-04 Initialize the button to get points when user types in a name
-
-        Button submitNameButton = findViewById(R.id.submitNameButton);
-        EditText thankYouNameInput = findViewById(R.id.thankyouNameInput);
-        submitNameButton.setOnClickListener(l -> {
-            String x = thankYouNameInput.getText().toString();
-            secretNameMethod(x);
-            thankYouNameInput.setText("");
-            View view = this.getCurrentFocus();
-            if (view != null) { // Hides the keyboard after we input something
-                InputMethodManager managerABC = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
-                managerABC.hideSoftInputFromWindow(view.getWindowToken(), 0);
-            }
-        });
-
-        thankYouNameInput.setOnClickListener(ef -> {
-            thankYouNameInput.setText("");
-        });
-
-        //Reinitializes the button to take us back to the main menu
-        Button returnToMain = findViewById(R.id.returnToMainMenuFromSecret);
-        returnToMain.setOnClickListener(f -> { //Returns to mainMenu from secret thankyou screen
-            //setContentView(R.layout.activity_main);
-            System.out.println("!!!!points are: " + points);
-            mainMenuButtonReinitializer();
-        });
-    }
 
 
     public void settingsMenuTransition() {
         setContentView(R.layout.setting_menu);
 
-        //Switch
+        TextView settingsMenuTextView = findViewById(R.id.settingsMenuPointsDisplay);
+        settingsMenuTextView.setText("Your points are: " + points);
+
+        Button muteMusicButton = findViewById(R.id.muteMusicButton);
+        muteMusicButton.setOnClickListener(ef -> {
+            // TODO: 2019-12-05 add code that will mute the music
+        });
+
+        Button muteSoundEffectsButton = findViewById(R.id.muteSoundEffectsButton);
+        muteSoundEffectsButton.setOnClickListener(egg -> {
+            // TODO: 2019-12-05 add code that will mute the sound effects
+        });
+
+        Button resetPointsButton = findViewById(R.id.resetPointsButton);
+        resetPointsButton.setOnClickListener(eg -> {
+            points = 0;
+            settingsMenuTextView.setText("Your points are: " + points);
+        });
+
+        Button returnToMainMenu = findViewById(R.id.returnToMainMenuFromSettings);
+        returnToMainMenu.setOnClickListener(eggwugu -> {
+            mainMenuButtonReinitializer();
+        });
+
+        Switch darkModeSwitch = findViewById(R.id.darkModeSwitch);
+        darkModeSwitch.setOnClickListener(gnijs -> {
+            Log.i("Test","The darkmode switch has been toggled!");
+            // TODO: 2019-12-05 add code here that will make the game go in darkmode! Do we need to store a boolean?
+        });
     }
 
 
@@ -164,18 +162,11 @@ public class MainActivity extends AppCompatActivity {
             secretNameMethodTransition();
         });
 
-        // Reinitializes the resetPointsButton
-        Button resetPoints = findViewById(R.id.resetPointsButton);
-        resetPoints.setOnClickListener(v -> {
-            points = 0;
-            System.out.println("The points are now: " + points);
-        });
 
         // Reinitializes the settingsButton
         Button settingsButton = findViewById(R.id.settingsButton);
         settingsButton.setOnClickListener(v -> {
-            //setContentView(R.layout.activity_main);
-            settingsButton.setVisibility(View.VISIBLE);
+            settingsMenuTransition();
         });
 
         // Reinitializes the feedbackButton
@@ -186,22 +177,109 @@ public class MainActivity extends AppCompatActivity {
 
         Button clickerGameButton = findViewById(R.id.clickergameButton);
         clickerGameButton.setOnClickListener(iw -> {
-            setContentView(R.layout.clickergame_gaming);
+            clickerGameTransition();
         });
     }
 
 
 
 
-    public void secretNameMethod(String input) {
-        boolean CS125Staff = false;
+    /** Below this block is work that has to do with the clickerGame & its transitions
+     * Below this block is work that has to do with the clickerGame & its transitions
+     * Below this block is work that has to do with the clickerGame & its transitions
+     * Below this block is work that has to do with the clickerGame & its transitions
+     * Below this block is work that has to do with the clickerGame & its transitions
+     * Below this block is work that has to do with the clickerGame & its transitions
+     * Below this block is work that has to do with the clickerGame & its transitions
+     */
 
-        String compareName = input; //??
+    public void clickerGameTransition() {
+        setContentView(R.layout.clickergame_gaming);
+
+        Button returnToMainMenuButton = findViewById(R.id.gotoMainMenuFromClickerAppButton);
+        returnToMainMenuButton.setOnClickListener(egg -> {
+            mainMenuButtonReinitializer();
+        });
+
+        Button gotoSettingsButton = findViewById(R.id.gotoSettingsFromClickerAppButton);
+        gotoSettingsButton.setOnClickListener(eggwugu -> {
+            settingsMenuTransition();
+        });
+
+        Button clickForPointsButton = findViewById(R.id.clickerAppClickingButton);
+        clickForPointsButton.setOnClickListener(egggg -> {
+            // TODO: 2019-12-05 Do something when they click the button to get points!
+        });
+
+        Button upgradePointsButton = findViewById(R.id.gotoUpgradesFromClickerAppButton);
+        upgradePointsButton.setOnClickListener(transitionTime -> {
+            // TODO: 2019-12-05 Add transition to upgrade menu!
+        });
+    }
+
+
+
+    /** Below this block is work that has to do with the secretNameMethod & its transitions
+     * Below this block is work that has to do with the secretNameMethod & its transitions
+     * Below this block is work that has to do with the secretNameMethod & its transitions
+     * Below this block is work that has to do with the secretNameMethod & its transitions
+     * Below this block is work that has to do with the secretNameMethod & its transitions
+     * Below this block is work that has to do with the secretNameMethod & its transitions
+     * Below this block is work that has to do with the secretNameMethod & its transitions
+     * Below this block is work that has to do with the secretNameMethod & its transitions
+     * Below this block is work that has to do with the secretNameMethod & its transitions
+     * Below this block is work that has to do with the secretNameMethod & its transitions
+     */
+
+    /** secretNameMethodTransition
+     * Transitions us from main menu to the secretNameMethod
+     */
+    public void secretNameMethodTransition() {
+        // Sets the screen and ensures that the
+        setContentView(R.layout.secret_thankyou);
+
+        Button submitNameButton = findViewById(R.id.submitNameButton);
+        EditText thankYouNameInput = findViewById(R.id.thankyouNameInput);
+
+        // When we click submit - call the secretPoints method & clear the text box
+        submitNameButton.setOnClickListener(l -> {
+            String x = thankYouNameInput.getText().toString();
+            secretNameMethod(x);
+            thankYouNameInput.setText("");
+
+            // Hides the keyboard after we input something
+            View view = this.getCurrentFocus();
+            if (view != null) {
+                InputMethodManager managerABC = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+                managerABC.hideSoftInputFromWindow(view.getWindowToken(), 0);
+            }
+        });
+
+        // TODO: 2019-12-05 Find a way to hide the Enter name here when we initially click
+        thankYouNameInput.setOnClickListener(ef -> {
+            thankYouNameInput.setText("");
+        });
+
+        //Reinitializes the button to take us back to the main menu
+        Button returnToMain = findViewById(R.id.returnToMainMenuFromSecret);
+        returnToMain.setOnClickListener(f -> { //Returns to mainMenu from secret thankyou screen
+            //setContentView(R.layout.activity_main);
+            System.out.println("!!!!points are: " + points);
+            mainMenuButtonReinitializer();
+        });
+    }
+
+
+    /** secretNameMethod
+     * Takes the parameter and compares it to see if the user is a CA/TA/Staff/Creator of the game
+     * @param compareName Passed through textbox that is provided and is used as a comparison.
+     */
+    public void secretNameMethod(String compareName) {
+        boolean CS125Staff = false;
 
         TextView thankYouMessage = findViewById(R.id.thankyouMessage);
         thankYouMessage.setText(""); // clears the text box each time the screen is accessed & button is pressed
 
-        // TODO: 2019-12-04 add test cases to prevent null or any problems if needed
         // TODO: 2019-12-05 Make it so the setText is more smooth (not long & clunky, too many lines etc.)
 
 
@@ -217,7 +295,7 @@ public class MainActivity extends AppCompatActivity {
             CS125Staff = true;
         }
 
-        if (compareName.equals("Geoff Challen") || compareName.equals("t")) {
+        if (compareName.equals("Geoff Challen")) {
             points = 378456738;
             Log.i("SecretNameMethod","---------------");
             Log.i("SecretNameMethod","JDHSBKLMDSFNSD our points are: " + points);
@@ -340,8 +418,6 @@ public class MainActivity extends AppCompatActivity {
                 points = 500000; //half a million points
                 thankYouMessage.setText("Thanks for CAing this semester! Your work in office hours" +
                         " and on the form helped us with the MPs, final project, homework and so much more. Thanks for everything!");
-
-                // Thank you message here
             }
         }
         if (CS125Staff == false) {

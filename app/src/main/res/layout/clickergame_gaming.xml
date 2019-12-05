@@ -10,15 +10,17 @@
         android:layout_height="match_parent">
 
         <Button
-            android:id="@+id/button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:id="@+id/clickerAppClickingButton"
+            android:layout_width="265dp"
+            android:layout_height="161dp"
+            android:layout_marginStart="81dp"
+            android:layout_marginBottom="349dp"
             android:text="clickforPoints"
-            tools:layout_editor_absoluteX="0dp"
-            tools:layout_editor_absoluteY="206dp" />
+            app:layout_constraintBottom_toTopOf="@+id/gotoUpgradesFromClickerAppButton"
+            app:layout_constraintStart_toStartOf="parent" />
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/gotoUpgradesFromClickerAppButton"
             android:layout_width="407dp"
             android:layout_height="52dp"
             android:text="Upgrade Menu"
@@ -26,17 +28,20 @@
             app:layout_constraintStart_toStartOf="parent" />
 
         <Button
-            android:id="@+id/button3"
+            android:id="@+id/gotoMainMenuFromClickerAppButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="take me to mainmenu" />
+            android:text="take me to mainmenu"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <Button
-            android:id="@+id/button4"
+            android:id="@+id/gotoSettingsFromClickerAppButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="takemetoSettings"
-            tools:layout_editor_absoluteX="323dp" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </LinearLayout>

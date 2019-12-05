@@ -15,7 +15,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="175dp"
             android:layout_marginTop="245dp"
-            android:text="Switch"
+            android:text="darkModeSwitch"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -25,7 +25,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="148dp"
             android:layout_marginBottom="217dp"
-            android:text="Button"
+            android:text="resetPointsButton"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
@@ -35,7 +35,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="148dp"
             android:layout_marginTop="376dp"
-            android:text="Button"
+            android:text="muteMusicButton"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -45,9 +45,29 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="148dp"
             android:layout_marginBottom="137dp"
-            android:text="Button"
+            android:text="muteSoundEffects"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
+
+        <Button
+            android:id="@+id/returnToMainMenuFromSettings"
+            android:layout_width="413dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginBottom="3dp"
+            android:text="Return to main menu"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/settingsMenuPointsDisplay"
+            android:layout_width="192dp"
+            android:layout_height="67dp"
+            android:layout_marginStart="139dp"
+            android:layout_marginTop="104dp"
+            android:text="Your points here!"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </LinearLayout>
