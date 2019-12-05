@@ -76,7 +76,9 @@
             android:layout_marginStart="163dp"
             android:layout_marginTop="302dp"
             android:layout_marginEnd="171dp"
+            android:layout_marginBottom="97dp"
             android:text="Hello World!"
+            app:layout_constraintBottom_toTopOf="@+id/settingsButton"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
