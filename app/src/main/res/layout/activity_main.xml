@@ -69,9 +69,8 @@
 
         <ImageView
             android:id="@+id/imageView3"
-            android:layout_width="295dp"
-            android:layout_height="550dp"
-            android:layout_marginTop="59dp"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
             android:scaleType="centerCrop"
             android:src="@drawable/background"
             app:layout_constraintEnd_toEndOf="parent"
