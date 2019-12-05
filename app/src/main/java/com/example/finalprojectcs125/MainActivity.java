@@ -1,6 +1,7 @@
 package com.example.finalprojectcs125;
 
 import android.content.Context;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -8,6 +9,7 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.VideoView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -18,6 +20,11 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        VideoView v = (VideoView) findViewById(R.id.videoview1);
+        Uri uri = Uri.parse("android.resource://"+getPackageName()+"/"+R.raw.video);
+        v.setVideoURI(uri);
+        v.start();
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -48,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
         });
         
         Button secretButton = findViewById(R.id.secretButton);
-        secretButton.setOnClickListener(v -> { // Go to secret thankyou screen
+        secretButton.setOnClickListener(o -> { // Go to secret thankyou screen
             secretNameMethodTransition();
 
         });
