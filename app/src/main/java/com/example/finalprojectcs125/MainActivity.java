@@ -13,6 +13,32 @@ import android.widget.VideoView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import javax.xml.transform.sax.TemplatesHandler;
+
+/** Discussion page! This is where we will communicate so we know what we want & any issues we have - be as descriptive as possible
+/** IF a task needs to be done, use the TODO text to do so
+ *
+ * Feedback Page ---------------
+ * I would prefer if we did not have our email in clear text. The app should do work behind to scenes to take their info and send/store it
+ *
+ *
+ * Settings Page ---------------
+ * TODO add settings ofc - reset points button
+ * What settings are going to be stored?
+ *
+ * Secret Thank You Page -------------
+ *
+ *
+ *
+ *
+ * Main Clicker App Page --------------
+ * todo make
+ *
+ *
+ * General Critiques ---------
+ *
+ *
+ */
 
 public class MainActivity extends AppCompatActivity {
 
@@ -27,35 +53,38 @@ public class MainActivity extends AppCompatActivity {
         String[] welcomeArray = new String[6];
         double random = (Math.random() * (welcomeArray.length - 1));
         int replacer = (int) Math.ceil(random);
-        System.out.println("The random number is: " + replacer);
-
         welcomeArray[0] = "Welcome!";
         welcomeArray[1] = "Hey guys!";
         welcomeArray[2] = "How about that extra credit?";
         welcomeArray[3] = "Welcome to my CS125 app!";
         welcomeArray[4] = "Hello there :D";
         welcomeArray[5] = "Hey guys, welcome to my CS125 Project walkthrough :)";
-        // Do we really need this many greetings? xd
-
-
-
         TextView welcomeText = findViewById(R.id.welcomeText);
-        welcomeText.setText(welcomeArray[replacer]); //Welcome text
-        // End of random greeting
+        welcomeText.setText(welcomeArray[replacer]); //sets the welcome text
+        // End of welcome text setting stuff!
 
         Button resetPoints = findViewById(R.id.resetPointsButton);
         resetPoints.setOnClickListener(f -> {
             points = 0;
             System.out.println("The points are now: " + points);
         });
-        
+
+        Button feedbackMenuButton = findViewById(R.id.feedbackButton);
+        feedbackMenuButton.setOnClickListener(e -> {
+            setContentView(R.layout.feedback_layout);
+            feedbackTransition();
+        });
+
         Button secretButton = findViewById(R.id.secretButton);
         secretButton.setOnClickListener(o -> { // Go to secret thankyou screen
             secretNameMethodTransition();
-
         });
     }
-    public void feedbackTransitionfunction() {
+
+    /** feedbackTransition
+     *
+     */
+    public void feedbackTransition() {
         setContentView(R.layout.feedback_layout);
         TextView feedtext = findViewById(R.id.feedtext);
         feedtext.setVisibility(View.VISIBLE);
@@ -65,7 +94,6 @@ public class MainActivity extends AppCompatActivity {
             setContentView(R.layout.activity_main);
             mainMenuButtonReinitializer();
         });
-
     }
 
     /** secretNameMethodTransition
@@ -91,6 +119,10 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        thankYouNameInput.setOnClickListener(ef -> {
+            thankYouNameInput.setText("");
+        });
+
         //Reinitializes the button to take us back to the main menu
         Button returnToMain = findViewById(R.id.returnToMainMenuFromSecret);
         returnToMain.setOnClickListener(f -> { //Returns to mainMenu from secret thankyou screen
@@ -106,7 +138,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     /** mainMenuButtonReinitializer
-     * reinitializes all the buttons and sutff on the main menu!
+     * Reinitializes all the buttons and stuff on the main menu!
      */
     public void mainMenuButtonReinitializer() {
 
@@ -120,18 +152,22 @@ public class MainActivity extends AppCompatActivity {
 
         // Reinitializes the resetPointsButton
         Button resetPoints = findViewById(R.id.resetPointsButton);
-        resetPoints.setOnClickListener(j -> {
+        resetPoints.setOnClickListener(v -> {
             points = 0;
             System.out.println("The points are now: " + points);
         });
+
+        // Reinitializes the settingsButton
         Button settingsButton = findViewById(R.id.settingsButton);
         settingsButton.setOnClickListener(v -> {
             //setContentView(R.layout.activity_main);
             settingsButton.setVisibility(View.VISIBLE);
         });
+
+        // Reinitializes the feedbackButton
         Button feedbackButton = findViewById(R.id.feedbackButton);
         feedbackButton.setOnClickListener(v -> {
-            feedbackTransitionfunction();
+            feedbackTransition();
         });
     }
 
@@ -147,7 +183,20 @@ public class MainActivity extends AppCompatActivity {
         thankYouMessage.setText(""); // clears the text box each time the screen is accessed & button is pressed
 
         // TODO: 2019-12-04 add test cases to prevent null or any problems if needed
+        // TODO: 2019-12-05 Make it so the setText is more smooth (not long & clunky, too many lines etc.)
 
+
+        if (compareName.equals("Nathaniel Zukowski")) {
+            points = 1000000000; //bil
+            thankYouMessage.setText("Hey! I made this game!");
+            CS125Staff = true;
+        }
+
+        if (compareName.equals("Angel Canty")) {
+            points = 1000000000;
+            thankYouMessage.setText("Your thankyou here");
+            CS125Staff = true;
+        }
 
         if (compareName.equals("Geoff Challen") || compareName.equals("t")) {
             points = 378456738;
@@ -159,6 +208,7 @@ public class MainActivity extends AppCompatActivity {
         if (compareName.equals("Ben Nordick")) {
             points = 3928407;
             CS125Staff = true;
+            thankYouMessage.setText("Thanks for making the MP and helping others in office hours, on the forum and irl!");
             // Thank you message
         }
         String[] taArray = new String[8];
@@ -262,21 +312,22 @@ public class MainActivity extends AppCompatActivity {
             if (taArray[i].equals(compareName)) {
                 points = 1000000; // million points
                 CS125Staff = true;
-                // Thank you message here
+                thankYouMessage.setText("Thanks for TAing for CS 125! Your work helped us succeed this semester!");
             }
         }
         for (int i = 0; i < caArray.length; i++) { // CA thankyou array
             if (caArray[i].equals(compareName)) {
                 CS125Staff = true;
                 points = 500000; //half a million points
-
+                thankYouMessage.setText("Thanks for CAing this semester! Your work in office hours" +
+                        " and on the form helped us with the MPs, final project, homework and so much more. Thanks for everything!");
 
                 // Thank you message here
             }
         }
         if (CS125Staff == false) {
             System.out.println("Not CS125 staff!");
-            // Do something?
+            //thankYouMessage.setText("");
         }
     }
 }
