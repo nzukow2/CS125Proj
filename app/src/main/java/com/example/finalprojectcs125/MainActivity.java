@@ -84,14 +84,6 @@ public class MainActivity extends AppCompatActivity {
             System.out.println("!!!!points are: " + points);
             mainMenuButtonReinitializer();
         });
-        // as the name implies, takes the user to the settings menu.
-            Button settingsButton = findViewById(R.id.settingsButton);
-            settingsButton.setOnClickListener(v -> {
-                setContentView(R.layout.activity_main);
-                mainMenuButtonReinitializer();
-            });
-
-
     }
 
 
@@ -118,15 +110,13 @@ public class MainActivity extends AppCompatActivity {
             points = 0;
             System.out.println("The points are now: " + points);
         });
-    }
-    public void settingsButton() {
-        // as the name implies, takes the user to the settings menu.
         Button settingsButton = findViewById(R.id.settingsButton);
         settingsButton.setOnClickListener(v -> {
             setContentView(R.layout.activity_main);
-            mainMenuButtonReinitializer();
+            secretNameMethodTransition();
         });
     }
+
 
 
 
