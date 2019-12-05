@@ -53,6 +53,10 @@ public class MainActivity extends AppCompatActivity {
 
         });
     }
+    public void feedbackTransitionfunction() {
+        setContentView(R.layout.feedback_layout);
+
+    }
 
     /** secretNameMethodTransition
      * Transitions us from main menu to the secretNameMethod
@@ -113,8 +117,11 @@ public class MainActivity extends AppCompatActivity {
         Button settingsButton = findViewById(R.id.settingsButton);
         settingsButton.setOnClickListener(v -> {
             //setContentView(R.layout.activity_main);
-            secretNameMethodTransition();
             settingsButton.setVisibility(View.VISIBLE);
+        });
+        Button feedbackButton = findViewById(R.id.feedbackButton);
+        feedbackButton.setOnClickListener(v -> {
+            feedbackTransitionfunction();
         });
     }
 
