@@ -1,15 +1,15 @@
 package com.example.finalprojectcs125;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Context;
-import android.util.Log;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -110,6 +110,14 @@ public class MainActivity extends AppCompatActivity {
         resetPoints.setOnClickListener(j -> {
             points = 0;
             System.out.println("The points are now: " + points);
+        });
+    }
+    public void settingsButton() {
+        // as the name implies, takes the user to the settings menu.
+        Button settingsButton = findViewById(R.id.settingsButton);
+        settingsButton.setOnClickListener(v -> {
+            setContentView(R.layout.activity_main);
+            mainMenuButtonReinitializer();
         });
     }
 
