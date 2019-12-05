@@ -10,14 +10,15 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="-32dp">
+        tools:layout_editor_absoluteY="-265dp">
 
         <Button
             android:id="@+id/feedbackButton"
+            style="@style/Widget.AppCompat.Button.Colored"
             android:layout_width="168dp"
             android:layout_height="46dp"
-            android:layout_marginBottom="24dp"
             android:text="Feedback!"
             app:layout_constraintBottom_toTopOf="@+id/secretButton"
             app:layout_constraintEnd_toEndOf="parent"
@@ -26,12 +27,14 @@
 
         <Button
             android:id="@+id/secretButton"
+            style="@style/Widget.AppCompat.Button.Colored"
             android:layout_width="168dp"
             android:layout_height="46dp"
+            android:layout_marginBottom="123dp"
             android:text="Staff"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            tools:layout_editor_absoluteY="562dp" />
+            app:layout_constraintStart_toStartOf="parent" />
 
         <Switch
             android:id="@+id/darkMode"
@@ -57,18 +60,22 @@
             android:layout_height="46dp"
             android:text="Settings"
             android:visibility="visible"
+            app:layout_constraintBottom_toTopOf="@+id/feedbackButton"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            tools:layout_editor_absoluteY="419dp"
             tools:visibility="visible" />
 
         <TextView
             android:id="@+id/welcomeText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="163dp"
+            android:layout_marginTop="302dp"
+            android:layout_marginEnd="171dp"
             android:text="Hello World!"
-            tools:layout_editor_absoluteX="163dp"
-            tools:layout_editor_absoluteY="302dp" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
