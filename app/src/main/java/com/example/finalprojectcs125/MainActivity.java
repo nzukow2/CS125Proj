@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.VideoView;
 
@@ -32,10 +33,13 @@ import javax.xml.transform.sax.TemplatesHandler;
  *
  *
  * Main Clicker App Page --------------
- * todo make
+ * todo make the page & theme & upgrade page
+ * todo upgrades being x points per click, points per sec
+ * todo special abilities IF time
  *
  *
  * General Critiques ---------
+ * todo delete reset button on main page and all of it's usages
  *
  *
  */
@@ -78,6 +82,11 @@ public class MainActivity extends AppCompatActivity {
         Button secretButton = findViewById(R.id.secretButton);
         secretButton.setOnClickListener(o -> { // Go to secret thankyou screen
             secretNameMethodTransition();
+        });
+
+        Button clickerGameButton = findViewById(R.id.clickergameButton);
+        clickerGameButton.setOnClickListener(iw -> {
+            setContentView(R.layout.clickergame_gaming);
         });
     }
 
@@ -126,14 +135,18 @@ public class MainActivity extends AppCompatActivity {
         //Reinitializes the button to take us back to the main menu
         Button returnToMain = findViewById(R.id.returnToMainMenuFromSecret);
         returnToMain.setOnClickListener(f -> { //Returns to mainMenu from secret thankyou screen
-            setContentView(R.layout.activity_main);
+            //setContentView(R.layout.activity_main);
             System.out.println("!!!!points are: " + points);
             mainMenuButtonReinitializer();
         });
     }
 
 
+    public void settingsMenuTransition() {
+        setContentView(R.layout.setting_menu);
 
+        //Switch
+    }
 
 
 
@@ -142,6 +155,7 @@ public class MainActivity extends AppCompatActivity {
      */
     public void mainMenuButtonReinitializer() {
 
+        setContentView(R.layout.activity_main);
         // TODO: 2019-12-04 Make it so the greeting is randomly changed when going back to main 
         
         // Reinitializes the secretButton
@@ -168,6 +182,11 @@ public class MainActivity extends AppCompatActivity {
         Button feedbackButton = findViewById(R.id.feedbackButton);
         feedbackButton.setOnClickListener(v -> {
             feedbackTransition();
+        });
+
+        Button clickerGameButton = findViewById(R.id.clickergameButton);
+        clickerGameButton.setOnClickListener(iw -> {
+            setContentView(R.layout.clickergame_gaming);
         });
     }
 
