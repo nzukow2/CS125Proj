@@ -20,11 +20,6 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        VideoView v = (VideoView) findViewById(R.id.videoview1);
-        Uri uri = Uri.parse("android.resource://"+getPackageName()+"/"+R.raw.video);
-        v.setVideoURI(uri);
-        v.start();
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
