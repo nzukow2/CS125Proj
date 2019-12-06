@@ -45,10 +45,13 @@ import androidx.appcompat.app.AppCompatActivity;
  */
 
 public class MainActivity extends AppCompatActivity {
-    TextView timer , clicks;
-    Button empezar;
-    Button clicker;
+    public TextView timerio;
+    public  TextView clicksio;
+    public  Button empezario;
+    public ImageButton clickerio;
+
     CountDownTimer time;
+
     int tiempo = 30;
     int clix = 0;
 
@@ -61,44 +64,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        timer = (TextView) findViewById(R.id.timer);
-        clicks = (TextView) findViewById(R.id.clicks);
-        empezar = (Button) findViewById(R.id.empezar);
-        clicker = (Button) findViewById(R.id.clicker);
-
-        empezar.setEnabled(true);
-        clicker.setEnabled(false);
-        time = new CountDownTimer(30000,1000) {
-            @Override
-            public void onTick(long millisUntilFinished) {
-                tiempo--;
-                timer.setText("Time: " + tiempo);
-            }
-
-            @Override
-            public void onFinish() {
-                empezar.setEnabled(true);
-                clicker.setEnabled(false);
-
-            }
-        };
-        clicker.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View x) {
-                clix++;
-                clicks.setText("Clicks: " + clix);
-            }
-        });
-
-        empezar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View x) {
-                time.start();
-                empezar.setEnabled(false);
-                clicker.setEnabled(true);
-
-            }
-        });
 
         // Sets the welcome screen text to something nice and welcoming :)
         String[] welcomeArray = new String[6];
@@ -132,6 +97,7 @@ public class MainActivity extends AppCompatActivity {
         Button clickerGameButton = findViewById(R.id.clickergameButton);
         clickerGameButton.setOnClickListener(iw -> {
             setContentView(R.layout.clickergame_gaming);
+            clickerGame();
         });
 
         // Takes us to the settingsButton
@@ -139,6 +105,7 @@ public class MainActivity extends AppCompatActivity {
         settingsMenuButton.setOnClickListener(heyooo -> {
             settingsMenuTransition();
         });
+
     }
 
     /** feedbackTransition
@@ -153,6 +120,55 @@ public class MainActivity extends AppCompatActivity {
         returnMain.setOnClickListener(f -> { //Returns to mainMenu from feedback screen
             setContentView(R.layout.activity_main);
             mainMenuButtonReinitializer();
+        });
+    }
+    public void clickerGame() {
+        setContentView(R.layout.clickergame_gaming);
+        timerio = findViewById(R.id.timer);
+        clicksio = findViewById(R.id.clicks);
+        empezario = findViewById(R.id.empezar);
+        clickerio = findViewById(R.id.clicker);
+
+        clickerio.setEnabled(false);
+
+        empezario.setEnabled(true);
+
+        time = new CountDownTimer(30000,1000) {
+            @Override
+            public void onTick(long millisUntilFinished) {
+                tiempo--;
+                timerio.setText("Time: " + tiempo);
+            }
+
+            @Override
+            public void onFinish() {
+                empezario.setEnabled(true);
+                clickerio.setEnabled(false);
+
+            }
+        };
+        clickerio.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View x) {
+                clix++;
+                clicksio.setText("Clicks: " + clix);
+                timerio.setText("Time: 0");
+
+            }
+        });
+
+        empezario.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View x) {
+                time.start();
+                empezario.setEnabled(false);
+                clickerio.setEnabled(true);
+                clix = 0;
+                tiempo = 30;
+                timerio.setText("Time: " + tiempo);
+                clicksio.setText("Clicks: " + clix);
+
+            }
         });
     }
 
@@ -252,10 +268,10 @@ public class MainActivity extends AppCompatActivity {
             settingsMenuTransition();
         });
 
-        ImageButton clickForPointsButton = findViewById(R.id.clicker);
-        clickForPointsButton.setOnClickListener(egggg -> {
+        //Button clickForPointsButton = findViewById(R.id.clicker);
+        //clickForPointsButton.setOnClickListener(egggg -> {
             // TODO: 2019-12-05 Do something when they click the button to get points!
-        });
+        //});
 
         Button upgradePointsButton = findViewById(R.id.gotoUpgradesFromClickerAppButton);
         upgradePointsButton.setOnClickListener(transitionTime -> {
