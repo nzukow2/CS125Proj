@@ -125,6 +125,8 @@ public class MainActivity extends AppCompatActivity {
             settingsMenuTransition();
         });
 
+        TextView menuTextPoints = findViewById(R.id.menuPointsTextView);
+        menuTextPoints.setText("You have: " + points + " points");
 
     }
 
@@ -147,7 +149,6 @@ public class MainActivity extends AppCompatActivity {
      * code that allows the clicker to work properly.
      */
     public void clickerGame() {
-        setContentView(R.layout.clickergame_gaming);
         /**
          * this textView is the timer.
          */
@@ -326,6 +327,9 @@ public class MainActivity extends AppCompatActivity {
         clickerGameButton.setOnClickListener(iw -> {
             clickerGameTransition();
         });
+
+        TextView menuTextPoints = findViewById(R.id.menuPointsTextView);
+        menuTextPoints.setText("You have: " + points + " points");
     }
 
 
@@ -359,14 +363,17 @@ public class MainActivity extends AppCompatActivity {
         Button upgradePointsButton = findViewById(R.id.gotoUpgradesFromClickerAppButton);
         upgradePointsButton.setOnClickListener(transitionTime -> {
             clickerUpgradePageOneTransition();
-            // TODO: 2019-12-05 Add transition to upgrade menu!
         });
 
+
+
+        //clickerGame();
+        /*
         ImageButton clickerio = findViewById(R.id.clicker);
         clickerio.setOnClickListener(yoyo -> {
             clickerGame();
         });
-
+         */
 
     }
 
