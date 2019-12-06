@@ -61,6 +61,8 @@ public class MainActivity extends AppCompatActivity {
     int tiempo = 30;
     int clix = 0;
 
+    boolean startClickerGame = true;
+
      /** points
      * Does what it says! Holds and stores the points that we have accumulated
      */
@@ -116,7 +118,7 @@ public class MainActivity extends AppCompatActivity {
         Button clickerGameButton = findViewById(R.id.clickergameButton);
         clickerGameButton.setOnClickListener(iw -> {
             setContentView(R.layout.clickergame_gaming);
-            clickerGame();
+            clickerGameTransition();
         });
 
         // Takes us to the settingsButton
@@ -149,6 +151,14 @@ public class MainActivity extends AppCompatActivity {
      * code that allows the clicker to work properly.
      */
     public void clickerGame() {
+
+        //startClickerGame
+        // if startClickerGame == true then start everything and set boolean to FALSE
+        // if timer == 0 then stop the timer and do the do
+        // IF the layout is NOT clickergame then stop
+        // or, if user calls upgrade menu or settings or mainmenu, set the boolean to false
+
+
         /**
          * this textView is the timer.
          */
@@ -239,10 +249,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        Button gotomainmenu = findViewById(R.id.gotoMainMenuFromClickerAppButton);
-        gotomainmenu.setOnClickListener(eggwuguc -> {
-            mainMenuButtonReinitializer();
-        });
     }
 
 
@@ -351,7 +357,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         Button gotoSettingsButton = findViewById(R.id.gotoSettingsFromClickerAppButton);
-        gotoSettingsButton.setOnClickListener(eggwugu -> {
+        gotoSettingsButton.setOnClickListener(eggwukjnsgu -> {
             settingsMenuTransition();
         });
 
@@ -363,15 +369,10 @@ public class MainActivity extends AppCompatActivity {
             clickerUpgradePageOneTransition();
         });
 
-
-
-        //clickerGame();
-        /*
-        ImageButton clickerio = findViewById(R.id.clicker);
-        clickerio.setOnClickListener(yoyo -> {
+        Button attackButton = findViewById(R.id.empezar);
+        attackButton.setOnClickListener(yoyo -> {
             clickerGame();
         });
-         */
 
     }
 
