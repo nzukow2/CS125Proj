@@ -14,7 +14,6 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import org.w3c.dom.Text;
 
 /** Discussion page! This is where we will communicate so we know what we want & any issues we have - be as descriptive as possible
 /** IF a task needs to be done, use the TODO text to do so
@@ -41,7 +40,7 @@ import org.w3c.dom.Text;
  *
  *
  * General Critiques ---------
- * todo delete reset button on main page and all of it's usages
+ *
  *
  *
  */
@@ -57,15 +56,22 @@ public class MainActivity extends AppCompatActivity {
     int tiempo = 30;
     int clix = 0;
 
-    /** points
+     /** points
      * Does what it says! Holds and stores the points that we have accumulated
      */
     public static int points;
+
+    /** pointsPerClick
+     * Sets the pointsPerClick! Initially is 1 point per click
+     */
+    public static int pointsPerClick;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        pointsPerClick = 1;
 
         // Sets the welcome screen text to something nice and welcoming :)
         String[] welcomeArray = new String[6];
@@ -157,6 +163,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View x) {
                 clix++;
+                points += pointsPerClick;
+                Log.i("Points","Points per click is: " + pointsPerClick);
                 clicksio.setText("Clicks: " + clix);
                 timerio.setText("Time: 0");
 
@@ -226,8 +234,19 @@ public class MainActivity extends AppCompatActivity {
     public void mainMenuButtonReinitializer() {
 
         setContentView(R.layout.activity_main);
-        // TODO: 2019-12-04 Make it so the greeting is randomly changed when going back to main 
-        
+
+        String[] welcomeArray = new String[6];
+        double random = (Math.random() * (welcomeArray.length - 1));
+        int replacer = (int) Math.ceil(random);
+        welcomeArray[0] = "Welcome!";
+        welcomeArray[1] = "Hey guys!";
+        welcomeArray[2] = "How about that extra credit?";
+        welcomeArray[3] = "Welcome to my CS125 app!";
+        welcomeArray[4] = "Hello there :D";
+        welcomeArray[5] = "Hey guys, welcome to my CS125 Project walkthrough :)";
+        TextView welcomeText = findViewById(R.id.welcomeText);
+        welcomeText.setText(welcomeArray[replacer]);
+
         // Reinitializes the secretButton
         Button secretButton = findViewById(R.id.secretButton);
         secretButton.setOnClickListener(v -> { // Go to secret thankyou screen
