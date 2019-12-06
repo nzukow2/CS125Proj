@@ -234,11 +234,12 @@ public class MainActivity extends AppCompatActivity {
                 if (tiempo <= 30 && tiempo > 0) {
                     finished.setText("click away!");
                 }
-                if (tiempo < 0) {
+                if (tiempo <= 0) {
                     time.cancel();
                 }
 
             }
+            
         });
 
         Button gotomainmenu = findViewById(R.id.gotoMainMenuFromClickerAppButton);
