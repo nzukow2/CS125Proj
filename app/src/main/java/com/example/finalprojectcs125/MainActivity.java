@@ -369,6 +369,11 @@ public class MainActivity extends AppCompatActivity {
             clickerUpgradePageOneTransition();
         });
 
+        TextView click = findViewById(R.id.clicks);
+        click.setText("Clicks: 0");
+
+        clickerio = findViewById(R.id.clicker);
+        clickerio.setEnabled(false);
         Button attackButton = findViewById(R.id.empezar);
         attackButton.setOnClickListener(yoyo -> {
             clickerGame();
