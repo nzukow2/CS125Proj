@@ -1,6 +1,7 @@
 package com.example.finalprojectcs125;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.util.Log;
@@ -74,6 +75,12 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+       SharedPreferences.Editor save = getSharedPreferences("myInt", MODE_PRIVATE).edit();
+       save.putInt("points", points);
+       save.apply();
+
+       SharedPreferences pref = getSharedPreferences("PreferencesName", MODE_PRIVATE);
+       int myInt = pref.getInt("points",0);
 
         pointsPerClick = 1;
 
