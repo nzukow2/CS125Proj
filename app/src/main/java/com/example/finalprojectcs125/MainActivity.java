@@ -298,6 +298,9 @@ public class MainActivity extends AppCompatActivity {
             settingsMenuTransition();
         });
 
+        TextView yourPoints = findViewById(R.id.clickerAppPointsTextView);
+        yourPoints.setText("Points: " + points);
+
         Button upgradePointsButton = findViewById(R.id.gotoUpgradesFromClickerAppButton);
         upgradePointsButton.setOnClickListener(transitionTime -> {
             clickerUpgradePageOneTransition();

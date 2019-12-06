@@ -77,6 +77,14 @@
             app:layout_constraintTop_toBottomOf="@+id/timer"
             app:srcCompat="@drawable/background" />
 
+        <TextView
+            android:id="@+id/clickerAppPointsTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="YourPointsHere"
+            tools:layout_editor_absoluteX="180dp"
+            tools:layout_editor_absoluteY="503dp" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </LinearLayout>
