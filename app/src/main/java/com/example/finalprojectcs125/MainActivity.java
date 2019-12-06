@@ -62,6 +62,7 @@ public class MainActivity extends AppCompatActivity {
     int clix = 0;
 
     boolean startClickerGame = true;
+    boolean leftClickerGame = false;
 
      /** points
      * Does what it says! Holds and stores the points that we have accumulated
@@ -215,8 +216,10 @@ public class MainActivity extends AppCompatActivity {
                 coercionArray[7] = "Good work, but like my CS125 grade, it could be better. Try again?";
                 coercionArray[8] = "Have you gotten Arthritis yet? No? Then click some more!";
                 finished.setText(coercionArray[cs225]);
-                TextView clickerappPts = findViewById(R.id.clickerAppPointsTextView);
-                clickerappPts.setText("Total points: " + points);
+                if (leftClickerGame == false) {
+                    TextView clickerappPts = findViewById(R.id.clickerAppPointsTextView);
+                    clickerappPts.setText("Total points: " + points);
+                }
             }
         };
         clickerio.setOnClickListener(new View.OnClickListener() {
@@ -258,6 +261,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void settingsMenuTransition() {
         setContentView(R.layout.setting_menu);
+        leftClickerGame = true;
 
         TextView settingsMenuTextView = findViewById(R.id.settingsMenuPointsDisplay);
         settingsMenuTextView.setText("Your points are: " + points);
@@ -298,6 +302,7 @@ public class MainActivity extends AppCompatActivity {
     public void mainMenuButtonReinitializer() {
 
         setContentView(R.layout.activity_main);
+        leftClickerGame = true;
 
         String[] welcomeArray = new String[6];
         double random = (Math.random() * (welcomeArray.length - 1));
@@ -353,6 +358,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void clickerGameTransition() {
         setContentView(R.layout.clickergame_gaming);
+        leftClickerGame = false;
 
         Button returnToMainMenuButton = findViewById(R.id.gotoMainMenuFromClickerAppButton);
         returnToMainMenuButton.setOnClickListener(egg -> {
@@ -386,6 +392,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void clickerUpgradePageOneTransition() {
         setContentView(R.layout.clickerupgrades_menu);
+        leftClickerGame = true;
 
         Button upgrade1 = findViewById(R.id.upgrade1);
         upgrade1.setOnClickListener(e -> {
@@ -425,6 +432,11 @@ public class MainActivity extends AppCompatActivity {
         Button upgrade8 = findViewById(R.id.upgrade8);
         upgrade8.setOnClickListener(e -> {
 
+        });
+
+        Button returnToClickerApp = findViewById(R.id.returnToClickerApp);
+        returnToClickerApp.setOnClickListener(egggg -> {
+            clickerGameTransition();
         });
 
         TextView upgradeText1 = findViewById(R.id.upgradeText1);
