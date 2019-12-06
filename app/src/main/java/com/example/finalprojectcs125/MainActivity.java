@@ -170,6 +170,10 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+        Button gotomainmenu = findViewById(R.id.gotoMainMenuFromClickerAppButton);
+        gotomainmenu.setOnClickListener(eggwuguc -> {
+            mainMenuButtonReinitializer();
+        });
     }
 
 
