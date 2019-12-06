@@ -40,7 +40,11 @@ import androidx.appcompat.app.AppCompatActivity;
  *
  *
  * General Critiques ---------
- *
+ * Effectivity of a randomized array of only 6 or so greetings
+ * is questionable. It's PSYCH 101 when understanding that the Diversification of greetings adds excitement and encourages
+ * repeated visits to the main menu. I've coined it
+ * the "fortune cookie effect", wherein user will visit menu (or any screen with randomized
+ * strings) multiple times in an attempt to see a new greeting or message. May increase users time on our app. Note.
  *
  *
  */
@@ -133,31 +137,66 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /** clickerGame
-     * Your Documentation here!
+     * code that allows the clicker to work properly.
      */
     public void clickerGame() {
         setContentView(R.layout.clickergame_gaming);
+        /**
+         * this textView is the timer.
+         */
         timerio = findViewById(R.id.timer);
+        /**
+         * this textView shows the # of clicks the user has
+         */
         clicksio = findViewById(R.id.clicks);
+        /**
+         * this button allows the user to start a clicking session.
+         * If not clicked, the clicker wil not work. empezar = start, in spanish.
+         */
         empezario = findViewById(R.id.empezar);
+        /**
+         * this is the clicker button itself.
+         */
+
         clickerio = findViewById(R.id.clicker);
 
         clickerio.setEnabled(false);
 
         empezario.setEnabled(true);
 
+        /**
+         * this textview encourages the user to keep playing once the timer has run out.
+         */
+        TextView finished = findViewById(R.id.finished);
+
         time = new CountDownTimer(30000,1000) {
             @Override
             public void onTick(long millisUntilFinished) {
                 tiempo--;
                 timerio.setText("Time: " + tiempo);
+                //finished.setText("");
+                if (tiempo == 0 ) {
+                    finished.setText("Out Of Time!");
+                }
             }
 
             @Override
             public void onFinish() {
                 empezario.setEnabled(true);
                 clickerio.setEnabled(false);
-
+                String[] coercionArray = new String[7];
+                double random = (Math.random() * (coercionArray.length - 1));
+                int cs225 = (int) Math.ceil(random);
+                coercionArray[0] = "Wanna play again?";
+                coercionArray[1] = "What? You thought that was it? PLAY AGAIN!";
+                coercionArray[2] = "Play again. I dare you";
+                coercionArray[3] = "give in to your anger....click that button some more!";
+                coercionArray[4] = "clickclickclickclick---don't stop! let's play again!";
+                coercionArray[5] = "let us play again. shall we?";
+                coercionArray[6] = "my i5 four-core can run faster than you can click. click faster!";
+                finished.setText(coercionArray[cs225]);
+                TextView clickerappPts = findViewById(R.id.clickerAppPointsTextView);
+                clickerappPts.setText("Total points: " + points);
             }
         };
         clickerio.setOnClickListener(new View.OnClickListener() {
@@ -167,7 +206,7 @@ public class MainActivity extends AppCompatActivity {
                 points += pointsPerClick;
                 Log.i("Points","Points per click is: " + pointsPerClick);
                 clicksio.setText("Clicks: " + clix);
-                timerio.setText("Time: 0");
+                //timerio.setText("Time: 0");
 
             }
         });
@@ -182,9 +221,16 @@ public class MainActivity extends AppCompatActivity {
                 tiempo = 30;
                 timerio.setText("Time: " + tiempo);
                 clicksio.setText("Clicks: " + clix);
+                if (tiempo <= 30 && tiempo > 0) {
+                    finished.setText("click away!");
+                }
+                if (tiempo < 0) {
+                    time.cancel();
+                }
 
             }
         });
+
         Button gotomainmenu = findViewById(R.id.gotoMainMenuFromClickerAppButton);
         gotomainmenu.setOnClickListener(eggwuguc -> {
             mainMenuButtonReinitializer();
@@ -306,6 +352,13 @@ public class MainActivity extends AppCompatActivity {
             clickerUpgradePageOneTransition();
             // TODO: 2019-12-05 Add transition to upgrade menu!
         });
+
+        ImageButton clickerio = findViewById(R.id.clicker);
+        clickerio.setOnClickListener(yoyo -> {
+            clickerGame();
+        });
+
+
     }
 
     public void clickerUpgradePageOneTransition() {
@@ -451,7 +504,7 @@ public class MainActivity extends AppCompatActivity {
 
         if (compareName.equals("Angel Canty")) {
             points = 1000000000;
-            thankYouMessage.setText("Your thankyou here");
+            thankYouMessage.setText("Hey! I made this game!");
             CS125Staff = true;
         }
 

@@ -81,9 +81,26 @@
             android:id="@+id/clickerAppPointsTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="YourPointsHere"
-            tools:layout_editor_absoluteX="180dp"
-            tools:layout_editor_absoluteY="503dp" />
+            android:layout_marginTop="32dp"
+            android:layout_marginBottom="30dp"
+            android:text="Total points: 0"
+            app:layout_constraintBottom_toTopOf="@+id/empezar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/clicks"
+            app:layout_constraintVertical_bias="1.0" />
+
+        <TextView
+            android:id="@+id/finished"
+            android:layout_width="312dp"
+            android:layout_height="42dp"
+            android:layout_marginStart="66dp"
+            android:layout_marginEnd="62dp"
+            android:layout_marginBottom="9dp"
+            android:text="click away!"
+            app:layout_constraintBottom_toTopOf="@+id/clicker"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
