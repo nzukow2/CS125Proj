@@ -10,16 +10,6 @@
         android:layout_height="match_parent">
 
         <Button
-            android:id="@+id/clickerAppClickingButton"
-            android:layout_width="265dp"
-            android:layout_height="161dp"
-            android:layout_marginStart="81dp"
-            android:layout_marginBottom="349dp"
-            android:text="clickforPoints"
-            app:layout_constraintBottom_toTopOf="@+id/gotoUpgradesFromClickerAppButton"
-            app:layout_constraintStart_toStartOf="parent" />
-
-        <Button
             android:id="@+id/gotoUpgradesFromClickerAppButton"
             android:layout_width="407dp"
             android:layout_height="52dp"
@@ -42,6 +32,50 @@
             android:text="takemetoSettings"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/empezar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="42dp"
+            android:text="attack!"
+            app:layout_constraintBottom_toTopOf="@+id/gotoUpgradesFromClickerAppButton"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/timer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="78dp"
+            android:text="Time: 30"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/gotoMainMenuFromClickerAppButton" />
+
+        <TextView
+            android:id="@+id/clicks"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="101dp"
+            android:text="clicks: 30"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.494"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/clicker" />
+
+        <Button
+            android:id="@+id/clicker"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="160dp"
+            android:layout_marginEnd="163dp"
+            android:text="Button"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:layout_editor_absoluteY="287dp" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </LinearLayout>

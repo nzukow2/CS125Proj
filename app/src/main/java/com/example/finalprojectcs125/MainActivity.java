@@ -2,11 +2,13 @@ package com.example.finalprojectcs125;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.util.Log;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Switch;
 import android.widget.TextView;
 
@@ -43,6 +45,12 @@ import androidx.appcompat.app.AppCompatActivity;
  */
 
 public class MainActivity extends AppCompatActivity {
+    TextView timer , clicks;
+    Button empezar;
+    Button clicker;
+    CountDownTimer time;
+    int tiempo = 30;
+    int clix = 0;
 
     /** points
      * Does what it says! Holds and stores the points that we have accumulated
@@ -53,6 +61,44 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        timer = (TextView) findViewById(R.id.timer);
+        clicks = (TextView) findViewById(R.id.clicks);
+        empezar = (Button) findViewById(R.id.empezar);
+        clicker = (Button) findViewById(R.id.clicker);
+
+        empezar.setEnabled(true);
+        clicker.setEnabled(false);
+        time = new CountDownTimer(30000,1000) {
+            @Override
+            public void onTick(long millisUntilFinished) {
+                tiempo--;
+                timer.setText("Time: " + tiempo);
+            }
+
+            @Override
+            public void onFinish() {
+                empezar.setEnabled(true);
+                clicker.setEnabled(false);
+
+            }
+        };
+        clicker.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View x) {
+                clix++;
+                clicks.setText("Clicks: " + clix);
+            }
+        });
+
+        empezar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View x) {
+                time.start();
+                empezar.setEnabled(false);
+                clicker.setEnabled(true);
+
+            }
+        });
 
         // Sets the welcome screen text to something nice and welcoming :)
         String[] welcomeArray = new String[6];
@@ -206,7 +252,7 @@ public class MainActivity extends AppCompatActivity {
             settingsMenuTransition();
         });
 
-        Button clickForPointsButton = findViewById(R.id.clickerAppClickingButton);
+        ImageButton clickForPointsButton = findViewById(R.id.clicker);
         clickForPointsButton.setOnClickListener(egggg -> {
             // TODO: 2019-12-05 Do something when they click the button to get points!
         });
