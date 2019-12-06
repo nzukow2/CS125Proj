@@ -35,8 +35,8 @@
 
         <Button
             android:id="@+id/empezar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="193dp"
+            android:layout_height="67dp"
             android:layout_marginBottom="42dp"
             android:text="attack!"
             app:layout_constraintBottom_toTopOf="@+id/gotoUpgradesFromClickerAppButton"
