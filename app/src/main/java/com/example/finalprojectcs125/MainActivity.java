@@ -191,7 +191,7 @@ public class MainActivity extends AppCompatActivity {
             public void onFinish() {
                 empezario.setEnabled(true);
                 clickerio.setEnabled(false);
-                String[] coercionArray = new String[7];
+                String[] coercionArray = new String[9];
                 double random = (Math.random() * (coercionArray.length - 1));
                 int cs225 = (int) Math.ceil(random);
                 coercionArray[0] = "Wanna play again?";
@@ -201,6 +201,8 @@ public class MainActivity extends AppCompatActivity {
                 coercionArray[4] = "clickclickclickclick---don't stop! let's play again!";
                 coercionArray[5] = "let us play again. shall we?";
                 coercionArray[6] = "my i5 four-core can run faster than you can click. click faster!";
+                coercionArray[7] = "Good work, but like my CS125 grade, it could be better. Try again?";
+                coercionArray[8] = "Have you gotten Arthritis yet? No? Then click some more!";
                 finished.setText(coercionArray[cs225]);
                 TextView clickerappPts = findViewById(R.id.clickerAppPointsTextView);
                 clickerappPts.setText("Total points: " + points);
