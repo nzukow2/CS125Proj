@@ -14,6 +14,8 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import org.w3c.dom.Text;
+
 /** Discussion page! This is where we will communicate so we know what we want & any issues we have - be as descriptive as possible
 /** IF a task needs to be done, use the TODO text to do so
  *
@@ -122,6 +124,10 @@ public class MainActivity extends AppCompatActivity {
             mainMenuButtonReinitializer();
         });
     }
+
+    /** clickerGame
+     * Your Documentation here!
+     */
     public void clickerGame() {
         setContentView(R.layout.clickergame_gaming);
         timerio = findViewById(R.id.timer);
@@ -272,15 +278,80 @@ public class MainActivity extends AppCompatActivity {
             settingsMenuTransition();
         });
 
-        //Button clickForPointsButton = findViewById(R.id.clicker);
-        //clickForPointsButton.setOnClickListener(egggg -> {
-            // TODO: 2019-12-05 Do something when they click the button to get points!
-        //});
-
         Button upgradePointsButton = findViewById(R.id.gotoUpgradesFromClickerAppButton);
         upgradePointsButton.setOnClickListener(transitionTime -> {
+            clickerUpgradePageOneTransition();
             // TODO: 2019-12-05 Add transition to upgrade menu!
         });
+    }
+
+    public void clickerUpgradePageOneTransition() {
+        setContentView(R.layout.clickerupgrades_menu);
+
+        Button upgrade1 = findViewById(R.id.upgrade1);
+        upgrade1.setOnClickListener(e -> {
+
+        });
+
+        Button upgrade2 = findViewById(R.id.upgrade2);
+        upgrade2.setOnClickListener(e -> {
+
+        });
+
+        Button upgrade3 = findViewById(R.id.upgrade3);
+        upgrade3.setOnClickListener(e -> {
+
+        });
+
+        Button upgrade4 = findViewById(R.id.upgrade4);
+        upgrade4.setOnClickListener(e -> {
+
+        });
+
+        Button upgrade5 = findViewById(R.id.upgrade5);
+        upgrade5.setOnClickListener(e -> {
+
+        });
+
+        Button upgrade6 = findViewById(R.id.upgrade6);
+        upgrade6.setOnClickListener(e -> {
+
+        });
+
+        Button upgrade7 = findViewById(R.id.upgrade7);
+        upgrade7.setOnClickListener(e -> {
+
+        });
+
+        Button upgrade8 = findViewById(R.id.upgrade8);
+        upgrade8.setOnClickListener(e -> {
+
+        });
+
+        TextView upgradeText1 = findViewById(R.id.upgradeText1);
+        upgradeText1.setText("Upgrade1Text");
+
+        TextView upgradeText2 = findViewById(R.id.upgradeText2);
+        upgradeText2.setText("Upgrade2Text");
+
+        TextView upgradeText3 = findViewById(R.id.upgradeText3);
+        upgradeText3.setText("Upgrade3Text");
+
+        TextView upgradeText4 = findViewById(R.id.upgradeText4);
+        upgradeText4.setText("Upgrade4Text");
+
+        TextView upgradeText5 = findViewById(R.id.upgradeText5);
+        upgradeText5.setText("Upgrade5Text");
+
+        TextView upgradeText6 = findViewById(R.id.upgradeText6);
+        upgradeText6.setText("Upgrade6Text");
+
+        TextView upgradeText7 = findViewById(R.id.upgradeText7);
+        upgradeText7.setText("Upgrade7Text");
+
+        TextView upgradeText8 = findViewById(R.id.upgradeText8);
+        upgradeText8.setText("Upgrade8Text");
+
     }
 
 

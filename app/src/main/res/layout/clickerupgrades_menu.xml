@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+            android:id="@+id/upgrade1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Button"
+            tools:layout_editor_absoluteX="5dp"
+            tools:layout_editor_absoluteY="26dp" />
+
+        <Button
+            android:id="@+id/upgrade3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Button"
+            tools:layout_editor_absoluteX="8dp"
+            tools:layout_editor_absoluteY="144dp" />
+
+        <Button
+            android:id="@+id/upgrade4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Button"
+            tools:layout_editor_absoluteX="8dp"
+            tools:layout_editor_absoluteY="251dp" />
+
+        <Button
+            android:id="@+id/upgrade5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Button"
+            tools:layout_editor_absoluteX="8dp"
+            tools:layout_editor_absoluteY="347dp" />
+
+        <Button
+            android:id="@+id/upgrade6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Button"
+            tools:layout_editor_absoluteX="6dp"
+            tools:layout_editor_absoluteY="434dp" />
+
+        <Button
+            android:id="@+id/upgrade7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Button"
+            tools:layout_editor_absoluteX="6dp"
+            tools:layout_editor_absoluteY="534dp" />
+
+        <Button
+            android:id="@+id/upgrade8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Button"
+            tools:layout_editor_absoluteX="1dp"
+            tools:layout_editor_absoluteY="626dp" />
+
+        <Button
+            android:id="@+id/upgrade2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Button"
+            tools:layout_editor_absoluteX="3dp"
+            tools:layout_editor_absoluteY="78dp" />
+
+        <TextView
+            android:id="@+id/upgradeText1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            tools:layout_editor_absoluteX="160dp"
+            tools:layout_editor_absoluteY="37dp" />
+
+        <TextView
+            android:id="@+id/upgradeText2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            tools:layout_editor_absoluteX="160dp"
+            tools:layout_editor_absoluteY="91dp" />
+
+        <TextView
+            android:id="@+id/upgradeText3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            tools:layout_editor_absoluteX="153dp"
+            tools:layout_editor_absoluteY="155dp" />
+
+        <TextView
+            android:id="@+id/upgradeText4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            tools:layout_editor_absoluteX="178dp"
+            tools:layout_editor_absoluteY="282dp" />
+
+        <TextView
+            android:id="@+id/upgradeText5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            tools:layout_editor_absoluteX="176dp"
+            tools:layout_editor_absoluteY="368dp" />
+
+        <TextView
+            android:id="@+id/upgradeText6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            tools:layout_editor_absoluteX="182dp"
+            tools:layout_editor_absoluteY="451dp" />
+
+        <TextView
+            android:id="@+id/upgradeText7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            tools:layout_editor_absoluteX="178dp"
+            tools:layout_editor_absoluteY="552dp" />
+
+        <TextView
+            android:id="@+id/upgradeText8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            tools:layout_editor_absoluteX="182dp"
+            tools:layout_editor_absoluteY="638dp" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>
