@@ -93,16 +93,13 @@ public class MainActivity extends AppCompatActivity {
      * Does what it says! Holds and stores the points that we have accumulated
      */
     public static int points;
+    public static int seshpts;
+
 
     /** pointsPerClick
      * Sets the pointsPerClick! Initially is 1 point per click
      */
     public static int pointsPerClick;
-
-    /** loadTime
-     * The amount of time in seconds the user will need to wait until the page loads
-     */
-    int loadTime = 10;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -537,7 +534,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.clickerupgrades_menu);
         leftClickerGame = false;
 
-        // X upgrade - costs 100
         Button upgrade1 = findViewById(R.id.upgrade1);
         if (points < 100 || upgrade1Purchased) {
             upgrade1.setEnabled(false);
@@ -553,7 +549,6 @@ public class MainActivity extends AppCompatActivity {
             upgrade1Purchased = true;
         });
 
-        // X upgrade - costs 500
         Button upgrade2 = findViewById(R.id.upgrade2);
         if (points < 500 || upgrade2Purchased) {
             upgrade2.setEnabled(false);
@@ -568,7 +563,6 @@ public class MainActivity extends AppCompatActivity {
             upgrade2Purchased = true;
         });
 
-        // X upgrade - costs 1000
         Button upgrade3 = findViewById(R.id.upgrade3);
         if (points < 1000 || upgrade3Purchased) {
             upgrade3.setEnabled(false);
@@ -584,11 +578,10 @@ public class MainActivity extends AppCompatActivity {
                 upgrade3Purchased = true;
             });
 
-        // X upgrade - costs 2000
         Button upgrade4 = findViewById(R.id.upgrade4);
-        if (points < 2000 || upgrade4Purchased) {
+        if (points < 2000) {
             upgrade4.setEnabled(false);
-        } else if (points >= 2000 && !upgrade4Purchased){
+        } else {
             upgrade4.setEnabled(true);
         }
         upgrade4.setOnClickListener(e -> {
@@ -596,67 +589,31 @@ public class MainActivity extends AppCompatActivity {
             points = points - 2000;
             upgrade4.setEnabled(false);
             upgrade4.setText("PURCHASED");
-            upgrade4Purchased = true;
+
         });
 
-        //i5 upgrade - cost 4k
+        //i5 upgrade
         Button upgrade5 = findViewById(R.id.upgrade5);
-        if (points < 4000 || upgrade5Purchased) {
-            upgrade5.setEnabled(false);
-        } else if (points >= 4000 && !upgrade5Purchased) {
-            upgrade5.setEnabled(true);
-        }
         upgrade5.setOnClickListener(e -> {
-            loadTime = 7;
-            points = points - 4000;
-            upgrade5.setEnabled(false);
-            upgrade5.setText("PURCHASED");
-            upgrade5Purchased = true;
+
         });
 
-        //i7 upgrade - cost 6k
+        //i7 upgrade
         Button upgrade6 = findViewById(R.id.upgrade6);
-        if (points < 6000 || upgrade6Purchased) {
-            upgrade6.setEnabled(false);
-        } else if (points >= 6000 && !upgrade6Purchased) {
-            upgrade6.setEnabled(true);
-        }
         upgrade6.setOnClickListener(e -> {
-            loadTime = 5;
-            points = points - 6000;
-            upgrade6.setEnabled(false);
-            upgrade6.setText("PURCHASED");
-            upgrade6Purchased = true;
+
         });
 
-        //i9 upgrade - cost 8k
+        //i9 upgrade
         Button upgrade7 = findViewById(R.id.upgrade7);
-        if (points < 8000 || upgrade7Purchased) {
-            upgrade7.setEnabled(false);
-        } else if (points >= 8000 && !upgrade7Purchased) {
-            upgrade7.setEnabled(true);
-        }
         upgrade7.setOnClickListener(e -> {
-            loadTime = 3;
-            points = points - 8000;
-            upgrade7.setEnabled(false);
-            upgrade7.setText("PURCHASED");
-            upgrade7Purchased = true;
+
         });
 
-        //threadripper upgrade - cost 10k
+        //threadripper upgrade
         Button upgrade8 = findViewById(R.id.upgrade8);
-        if (points < 10000 || upgrade8Purchased) {
-            upgrade8.setEnabled(false);
-        } else if (points >= 10000 && !upgrade8Purchased) {
-            upgrade8.setEnabled(true);
-        }
         upgrade8.setOnClickListener(e -> {
-            loadTime = 0;
-            points = points - 10000;
-            upgrade8.setEnabled(false);
-            upgrade8.setText("PURCHASED");
-            upgrade8Purchased = true;
+
         });
 
         Button returnToClickerApp = findViewById(R.id.returnToClickerApp);
@@ -688,55 +645,30 @@ public class MainActivity extends AppCompatActivity {
         TextView upgradeText8 = findViewById(R.id.upgradeText8);
         upgradeText8.setText("Upgrade8Text");
 
-        // vvv These set the text for if the upgrade has been purchased (global boolean) vvv
-
-
-        if (upgrade1Purchased) { // Points per click upgrade 1
+        // These set the text for if the upgrade has been purchased (global boolean)
+        if (upgrade1Purchased) {
             upgrade1.setText("PURCHASED");
-        } else {
-            upgrade1.setText("Up1"); // TODO: 2019-12-07 Change text here for powerup button name & same for below
         }
-        // -------------------------------
-        if (upgrade2Purchased) { // Points per click upgrade 2
+        if (upgrade2Purchased) {
             upgrade2.setText("PURCHASED");
-        } else {
-            upgrade2.setText("Up2");
         }
-        // -------------------------------
-        if(upgrade3Purchased) { // Points per click upgrade 3
+        if(upgrade3Purchased) {
             upgrade3.setText("PURCHASED");
-        } else {
-            upgrade3.setText("Up3");
         }
-        // -------------------------------
-        if(upgrade4Purchased) { // Points per click upgrade 4
+        if(upgrade4Purchased) {
             upgrade4.setText("PURCHASED");
-        } else {
-            upgrade4.setText("Up4");
         }
-        // -------------------------------
-        if(upgrade5Purchased) { //i5
+        if(upgrade5Purchased) {
             upgrade5.setText("PURCHASED");
-        } else {
-            upgrade5.setText("Up5");
         }
-        // -------------------------------
-        if(upgrade6Purchased) { //i7
+        if(upgrade6Purchased) {
             upgrade6.setText("PURCHASED");
-        } else {
-            upgrade6.setText("Up6");
         }
-        // -------------------------------
-        if(upgrade7Purchased) { //i9
+        if(upgrade7Purchased) {
             upgrade7.setText("PURCHASED");
-        } else {
-            upgrade7.setText("Up7");
         }
-        // -------------------------------
-        if(upgrade8Purchased) { //threadripper
+        if(upgrade8Purchased) {
             upgrade8.setText("PURCHASED");
-        } else {
-            upgrade8.setText("Up8");
         }
     }
 
