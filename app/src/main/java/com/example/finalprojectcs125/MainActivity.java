@@ -266,6 +266,9 @@ public class MainActivity extends AppCompatActivity {
         /**
          * this is the clicker button itself.
          */
+        ImageButton eniacclicker;
+        eniacclicker = findViewById(R.id.eniacclicker);
+        eniacclicker.setEnabled(false);
 
         clickerio = findViewById(R.id.clicker);
 
@@ -277,6 +280,7 @@ public class MainActivity extends AppCompatActivity {
          * this textview encourages the user to keep playing once the timer has run out.
          */
         TextView finished = findViewById(R.id.finished);
+
 
         time = new CountDownTimer(30000,1000) {
             @Override
@@ -486,6 +490,11 @@ public class MainActivity extends AppCompatActivity {
         // TODO: 2019-12-07 add transition loading here
         setContentView(R.layout.clickergame_gaming);
         leftClickerGame = false;
+
+        ImageButton eniacclicker = findViewById(R.id.eniacclicker);
+        eniacclicker.setVisibility(View.GONE);
+
+       // if ()
 
         Button returnToMainMenuButton = findViewById(R.id.gotoMainMenuFromClickerAppButton);
         returnToMainMenuButton.setOnClickListener(egg -> {
