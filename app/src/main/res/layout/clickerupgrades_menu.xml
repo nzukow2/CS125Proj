@@ -13,137 +13,203 @@
             android:id="@+id/upgrade1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Button"
-            tools:layout_editor_absoluteX="5dp"
-            tools:layout_editor_absoluteY="26dp" />
+            android:layout_marginStart="1dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginEnd="9dp"
+            android:layout_marginBottom="25dp"
+            android:text="upgrade1"
+            app:layout_constraintBottom_toTopOf="@+id/upgrade2"
+            app:layout_constraintEnd_toStartOf="@+id/upgradeText1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <Button
             android:id="@+id/upgrade3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Button"
-            tools:layout_editor_absoluteX="8dp"
-            tools:layout_editor_absoluteY="144dp" />
+            android:layout_marginStart="1dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginEnd="9dp"
+            android:layout_marginBottom="31dp"
+            android:text="upgrade3"
+            app:layout_constraintBottom_toTopOf="@+id/upgrade4"
+            app:layout_constraintEnd_toStartOf="@+id/upgradeText3"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/upgrade2" />
 
         <Button
             android:id="@+id/upgrade4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Button"
-            tools:layout_editor_absoluteX="8dp"
-            tools:layout_editor_absoluteY="251dp" />
+            android:layout_marginStart="1dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginEnd="9dp"
+            android:text="upgrade4"
+            app:layout_constraintEnd_toStartOf="@+id/upgradeText4"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/upgrade3" />
 
         <Button
             android:id="@+id/upgrade5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Button"
-            tools:layout_editor_absoluteX="8dp"
-            tools:layout_editor_absoluteY="347dp" />
+            android:layout_marginStart="1dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginEnd="9dp"
+            android:text="upgrade5"
+            app:layout_constraintEnd_toStartOf="@+id/upgradeText5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/upgrade4" />
 
         <Button
             android:id="@+id/upgrade6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Button"
-            tools:layout_editor_absoluteX="6dp"
-            tools:layout_editor_absoluteY="434dp" />
+            android:layout_marginStart="1dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginEnd="9dp"
+            android:text="upgrade6"
+            app:layout_constraintEnd_toStartOf="@+id/upgradeText6"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/upgrade5" />
 
         <Button
             android:id="@+id/upgrade7"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Button"
-            tools:layout_editor_absoluteX="6dp"
-            tools:layout_editor_absoluteY="534dp" />
+            android:layout_marginStart="1dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginEnd="9dp"
+            android:text="upgrade7"
+            app:layout_constraintEnd_toStartOf="@+id/upgradeText7"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/upgrade6" />
 
         <Button
             android:id="@+id/upgrade8"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Button"
-            tools:layout_editor_absoluteX="1dp"
-            tools:layout_editor_absoluteY="626dp" />
+            android:layout_marginStart="1dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginEnd="9dp"
+            android:text="upgrade8"
+            app:layout_constraintEnd_toStartOf="@+id/upgradeText8"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/upgrade7" />
 
         <Button
             android:id="@+id/upgrade2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Button"
-            tools:layout_editor_absoluteX="3dp"
-            tools:layout_editor_absoluteY="78dp" />
+            android:layout_marginStart="1dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginEnd="9dp"
+            android:text="upgrade2"
+            app:layout_constraintEnd_toStartOf="@+id/upgradeText2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/upgrade1" />
 
         <TextView
             android:id="@+id/upgradeText1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="240dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="11dp"
+            android:layout_marginEnd="62dp"
             android:text="TextView"
-            tools:layout_editor_absoluteX="160dp"
-            tools:layout_editor_absoluteY="37dp" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/upgrade1"
+            tools:layout_editor_absoluteY="25dp" />
 
         <TextView
             android:id="@+id/upgradeText2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="240dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="11dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginEnd="62dp"
             android:text="TextView"
-            tools:layout_editor_absoluteX="160dp"
-            tools:layout_editor_absoluteY="91dp" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/upgrade2"
+            app:layout_constraintTop_toBottomOf="@+id/upgradeText1" />
 
         <TextView
             android:id="@+id/upgradeText3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="240dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="11dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginEnd="62dp"
             android:text="TextView"
-            tools:layout_editor_absoluteX="153dp"
-            tools:layout_editor_absoluteY="155dp" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/upgrade3"
+            app:layout_constraintTop_toBottomOf="@+id/upgradeText2" />
 
         <TextView
             android:id="@+id/upgradeText4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="240dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="11dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginEnd="62dp"
             android:text="TextView"
-            tools:layout_editor_absoluteX="178dp"
-            tools:layout_editor_absoluteY="282dp" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/upgrade4"
+            app:layout_constraintTop_toBottomOf="@+id/upgradeText3" />
 
         <TextView
             android:id="@+id/upgradeText5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="240dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="11dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginEnd="62dp"
             android:text="TextView"
-            tools:layout_editor_absoluteX="176dp"
-            tools:layout_editor_absoluteY="368dp" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/upgrade5"
+            app:layout_constraintTop_toBottomOf="@+id/upgradeText4" />
 
         <TextView
             android:id="@+id/upgradeText6"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="240dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="11dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginEnd="62dp"
             android:text="TextView"
-            tools:layout_editor_absoluteX="182dp"
-            tools:layout_editor_absoluteY="451dp" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/upgrade6"
+            app:layout_constraintTop_toBottomOf="@+id/upgradeText5" />
 
         <TextView
             android:id="@+id/upgradeText7"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="240dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="11dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginEnd="62dp"
             android:text="TextView"
-            tools:layout_editor_absoluteX="178dp"
-            tools:layout_editor_absoluteY="552dp" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/upgrade7"
+            app:layout_constraintTop_toBottomOf="@+id/upgradeText6" />
 
         <TextView
             android:id="@+id/upgradeText8"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="240dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="11dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginEnd="62dp"
             android:text="TextView"
-            tools:layout_editor_absoluteX="182dp"
-            tools:layout_editor_absoluteY="638dp" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/upgrade8"
+            app:layout_constraintTop_toBottomOf="@+id/upgradeText7" />
 
         <Button
             android:id="@+id/returnToClickerApp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="214dp"
-            android:layout_marginBottom="1dp"
-            android:text="Button"
+            android:layout_width="203dp"
+            android:layout_height="40dp"
+            android:layout_marginEnd="112dp"
+            android:text="Return "
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>

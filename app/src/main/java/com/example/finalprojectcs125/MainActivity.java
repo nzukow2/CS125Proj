@@ -2,18 +2,22 @@ package com.example.finalprojectcs125;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.text.Layout;
 import android.util.Log;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.Switch;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 
 /** Discussion page! This is where we will communicate so we know what we want & any issues we have - be as descriptive as possible
@@ -55,6 +59,11 @@ public class MainActivity extends AppCompatActivity {
     public  TextView clicksio;
     public  Button empezario;
     public ImageButton clickerio;
+    boolean BackgroundColorChanger = true;
+    /**
+     * checks if button has been clicked.
+     */
+    boolean isClicked = false;
 
     CountDownTimer time;
 
@@ -80,7 +89,31 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-       SharedPreferences.Editor save = getSharedPreferences("myInt", MODE_PRIVATE).edit();
+
+        Button deckmode = findViewById(R.id.deckmode);
+        ConstraintLayout activityMain = findViewById(R.id.activity_main);
+        //ConstraintLayout j = findViewById(R.id.j);
+        deckmode.setOnClickListener(m -> {
+            if (BackgroundColorChanger) {
+                activityMain.setBackgroundColor(Color.BLUE);
+                BackgroundColorChanger = false;
+                //j.setBackgroundColor(Color.BLUE);
+
+            } else {
+                activityMain.setBackgroundColor(Color.WHITE);
+                BackgroundColorChanger = true;
+               // j.setBackgroundColor(Color.WHITE);
+
+            }
+        });
+
+
+
+
+        /**
+         * will save data if we choose to enable
+         */
+        SharedPreferences.Editor save = getSharedPreferences("myInt", MODE_PRIVATE).edit();
        save.putInt("points", points);
        save.apply();
 
@@ -345,6 +378,23 @@ public class MainActivity extends AppCompatActivity {
 
         TextView menuTextPoints = findViewById(R.id.menuPointsTextView);
         menuTextPoints.setText("You have: " + points + " points");
+
+        Button deckmode = findViewById(R.id.deckmode);
+        ConstraintLayout activityMain = findViewById(R.id.activity_main);
+        //ConstraintLayout j = findViewById(R.id.j);
+        deckmode.setOnClickListener(m -> {
+            if (BackgroundColorChanger) {
+                activityMain.setBackgroundColor(Color.BLUE);
+                BackgroundColorChanger = false;
+                //j.setBackgroundColor(Color.BLUE);
+
+            } else {
+                activityMain.setBackgroundColor(Color.WHITE);
+                BackgroundColorChanger = true;
+                // j.setBackgroundColor(Color.WHITE);
+
+            }
+        });
     }
 
 
@@ -374,7 +424,10 @@ public class MainActivity extends AppCompatActivity {
         });
 
         TextView yourPoints = findViewById(R.id.clickerAppPointsTextView);
-        yourPoints.setText("Points: " + points);
+        yourPoints.setText(" Total Points: " + points);
+
+        TextView pointsPerClicks = findViewById((R.id.ppc));
+        pointsPerClicks.setText("Points per click: " + pointsPerClick);
 
         Button upgradePointsButton = findViewById(R.id.gotoUpgradesFromClickerAppButton);
         upgradePointsButton.setOnClickListener(transitionTime -> {
@@ -398,22 +451,57 @@ public class MainActivity extends AppCompatActivity {
         leftClickerGame = true;
 
         Button upgrade1 = findViewById(R.id.upgrade1);
-        upgrade1.setOnClickListener(e -> {
+        if (points < 100) {
+            upgrade1.setEnabled(false);
+        } else {
+            upgrade1.setEnabled(true);
+        }
 
+        upgrade1.setOnClickListener(e -> {
+            pointsPerClick = 2;
+            points = points - 100;
+            upgrade1.setEnabled(false);
+            upgrade1.setText("PURCHASED");
+            upgrade1.setOnClickListener(null);
         });
 
         Button upgrade2 = findViewById(R.id.upgrade2);
+        if (points < 500) {
+            upgrade2.setEnabled(false);
+        } else {
+            upgrade2.setEnabled(true);
+        }
         upgrade2.setOnClickListener(e -> {
-
+            pointsPerClick = 4;
+            points = points - 500;
+            upgrade2.setEnabled(false);
+            upgrade2.setText("PURCHASED");
         });
 
         Button upgrade3 = findViewById(R.id.upgrade3);
+        if (points < 1000) {
+            upgrade3.setEnabled(false);
+        } else {
+            upgrade3.setEnabled(true);
+        }
         upgrade3.setOnClickListener(e -> {
-
+            pointsPerClick = 6;
+            points = points - 1000;
+            upgrade3.setEnabled(false);
+            upgrade3.setText("PURCHASED");
         });
 
         Button upgrade4 = findViewById(R.id.upgrade4);
+        if (points < 2000) {
+            upgrade4.setEnabled(false);
+        } else {
+            upgrade4.setEnabled(true);
+        }
         upgrade4.setOnClickListener(e -> {
+            pointsPerClick = 8;
+            points = points - 2000;
+            upgrade4.setEnabled(false);
+            upgrade4.setText("PURCHASED");
 
         });
 
@@ -443,16 +531,16 @@ public class MainActivity extends AppCompatActivity {
         });
 
         TextView upgradeText1 = findViewById(R.id.upgradeText1);
-        upgradeText1.setText("Upgrade1Text");
+        upgradeText1.setText("student powerup");
 
         TextView upgradeText2 = findViewById(R.id.upgradeText2);
-        upgradeText2.setText("Upgrade2Text");
+        upgradeText2.setText("10xer student powerup");
 
         TextView upgradeText3 = findViewById(R.id.upgradeText3);
-        upgradeText3.setText("Upgrade3Text");
+        upgradeText3.setText("CA powerup");
 
         TextView upgradeText4 = findViewById(R.id.upgradeText4);
-        upgradeText4.setText("Upgrade4Text");
+        upgradeText4.setText("TA powerup");
 
         TextView upgradeText5 = findViewById(R.id.upgradeText5);
         upgradeText5.setText("Upgrade5Text");

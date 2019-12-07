@@ -2,10 +2,13 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:id="@+id/clickerGaming"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/j"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -113,14 +116,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/clicker" />
-
-        <TextView
-            android:id="@+id/seshpts"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Session points: 0"
-            tools:layout_editor_absoluteX="317dp"
-            tools:layout_editor_absoluteY="500dp" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
