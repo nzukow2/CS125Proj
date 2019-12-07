@@ -3,6 +3,8 @@ package com.example.finalprojectcs125;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.Color;
+import android.media.MediaPlayer;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.text.Layout;
@@ -15,6 +17,7 @@ import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.Switch;
 import android.widget.TextView;
+import android.widget.VideoView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
@@ -61,6 +64,11 @@ public class MainActivity extends AppCompatActivity {
     public ImageButton clickerio;
     boolean BackgroundColorChanger = true;
     /**
+     * music
+     */
+    MediaPlayer song;
+    MediaPlayer song2;
+    /**
      * checks if button has been clicked.
      */
     boolean isClicked = false;
@@ -90,6 +98,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        /**
+         * changes the background color. Probably needs to be moved to settings.
+         */
         Button deckmode = findViewById(R.id.deckmode);
         ConstraintLayout activityMain = findViewById(R.id.activity_main);
         //ConstraintLayout j = findViewById(R.id.j);
@@ -106,6 +117,39 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+        VideoView video = (VideoView) findViewById(R.id.videoView);
+        Uri uri = Uri.parse("android.resource://"+getPackageName()+"/"+R.raw.vid);
+        video.setVideoURI(uri);
+        video.start();
+        video.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
+            @Override
+            public void onPrepared(MediaPlayer mp) {
+                mp.setLooping(true);
+            }
+        });
+
+        /**
+         * adds music
+         */
+        song = MediaPlayer.create(this, R.raw.song);
+        song.setLooping(true);
+        song.setVolume(100,100);
+        song.start();
+        //MediaPlayer ring= MediaPlayer.create(MainActivity.this,R.raw.song);
+       // ring.start();
+
+
+        View currentView = this.findViewById(android.R.id.content);
+        ConstraintLayout clickup = findViewById(R.id.clickup);
+        if (currentView.equals(clickup)) {
+            song2 = MediaPlayer.create(this, R.raw.songupgrades);
+            song2.setLooping(true);
+            song2.setVolume(100,100);
+            song2.start();
+        } else {
+            //song2.stop();
+            song.start();
+        }
 
 
 
@@ -340,6 +384,11 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         leftClickerGame = true;
 
+        VideoView video= (VideoView) findViewById(R.id.videoView);
+        Uri uri = Uri.parse("android.resource://"+getPackageName()+"/"+R.raw.vid);
+        video.setVideoURI(uri);
+        video.start();
+
         String[] welcomeArray = new String[6];
         double random = (Math.random() * (welcomeArray.length - 1));
         int replacer = (int) Math.ceil(random);
@@ -395,6 +444,18 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+        //VideoView video = (VideoView) findViewById(R.id.videoView);
+        //Uri uri = Uri.parse("android.resource://"+getPackageName()+"/"+R.raw.vid);
+        video.setVideoURI(uri);
+        video.start();
+        video.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
+            @Override
+            public void onPrepared(MediaPlayer mp) {
+                mp.setLooping(true);
+            }
+        });
+        //MediaPlayer ring= MediaPlayer.create(MainActivity.this,R.raw.song);
+       // ring.start();
     }
 
 
@@ -431,6 +492,7 @@ public class MainActivity extends AppCompatActivity {
 
         Button upgradePointsButton = findViewById(R.id.gotoUpgradesFromClickerAppButton);
         upgradePointsButton.setOnClickListener(transitionTime -> {
+            leftClickerGame = true;
             clickerUpgradePageOneTransition();
         });
 
@@ -448,7 +510,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void clickerUpgradePageOneTransition() {
         setContentView(R.layout.clickerupgrades_menu);
-        leftClickerGame = true;
+        leftClickerGame = false;
 
         Button upgrade1 = findViewById(R.id.upgrade1);
         if (points < 100) {
