@@ -24,7 +24,7 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 
 
 /** Discussion page! This is where we will communicate so we know what we want & any issues we have - be as descriptive as possible
-/** IF a task needs to be done, use the TODO text to do so
+ /** IF a task needs to be done, use the TODO text to do so
  *
  * Feedback Page ---------------
  * I would prefer if we did not have our email in clear text. The app should do work behind to scenes to take their info and send/store it
@@ -45,6 +45,7 @@ import androidx.constraintlayout.widget.ConstraintLayout;
  * todo make the page & theme & upgrade page
  * todo upgrades being x points per click, points per sec
  * todo special abilities IF time
+ * todo fix transition crash
  *
  *
  * General Critiques ---------
@@ -69,9 +70,16 @@ public class MainActivity extends AppCompatActivity {
     MediaPlayer song;
     MediaPlayer song2;
     /**
-     * checks if button has been clicked.
+     * checks if X upgrade has been purchased.
      */
-    boolean isClicked = false;
+    boolean upgrade1Purchased = false;
+    boolean upgrade2Purchased = false;
+    boolean upgrade3Purchased = false;
+    boolean upgrade4Purchased = false;
+    boolean upgrade5Purchased = false;
+    boolean upgrade6Purchased = false;
+    boolean upgrade7Purchased = false;
+    boolean upgrade8Purchased = false;
 
     CountDownTimer time;
 
@@ -81,7 +89,7 @@ public class MainActivity extends AppCompatActivity {
     boolean startClickerGame = true;
     boolean leftClickerGame = false;
 
-     /** points
+    /** points
      * Does what it says! Holds and stores the points that we have accumulated
      */
     public static int points;
@@ -96,6 +104,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        // TODO: 2019-12-07 brief transition when starting app 
         setContentView(R.layout.activity_main);
 
         /**
@@ -113,7 +122,7 @@ public class MainActivity extends AppCompatActivity {
             } else {
                 activityMain.setBackgroundColor(Color.WHITE);
                 BackgroundColorChanger = true;
-               // j.setBackgroundColor(Color.WHITE);
+                // j.setBackgroundColor(Color.WHITE);
 
             }
         });
@@ -136,7 +145,7 @@ public class MainActivity extends AppCompatActivity {
         song.setVolume(100,100);
         song.start();
         //MediaPlayer ring= MediaPlayer.create(MainActivity.this,R.raw.song);
-       // ring.start();
+        // ring.start();
 
 
         View currentView = this.findViewById(android.R.id.content);
@@ -158,11 +167,11 @@ public class MainActivity extends AppCompatActivity {
          * will save data if we choose to enable
          */
         SharedPreferences.Editor save = getSharedPreferences("myInt", MODE_PRIVATE).edit();
-       save.putInt("points", points);
-       save.apply();
+        save.putInt("points", points);
+        save.apply();
 
-       SharedPreferences pref = getSharedPreferences("PreferencesName", MODE_PRIVATE);
-       int myInt = pref.getInt("points",0);
+        SharedPreferences pref = getSharedPreferences("PreferencesName", MODE_PRIVATE);
+        int myInt = pref.getInt("points",0);
 
         pointsPerClick = 1;
 
@@ -216,6 +225,7 @@ public class MainActivity extends AppCompatActivity {
      * transitions us to the feedbackMenu and initializes all the buttons
      */
     public void feedbackTransition() {
+        // TODO: 2019-12-07 add transition func here 
         setContentView(R.layout.feedback_layout);
         TextView feedtext = findViewById(R.id.feedtext);
         feedtext.setVisibility(View.VISIBLE);
@@ -303,6 +313,7 @@ public class MainActivity extends AppCompatActivity {
                 if (leftClickerGame == false) {
                     TextView clickerappPts = findViewById(R.id.clickerAppPointsTextView);
                     clickerappPts.setText("Total points: " + points);
+                    // TODO: 2019-12-07 Fix this bug
                 }
             }
         };
@@ -336,7 +347,7 @@ public class MainActivity extends AppCompatActivity {
                 }
 
             }
-            
+
         });
 
     }
@@ -344,6 +355,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void settingsMenuTransition() {
+        // TODO: 2019-12-07 add transition loading here
         setContentView(R.layout.setting_menu);
         leftClickerGame = true;
 
@@ -384,7 +396,7 @@ public class MainActivity extends AppCompatActivity {
      * Reinitializes all the buttons and stuff on the main menu!
      */
     public void mainMenuButtonReinitializer() {
-
+        // TODO: 2019-12-07 add transition loading here 
         setContentView(R.layout.activity_main);
         leftClickerGame = true;
 
@@ -459,7 +471,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         //MediaPlayer ring= MediaPlayer.create(MainActivity.this,R.raw.song);
-       // ring.start();
+        // ring.start();
     }
 
 
@@ -475,6 +487,7 @@ public class MainActivity extends AppCompatActivity {
      */
 
     public void clickerGameTransition() {
+        // TODO: 2019-12-07 add transition loading here
         setContentView(R.layout.clickergame_gaming);
         leftClickerGame = false;
 
@@ -522,9 +535,9 @@ public class MainActivity extends AppCompatActivity {
         leftClickerGame = false;
 
         Button upgrade1 = findViewById(R.id.upgrade1);
-        if (points < 100) {
+        if (points < 100 || upgrade1Purchased) {
             upgrade1.setEnabled(false);
-        } else {
+        } else if (points >= 100 && !upgrade1Purchased){
             upgrade1.setEnabled(true);
         }
 
@@ -533,13 +546,13 @@ public class MainActivity extends AppCompatActivity {
             points = points - 100;
             upgrade1.setEnabled(false);
             upgrade1.setText("PURCHASED");
-            upgrade1.setOnClickListener(null);
+            upgrade1Purchased = true;
         });
 
         Button upgrade2 = findViewById(R.id.upgrade2);
-        if (points < 500) {
+        if (points < 500 || upgrade2Purchased) {
             upgrade2.setEnabled(false);
-        } else {
+        } else if (points >= 500 && !upgrade2Purchased){
             upgrade2.setEnabled(true);
         }
         upgrade2.setOnClickListener(e -> {
@@ -547,20 +560,23 @@ public class MainActivity extends AppCompatActivity {
             points = points - 500;
             upgrade2.setEnabled(false);
             upgrade2.setText("PURCHASED");
+            upgrade2Purchased = true;
         });
 
         Button upgrade3 = findViewById(R.id.upgrade3);
-        if (points < 1000) {
+        if (points < 1000 || upgrade3Purchased) {
             upgrade3.setEnabled(false);
-        } else {
+        } else if (points >= 1000 && !upgrade3Purchased){
             upgrade3.setEnabled(true);
         }
-        upgrade3.setOnClickListener(e -> {
-            pointsPerClick = 6;
-            points = points - 1000;
-            upgrade3.setEnabled(false);
-            upgrade3.setText("PURCHASED");
-        });
+
+            upgrade3.setOnClickListener(e -> {
+                pointsPerClick = 6;
+                points = points - 1000;
+                upgrade3.setEnabled(false);
+                upgrade3.setText("PURCHASED");
+                upgrade3Purchased = true;
+            });
 
         Button upgrade4 = findViewById(R.id.upgrade4);
         if (points < 2000) {
@@ -576,21 +592,25 @@ public class MainActivity extends AppCompatActivity {
 
         });
 
+        //i5 upgrade
         Button upgrade5 = findViewById(R.id.upgrade5);
         upgrade5.setOnClickListener(e -> {
 
         });
 
+        //i7 upgrade
         Button upgrade6 = findViewById(R.id.upgrade6);
         upgrade6.setOnClickListener(e -> {
 
         });
 
+        //i9 upgrade
         Button upgrade7 = findViewById(R.id.upgrade7);
         upgrade7.setOnClickListener(e -> {
 
         });
 
+        //threadripper upgrade
         Button upgrade8 = findViewById(R.id.upgrade8);
         upgrade8.setOnClickListener(e -> {
 
@@ -625,8 +645,38 @@ public class MainActivity extends AppCompatActivity {
         TextView upgradeText8 = findViewById(R.id.upgradeText8);
         upgradeText8.setText("Upgrade8Text");
 
+        // These set the text for if the upgrade has been purchased (global boolean)
+        if (upgrade1Purchased) {
+            upgrade1.setText("PURCHASED");
+        }
+        if (upgrade2Purchased) {
+            upgrade2.setText("PURCHASED");
+        }
+        if(upgrade3Purchased) {
+            upgrade3.setText("PURCHASED");
+        }
+        if(upgrade4Purchased) {
+            upgrade4.setText("PURCHASED");
+        }
+        if(upgrade5Purchased) {
+            upgrade5.setText("PURCHASED");
+        }
+        if(upgrade6Purchased) {
+            upgrade6.setText("PURCHASED");
+        }
+        if(upgrade7Purchased) {
+            upgrade7.setText("PURCHASED");
+        }
+        if(upgrade8Purchased) {
+            upgrade8.setText("PURCHASED");
+        }
     }
 
+
+    public void loadingscreenTransition() {
+        setContentView(R.layout.loadingscreen_loader);
+        // This is where we'll put the code for the loading screen to do stuff!
+    }
 
 
     /** Below this block is work that has to do with the secretNameMethod & its transitions
@@ -701,7 +751,7 @@ public class MainActivity extends AppCompatActivity {
 
         if (compareName.equals("Angel Canty")) {
             points = 1000000000;
-            thankYouMessage.setText("Hey! I made this game!");
+            thankYouMessage.setText("Hey! I also made this game!");
             CS125Staff = true;
         }
 
@@ -836,4 +886,3 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 }
-
