@@ -24,7 +24,7 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 
 
 /** Discussion page! This is where we will communicate so we know what we want & any issues we have - be as descriptive as possible
-/** IF a task needs to be done, use the TODO text to do so
+ /** IF a task needs to be done, use the TODO text to do so
  *
  * Feedback Page ---------------
  * I would prefer if we did not have our email in clear text. The app should do work behind to scenes to take their info and send/store it
@@ -81,7 +81,7 @@ public class MainActivity extends AppCompatActivity {
     boolean startClickerGame = true;
     boolean leftClickerGame = false;
 
-     /** points
+    /** points
      * Does what it says! Holds and stores the points that we have accumulated
      */
     public static int points;
@@ -113,7 +113,7 @@ public class MainActivity extends AppCompatActivity {
             } else {
                 activityMain.setBackgroundColor(Color.WHITE);
                 BackgroundColorChanger = true;
-               // j.setBackgroundColor(Color.WHITE);
+                // j.setBackgroundColor(Color.WHITE);
 
             }
         });
@@ -136,7 +136,7 @@ public class MainActivity extends AppCompatActivity {
         song.setVolume(100,100);
         song.start();
         //MediaPlayer ring= MediaPlayer.create(MainActivity.this,R.raw.song);
-       // ring.start();
+        // ring.start();
 
 
         View currentView = this.findViewById(android.R.id.content);
@@ -158,11 +158,11 @@ public class MainActivity extends AppCompatActivity {
          * will save data if we choose to enable
          */
         SharedPreferences.Editor save = getSharedPreferences("myInt", MODE_PRIVATE).edit();
-       save.putInt("points", points);
-       save.apply();
+        save.putInt("points", points);
+        save.apply();
 
-       SharedPreferences pref = getSharedPreferences("PreferencesName", MODE_PRIVATE);
-       int myInt = pref.getInt("points",0);
+        SharedPreferences pref = getSharedPreferences("PreferencesName", MODE_PRIVATE);
+        int myInt = pref.getInt("points",0);
 
         pointsPerClick = 1;
 
@@ -332,7 +332,7 @@ public class MainActivity extends AppCompatActivity {
                 }
 
             }
-            
+
         });
 
     }
@@ -455,7 +455,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         //MediaPlayer ring= MediaPlayer.create(MainActivity.this,R.raw.song);
-       // ring.start();
+        // ring.start();
     }
 
 
@@ -827,4 +827,3 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 }
-
