@@ -687,7 +687,6 @@ public class MainActivity extends AppCompatActivity {
 
         TextView upgradeText8 = findViewById(R.id.upgradeText8);
         upgradeText8.setText("Upgrade8Text");
-
         // vvv These set the text for if the upgrade has been purchased (global boolean) vvv
 
 
