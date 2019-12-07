@@ -67,6 +67,8 @@ public class MainActivity extends AppCompatActivity {
      * Does what it says! Holds and stores the points that we have accumulated
      */
     public static int points;
+    public static int seshpts;
+
 
     /** pointsPerClick
      * Sets the pointsPerClick! Initially is 1 point per click
@@ -145,6 +147,7 @@ public class MainActivity extends AppCompatActivity {
             setContentView(R.layout.activity_main);
             mainMenuButtonReinitializer();
         });
+
     }
 
     /** clickerGame

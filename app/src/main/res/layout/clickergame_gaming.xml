@@ -59,7 +59,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="40dp"
-            android:text="clicks: 30"
+            android:text="clicks: 0"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.508"
             app:layout_constraintStart_toStartOf="parent"
@@ -101,6 +101,26 @@
             app:layout_constraintBottom_toTopOf="@+id/clicker"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/ppc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="283dp"
+            android:layout_marginTop="18dp"
+            android:layout_marginEnd="16dp"
+            android:text="Points per click: 1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/clicker" />
+
+        <TextView
+            android:id="@+id/seshpts"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Session points: 0"
+            tools:layout_editor_absoluteX="317dp"
+            tools:layout_editor_absoluteY="500dp" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
