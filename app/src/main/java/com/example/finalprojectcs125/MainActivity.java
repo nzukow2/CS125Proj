@@ -494,6 +494,22 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.clickergame_gaming);
         leftClickerGame = false;
 
+
+        if (era0UpgradeEquipped) {
+            // set clicker Icon to era 0
+        } else if (era1UpgradeEquipped) {
+            // set clicker Icon to era 1
+        } else if (era2UpgradeEquipped) {
+            // set clicker Icon to era 2
+        } else if (era3UpgradeEquipped) {
+            // set clicker Icon to era 3
+        } else if (era4UpgradeEquipped) {
+            // set clicker Icon to era 4
+        } else if (era5UpgradeEquipped) {
+            // set clicker Icon to era 5
+        }
+
+
         ImageButton eniacclicker = findViewById(R.id.eniacclicker);
         eniacclicker.setVisibility(View.GONE);
 
@@ -760,43 +776,122 @@ public class MainActivity extends AppCompatActivity {
     public boolean era4UpgradeBought = false;
     public boolean era5UpgradeBought = false;
 
+    public boolean era0UpgradeEquipped = true;
+    public boolean era1UpgradeEquipped = false;
+    public boolean era2UpgradeEquipped = false;
+    public boolean era3UpgradeEquipped = false;
+    public boolean era4UpgradeEquipped = false;
+    public boolean era5UpgradeEquipped = false;
+
     public void clickerUpgradePageTwoTransition() {
         setContentView(R.layout.clickerupgrades2_menu);
-
         Button backtoUpgradePageOne = findViewById(R.id.returnToUpgradePg1);
         backtoUpgradePageOne.setOnClickListener(eee -> {
             clickerUpgradePageOneTransition();
         });
 
+
+
+        Button era0Upgrade = findViewById(R.id.clickerButtonChange0);
+        if (!era0UpgradeEquipped) {
+            era0Upgrade.setText("Equip?");
+            era0Upgrade.setEnabled(true);
+        }
+        era0Upgrade.setOnClickListener(neutral -> {
+            era0Upgrade.setText("Equipped");
+            era0Upgrade.setEnabled(false);
+        });
+
+
+
+
         // 5k
         Button era1Upgrade = findViewById(R.id.clickerButtonChange1);
+        if (points < 5000 || era1UpgradeBought) {
+            era1Upgrade.setEnabled(false);
+        } else if (points >= 5000 && !era1UpgradeBought) {
+            era1Upgrade.setEnabled(true);
+        }
         era1Upgrade.setOnClickListener(e -> {
-
+            if (!era1UpgradeBought) {
+                points = points - 5000;
+                era1UpgradeBought = true;
+            }
+            // equip shenanigans
         });
+
+
+
 
         // 10k
         Button era2Upgrade = findViewById(R.id.clickerButtonChange2);
+        if (points < 10000 || era2UpgradeBought) {
+            era2Upgrade.setEnabled(false);
+        } else if (points >= 10000 && !era2UpgradeBought) {
+            era2Upgrade.setEnabled(true);
+        }
         era2Upgrade.setOnClickListener(ee -> {
-
+            if (!era1UpgradeBought) {
+                points = points - 10000;
+                era2UpgradeBought = true;
+            }
+            // equip shenanigans
         });
+
+
+
 
         // 15k
         Button era3Upgrade = findViewById(R.id.clickerButtonChange3);
+        if (points < 15000 || era3UpgradeBought) {
+            era3Upgrade.setEnabled(false);
+        } else if (points >= 15000 && !era3UpgradeBought) {
+            era3Upgrade.setEnabled(true);
+        }
         era3Upgrade.setOnClickListener(eee -> {
-
+            if (!era3UpgradeBought) {
+                points = points - 15000;
+                era3UpgradeBought = true;
+            }
+            // equip shenanigans
         });
+
+
+
 
         // 20k
         Button era4Upgrade = findViewById(R.id.clickerButtonChange4);
+        if (points < 20000 || era4UpgradeBought) {
+            era4Upgrade.setEnabled(false);
+        } else if (points >= 20000 && !era4UpgradeBought) {
+            era4Upgrade.setEnabled(true);
+        }
         era4Upgrade.setOnClickListener(eeee -> {
-
+            if (!era4UpgradeBought) {
+                points = points - 20000;
+                era4UpgradeBought = true;
+            }
+            // equip shenanigans
         });
+
+
+
 
         // 25k
         Button era5Upgrade = findViewById(R.id.clickerButtonChange5);
+        if (points < 25000 || era5UpgradeBought) {
+            era5Upgrade.setEnabled(false);
+        } else if (points >= 25000 && !era5UpgradeBought) {
+            era5Upgrade.setEnabled(true);
+        }
         era5Upgrade.setOnClickListener(eeee -> {
-
+            if (!era5UpgradeBought) {
+                points = points - 25000;
+                era5UpgradeBought = true;
+            }
+            // equip shenanigans
         });
+
 
     }
 

@@ -13,7 +13,7 @@
             android:id="@+id/clickerButtonChange1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="92dp"
             android:text="Era 1"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -22,8 +22,7 @@
             android:id="@+id/clickerButtonChange2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="5dp"
-            android:layout_marginTop="39dp"
+            android:layout_marginTop="108dp"
             android:text="Era 2"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/clickerButtonChange1" />
@@ -32,7 +31,7 @@
             android:id="@+id/clickerButtonChange3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="73dp"
+            android:layout_marginTop="108dp"
             android:text="Era 3"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/clickerButtonChange2" />
@@ -41,8 +40,7 @@
             android:id="@+id/clickerButtonChange4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="5dp"
-            android:layout_marginTop="53dp"
+            android:layout_marginTop="84dp"
             android:text="Era 4"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/clickerButtonChange3" />
@@ -59,10 +57,20 @@
             android:id="@+id/clickerButtonChange5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="53dp"
+            android:layout_marginTop="7dp"
             android:text="era 5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/clickerButtonChange4" />
+
+        <Button
+            android:id="@+id/clickerButtonChange0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="1dp"
+            android:layout_marginTop="18dp"
+            android:text="Equipped"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </LinearLayout>
