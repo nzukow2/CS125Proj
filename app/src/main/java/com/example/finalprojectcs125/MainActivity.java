@@ -113,6 +113,16 @@ public class MainActivity extends AppCompatActivity {
      */
     boolean darkMode = false;
 
+    /** musicEnabled
+     * tells us if the user wants to hear music
+     */
+    boolean musicEnabled = true;
+
+    /** soundEffectsEnabled
+     * tells us if the user wants to hear sound effects
+     */
+    boolean soundEffectsEnabled = true;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -143,14 +153,15 @@ public class MainActivity extends AppCompatActivity {
 
         View currentView = this.findViewById(android.R.id.content);
         ConstraintLayout clickup = findViewById(R.id.clickup);
-        if (currentView.equals(clickup)) {
+        if (currentView.equals(clickup) && musicEnabled) { //credits menu music
             song2 = MediaPlayer.create(this, R.raw.songupgrades);
             song2.setLooping(true);
             song2.setVolume(100,100);
             song2.start();
         } else {
-            //song2.stop();
-            song.start();
+            if (musicEnabled) {
+                song.start();
+            }
         }
 
 
@@ -240,7 +251,7 @@ public class MainActivity extends AppCompatActivity {
         song.stop();
         song2 = MediaPlayer.create(this, R.raw.still_feel);
         song2.setLooping(true);
-        song2.setVolume(100,100);
+        song2.setVolume(1000,1000);
         song2.start();
 
         Button returnMain = findViewById(R.id.returnMain);
@@ -249,7 +260,7 @@ public class MainActivity extends AppCompatActivity {
             song2.stop();
             song = MediaPlayer.create(this, R.raw.song);
             song.setLooping(true);
-            song.setVolume(100,100);
+            song.setVolume(1000,1000);
             song.start();
             mainMenuButtonReinitializer();
         });
@@ -329,7 +340,7 @@ public class MainActivity extends AppCompatActivity {
                 if (leftClickerGame == false) {
                     TextView clickerappPts = findViewById(R.id.clickerAppPointsTextView);
                     clickerappPts.setText("Total points: " + points);
-                    // TODO: 2019-12-07 Fix this bug
+                    // TODO: 2019-12-07 Ensure this bug is gone
                 }
             }
         };
@@ -376,12 +387,25 @@ public class MainActivity extends AppCompatActivity {
 
         Button muteMusicButton = findViewById(R.id.muteMusicButton);
         muteMusicButton.setOnClickListener(ef -> {
-            // TODO: 2019-12-05 add code that will mute the music
+            if (musicEnabled) {
+                musicEnabled = false;
+                song.stop();
+                Log.i("Music","Music is currently: " + musicEnabled);
+            } else {
+                musicEnabled = true;
+                song = MediaPlayer.create(this, R.raw.song);
+                song.start();
+                Log.i("Music","Music is currently: " + musicEnabled);
+            }
         });
 
         Button muteSoundEffectsButton = findViewById(R.id.muteSoundEffectsButton);
         muteSoundEffectsButton.setOnClickListener(egg -> {
-            // TODO: 2019-12-05 add code that will mute the sound effects
+            if (soundEffectsEnabled) {
+                soundEffectsEnabled = false;
+            } else {
+                soundEffectsEnabled = true;
+            }
         });
 
         Button resetPointsButton = findViewById(R.id.resetPointsButton);
@@ -499,8 +523,7 @@ public class MainActivity extends AppCompatActivity {
         // TODO: 2019-12-07 add transition loading here
         setContentView(R.layout.clickergame_gaming);
         leftClickerGame = false;
-        ImageButton era0Clicker = findViewById(R.id.clicker);
-        ImageButton era1Clicker = findViewById(R.id.eniacclicker);
+        currentEraButton = findViewById(R.id.clicker);
 
 
 
@@ -512,39 +535,17 @@ public class MainActivity extends AppCompatActivity {
         }
 
         if (era0UpgradeEquipped) {
-            currentEraButton = era0Clicker;
-            era0Clicker.setVisibility(View.VISIBLE);
-            era1Clicker.setVisibility(View.GONE);
-            // set clicker Icon to era 0
-            //Ex
-            // up 0 = visible
-            //  up 1 = gone
-            // up 2 = gone
-            // up 3 = gone
-            // etc.
-
+            currentEraButton.setImageResource(R.drawable.background0);
         } else if (era1UpgradeEquipped) {
-            currentEraButton = era1Clicker;
-            era0Clicker.setVisibility(View.GONE);
-            era1Clicker.setVisibility(View.VISIBLE);
-            // set clicker Icon to era 1
+            currentEraButton.setImageResource(R.drawable.background1);
         } else if (era2UpgradeEquipped) {
-            currentEraButton = era1Clicker;
-            era0Clicker.setVisibility(View.GONE);
-            era1Clicker.setVisibility(View.GONE);
-            // set clicker Icon to era 2
+            currentEraButton.setImageResource(R.drawable.background2);
         } else if (era3UpgradeEquipped) {
-            era0Clicker.setVisibility(View.GONE);
-            era1Clicker.setVisibility(View.GONE);
-            // set clicker Icon to era 3
+            currentEraButton.setImageResource(R.drawable.background3);
         } else if (era4UpgradeEquipped) {
-            era0Clicker.setVisibility(View.GONE);
-            era1Clicker.setVisibility(View.GONE);
-            // set clicker Icon to era 4
+            currentEraButton.setImageResource(R.drawable.background4);
         } else if (era5UpgradeEquipped) {
-            era0Clicker.setVisibility(View.GONE);
-            era1Clicker.setVisibility(View.GONE);
-            // set clicker Icon to era 5
+            currentEraButton.setImageResource(R.drawable.background5);
         }
 
 
@@ -573,7 +574,7 @@ public class MainActivity extends AppCompatActivity {
         yourPoints.setText(" Total Points: " + points);
 
         TextView pointsPerClicks = findViewById((R.id.ppc));
-        pointsPerClicks.setTextColor(Color.WHITE);
+        pointsPerClicks.setTextColor(Color.BLACK);
         pointsPerClicks.setText("Points per click: " + pointsPerClick);
 
         Button upgradePointsButton = findViewById(R.id.gotoUpgradesFromClickerAppButton);
@@ -796,25 +797,25 @@ public class MainActivity extends AppCompatActivity {
         if(upgrade5Purchased) { //i5
             upgrade5.setText("PURCHASED");
         } else {
-            upgrade5.setText("Up5");
+            upgrade5.setText("i5");
         }
         // -------------------------------
         if(upgrade6Purchased) { //i7
             upgrade6.setText("PURCHASED");
         } else {
-            upgrade6.setText("Up6");
+            upgrade6.setText("i7");
         }
         // -------------------------------
         if(upgrade7Purchased) { //i9
             upgrade7.setText("PURCHASED");
         } else {
-            upgrade7.setText("Up7");
+            upgrade7.setText("i9");
         }
         // -------------------------------
         if(upgrade8Purchased) { //threadripper
             upgrade8.setText("PURCHASED");
         } else {
-            upgrade8.setText("Up8");
+            upgrade8.setText("Threadripper");
         }
     }
 
