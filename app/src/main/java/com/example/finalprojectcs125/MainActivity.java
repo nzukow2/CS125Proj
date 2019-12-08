@@ -636,7 +636,10 @@ public class MainActivity extends AppCompatActivity {
             upgrade5.setEnabled(true);
         }
         upgrade5.setOnClickListener(e -> {
-            loadTime = 7;
+            if (loadTime > 7) {
+                loadTime = 7;
+            }
+            Log.i("Loadtime","The loadtime is: " + loadTime);
             points = points - 4000;
             upgrade5.setEnabled(false);
             upgrade5.setText("PURCHASED");
@@ -651,7 +654,10 @@ public class MainActivity extends AppCompatActivity {
             upgrade6.setEnabled(true);
         }
         upgrade6.setOnClickListener(e -> {
-            loadTime = 5;
+            if (loadTime > 5) {
+                loadTime = 5;
+            }
+            Log.i("Loadtime","The loadtime is: " + loadTime);
             points = points - 6000;
             upgrade6.setEnabled(false);
             upgrade6.setText("PURCHASED");
@@ -666,7 +672,10 @@ public class MainActivity extends AppCompatActivity {
             upgrade7.setEnabled(true);
         }
         upgrade7.setOnClickListener(e -> {
-            loadTime = 3;
+            if (loadTime > 3) {
+                loadTime = 3;
+            }
+            Log.i("Loadtime","The loadtime is: " + loadTime);
             points = points - 8000;
             upgrade7.setEnabled(false);
             upgrade7.setText("PURCHASED");
@@ -682,6 +691,7 @@ public class MainActivity extends AppCompatActivity {
         }
         upgrade8.setOnClickListener(e -> {
             loadTime = 0;
+            Log.i("Loadtime","The loadtime is: " + loadTime);
             points = points - 10000;
             upgrade8.setEnabled(false);
             upgrade8.setText("PURCHASED");
@@ -997,6 +1007,24 @@ public class MainActivity extends AppCompatActivity {
             clickerUpgradePageTwoTransition();
         });
 
+        if (era0UpgradeEquipped) {
+            era0Upgrade.setText("Equipped");
+        }
+        if (era1UpgradeEquipped) {
+            era1Upgrade.setText("Equipped");
+        }
+        if (era2UpgradeEquipped) {
+            era2Upgrade.setText("Equipped");
+        }
+        if (era3UpgradeEquipped) {
+            era3Upgrade.setText("Equipped");
+        }
+        if (era4UpgradeEquipped) {
+            era4Upgrade.setText("Equipped");
+        }
+        if (era5UpgradeEquipped) {
+            era5Upgrade.setText("Equipped");
+        }
 
     }
 
