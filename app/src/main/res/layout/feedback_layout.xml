@@ -34,7 +34,7 @@
         android:layout_height="125dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/background"
+        app:srcCompat="@drawable/background0"
         tools:layout_editor_absoluteY="421dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
