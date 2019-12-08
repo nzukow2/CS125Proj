@@ -241,7 +241,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    /** clickerGame
+     /** clickerGame
      * code that allows the clicker to work properly.
      */
     public void clickerGame() {
