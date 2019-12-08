@@ -1,12 +1,14 @@
 package com.example.finalprojectcs125;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
@@ -139,6 +141,15 @@ public class MainActivity extends AppCompatActivity {
                 mp.setLooping(true);
             }
         });
+
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                Intent load = new Intent(MainActivity.this, LoadActivity.class);
+                startActivity(load);
+                finish();
+            }
+        },loadTime);
 
         /**
          * adds music
