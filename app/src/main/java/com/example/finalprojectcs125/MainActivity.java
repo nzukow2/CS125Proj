@@ -9,6 +9,8 @@ import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.util.Log;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
@@ -183,6 +185,7 @@ public class MainActivity extends AppCompatActivity {
 
         // Takes us to the feedback menu
         Button feedbackMenuButton = findViewById(R.id.creditsButton);
+        feedbackMenuButton.setBackgroundColor(Color.RED);
         feedbackMenuButton.setOnClickListener(e -> {
             setContentView(R.layout.feedback_layout);
             feedbackTransition();
@@ -190,12 +193,14 @@ public class MainActivity extends AppCompatActivity {
 
         // Takes us to the secret/staff menu
         Button secretButton = findViewById(R.id.secretButton);
+        secretButton.setBackgroundColor(Color.RED);
         secretButton.setOnClickListener(o -> {
             secretNameMethodTransition();
         });
 
         // Takes us to the clicker game
         Button clickerGameButton = findViewById(R.id.clickergameButton);
+        clickerGameButton.setBackgroundColor(Color.RED);
         clickerGameButton.setOnClickListener(iw -> {
             setContentView(R.layout.clickergame_gaming);
             clickerGameTransition();
@@ -203,11 +208,13 @@ public class MainActivity extends AppCompatActivity {
 
         // Takes us to the settingsButton
         Button settingsMenuButton = findViewById(R.id.settingsButton);
+        settingsMenuButton.setBackgroundColor(Color.RED);
         settingsMenuButton.setOnClickListener(heyooo -> {
             settingsMenuTransition();
         });
 
         TextView menuTextPoints = findViewById(R.id.menuPointsTextView);
+        menuTextPoints.setTextColor(Color.WHITE);
         menuTextPoints.setText("You have: " + points + " points");
 
     }
@@ -220,10 +227,27 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.feedback_layout);
         TextView feedtext = findViewById(R.id.feedtext);
         feedtext.setVisibility(View.VISIBLE);
+        /**
+         * credits?
+         */
+        Animation animation;
+        animation = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.feedback_layout);
+        feedtext.setText("CREDITS\n" + "Aaaaaaaaaaaaaaaaaaaaaaa - wwwwwwwwwwww\n");
+        feedtext.startAnimation(animation);
+        song.stop();
+        song2 = MediaPlayer.create(this, R.raw.still_feel);
+        song2.setLooping(true);
+        song2.setVolume(100,100);
+        song2.start();
 
         Button returnMain = findViewById(R.id.returnMain);
         returnMain.setOnClickListener(f -> { //Returns to mainMenu from feedback screen
             setContentView(R.layout.activity_main);
+            song2.stop();
+            song = MediaPlayer.create(this, R.raw.song);
+            song.setLooping(true);
+            song.setVolume(100,100);
+            song.start();
             mainMenuButtonReinitializer();
         });
 
@@ -395,6 +419,7 @@ public class MainActivity extends AppCompatActivity {
         video.setVideoURI(uri);
         video.start();
 
+
         String[] welcomeArray = new String[6];
         double random = (Math.random() * (welcomeArray.length - 1));
         int replacer = (int) Math.ceil(random);
@@ -409,6 +434,7 @@ public class MainActivity extends AppCompatActivity {
 
         // Reinitializes the secretButton
         Button secretButton = findViewById(R.id.secretButton);
+        secretButton.setBackgroundColor(Color.RED);
         secretButton.setOnClickListener(v -> { // Go to secret thankyou screen
             secretNameMethodTransition();
         });
@@ -416,22 +442,26 @@ public class MainActivity extends AppCompatActivity {
 
         // Reinitializes the settingsButton
         Button settingsButton = findViewById(R.id.settingsButton);
+        settingsButton.setBackgroundColor(Color.RED);
         settingsButton.setOnClickListener(v -> {
             settingsMenuTransition();
         });
 
         // Reinitializes the feedbackButton
         Button feedbackButton = findViewById(R.id.creditsButton);
+        feedbackButton.setBackgroundColor(Color.RED);
         feedbackButton.setOnClickListener(v -> {
             feedbackTransition();
         });
 
         Button clickerGameButton = findViewById(R.id.clickergameButton);
+        clickerGameButton.setBackgroundColor(Color.RED);
         clickerGameButton.setOnClickListener(iw -> {
             clickerGameTransition();
         });
 
         TextView menuTextPoints = findViewById(R.id.menuPointsTextView);
+        menuTextPoints.setTextColor(Color.WHITE);
         menuTextPoints.setText("You have: " + points + " points");
 
         //VideoView video = (VideoView) findViewById(R.id.videoView);
@@ -471,7 +501,7 @@ public class MainActivity extends AppCompatActivity {
 
         ConstraintLayout clickerGamebackGround = findViewById(R.id.j);
         if (darkMode) {
-            clickerGamebackGround.setBackgroundColor(Color.DKGRAY);
+            clickerGamebackGround.setBackgroundColor(Color.BLACK);
         } else {
             clickerGamebackGround.setBackgroundColor(Color.WHITE);
         }
@@ -517,6 +547,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         Button returnToMainMenuButton = findViewById(R.id.gotoMainMenuFromClickerAppButton);
+        returnToMainMenuButton.setBackgroundColor(Color.RED);
         returnToMainMenuButton.setOnClickListener(egg -> {
             if (!firstimeforeverything) {
                 time.cancel();
@@ -526,6 +557,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         Button gotoSettingsButton = findViewById(R.id.gotoSettingsFromClickerAppButton);
+        gotoSettingsButton.setBackgroundColor(Color.RED);
         gotoSettingsButton.setOnClickListener(eggwukjnsgu -> {
             if (!firstimeforeverything) {
                 time.cancel();
@@ -538,9 +570,11 @@ public class MainActivity extends AppCompatActivity {
         yourPoints.setText(" Total Points: " + points);
 
         TextView pointsPerClicks = findViewById((R.id.ppc));
+        pointsPerClicks.setTextColor(Color.WHITE);
         pointsPerClicks.setText("Points per click: " + pointsPerClick);
 
         Button upgradePointsButton = findViewById(R.id.gotoUpgradesFromClickerAppButton);
+        upgradePointsButton.setBackgroundColor(Color.RED);
         upgradePointsButton.setOnClickListener(transitionTime -> {
             if (!firstimeforeverything) {
                 time.cancel();
@@ -554,6 +588,7 @@ public class MainActivity extends AppCompatActivity {
 
         currentEraButton.setEnabled(false);
         Button attackButton = findViewById(R.id.empezar);
+        attackButton.setBackgroundColor(Color.RED);
         attackButton.setOnClickListener(yoyo -> {
             clickerGame();
         });
@@ -1226,15 +1261,17 @@ public class MainActivity extends AppCompatActivity {
             if (taArray[i].equals(compareName)) {
                 points = 1000000; // million points
                 CS125Staff = true;
-                thankYouMessage.setText("Thanks for TAing for CS 125! Your work helped us succeed this semester!");
+                thankYouMessage.setText("CS125 TAs get it done, and in doing so help students get " +
+                        "what they've got to get done done as well. In other words, thank you! " + "AWARDED: 1000000pts");
             }
         }
         for (int i = 0; i < caArray.length; i++) { // CA thankyou array
             if (caArray[i].equals(compareName)) {
                 CS125Staff = true;
                 points = 500000; //half a million points
-                thankYouMessage.setText("Thanks for CAing this semester! Your work in office hours" +
-                        " and on the forum helped us with the MPs, final project, homework and so much more. Thanks for everything!");
+                thankYouMessage.setText(" CS125 CAs are the life jackets keeping students " +
+                        "afloat while they learn" +
+                        " to swim their way through this ocean of a course. Thank you! AWARDED: 1000000pts");
             }
         }
         if (CS125Staff == false) {

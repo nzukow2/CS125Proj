@@ -36,8 +36,8 @@
             android:id="@+id/gotoMainMenuFromClickerAppButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="take me to mainmenu"
-            android:textColor="@android:color/background_light"
+            android:text="MAIN MENU"
+            android:textColor="@color/colorAccent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -45,7 +45,7 @@
             android:id="@+id/gotoSettingsFromClickerAppButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="takemetoSettings"
+            android:text="Settings"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -54,7 +54,7 @@
             android:layout_width="193dp"
             android:layout_height="67dp"
             android:layout_marginBottom="42dp"
-            android:text="attack!"
+            android:text="BEGIN!"
             app:layout_constraintBottom_toTopOf="@+id/gotoUpgradesFromClickerAppButton"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
