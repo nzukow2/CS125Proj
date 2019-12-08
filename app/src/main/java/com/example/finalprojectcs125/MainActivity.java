@@ -7,14 +7,12 @@ import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.CountDownTimer;
-import android.text.Layout;
 import android.util.Log;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.LinearLayout;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.VideoView;
@@ -119,25 +117,6 @@ public class MainActivity extends AppCompatActivity {
         // TODO: 2019-12-07 brief transition when starting app 
         setContentView(R.layout.activity_main);
 
-        /**
-         * changes the background color. Probably needs to be moved to settings.
-         */
-        Button deckmode = findViewById(R.id.deckmode);
-        ConstraintLayout activityMain = findViewById(R.id.activity_main);
-        //ConstraintLayout j = findViewById(R.id.j);
-        deckmode.setOnClickListener(m -> {
-            if (BackgroundColorChanger) {
-                activityMain.setBackgroundColor(Color.BLUE);
-                BackgroundColorChanger = false;
-                //j.setBackgroundColor(Color.BLUE);
-
-            } else {
-                activityMain.setBackgroundColor(Color.WHITE);
-                BackgroundColorChanger = true;
-                // j.setBackgroundColor(Color.WHITE);
-
-            }
-        });
         VideoView video = (VideoView) findViewById(R.id.videoView);
         Uri uri = Uri.parse("android.resource://"+getPackageName()+"/"+R.raw.vid);
         video.setVideoURI(uri);
@@ -203,7 +182,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         // Takes us to the feedback menu
-        Button feedbackMenuButton = findViewById(R.id.feedbackButton);
+        Button feedbackMenuButton = findViewById(R.id.creditsButton);
         feedbackMenuButton.setOnClickListener(e -> {
             setContentView(R.layout.feedback_layout);
             feedbackTransition();
@@ -280,13 +259,9 @@ public class MainActivity extends AppCompatActivity {
         /**
          * this is the clicker button itself.
          */
-        ImageButton eniacclicker;
-        eniacclicker = findViewById(R.id.eniacclicker);
-        eniacclicker.setEnabled(false);
 
-        clickerio = findViewById(R.id.clicker);
-
-        clickerio.setEnabled(false);
+        currentEraButton.setEnabled(false);
+        // TODO: 2019-12-07  declare all image buttons here 
 
         empezario.setEnabled(true);
 
@@ -310,7 +285,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onFinish() {
                 empezario.setEnabled(true);
-                clickerio.setEnabled(false);
+                currentEraButton.setEnabled(false); // TODO: 2019-12-07 if ??EracurrentlyEquipped then set enabled false
                 String[] coercionArray = new String[9];
                 double random = (Math.random() * (coercionArray.length - 1));
                 int cs225 = (int) Math.ceil(random);
@@ -331,7 +306,7 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         };
-        clickerio.setOnClickListener(new View.OnClickListener() {
+        currentEraButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View x) {
                 clix++;
@@ -344,7 +319,7 @@ public class MainActivity extends AppCompatActivity {
         });
                 time.start();
                 empezario.setEnabled(false);
-                clickerio.setEnabled(true);
+                currentEraButton.setEnabled(true);
                 clix = 0;
                 tiempo = 30;
                 timerio.setText("Time: " + tiempo);
@@ -396,7 +371,11 @@ public class MainActivity extends AppCompatActivity {
         Switch darkModeSwitch = findViewById(R.id.darkModeSwitch);
         darkModeSwitch.setOnClickListener(gnijs -> {
             Log.i("Test","The darkmode switch has been toggled!");
-            darkMode = true;
+            if (darkMode) {
+                darkMode = false;
+            } else {
+                darkMode = true;
+            }
             // TODO: 2019-12-05 add code here that will make the game go in darkmode! Do we need to store a boolean?
         });
     }
@@ -442,7 +421,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         // Reinitializes the feedbackButton
-        Button feedbackButton = findViewById(R.id.feedbackButton);
+        Button feedbackButton = findViewById(R.id.creditsButton);
         feedbackButton.setOnClickListener(v -> {
             feedbackTransition();
         });
@@ -455,22 +434,6 @@ public class MainActivity extends AppCompatActivity {
         TextView menuTextPoints = findViewById(R.id.menuPointsTextView);
         menuTextPoints.setText("You have: " + points + " points");
 
-        Button deckmode = findViewById(R.id.deckmode);
-        ConstraintLayout activityMain = findViewById(R.id.activity_main);
-        //ConstraintLayout j = findViewById(R.id.j);
-        deckmode.setOnClickListener(m -> {
-            if (BackgroundColorChanger) {
-                activityMain.setBackgroundColor(Color.BLUE);
-                BackgroundColorChanger = false;
-                //j.setBackgroundColor(Color.BLUE);
-
-            } else {
-                activityMain.setBackgroundColor(Color.WHITE);
-                BackgroundColorChanger = true;
-                // j.setBackgroundColor(Color.WHITE);
-
-            }
-        });
         //VideoView video = (VideoView) findViewById(R.id.videoView);
         //Uri uri = Uri.parse("android.resource://"+getPackageName()+"/"+R.raw.vid);
         video.setVideoURI(uri);
@@ -501,9 +464,22 @@ public class MainActivity extends AppCompatActivity {
         // TODO: 2019-12-07 add transition loading here
         setContentView(R.layout.clickergame_gaming);
         leftClickerGame = false;
+        ImageButton era0Clicker = findViewById(R.id.clicker);
+        ImageButton era1Clicker = findViewById(R.id.eniacclicker);
 
+
+
+        ConstraintLayout clickerGamebackGround = findViewById(R.id.j);
+        if (darkMode) {
+            clickerGamebackGround.setBackgroundColor(Color.DKGRAY);
+        } else {
+            clickerGamebackGround.setBackgroundColor(Color.WHITE);
+        }
 
         if (era0UpgradeEquipped) {
+            currentEraButton = era0Clicker;
+            era0Clicker.setVisibility(View.VISIBLE);
+            era1Clicker.setVisibility(View.GONE);
             // set clicker Icon to era 0
             //Ex
             // up 0 = visible
@@ -511,21 +487,31 @@ public class MainActivity extends AppCompatActivity {
             // up 2 = gone
             // up 3 = gone
             // etc.
+
         } else if (era1UpgradeEquipped) {
+            currentEraButton = era1Clicker;
+            era0Clicker.setVisibility(View.GONE);
+            era1Clicker.setVisibility(View.VISIBLE);
             // set clicker Icon to era 1
         } else if (era2UpgradeEquipped) {
+            currentEraButton = era1Clicker;
+            era0Clicker.setVisibility(View.GONE);
+            era1Clicker.setVisibility(View.GONE);
             // set clicker Icon to era 2
         } else if (era3UpgradeEquipped) {
+            era0Clicker.setVisibility(View.GONE);
+            era1Clicker.setVisibility(View.GONE);
             // set clicker Icon to era 3
         } else if (era4UpgradeEquipped) {
+            era0Clicker.setVisibility(View.GONE);
+            era1Clicker.setVisibility(View.GONE);
             // set clicker Icon to era 4
         } else if (era5UpgradeEquipped) {
+            era0Clicker.setVisibility(View.GONE);
+            era1Clicker.setVisibility(View.GONE);
             // set clicker Icon to era 5
         }
 
-
-        ImageButton eniacclicker = findViewById(R.id.eniacclicker);
-        eniacclicker.setVisibility(View.GONE);
 
 
         Button returnToMainMenuButton = findViewById(R.id.gotoMainMenuFromClickerAppButton);
@@ -564,13 +550,12 @@ public class MainActivity extends AppCompatActivity {
         TextView click = findViewById(R.id.clicks);
         click.setText("Clicks: 0");
 
-        clickerio = findViewById(R.id.clicker);
-        clickerio.setEnabled(false);
+        currentEraButton.setEnabled(false);
         Button attackButton = findViewById(R.id.empezar);
         attackButton.setOnClickListener(yoyo -> {
             clickerGame();
         });
-
+        
     }
 
     public void clickerUpgradePageOneTransition() {
@@ -796,6 +781,8 @@ public class MainActivity extends AppCompatActivity {
     public boolean era3UpgradeEquipped = false;
     public boolean era4UpgradeEquipped = false;
     public boolean era5UpgradeEquipped = false;
+
+    public ImageButton currentEraButton;
 
     public void clickerUpgradePageTwoTransition() {
         setContentView(R.layout.clickerupgrades2_menu);
