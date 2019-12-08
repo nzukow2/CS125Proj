@@ -11,7 +11,7 @@ import android.view.View;
 import java.util.Random;
 
 /**
- * credit to Youtube channel: Sylvain Saurel for tutorial and source of most code
+ * credit to Youtube channel: Sylvain Saurel for tutorial and source of most code that made this wonderful effect possible!
  */
 public class enter_the_matrix extends View {
     private static final Random rand = new Random();
@@ -19,7 +19,7 @@ public class enter_the_matrix extends View {
     private int height;        //default initial height
     private Canvas canvas;    //default canvas
     private Bitmap bitmap;     //Bitmap used to create the canvas
-    private int fontSize = 30;       //font size of the text which will fall
+    private int fontSize = 40;       //font size of the text which will fall
     private int columnSize;      //column size ; no of digit required to fill the screen
     private char[] code = "=+-*&^%$#@!~*&%$#@%^&CS125#@!$%&*9&&^%GEOFF%$#@$#%=+-=_%#+_$".toCharArray();
     private int[] textSize;
@@ -32,7 +32,7 @@ public class enter_the_matrix extends View {
         paint = new Paint();
         paint.setStyle(Paint.Style.FILL);
         paint.setColor(Color.GREEN);
-        paint.setTextSize(30);
+        paint.setTextSize(40);
 
         paint2 = new Paint();
         paint2.setStyle(Paint.Style.FILL);
