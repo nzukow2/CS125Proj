@@ -115,11 +115,12 @@
             android:layout_width="240dp"
             android:layout_height="48dp"
             android:layout_marginStart="11dp"
+            android:layout_marginTop="25dp"
             android:layout_marginEnd="62dp"
             android:text="TextView"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/upgrade1"
-            tools:layout_editor_absoluteY="25dp" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/upgradeText2"
@@ -209,8 +210,16 @@
             android:id="@+id/returnToClickerApp"
             android:layout_width="203dp"
             android:layout_height="40dp"
-            android:layout_marginEnd="112dp"
+            android:layout_marginEnd="216dp"
             android:text="Return "
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <Button
+            android:id="@+id/upgradePageOneToTwo"
+            android:layout_width="223dp"
+            android:layout_height="47dp"
+            android:text="Next"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>

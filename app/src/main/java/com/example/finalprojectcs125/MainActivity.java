@@ -104,6 +104,8 @@ public class MainActivity extends AppCompatActivity {
      */
     int loadTime = 10;
 
+    boolean firstimeforeverything = true;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -245,6 +247,8 @@ public class MainActivity extends AppCompatActivity {
      * code that allows the clicker to work properly.
      */
     public void clickerGame() {
+
+        firstimeforeverything = false;
 
         //startClickerGame
         // if startClickerGame == true then start everything and set boolean to FALSE
@@ -493,18 +497,21 @@ public class MainActivity extends AppCompatActivity {
         ImageButton eniacclicker = findViewById(R.id.eniacclicker);
         eniacclicker.setVisibility(View.GONE);
 
-       // if ()
 
         Button returnToMainMenuButton = findViewById(R.id.gotoMainMenuFromClickerAppButton);
         returnToMainMenuButton.setOnClickListener(egg -> {
-            time.cancel();
+            if (!firstimeforeverything) {
+                time.cancel();
+            }
             leftClickerGame = true;
             mainMenuButtonReinitializer();
         });
 
         Button gotoSettingsButton = findViewById(R.id.gotoSettingsFromClickerAppButton);
         gotoSettingsButton.setOnClickListener(eggwukjnsgu -> {
-            time.cancel();
+            if (!firstimeforeverything) {
+                time.cancel();
+            }
             leftClickerGame = true;
             settingsMenuTransition();
         });
@@ -517,7 +524,9 @@ public class MainActivity extends AppCompatActivity {
 
         Button upgradePointsButton = findViewById(R.id.gotoUpgradesFromClickerAppButton);
         upgradePointsButton.setOnClickListener(transitionTime -> {
-            time.cancel();
+            if (!firstimeforeverything) {
+                time.cancel();
+            }
             leftClickerGame = true;
             clickerUpgradePageOneTransition();
         });
@@ -536,6 +545,11 @@ public class MainActivity extends AppCompatActivity {
 
     public void clickerUpgradePageOneTransition() {
         setContentView(R.layout.clickerupgrades_menu);
+
+        Button gotoUpgradePageTwo = findViewById(R.id.upgradePageOneToTwo);
+        gotoUpgradePageTwo.setOnClickListener(letsGo -> {
+            clickerUpgradePageTwoTransition();
+        });
 
         // X upgrade - costs 100
         Button upgrade1 = findViewById(R.id.upgrade1);
@@ -739,6 +753,52 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+
+    public boolean era1UpgradeBought = false;
+    public boolean era2UpgradeBought = false;
+    public boolean era3UpgradeBought = false;
+    public boolean era4UpgradeBought = false;
+    public boolean era5UpgradeBought = false;
+
+    public void clickerUpgradePageTwoTransition() {
+        setContentView(R.layout.clickerupgrades2_menu);
+
+        Button backtoUpgradePageOne = findViewById(R.id.returnToUpgradePg1);
+        backtoUpgradePageOne.setOnClickListener(eee -> {
+            clickerUpgradePageOneTransition();
+        });
+
+        // 5k
+        Button era1Upgrade = findViewById(R.id.clickerButtonChange1);
+        era1Upgrade.setOnClickListener(e -> {
+
+        });
+
+        // 10k
+        Button era2Upgrade = findViewById(R.id.clickerButtonChange2);
+        era2Upgrade.setOnClickListener(ee -> {
+
+        });
+
+        // 15k
+        Button era3Upgrade = findViewById(R.id.clickerButtonChange3);
+        era3Upgrade.setOnClickListener(eee -> {
+
+        });
+
+        // 20k
+        Button era4Upgrade = findViewById(R.id.clickerButtonChange4);
+        era4Upgrade.setOnClickListener(eeee -> {
+
+        });
+
+        // 25k
+        Button era5Upgrade = findViewById(R.id.clickerButtonChange5);
+        era5Upgrade.setOnClickListener(eeee -> {
+
+        });
+
+    }
 
     public void loadingscreenTransition() {
         setContentView(R.layout.loadingscreen_loader);
@@ -944,7 +1004,7 @@ public class MainActivity extends AppCompatActivity {
                 CS125Staff = true;
                 points = 500000; //half a million points
                 thankYouMessage.setText("Thanks for CAing this semester! Your work in office hours" +
-                        " and on the form helped us with the MPs, final project, homework and so much more. Thanks for everything!");
+                        " and on the forum helped us with the MPs, final project, homework and so much more. Thanks for everything!");
             }
         }
         if (CS125Staff == false) {
