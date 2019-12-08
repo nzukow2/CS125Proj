@@ -86,7 +86,6 @@ public class MainActivity extends AppCompatActivity {
     int tiempo = 30;
     int clix = 0;
 
-    boolean startClickerGame = true;
     boolean leftClickerGame = false;
 
     /** points
@@ -103,6 +102,11 @@ public class MainActivity extends AppCompatActivity {
      * The amount of time in seconds the user will need to wait until the page loads
      */
     int loadTime = 10;
+
+    /** backgroundChanged
+     * If the boolean is true, the background has been changed to the other color. If false, default color.
+     */
+    boolean backgroundChanged;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -386,9 +390,9 @@ public class MainActivity extends AppCompatActivity {
             mainMenuButtonReinitializer();
         });
 
-        Switch darkModeSwitch = findViewById(R.id.darkModeSwitch);
-        darkModeSwitch.setOnClickListener(gnijs -> {
-            Log.i("Test","The darkmode switch has been toggled!");
+        Switch changeBackGround = findViewById(R.id.darkModeSwitch);
+        changeBackGround.setOnClickListener(gnijs -> {
+            Log.i("Test","The background switch has been toggled!");
             // TODO: 2019-12-05 add code here that will make the game go in darkmode! Do we need to store a boolean?
         });
     }
@@ -497,20 +501,21 @@ public class MainActivity extends AppCompatActivity {
         ImageButton eniacclicker = findViewById(R.id.eniacclicker);
         eniacclicker.setVisibility(View.GONE);
 
-       // if ()
 
         Button returnToMainMenuButton = findViewById(R.id.gotoMainMenuFromClickerAppButton);
         returnToMainMenuButton.setOnClickListener(egg -> {
             mainMenuButtonReinitializer();
+            leftClickerGame = true;
         });
 
         Button gotoSettingsButton = findViewById(R.id.gotoSettingsFromClickerAppButton);
         gotoSettingsButton.setOnClickListener(eggwukjnsgu -> {
             settingsMenuTransition();
+            leftClickerGame = true;
         });
 
         TextView yourPoints = findViewById(R.id.clickerAppPointsTextView);
-        yourPoints.setText(" Total Points: " + points);
+        yourPoints.setText("Total Points: " + points);
 
         TextView pointsPerClicks = findViewById((R.id.ppc));
         pointsPerClicks.setText("Points per click: " + pointsPerClick);
@@ -535,7 +540,6 @@ public class MainActivity extends AppCompatActivity {
 
     public void clickerUpgradePageOneTransition() {
         setContentView(R.layout.clickerupgrades_menu);
-        leftClickerGame = false;
 
         // X upgrade - costs 100
         Button upgrade1 = findViewById(R.id.upgrade1);
