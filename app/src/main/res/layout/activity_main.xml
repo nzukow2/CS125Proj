@@ -131,6 +131,22 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="192dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="29dp"
+            android:layout_marginBottom="21dp"
+            android:text="CS LORDS: THE FIRST CLICK"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:fontStyle="@f"
+            app:layout_constraintBottom_toTopOf="@+id/videoView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.456"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.812" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

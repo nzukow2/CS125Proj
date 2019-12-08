@@ -163,6 +163,9 @@ public class MainActivity extends AppCompatActivity {
         save.putInt("points", points);
         save.apply();
 
+        TextView title = findViewById(R.id.title);
+        title.setTextColor(Color.RED);
+
         SharedPreferences pref = getSharedPreferences("PreferencesName", MODE_PRIVATE);
         int myInt = pref.getInt("points",0);
 
@@ -413,6 +416,8 @@ public class MainActivity extends AppCompatActivity {
         // TODO: 2019-12-07 add transition loading here 
         setContentView(R.layout.activity_main);
         leftClickerGame = true;
+        TextView title = findViewById(R.id.title);
+        title.setTextColor(Color.RED);
 
         VideoView video= (VideoView) findViewById(R.id.videoView);
         Uri uri = Uri.parse("android.resource://"+getPackageName()+"/"+R.raw.vid);
