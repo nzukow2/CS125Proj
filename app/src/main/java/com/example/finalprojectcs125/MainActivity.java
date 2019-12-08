@@ -153,14 +153,15 @@ public class MainActivity extends AppCompatActivity {
 
         View currentView = this.findViewById(android.R.id.content);
         ConstraintLayout clickup = findViewById(R.id.clickup);
-        if (currentView.equals(clickup)) {
+        if (currentView.equals(clickup) && musicEnabled) { //credits menu music
             song2 = MediaPlayer.create(this, R.raw.songupgrades);
             song2.setLooping(true);
             song2.setVolume(100,100);
             song2.start();
         } else {
-            //song2.stop();
-            song.start();
+            if (musicEnabled) {
+                song.start();
+            }
         }
 
 
@@ -247,7 +248,7 @@ public class MainActivity extends AppCompatActivity {
         song.stop();
         song2 = MediaPlayer.create(this, R.raw.still_feel);
         song2.setLooping(true);
-        song2.setVolume(100,100);
+        song2.setVolume(1000,1000);
         song2.start();
 
         Button returnMain = findViewById(R.id.returnMain);
@@ -256,7 +257,7 @@ public class MainActivity extends AppCompatActivity {
             song2.stop();
             song = MediaPlayer.create(this, R.raw.song);
             song.setLooping(true);
-            song.setVolume(100,100);
+            song.setVolume(1000,1000);
             song.start();
             mainMenuButtonReinitializer();
         });
@@ -385,8 +386,13 @@ public class MainActivity extends AppCompatActivity {
         muteMusicButton.setOnClickListener(ef -> {
             if (musicEnabled) {
                 musicEnabled = false;
+                song.stop();
+                Log.i("Music","Music is currently: " + musicEnabled);
             } else {
                 musicEnabled = true;
+                song = MediaPlayer.create(this, R.raw.song);
+                song.start();
+                Log.i("Music","Music is currently: " + musicEnabled);
             }
         });
 
