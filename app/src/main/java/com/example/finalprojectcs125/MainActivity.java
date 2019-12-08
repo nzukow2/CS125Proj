@@ -357,7 +357,6 @@ public class MainActivity extends AppCompatActivity {
         // TODO: 2019-12-07 add transition loading here
         setContentView(R.layout.setting_menu);
         leftClickerGame = true;
-
         TextView settingsMenuTextView = findViewById(R.id.settingsMenuPointsDisplay);
         settingsMenuTextView.setText("Your points are: " + points);
 
@@ -398,7 +397,6 @@ public class MainActivity extends AppCompatActivity {
         // TODO: 2019-12-07 add transition loading here 
         setContentView(R.layout.activity_main);
         leftClickerGame = true;
-        time.cancel();
 
         VideoView video= (VideoView) findViewById(R.id.videoView);
         Uri uri = Uri.parse("android.resource://"+getPackageName()+"/"+R.raw.vid);
@@ -498,6 +496,7 @@ public class MainActivity extends AppCompatActivity {
 
         Button returnToMainMenuButton = findViewById(R.id.gotoMainMenuFromClickerAppButton);
         returnToMainMenuButton.setOnClickListener(egg -> {
+            time.cancel();
             mainMenuButtonReinitializer();
         });
 
