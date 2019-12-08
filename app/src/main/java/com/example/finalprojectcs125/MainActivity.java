@@ -86,7 +86,6 @@ public class MainActivity extends AppCompatActivity {
     int tiempo = 30;
     int clix = 0;
 
-    boolean startClickerGame = true;
     boolean leftClickerGame = false;
 
     /** points
@@ -104,7 +103,15 @@ public class MainActivity extends AppCompatActivity {
      */
     int loadTime = 10;
 
+    /**
+     *
+     */
     boolean firstimeforeverything = true;
+
+    /** darkMode
+     * boolean that checks if we are in darkmode ( toggle in settings )
+     */
+    boolean darkMode = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -389,6 +396,7 @@ public class MainActivity extends AppCompatActivity {
         Switch darkModeSwitch = findViewById(R.id.darkModeSwitch);
         darkModeSwitch.setOnClickListener(gnijs -> {
             Log.i("Test","The darkmode switch has been toggled!");
+            darkMode = true;
             // TODO: 2019-12-05 add code here that will make the game go in darkmode! Do we need to store a boolean?
         });
     }
@@ -497,6 +505,12 @@ public class MainActivity extends AppCompatActivity {
 
         if (era0UpgradeEquipped) {
             // set clicker Icon to era 0
+            //Ex
+            // up 0 = visible
+            //  up 1 = gone
+            // up 2 = gone
+            // up 3 = gone
+            // etc.
         } else if (era1UpgradeEquipped) {
             // set clicker Icon to era 1
         } else if (era2UpgradeEquipped) {
@@ -576,7 +590,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         upgrade1.setOnClickListener(e -> {
-            pointsPerClick = 2;
+            pointsPerClick += 2;
             points = points - 100;
             upgrade1.setEnabled(false);
             upgrade1.setText("PURCHASED");
@@ -591,7 +605,7 @@ public class MainActivity extends AppCompatActivity {
             upgrade2.setEnabled(true);
         }
         upgrade2.setOnClickListener(e -> {
-            pointsPerClick = 4;
+            pointsPerClick += 4;
             points = points - 500;
             upgrade2.setEnabled(false);
             upgrade2.setText("PURCHASED");
@@ -607,7 +621,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
             upgrade3.setOnClickListener(e -> {
-                pointsPerClick = 6;
+                pointsPerClick += 6;
                 points = points - 1000;
                 upgrade3.setEnabled(false);
                 upgrade3.setText("PURCHASED");
@@ -622,7 +636,7 @@ public class MainActivity extends AppCompatActivity {
             upgrade4.setEnabled(true);
         }
         upgrade4.setOnClickListener(e -> {
-            pointsPerClick = 8;
+            pointsPerClick += 8;
             points = points - 2000;
             upgrade4.setEnabled(false);
             upgrade4.setText("PURCHASED");
@@ -802,6 +816,12 @@ public class MainActivity extends AppCompatActivity {
         era0Upgrade.setOnClickListener(neutral -> {
             era0Upgrade.setText("Equipped");
             era0Upgrade.setEnabled(false);
+            era0UpgradeEquipped = true; // THIS UPGRADE equipped
+            era1UpgradeEquipped = false;
+            era2UpgradeEquipped = false;
+            era3UpgradeEquipped = false;
+            era4UpgradeEquipped = false;
+            era5UpgradeEquipped = false;
             clickerUpgradePageTwoTransition();
         });
 
@@ -832,6 +852,12 @@ public class MainActivity extends AppCompatActivity {
                 era1UpgradeEquipped = true;
             }
             // equip shenanigans
+            era0UpgradeEquipped = false;
+            era1UpgradeEquipped = true; // THIS UPGRADE equipped
+            era2UpgradeEquipped = false;
+            era3UpgradeEquipped = false;
+            era4UpgradeEquipped = false;
+            era5UpgradeEquipped = false;
             clickerUpgradePageTwoTransition();
         });
 
@@ -863,6 +889,12 @@ public class MainActivity extends AppCompatActivity {
                 era2UpgradeEquipped = true;
             }
             // equip shenanigans
+            era0UpgradeEquipped = false;
+            era1UpgradeEquipped = false;
+            era2UpgradeEquipped = true; // THIS UPGRADE equipped
+            era3UpgradeEquipped = false;
+            era4UpgradeEquipped = false;
+            era5UpgradeEquipped = false;
             clickerUpgradePageTwoTransition();
         });
 
@@ -896,7 +928,12 @@ public class MainActivity extends AppCompatActivity {
                 era3UpgradeEquipped = true;
             }
             // equip shenanigans
-            setContentView(R.layout.activity_main);
+            era0UpgradeEquipped = false;
+            era1UpgradeEquipped = false;
+            era2UpgradeEquipped = false;
+            era3UpgradeEquipped = true; // THIS UPGRADE equipped
+            era4UpgradeEquipped = false;
+            era5UpgradeEquipped = false;
             clickerUpgradePageTwoTransition();
         });
 
@@ -925,9 +962,14 @@ public class MainActivity extends AppCompatActivity {
             if (!era4UpgradeBought) {
                 points = points - 20000;
                 era4UpgradeBought = true;
-                era4UpgradeEquipped = true;
+                era4UpgradeEquipped = true; // THIS UPGRADE equipped
             }
-            // equip shenanigans
+            era0UpgradeEquipped = false;
+            era1UpgradeEquipped = false;
+            era2UpgradeEquipped = false;
+            era3UpgradeEquipped = false;
+            era4UpgradeEquipped = true; // THIS UPGRADE equipped
+            era5UpgradeEquipped = false;
             clickerUpgradePageTwoTransition();
         });
 
@@ -959,6 +1001,12 @@ public class MainActivity extends AppCompatActivity {
                 era5UpgradeEquipped = true;
             }
             // equip shenanigans
+            era0UpgradeEquipped = false;
+            era1UpgradeEquipped = false;
+            era2UpgradeEquipped = false;
+            era3UpgradeEquipped = false;
+            era4UpgradeEquipped = false;
+            era5UpgradeEquipped = true; // THIS UPGRADE equipped
             clickerUpgradePageTwoTransition();
         });
 
