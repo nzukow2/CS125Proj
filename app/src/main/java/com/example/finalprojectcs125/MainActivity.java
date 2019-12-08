@@ -7,14 +7,12 @@ import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.CountDownTimer;
-import android.text.Layout;
 import android.util.Log;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.LinearLayout;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.VideoView;
@@ -86,7 +84,6 @@ public class MainActivity extends AppCompatActivity {
     int tiempo = 30;
     int clix = 0;
 
-    boolean startClickerGame = true;
     boolean leftClickerGame = false;
 
     /** points
@@ -104,32 +101,22 @@ public class MainActivity extends AppCompatActivity {
      */
     int loadTime = 10;
 
+    /**
+     *
+     */
     boolean firstimeforeverything = true;
+
+    /** darkMode
+     * boolean that checks if we are in darkmode ( toggle in settings )
+     */
+    boolean darkMode = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         // TODO: 2019-12-07 brief transition when starting app 
         setContentView(R.layout.activity_main);
-        /**
-         * changes the background color. Probably needs to be moved to settings.
-         */
-        Button deckmode = findViewById(R.id.deckmode);
-        ConstraintLayout activityMain = findViewById(R.id.activity_main);
-        //ConstraintLayout j = findViewById(R.id.j);
-        deckmode.setOnClickListener(m -> {
-            if (BackgroundColorChanger) {
-                activityMain.setBackgroundColor(Color.BLUE);
-                BackgroundColorChanger = false;
-                //j.setBackgroundColor(Color.BLUE);
 
-            } else {
-                activityMain.setBackgroundColor(Color.WHITE);
-                BackgroundColorChanger = true;
-                // j.setBackgroundColor(Color.WHITE);
-
-            }
-        });
         VideoView video = (VideoView) findViewById(R.id.videoView);
         Uri uri = Uri.parse("android.resource://"+getPackageName()+"/"+R.raw.vid);
         video.setVideoURI(uri);
@@ -195,7 +182,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         // Takes us to the feedback menu
-        Button feedbackMenuButton = findViewById(R.id.feedbackButton);
+        Button feedbackMenuButton = findViewById(R.id.creditsButton);
         feedbackMenuButton.setOnClickListener(e -> {
             setContentView(R.layout.feedback_layout);
             feedbackTransition();
@@ -272,13 +259,9 @@ public class MainActivity extends AppCompatActivity {
         /**
          * this is the clicker button itself.
          */
-        ImageButton eniacclicker;
-        eniacclicker = findViewById(R.id.eniacclicker);
-        eniacclicker.setEnabled(false);
 
-        clickerio = findViewById(R.id.clicker);
-
-        clickerio.setEnabled(false);
+        currentEraButton.setEnabled(false);
+        // TODO: 2019-12-07  declare all image buttons here 
 
         empezario.setEnabled(true);
 
@@ -302,7 +285,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onFinish() {
                 empezario.setEnabled(true);
-                clickerio.setEnabled(false);
+                currentEraButton.setEnabled(false); // TODO: 2019-12-07 if ??EracurrentlyEquipped then set enabled false
                 String[] coercionArray = new String[9];
                 double random = (Math.random() * (coercionArray.length - 1));
                 int cs225 = (int) Math.ceil(random);
@@ -323,7 +306,7 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         };
-        clickerio.setOnClickListener(new View.OnClickListener() {
+        currentEraButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View x) {
                 clix++;
@@ -336,7 +319,7 @@ public class MainActivity extends AppCompatActivity {
         });
                 time.start();
                 empezario.setEnabled(false);
-                clickerio.setEnabled(true);
+                currentEraButton.setEnabled(true);
                 clix = 0;
                 tiempo = 30;
                 timerio.setText("Time: " + tiempo);
@@ -388,6 +371,11 @@ public class MainActivity extends AppCompatActivity {
         Switch darkModeSwitch = findViewById(R.id.darkModeSwitch);
         darkModeSwitch.setOnClickListener(gnijs -> {
             Log.i("Test","The darkmode switch has been toggled!");
+            if (darkMode) {
+                darkMode = false;
+            } else {
+                darkMode = true;
+            }
             // TODO: 2019-12-05 add code here that will make the game go in darkmode! Do we need to store a boolean?
         });
     }
@@ -433,7 +421,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         // Reinitializes the feedbackButton
-        Button feedbackButton = findViewById(R.id.feedbackButton);
+        Button feedbackButton = findViewById(R.id.creditsButton);
         feedbackButton.setOnClickListener(v -> {
             feedbackTransition();
         });
@@ -446,22 +434,6 @@ public class MainActivity extends AppCompatActivity {
         TextView menuTextPoints = findViewById(R.id.menuPointsTextView);
         menuTextPoints.setText("You have: " + points + " points");
 
-        Button deckmode = findViewById(R.id.deckmode);
-        ConstraintLayout activityMain = findViewById(R.id.activity_main);
-        //ConstraintLayout j = findViewById(R.id.j);
-        deckmode.setOnClickListener(m -> {
-            if (BackgroundColorChanger) {
-                activityMain.setBackgroundColor(Color.BLUE);
-                BackgroundColorChanger = false;
-                //j.setBackgroundColor(Color.BLUE);
-
-            } else {
-                activityMain.setBackgroundColor(Color.WHITE);
-                BackgroundColorChanger = true;
-                // j.setBackgroundColor(Color.WHITE);
-
-            }
-        });
         //VideoView video = (VideoView) findViewById(R.id.videoView);
         //Uri uri = Uri.parse("android.resource://"+getPackageName()+"/"+R.raw.vid);
         video.setVideoURI(uri);
@@ -492,25 +464,54 @@ public class MainActivity extends AppCompatActivity {
         // TODO: 2019-12-07 add transition loading here
         setContentView(R.layout.clickergame_gaming);
         leftClickerGame = false;
+        ImageButton era0Clicker = findViewById(R.id.clicker);
+        ImageButton era1Clicker = findViewById(R.id.eniacclicker);
 
+
+
+        ConstraintLayout clickerGamebackGround = findViewById(R.id.j);
+        if (darkMode) {
+            clickerGamebackGround.setBackgroundColor(Color.DKGRAY);
+        } else {
+            clickerGamebackGround.setBackgroundColor(Color.WHITE);
+        }
 
         if (era0UpgradeEquipped) {
+            currentEraButton = era0Clicker;
+            era0Clicker.setVisibility(View.VISIBLE);
+            era1Clicker.setVisibility(View.GONE);
             // set clicker Icon to era 0
+            //Ex
+            // up 0 = visible
+            //  up 1 = gone
+            // up 2 = gone
+            // up 3 = gone
+            // etc.
+
         } else if (era1UpgradeEquipped) {
+            currentEraButton = era1Clicker;
+            era0Clicker.setVisibility(View.GONE);
+            era1Clicker.setVisibility(View.VISIBLE);
             // set clicker Icon to era 1
         } else if (era2UpgradeEquipped) {
+            currentEraButton = era1Clicker;
+            era0Clicker.setVisibility(View.GONE);
+            era1Clicker.setVisibility(View.GONE);
             // set clicker Icon to era 2
         } else if (era3UpgradeEquipped) {
+            era0Clicker.setVisibility(View.GONE);
+            era1Clicker.setVisibility(View.GONE);
             // set clicker Icon to era 3
         } else if (era4UpgradeEquipped) {
+            era0Clicker.setVisibility(View.GONE);
+            era1Clicker.setVisibility(View.GONE);
             // set clicker Icon to era 4
         } else if (era5UpgradeEquipped) {
+            era0Clicker.setVisibility(View.GONE);
+            era1Clicker.setVisibility(View.GONE);
             // set clicker Icon to era 5
         }
 
-
-        ImageButton eniacclicker = findViewById(R.id.eniacclicker);
-        eniacclicker.setVisibility(View.GONE);
 
 
         Button returnToMainMenuButton = findViewById(R.id.gotoMainMenuFromClickerAppButton);
@@ -549,13 +550,12 @@ public class MainActivity extends AppCompatActivity {
         TextView click = findViewById(R.id.clicks);
         click.setText("Clicks: 0");
 
-        clickerio = findViewById(R.id.clicker);
-        clickerio.setEnabled(false);
+        currentEraButton.setEnabled(false);
         Button attackButton = findViewById(R.id.empezar);
         attackButton.setOnClickListener(yoyo -> {
             clickerGame();
         });
-
+        
     }
 
     public void clickerUpgradePageOneTransition() {
@@ -575,7 +575,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         upgrade1.setOnClickListener(e -> {
-            pointsPerClick = 2;
+            pointsPerClick += 2;
             points = points - 100;
             upgrade1.setEnabled(false);
             upgrade1.setText("PURCHASED");
@@ -590,7 +590,7 @@ public class MainActivity extends AppCompatActivity {
             upgrade2.setEnabled(true);
         }
         upgrade2.setOnClickListener(e -> {
-            pointsPerClick = 4;
+            pointsPerClick += 4;
             points = points - 500;
             upgrade2.setEnabled(false);
             upgrade2.setText("PURCHASED");
@@ -606,7 +606,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
             upgrade3.setOnClickListener(e -> {
-                pointsPerClick = 6;
+                pointsPerClick += 6;
                 points = points - 1000;
                 upgrade3.setEnabled(false);
                 upgrade3.setText("PURCHASED");
@@ -621,7 +621,7 @@ public class MainActivity extends AppCompatActivity {
             upgrade4.setEnabled(true);
         }
         upgrade4.setOnClickListener(e -> {
-            pointsPerClick = 8;
+            pointsPerClick += 8;
             points = points - 2000;
             upgrade4.setEnabled(false);
             upgrade4.setText("PURCHASED");
@@ -636,7 +636,10 @@ public class MainActivity extends AppCompatActivity {
             upgrade5.setEnabled(true);
         }
         upgrade5.setOnClickListener(e -> {
-            loadTime = 7;
+            if (loadTime > 7) {
+                loadTime = 7;
+            }
+            Log.i("Loadtime","The loadtime is: " + loadTime);
             points = points - 4000;
             upgrade5.setEnabled(false);
             upgrade5.setText("PURCHASED");
@@ -651,7 +654,10 @@ public class MainActivity extends AppCompatActivity {
             upgrade6.setEnabled(true);
         }
         upgrade6.setOnClickListener(e -> {
-            loadTime = 5;
+            if (loadTime > 5) {
+                loadTime = 5;
+            }
+            Log.i("Loadtime","The loadtime is: " + loadTime);
             points = points - 6000;
             upgrade6.setEnabled(false);
             upgrade6.setText("PURCHASED");
@@ -666,7 +672,10 @@ public class MainActivity extends AppCompatActivity {
             upgrade7.setEnabled(true);
         }
         upgrade7.setOnClickListener(e -> {
-            loadTime = 3;
+            if (loadTime > 3) {
+                loadTime = 3;
+            }
+            Log.i("Loadtime","The loadtime is: " + loadTime);
             points = points - 8000;
             upgrade7.setEnabled(false);
             upgrade7.setText("PURCHASED");
@@ -682,6 +691,7 @@ public class MainActivity extends AppCompatActivity {
         }
         upgrade8.setOnClickListener(e -> {
             loadTime = 0;
+            Log.i("Loadtime","The loadtime is: " + loadTime);
             points = points - 10000;
             upgrade8.setEnabled(false);
             upgrade8.setText("PURCHASED");
@@ -782,6 +792,8 @@ public class MainActivity extends AppCompatActivity {
     public boolean era4UpgradeEquipped = false;
     public boolean era5UpgradeEquipped = false;
 
+    public ImageButton currentEraButton;
+
     public void clickerUpgradePageTwoTransition() {
         setContentView(R.layout.clickerupgrades2_menu);
         Button backtoUpgradePageOne = findViewById(R.id.returnToUpgradePg1);
@@ -801,6 +813,12 @@ public class MainActivity extends AppCompatActivity {
         era0Upgrade.setOnClickListener(neutral -> {
             era0Upgrade.setText("Equipped");
             era0Upgrade.setEnabled(false);
+            era0UpgradeEquipped = true; // THIS UPGRADE equipped
+            era1UpgradeEquipped = false;
+            era2UpgradeEquipped = false;
+            era3UpgradeEquipped = false;
+            era4UpgradeEquipped = false;
+            era5UpgradeEquipped = false;
             clickerUpgradePageTwoTransition();
         });
 
@@ -831,6 +849,12 @@ public class MainActivity extends AppCompatActivity {
                 era1UpgradeEquipped = true;
             }
             // equip shenanigans
+            era0UpgradeEquipped = false;
+            era1UpgradeEquipped = true; // THIS UPGRADE equipped
+            era2UpgradeEquipped = false;
+            era3UpgradeEquipped = false;
+            era4UpgradeEquipped = false;
+            era5UpgradeEquipped = false;
             clickerUpgradePageTwoTransition();
         });
 
@@ -862,6 +886,12 @@ public class MainActivity extends AppCompatActivity {
                 era2UpgradeEquipped = true;
             }
             // equip shenanigans
+            era0UpgradeEquipped = false;
+            era1UpgradeEquipped = false;
+            era2UpgradeEquipped = true; // THIS UPGRADE equipped
+            era3UpgradeEquipped = false;
+            era4UpgradeEquipped = false;
+            era5UpgradeEquipped = false;
             clickerUpgradePageTwoTransition();
         });
 
@@ -895,7 +925,12 @@ public class MainActivity extends AppCompatActivity {
                 era3UpgradeEquipped = true;
             }
             // equip shenanigans
-            setContentView(R.layout.activity_main);
+            era0UpgradeEquipped = false;
+            era1UpgradeEquipped = false;
+            era2UpgradeEquipped = false;
+            era3UpgradeEquipped = true; // THIS UPGRADE equipped
+            era4UpgradeEquipped = false;
+            era5UpgradeEquipped = false;
             clickerUpgradePageTwoTransition();
         });
 
@@ -924,9 +959,14 @@ public class MainActivity extends AppCompatActivity {
             if (!era4UpgradeBought) {
                 points = points - 20000;
                 era4UpgradeBought = true;
-                era4UpgradeEquipped = true;
+                era4UpgradeEquipped = true; // THIS UPGRADE equipped
             }
-            // equip shenanigans
+            era0UpgradeEquipped = false;
+            era1UpgradeEquipped = false;
+            era2UpgradeEquipped = false;
+            era3UpgradeEquipped = false;
+            era4UpgradeEquipped = true; // THIS UPGRADE equipped
+            era5UpgradeEquipped = false;
             clickerUpgradePageTwoTransition();
         });
 
@@ -958,9 +998,33 @@ public class MainActivity extends AppCompatActivity {
                 era5UpgradeEquipped = true;
             }
             // equip shenanigans
+            era0UpgradeEquipped = false;
+            era1UpgradeEquipped = false;
+            era2UpgradeEquipped = false;
+            era3UpgradeEquipped = false;
+            era4UpgradeEquipped = false;
+            era5UpgradeEquipped = true; // THIS UPGRADE equipped
             clickerUpgradePageTwoTransition();
         });
 
+        if (era0UpgradeEquipped) {
+            era0Upgrade.setText("Equipped");
+        }
+        if (era1UpgradeEquipped) {
+            era1Upgrade.setText("Equipped");
+        }
+        if (era2UpgradeEquipped) {
+            era2Upgrade.setText("Equipped");
+        }
+        if (era3UpgradeEquipped) {
+            era3Upgrade.setText("Equipped");
+        }
+        if (era4UpgradeEquipped) {
+            era4Upgrade.setText("Equipped");
+        }
+        if (era5UpgradeEquipped) {
+            era5Upgrade.setText("Equipped");
+        }
 
     }
 
