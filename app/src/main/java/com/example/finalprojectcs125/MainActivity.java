@@ -497,11 +497,15 @@ public class MainActivity extends AppCompatActivity {
         Button returnToMainMenuButton = findViewById(R.id.gotoMainMenuFromClickerAppButton);
         returnToMainMenuButton.setOnClickListener(egg -> {
             time.cancel();
+
+            leftClickerGame = true;
             mainMenuButtonReinitializer();
         });
 
         Button gotoSettingsButton = findViewById(R.id.gotoSettingsFromClickerAppButton);
         gotoSettingsButton.setOnClickListener(eggwukjnsgu -> {
+            time.cancel();
+            leftClickerGame = true;
             settingsMenuTransition();
         });
 
@@ -513,6 +517,7 @@ public class MainActivity extends AppCompatActivity {
 
         Button upgradePointsButton = findViewById(R.id.gotoUpgradesFromClickerAppButton);
         upgradePointsButton.setOnClickListener(transitionTime -> {
+            time.cancel();
             leftClickerGame = true;
             clickerUpgradePageOneTransition();
         });
@@ -531,8 +536,6 @@ public class MainActivity extends AppCompatActivity {
 
     public void clickerUpgradePageOneTransition() {
         setContentView(R.layout.clickerupgrades_menu);
-        leftClickerGame = false;
-        time.cancel();
 
         // X upgrade - costs 100
         Button upgrade1 = findViewById(R.id.upgrade1);
