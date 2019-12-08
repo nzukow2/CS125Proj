@@ -493,6 +493,22 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.clickergame_gaming);
         leftClickerGame = false;
 
+
+        if (era0UpgradeEquipped) {
+            // set clicker Icon to era 0
+        } else if (era1UpgradeEquipped) {
+            // set clicker Icon to era 1
+        } else if (era2UpgradeEquipped) {
+            // set clicker Icon to era 2
+        } else if (era3UpgradeEquipped) {
+            // set clicker Icon to era 3
+        } else if (era4UpgradeEquipped) {
+            // set clicker Icon to era 4
+        } else if (era5UpgradeEquipped) {
+            // set clicker Icon to era 5
+        }
+
+
         ImageButton eniacclicker = findViewById(R.id.eniacclicker);
         eniacclicker.setVisibility(View.GONE);
 
@@ -759,43 +775,192 @@ public class MainActivity extends AppCompatActivity {
     public boolean era4UpgradeBought = false;
     public boolean era5UpgradeBought = false;
 
+    public boolean era0UpgradeEquipped = true;
+    public boolean era1UpgradeEquipped = false;
+    public boolean era2UpgradeEquipped = false;
+    public boolean era3UpgradeEquipped = false;
+    public boolean era4UpgradeEquipped = false;
+    public boolean era5UpgradeEquipped = false;
+
     public void clickerUpgradePageTwoTransition() {
         setContentView(R.layout.clickerupgrades2_menu);
-
         Button backtoUpgradePageOne = findViewById(R.id.returnToUpgradePg1);
         backtoUpgradePageOne.setOnClickListener(eee -> {
             clickerUpgradePageOneTransition();
         });
 
+
+
+        Button era0Upgrade = findViewById(R.id.clickerButtonChange0);
+        era0Upgrade.setEnabled(false);
+
+        if (!era0UpgradeEquipped) {
+            era0Upgrade.setText("Equip?");
+            era0Upgrade.setEnabled(true);
+        }
+        era0Upgrade.setOnClickListener(neutral -> {
+            era0Upgrade.setText("Equipped");
+            era0Upgrade.setEnabled(false);
+            clickerUpgradePageTwoTransition();
+        });
+
+
+
+
+
+
         // 5k
         Button era1Upgrade = findViewById(R.id.clickerButtonChange1);
-        era1Upgrade.setOnClickListener(e -> {
+        era1Upgrade.setEnabled(false);
 
+        // If the upgrade is not equipped AND the upgrade has been purchased
+        if (!era1UpgradeEquipped && era1UpgradeBought) {
+            era1Upgrade.setText("Equip?");
+            era1Upgrade.setEnabled(true);
+        }
+        // If the upgrade has not been equipped
+        if (!era1UpgradeBought && points >= 5000) {
+            era1Upgrade.setEnabled(true);
+            era1Upgrade.setText("BUY?");
+        }
+
+        era1Upgrade.setOnClickListener(e -> {
+            if (!era1UpgradeBought) {
+                points = points - 5000;
+                era1UpgradeBought = true;
+                era1UpgradeEquipped = true;
+            }
+            // equip shenanigans
+            clickerUpgradePageTwoTransition();
         });
+
+
+
+
+
 
         // 10k
         Button era2Upgrade = findViewById(R.id.clickerButtonChange2);
-        era2Upgrade.setOnClickListener(ee -> {
+        era2Upgrade.setEnabled(false);
 
+        // If the upgrade is not equipped AND the upgrade has been purchased
+        if (!era2UpgradeEquipped && era2UpgradeBought) {
+            era2Upgrade.setText("Equip?");
+            era2Upgrade.setEnabled(true);
+        }
+
+        // If the upgrade has not been equipped
+        if (!era2UpgradeBought && points >= 10000) {
+            era2Upgrade.setEnabled(true);
+            era2Upgrade.setText("BUY?");
+        }
+
+        era2Upgrade.setOnClickListener(ee -> {
+            if (!era2UpgradeBought) {
+                points = points - 10000;
+                era2UpgradeBought = true;
+                era2UpgradeEquipped = true;
+            }
+            // equip shenanigans
+            clickerUpgradePageTwoTransition();
         });
+
+
+
+
+
 
         // 15k
         Button era3Upgrade = findViewById(R.id.clickerButtonChange3);
-        era3Upgrade.setOnClickListener(eee -> {
+        era3Upgrade.setEnabled(false);
 
+        // If the upgrade is not equipped AND the upgrade has been purchased
+
+        if (!era3UpgradeEquipped && era3UpgradeBought) {
+            era3Upgrade.setText("Equip?");
+            era3Upgrade.setEnabled(true);
+        }
+
+        // If the upgrade has not been equipped
+        if (!era3UpgradeBought && points >= 15000) {
+            era3Upgrade.setEnabled(true);
+            era3Upgrade.setText("BUY?");
+        }
+
+
+        era3Upgrade.setOnClickListener(eee -> {
+            if (!era3UpgradeBought) {
+                points = points - 15000;
+                era3UpgradeBought = true;
+                era3UpgradeEquipped = true;
+            }
+            // equip shenanigans
+            setContentView(R.layout.activity_main);
+            clickerUpgradePageTwoTransition();
         });
+
+
+
+
+
 
         // 20k
         Button era4Upgrade = findViewById(R.id.clickerButtonChange4);
-        era4Upgrade.setOnClickListener(eeee -> {
+        era4Upgrade.setEnabled(false);
 
+        // If the upgrade is not equipped AND the upgrade has been purchased
+        if (!era4UpgradeEquipped && era4UpgradeBought) {
+            era4Upgrade.setText("Equip?");
+            era4Upgrade.setEnabled(true);
+        }
+
+        // If the upgrade has not been equipped
+        if (!era4UpgradeBought && points >= 20000) {
+            era4Upgrade.setEnabled(true);
+            era4Upgrade.setText("BUY?");
+        }
+
+        era4Upgrade.setOnClickListener(eeee -> {
+            if (!era4UpgradeBought) {
+                points = points - 20000;
+                era4UpgradeBought = true;
+                era4UpgradeEquipped = true;
+            }
+            // equip shenanigans
+            clickerUpgradePageTwoTransition();
         });
+
+
+
+
+
 
         // 25k
         Button era5Upgrade = findViewById(R.id.clickerButtonChange5);
-        era5Upgrade.setOnClickListener(eeee -> {
+        era5Upgrade.setEnabled(false);
 
+        // If the upgrade is not equipped AND the upgrade has been purchased
+        if (!era5UpgradeEquipped && era5UpgradeBought) {
+            era5Upgrade.setText("Equip?");
+            era5Upgrade.setEnabled(true);
+        }
+
+        // If the upgrade has not been equipped
+        if (!era5UpgradeBought && points >= 25000) {
+            era5Upgrade.setEnabled(true);
+            era5Upgrade.setText("BUY?");
+        }
+
+        era5Upgrade.setOnClickListener(eeee -> {
+            if (!era5UpgradeBought) {
+                points = points - 25000;
+                era5UpgradeBought = true;
+                era5UpgradeEquipped = true;
+            }
+            // equip shenanigans
+            clickerUpgradePageTwoTransition();
         });
+
 
     }
 
