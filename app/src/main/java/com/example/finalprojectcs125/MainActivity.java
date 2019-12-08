@@ -302,7 +302,7 @@ public class MainActivity extends AppCompatActivity {
                 if (leftClickerGame == false) {
                     TextView clickerappPts = findViewById(R.id.clickerAppPointsTextView);
                     clickerappPts.setText("Total points: " + points);
-                    // TODO: 2019-12-07 Fix this bug
+                    // TODO: 2019-12-07 Ensure this bug is gone
                 }
             }
         };
@@ -480,6 +480,7 @@ public class MainActivity extends AppCompatActivity {
             currentEraButton = era0Clicker;
             era0Clicker.setVisibility(View.VISIBLE);
             era1Clicker.setVisibility(View.GONE);
+            currentEraButton = era0Clicker;
             // set clicker Icon to era 0
             //Ex
             // up 0 = visible
@@ -492,6 +493,7 @@ public class MainActivity extends AppCompatActivity {
             currentEraButton = era1Clicker;
             era0Clicker.setVisibility(View.GONE);
             era1Clicker.setVisibility(View.VISIBLE);
+            currentEraButton = era1Clicker;
             // set clicker Icon to era 1
         } else if (era2UpgradeEquipped) {
             currentEraButton = era1Clicker;
