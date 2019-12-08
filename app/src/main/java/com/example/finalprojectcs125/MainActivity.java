@@ -113,6 +113,16 @@ public class MainActivity extends AppCompatActivity {
      */
     boolean darkMode = false;
 
+    /** musicEnabled
+     * tells us if the user wants to hear music
+     */
+    boolean musicEnabled = true;
+
+    /** soundEffectsEnabled
+     * tells us if the user wants to hear sound effects
+     */
+    boolean soundEffectsEnabled = true;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -373,12 +383,20 @@ public class MainActivity extends AppCompatActivity {
 
         Button muteMusicButton = findViewById(R.id.muteMusicButton);
         muteMusicButton.setOnClickListener(ef -> {
-            // TODO: 2019-12-05 add code that will mute the music
+            if (musicEnabled) {
+                musicEnabled = false;
+            } else {
+                musicEnabled = true;
+            }
         });
 
         Button muteSoundEffectsButton = findViewById(R.id.muteSoundEffectsButton);
         muteSoundEffectsButton.setOnClickListener(egg -> {
-            // TODO: 2019-12-05 add code that will mute the sound effects
+            if (soundEffectsEnabled) {
+                soundEffectsEnabled = false;
+            } else {
+                soundEffectsEnabled = true;
+            }
         });
 
         Button resetPointsButton = findViewById(R.id.resetPointsButton);
