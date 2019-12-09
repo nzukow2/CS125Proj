@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/black"
+    android:textAlignment="center">
+
+    <TextView
+        android:id="@+id/txt1"
+        android:layout_width="251dp"
+        android:layout_height="26dp"
+        android:layout_marginTop="31dp"
+        android:fontFamily="@font/carter_one"
+        android:text="Who are the CS heroes?"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txt2"
+        android:layout_width="381dp"
+        android:layout_height="78dp"
+        android:layout_marginStart="42dp"
+        android:layout_marginTop="56dp"
+        android:layout_marginEnd="45dp"
+        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt1" />
+
+    <TextView
+        android:id="@+id/txt3"
+        android:layout_width="381dp"
+        android:layout_height="78dp"
+        android:layout_marginStart="42dp"
+        android:layout_marginTop="37dp"
+        android:layout_marginEnd="45dp"
+        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt2" />
+
+    <TextView
+        android:id="@+id/txt4"
+        android:layout_width="381dp"
+        android:layout_height="78dp"
+        android:layout_marginTop="38dp"
+        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.482"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt3" />
+
+    <TextView
+        android:id="@+id/txt5"
+        android:layout_width="381dp"
+        android:layout_height="78dp"
+        android:layout_marginStart="42dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="45dp"
+        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt4" />
+
+    <TextView
+        android:id="@+id/txt6"
+        android:layout_width="381dp"
+        android:layout_height="78dp"
+        android:layout_marginStart="14dp"
+        android:layout_marginTop="29dp"
+        android:layout_marginEnd="16dp"
+        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt5" />
+
+    <Button
+        android:id="@+id/inforeturn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="43dp"
+        android:layout_marginBottom="1dp"
+        android:text="RETURN"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt6" />
+</androidx.constraintlayout.widget.ConstraintLayout>
