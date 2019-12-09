@@ -327,6 +327,7 @@ public class MainActivity extends AppCompatActivity {
         time = new CountDownTimer(30000,1000) {
             @Override
             public void onTick(long millisUntilFinished) {
+                empezario.setVisibility(View.INVISIBLE);
                 tiempo--;
                 timerio.setText("Time: " + tiempo);
                 //finished.setText("");
@@ -338,6 +339,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onFinish() {
                 TextView clickerapppTs = findViewById(R.id.clickerAppPointsTextView);
+                empezario.setVisibility(View.VISIBLE);
                 clickerapppTs.setTextColor(Color.BLACK);
                 clickerapppTs.setBackgroundColor(Color.RED);
                 empezario.setEnabled(true);
