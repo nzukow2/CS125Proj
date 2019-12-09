@@ -17,6 +17,7 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Switch;
 import android.widget.TextView;
@@ -398,8 +399,9 @@ public class MainActivity extends AppCompatActivity {
 
 
         if (loadTime != 0) { //If we need to load
-
+            ImageView loadIcon = findViewById(R.id.loadIcon); // Initialize the imageview
             if (era0UpgradeEquipped) { // cs125 logo
+                loadIcon.setImageResource(R.drawable.background0);
                 String[] loadArray = new String[4];
                 double random = (Math.random() * (loadArray.length - 1));
                 int replacer = (int) Math.ceil(random);
@@ -411,6 +413,7 @@ public class MainActivity extends AppCompatActivity {
                 loadingText.setText(loadArray[replacer]);
             }
             if (era1UpgradeEquipped) { // Turing Machine/turing facts
+                loadIcon.setImageResource(R.drawable.turing_machine);
                 String[] loadArray = new String[4];
                 double random = (Math.random() * (loadArray.length - 1));
                 int replacer = (int) Math.ceil(random);
@@ -422,6 +425,8 @@ public class MainActivity extends AppCompatActivity {
                 loadingText.setText(loadArray[replacer]);
             }
             if (era2UpgradeEquipped) { // geoff fact & dogs
+                // TODO: 2019-12-09 CHANGE THIS IMMEIDAT:KA<FL !!!!!!!!!!!!!
+                loadIcon.setImageResource(R.drawable.background2);
                 String[] loadArray = new String[4];
                 double random = (Math.random() * (loadArray.length - 1));
                 int replacer = (int) Math.ceil(random);
@@ -433,6 +438,7 @@ public class MainActivity extends AppCompatActivity {
                 loadingText.setText(loadArray[replacer]);
             }
             if (era3UpgradeEquipped) { // Tesla stuff
+                loadIcon.setImageResource(R.drawable.musk_creation);
                 String[] loadArray = new String[4];
                 double random = (Math.random() * (loadArray.length - 1));
                 int replacer = (int) Math.ceil(random);
@@ -444,6 +450,7 @@ public class MainActivity extends AppCompatActivity {
                 loadingText.setText(loadArray[replacer]);
             }
             if (era4UpgradeEquipped) { // Facebook fact/zucc alien
+                loadIcon.setImageResource(R.drawable.zucc_creation);
                 String[] loadArray = new String[4];
                 double random = (Math.random() * (loadArray.length - 1));
                 int replacer = (int) Math.ceil(random);
@@ -455,6 +462,7 @@ public class MainActivity extends AppCompatActivity {
                 loadingText.setText(loadArray[replacer]);
             }
             if (era5UpgradeEquipped) { // it just works guy, bethesda stuff
+                loadIcon.setImageResource(R.drawable.howard_creation);
                 String[] loadArray = new String[4];
                 double random = (Math.random() * (loadArray.length - 1));
                 int replacer = (int) Math.ceil(random);
