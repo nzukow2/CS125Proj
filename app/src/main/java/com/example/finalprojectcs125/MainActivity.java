@@ -9,7 +9,9 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Handler;
+import android.text.Layout;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -18,6 +20,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.VideoView;
 
@@ -146,6 +149,10 @@ public class MainActivity extends AppCompatActivity {
         //MediaPlayer ring= MediaPlayer.create(MainActivity.this,R.raw.song);
         // ring.start();
 
+        MediaPlayer upsong2 = MediaPlayer.create(this, R.raw.still_feel);
+        upsong2.setLooping(true);
+        upsong2.setVolume(1000,1000);
+
 
         View currentView = this.findViewById(android.R.id.content);
         ConstraintLayout clickup = findViewById(R.id.clickup);
@@ -160,6 +167,9 @@ public class MainActivity extends AppCompatActivity {
             }
         }
 
+        TextView title = findViewById(R.id.title);
+        title.setTextColor(Color.WHITE);
+        title.setBackgroundColor(Color.RED);
 
 
 
@@ -169,9 +179,6 @@ public class MainActivity extends AppCompatActivity {
         SharedPreferences.Editor save = getSharedPreferences("myInt", MODE_PRIVATE).edit();
         save.putInt("points", points);
         save.apply();
-
-        TextView title = findViewById(R.id.title);
-        title.setTextColor(Color.RED);
 
         SharedPreferences pref = getSharedPreferences("PreferencesName", MODE_PRIVATE);
         int myInt = pref.getInt("points",0);
@@ -246,8 +253,16 @@ public class MainActivity extends AppCompatActivity {
          */
         Animation animation;
         animation = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.feedback_layout);
-        feedtext.setText("CREDITS\n" + "Aaaaaaaaaaaaaaaaaaaaaaa - wwwwwwwwwwww\n");
+        feedtext.setText("CREDITS\n" + "DEVELOPERS:\n" + "ANGEL CANTY\n" +
+                "Lord-Manipulator of human-computer interaction(UI)\n" + "Animations Coder\n" +
+                "Front-End Coordinator\n" + "framework assistant\n" +"NATE Z\n" +"Lord-Architect of software framework(Code Structure/Groundwork)\n"
+                + "Master-Scrutinizer-Debugger\n" + "Back-End Coordinator\n" + "Animations assistant");
         feedtext.startAnimation(animation);
+
+       // TextView thanjs = findViewById(R.layout.feedback_layout);
+       // Animation thankks;
+       // thankks =AnimationUtils.loadAnimation(getApplicationContext(), R.anim.feedback_layout);
+       /// thanks.setText()
         song.stop();
         song2 = MediaPlayer.create(this, R.raw.still_feel);
         song2.setLooping(true);
@@ -313,6 +328,7 @@ public class MainActivity extends AppCompatActivity {
         TextView finished = findViewById(R.id.finished);
        // finished.setTextColor(Color.WHITE);
         //finished.setBackgroundColor(Color.BLACK);
+        //MediaPlayer upsong = MediaPlayer.create(this, R.raw.upgrades_song);
 
 
         time = new CountDownTimer(30000,1000) {
@@ -326,11 +342,11 @@ public class MainActivity extends AppCompatActivity {
                     finished.setText("Out Of Time!");
                 }
             }
-
             @Override
             public void onFinish() {
                 TextView clickerapppTs = findViewById(R.id.clickerAppPointsTextView);
                 empezario.setVisibility(View.VISIBLE);
+                song2.stop();
                 clickerapppTs.setTextColor(Color.BLACK);
                 clickerapppTs.setBackgroundColor(Color.RED);
                 empezario.setEnabled(true);
@@ -348,6 +364,9 @@ public class MainActivity extends AppCompatActivity {
                 coercionArray[7] = "Good work, but like my CS125 grade, it could be better. Try again?";
                 coercionArray[8] = "Have you gotten Arthritis yet? No? Then click some more!";
                 finished.setText(coercionArray[cs225]);
+                if (leftClickerGame == true) {
+                    song2.stop();
+                }
                 if (leftClickerGame == false) {
                     TextView clickerappPts = findViewById(R.id.clickerAppPointsTextView);
                     clickerappPts.setText("Total points: " + points);
@@ -389,8 +408,6 @@ public class MainActivity extends AppCompatActivity {
 
     public void attemptatttempt() {
         setContentView(R.layout.activity_load);
-
-
         if (loadTime != 0) { //If we need to load
             ImageView loadIcon = findViewById(R.id.loadIcon); // Initialize the imageview
             if (era0UpgradeEquipped) { // cs125 logo
@@ -398,10 +415,10 @@ public class MainActivity extends AppCompatActivity {
                 String[] loadArray = new String[4];
                 double random = (Math.random() * (loadArray.length - 1));
                 int replacer = (int) Math.ceil(random);
-                loadArray[0] = "Cs 1";
-                loadArray[1] = "Cs 2";
-                loadArray[2] = "Cs 3";
-                loadArray[3] = "Cs 4";
+                loadArray[0] = "GAY";
+                loadArray[1] = "GAY";
+                loadArray[2] = "GAY";
+                loadArray[3] = "GAY";
                 TextView loadingText = findViewById(R.id.loadingScreenTextView);
                 loadingText.setText(loadArray[replacer]);
             }
@@ -498,6 +515,8 @@ public class MainActivity extends AppCompatActivity {
             } else {
                 musicEnabled = true;
                 song = MediaPlayer.create(this, R.raw.song);
+                song.setLooping(true);
+                song.setVolume(1000,1000);
                 song.start();
                 Log.i("Music","Music is currently: " + musicEnabled);
             }
@@ -533,7 +552,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         leftClickerGame = true;
         TextView title = findViewById(R.id.title);
-        title.setTextColor(Color.RED);
+        title.setTextColor(Color.WHITE);
+        title.setBackgroundColor(Color.RED);
 
         VideoView video= (VideoView) findViewById(R.id.videoView);
         Uri uri = Uri.parse("android.resource://"+getPackageName()+"/"+R.raw.vid);
@@ -616,7 +636,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.clickergame_gaming);
         leftClickerGame = false;
         currentEraButton = findViewById(R.id.clicker);
-
+        //MediaPlayer upsong = MediaPlayer.create(this, R.raw.still_feel);
+        //song.setLooping(true);
+        //song.setVolume(1000,1000);
+        song.start();
 
         if (era0UpgradeEquipped) {
             currentEraButton.setImageResource(R.drawable.background0);
@@ -690,7 +713,12 @@ public class MainActivity extends AppCompatActivity {
         Button attackButton = findViewById(R.id.empezar);
         attackButton.setBackgroundColor(Color.RED);
         attackButton.setTextColor(Color.BLACK);
+        song2 = MediaPlayer.create(this, R.raw.upgrades_song);
+        song2.setLooping(true);
+        song2.setVolume(1000,1000);
+        //song2.start();
         attackButton.setOnClickListener(yoyo -> {
+            song2.start();
             attackButton.setEnabled(false);
             clickerGame();
         });
@@ -699,14 +727,27 @@ public class MainActivity extends AppCompatActivity {
 
     public void clickerUpgradePageOneTransition() {
         setContentView(R.layout.clickerupgrades_menu);
+        ConstraintLayout a = (ConstraintLayout) findViewById(R.id.clickup);
+        a.setBackgroundColor(Color.BLACK);
+
+        song.stop();
+        MediaPlayer upsong = MediaPlayer.create(this, R.raw.upgrades_song);
+        upsong.setLooping(true);
+        upsong.setVolume(1000,1000);
+        upsong.start();
 
         Button gotoUpgradePageTwo = findViewById(R.id.upgradePageOneToTwo);
+        gotoUpgradePageTwo.setTextColor(Color.WHITE);
+        gotoUpgradePageTwo.setBackgroundColor(Color.RED);
         gotoUpgradePageTwo.setOnClickListener(letsGo -> {
+            upsong.stop();
             clickerUpgradePageTwoTransition();
         });
 
         // X upgrade - costs 100
         Button upgrade1 = findViewById(R.id.upgrade1);
+        //upgrade1.setBackgroundColor(Color.BLACK);
+        //upgrade1.setTextColor(Color.WHITE);
         if (points < 100 || upgrade1Purchased) {
             upgrade1.setEnabled(false);
         } else if (points >= 100 && !upgrade1Purchased){
@@ -723,6 +764,8 @@ public class MainActivity extends AppCompatActivity {
 
         // X upgrade - costs 500
         Button upgrade2 = findViewById(R.id.upgrade2);
+        //upgrade2.setBackgroundColor(Color.BLACK);
+        //upgrade2.setTextColor(Color.WHITE);
         if (points < 500 || upgrade2Purchased) {
             upgrade2.setEnabled(false);
         } else if (points >= 500 && !upgrade2Purchased){
@@ -738,6 +781,8 @@ public class MainActivity extends AppCompatActivity {
 
         // X upgrade - costs 1000
         Button upgrade3 = findViewById(R.id.upgrade3);
+        //upgrade3.setBackgroundColor(Color.BLACK);
+       // upgrade3.setTextColor(Color.WHITE);
         if (points < 1000 || upgrade3Purchased) {
             upgrade3.setEnabled(false);
         } else if (points >= 1000 && !upgrade3Purchased){
@@ -754,6 +799,8 @@ public class MainActivity extends AppCompatActivity {
 
         // X upgrade - costs 2000
         Button upgrade4 = findViewById(R.id.upgrade4);
+        //upgrade4.setBackgroundColor(Color.BLACK);
+        //upgrade4.setTextColor(Color.BLACK);
         if (points < 2000 || upgrade4Purchased) {
             upgrade4.setEnabled(false);
         } else if (points >= 2000 && !upgrade4Purchased){
@@ -769,6 +816,8 @@ public class MainActivity extends AppCompatActivity {
 
         //i5 upgrade - cost 4k
         Button upgrade5 = findViewById(R.id.upgrade5);
+       // upgrade5.setBackgroundColor(Color.BLACK);
+       // upgrade5.setTextColor(Color.WHITE);
         if (points < 4000 || upgrade5Purchased) {
             upgrade5.setEnabled(false);
         } else if (points >= 4000 && !upgrade5Purchased) {
@@ -787,6 +836,8 @@ public class MainActivity extends AppCompatActivity {
 
         //i7 upgrade - cost 6k
         Button upgrade6 = findViewById(R.id.upgrade6);
+       // upgrade6.setBackgroundColor(Color.BLACK);
+       // upgrade6.setTextColor(Color.WHITE);
         if (points < 6000 || upgrade6Purchased) {
             upgrade6.setEnabled(false);
         } else if (points >= 6000 && !upgrade6Purchased) {
@@ -805,6 +856,9 @@ public class MainActivity extends AppCompatActivity {
 
         //i9 upgrade - cost 8k
         Button upgrade7 = findViewById(R.id.upgrade7);
+       // upgrade7.setBackgroundColor(Color.BLACK);
+       //
+        // upgrade7.setTextColor(Color.WHITE);
         if (points < 8000 || upgrade7Purchased) {
             upgrade7.setEnabled(false);
         } else if (points >= 8000 && !upgrade7Purchased) {
@@ -823,6 +877,8 @@ public class MainActivity extends AppCompatActivity {
 
         //threadripper upgrade - cost 10k
         Button upgrade8 = findViewById(R.id.upgrade8);
+       // upgrade8.setBackgroundColor(Color.BLACK);
+       // upgrade8.setTextColor(Color.WHITE);
         if (points < 10000 || upgrade8Purchased) {
             upgrade8.setEnabled(false);
         } else if (points >= 10000 && !upgrade8Purchased) {
@@ -838,7 +894,14 @@ public class MainActivity extends AppCompatActivity {
         });
 
         Button returnToClickerApp = findViewById(R.id.returnToClickerApp);
+        returnToClickerApp.setBackgroundColor(Color.RED);
+        returnToClickerApp.setTextColor(Color.WHITE);
         returnToClickerApp.setOnClickListener(egggg -> {
+            upsong.stop();
+            song = MediaPlayer.create(this, R.raw.song);
+            song.setLooping(true);
+            song.setVolume(1000,1000);
+            song.start();
             clickerGameTransition();
         });
 
@@ -871,43 +934,43 @@ public class MainActivity extends AppCompatActivity {
         if (upgrade1Purchased) { // Points per click upgrade 1
             upgrade1.setText("PURCHASED");
         } else {
-            upgrade1.setText("Up1"); // TODO: 2019-12-07 Change text here for powerup button name & same for below
+            upgrade1.setText("Kotlin Upgrade"); // TODO: 2019-12-07 Change text here for powerup button name & same for below
         }
         // -------------------------------
         if (upgrade2Purchased) { // Points per click upgrade 2
             upgrade2.setText("PURCHASED");
         } else {
-            upgrade2.setText("Up2");
+            upgrade2.setText("Java Upgrade");
         }
         // -------------------------------
         if(upgrade3Purchased) { // Points per click upgrade 3
             upgrade3.setText("PURCHASED");
         } else {
-            upgrade3.setText("Up3");
+            upgrade3.setText("Py. Upgrade");
         }
         // -------------------------------
         if(upgrade4Purchased) { // Points per click upgrade 4
             upgrade4.setText("PURCHASED");
         } else {
-            upgrade4.setText("Up4");
+            upgrade4.setText("C++ Upgrade");
         }
         // -------------------------------
         if(upgrade5Purchased) { //i5
             upgrade5.setText("PURCHASED");
         } else {
-            upgrade5.setText("i5");
+            upgrade5.setText("i5 Processor");
         }
         // -------------------------------
         if(upgrade6Purchased) { //i7
             upgrade6.setText("PURCHASED");
         } else {
-            upgrade6.setText("i7");
+            upgrade6.setText("i7 Processor");
         }
         // -------------------------------
         if(upgrade7Purchased) { //i9
             upgrade7.setText("PURCHASED");
         } else {
-            upgrade7.setText("i9");
+            upgrade7.setText("i9 Processor");
         }
         // -------------------------------
         if(upgrade8Purchased) { //threadripper
@@ -934,9 +997,20 @@ public class MainActivity extends AppCompatActivity {
     public ImageButton currentEraButton;
 
     public void clickerUpgradePageTwoTransition() {
+        //MediaPlayer upsong2 = MediaPlayer.create(this, R.raw.upgrades_song2);
+        MediaPlayer upsong2 = MediaPlayer.create(this, R.raw.upgrades_song2);
+        upsong2.setLooping(true);
+        upsong2.setVolume(1000,1000);
+        upsong2.start();
+
+
+
+        //upsong2.setLooping(true);
+        //upsong2.setVolume(1000,1000);
         setContentView(R.layout.clickerupgrades2_menu);
         Button backtoUpgradePageOne = findViewById(R.id.returnToUpgradePg1);
         backtoUpgradePageOne.setOnClickListener(eee -> {
+            upsong2.stop();
             clickerUpgradePageOneTransition();
         });
 
