@@ -17,6 +17,7 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.VideoView;
@@ -298,10 +299,14 @@ public class MainActivity extends AppCompatActivity {
          * this textView is the timer.
          */
         timerio = findViewById(R.id.timer);
+        //timerio.setTextColor(Color.WHITE);
+        //timerio.setBackgroundColor(Color.RED);
         /**
          * this textView shows the # of clicks the user has
          */
         clicksio = findViewById(R.id.clicks);
+        clicksio.setBackgroundColor(Color.RED);
+        clicksio.setTextColor(Color.BLACK);
         /**
          * this button allows the user to start a clicking session.
          * If not clicked, the clicker wil not work. empezar = start, in spanish.
@@ -320,6 +325,8 @@ public class MainActivity extends AppCompatActivity {
          * this textview encourages the user to keep playing once the timer has run out.
          */
         TextView finished = findViewById(R.id.finished);
+       // finished.setTextColor(Color.WHITE);
+        //finished.setBackgroundColor(Color.BLACK);
 
 
         time = new CountDownTimer(30000,1000) {
@@ -335,6 +342,9 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onFinish() {
+                TextView clickerapppTs = findViewById(R.id.clickerAppPointsTextView);
+                clickerapppTs.setTextColor(Color.BLACK);
+                clickerapppTs.setBackgroundColor(Color.RED);
                 empezario.setEnabled(true);
                 currentEraButton.setEnabled(false); // TODO: 2019-12-07 if ??EracurrentlyEquipped then set enabled false
                 String[] coercionArray = new String[9];
@@ -537,9 +547,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.clickergame_gaming);
         leftClickerGame = false;
         currentEraButton = findViewById(R.id.clicker);
-
-
-
         ConstraintLayout clickerGamebackGround = findViewById(R.id.j);
         if (darkMode) {
             clickerGamebackGround.setBackgroundColor(Color.BLACK);
@@ -560,6 +567,13 @@ public class MainActivity extends AppCompatActivity {
         } else if (era5UpgradeEquipped) {
             currentEraButton.setImageResource(R.drawable.background5);
         }
+        TextView timey = findViewById(R.id.timer);
+        timey.setBackgroundColor(Color.RED);
+        timey.setTextColor(Color.BLACK);
+
+        TextView finisher = findViewById(R.id.finished);
+        finisher.setTextColor(Color.BLACK);
+        finisher.setBackgroundColor(Color.RED);
 
 
 
@@ -584,11 +598,14 @@ public class MainActivity extends AppCompatActivity {
         });
 
         TextView yourPoints = findViewById(R.id.clickerAppPointsTextView);
-        yourPoints.setText(" Total Points: " + points);
+        yourPoints.setText(" TOTAL POINTS: " + points);
+        yourPoints.setTextColor(Color.BLACK);
+        yourPoints.setBackgroundColor(Color.RED);
 
         TextView pointsPerClicks = findViewById((R.id.ppc));
         pointsPerClicks.setTextColor(Color.BLACK);
-        pointsPerClicks.setText("Points per click: " + pointsPerClick);
+        pointsPerClicks.setBackgroundColor(Color.RED);
+        pointsPerClicks.setText("CLICK VALUE: " + pointsPerClick);
 
         Button upgradePointsButton = findViewById(R.id.gotoUpgradesFromClickerAppButton);
         upgradePointsButton.setBackgroundColor(Color.RED);
@@ -601,12 +618,16 @@ public class MainActivity extends AppCompatActivity {
         });
 
         TextView click = findViewById(R.id.clicks);
-        click.setText("Clicks: 0");
+        click.setText("CLICKS: 0");
+        click.setTextColor(Color.BLACK);
+        click.setBackgroundColor(Color.RED);
 
         currentEraButton.setEnabled(false);
         Button attackButton = findViewById(R.id.empezar);
         attackButton.setBackgroundColor(Color.RED);
+        attackButton.setTextColor(Color.BLACK);
         attackButton.setOnClickListener(yoyo -> {
+            attackButton.setEnabled(false);
             clickerGame();
         });
         
