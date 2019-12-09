@@ -1,7 +1,6 @@
 package com.example.finalprojectcs125;
 
 import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.media.MediaPlayer;
@@ -9,10 +8,8 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Handler;
-import android.text.Layout;
 import android.text.util.Linkify;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -21,7 +18,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.VideoView;
@@ -234,11 +230,6 @@ public class MainActivity extends AppCompatActivity {
         clickerGameButton.setBackgroundColor(Color.RED);
         clickerGameButton.setOnClickListener(iw -> {
             attemptatttempt();
-            /*
-            setContentView(R.layout.clickergame_gaming);
-            clickerGameTransition();
-
-             */
         });
 
         // Takes us to the settingsButton
@@ -382,7 +373,7 @@ public class MainActivity extends AppCompatActivity {
          */
 
         currentEraButton.setEnabled(false);
-        // TODO: 2019-12-07  declare all image buttons here 
+        // TODO: 2019-12-07  declare all image buttons here - I think this is done :)
 
         empezario.setEnabled(true);
 
@@ -414,7 +405,7 @@ public class MainActivity extends AppCompatActivity {
                 clickerapppTs.setTextColor(Color.BLACK);
                 clickerapppTs.setBackgroundColor(Color.RED);
                 empezario.setEnabled(true);
-                currentEraButton.setEnabled(false); // TODO: 2019-12-07 if ??EracurrentlyEquipped then set enabled false
+                currentEraButton.setEnabled(false);
                 String[] coercionArray = new String[9];
                 double random = (Math.random() * (coercionArray.length - 1));
                 int cs225 = (int) Math.ceil(random);
@@ -449,24 +440,19 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-                time.start();
-                empezario.setEnabled(false);
-                currentEraButton.setEnabled(true);
-                clix = 0;
-                tiempo = 30;
-                timerio.setText("Time: " + tiempo);
-                clicksio.setText("Clicks: " + clix);
-                if (tiempo <= 30 && tiempo > 0) {
-                    finished.setText("click away!");
-                }
-                if (tiempo <= 0) {
-                    time.cancel();
-                }
-
-
-
-
-
+        time.start();
+        empezario.setEnabled(false);
+        currentEraButton.setEnabled(true);
+        clix = 0;
+        tiempo = 30;
+        timerio.setText("Time: " + tiempo);
+        clicksio.setText("Clicks: " + clix);
+        if (tiempo <= 30 && tiempo > 0) {
+            finished.setText("click away!");
+        }
+        if (tiempo <= 0) {
+            time.cancel();
+        }
     }
 
 
@@ -509,7 +495,7 @@ public class MainActivity extends AppCompatActivity {
             }
             if (era2UpgradeEquipped) { // geoff fact & dogs
                 // TODO: 2019-12-09 CHANGE THIS IMMEIDAT:KA<FL !!!!!!!!!!!!!
-                loadIcon.setImageResource(R.drawable.challen_creation);
+                loadIcon.setImageResource(R.drawable.chuchu1v1);
                 String[] loadArray = new String[4];
                 double random = (Math.random() * (loadArray.length - 1));
                 int replacer = (int) Math.ceil(random);
@@ -563,26 +549,117 @@ public class MainActivity extends AppCompatActivity {
             new Handler().postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    if (goingBackToMainMenu) {
-                        mainMenuButtonReinitializer();
-                    } else {
-                        clickerGameTransition();
-                    }
+                    clickerGameTransition();
                     Log.i("Runner", "Ok charles we're doing it");
                 }
             }, loadTime * 1000);//4.5 sec delay before start
             Log.i("Runner", "Charles you left me :(");
         } else {
-            if (goingBackToMainMenu) {
-                mainMenuButtonReinitializer();
-            } else {
-                clickerGameTransition();
-            }
+            clickerGameTransition();
         }
     }
 
     public void fromClickerGameToMainMenuLoadScreen() {
-
+        setContentView(R.layout.activity_load);
+        final ProgressBar pbar = findViewById(R.id.pbar);
+        int a = 1000000;
+        pbar.setProgress(a);
+        //pbar.setVisibility(View.VISIBLE);
+        ProgressBar v =  findViewById(R.id.pbar);
+        v.getIndeterminateDrawable().setColorFilter(Color.RED,
+                android.graphics.PorterDuff.Mode.MULTIPLY);
+        if (loadTime != 0) { //If we need to load
+            ImageView loadIcon = findViewById(R.id.loadIcon); // Initialize the imageview
+            if (era0UpgradeEquipped) { // cs125 logo
+                loadIcon.setImageResource(R.drawable.background0);
+                String[] loadArray = new String[4];
+                double random = (Math.random() * (loadArray.length - 1));
+                int replacer = (int) Math.ceil(random);
+                loadArray[0] = "GAY";
+                loadArray[1] = "GAY";
+                loadArray[2] = "GAY";
+                loadArray[3] = "GAY";
+                TextView loadingText = findViewById(R.id.loadingScreenTextView);
+                loadingText.setText(loadArray[replacer]);
+                loadingText.setTextColor(Color.WHITE);
+            }
+            if (era1UpgradeEquipped) { // Turing Machine/turing facts
+                loadIcon.setImageResource(R.drawable.turing_machine);
+                String[] loadArray = new String[4];
+                double random = (Math.random() * (loadArray.length - 1));
+                int replacer = (int) Math.ceil(random);
+                loadArray[0] = "Turing 1";
+                loadArray[1] = "Turing 2";
+                loadArray[2] = "Turing 3";
+                loadArray[3] = "Turing 4";
+                TextView loadingText = findViewById(R.id.loadingScreenTextView);
+                loadingText.setText(loadArray[replacer]);
+                loadingText.setTextColor(Color.WHITE);
+            }
+            if (era2UpgradeEquipped) { // geoff fact & dogs
+                // TODO: 2019-12-09 CHANGE THIS IMMEIDAT:KA<FL !!!!!!!!!!!!!
+                loadIcon.setImageResource(R.drawable.chuchu1v1);
+                String[] loadArray = new String[4];
+                double random = (Math.random() * (loadArray.length - 1));
+                int replacer = (int) Math.ceil(random);
+                loadArray[0] = "Dog 1";
+                loadArray[1] = "Dog 2";
+                loadArray[2] = "Dog 3";
+                loadArray[3] = "Dog 4";
+                TextView loadingText = findViewById(R.id.loadingScreenTextView);
+                loadingText.setText(loadArray[replacer]);
+                loadingText.setTextColor(Color.WHITE);
+            }
+            if (era3UpgradeEquipped) { // Tesla stuff
+                loadIcon.setImageResource(R.drawable.musk_creation);
+                String[] loadArray = new String[4];
+                double random = (Math.random() * (loadArray.length - 1));
+                int replacer = (int) Math.ceil(random);
+                loadArray[0] = "Tesla 1";
+                loadArray[1] = "Tesla 2";
+                loadArray[2] = "Tesla 3";
+                loadArray[3] = "Tesla 4";
+                TextView loadingText = findViewById(R.id.loadingScreenTextView);
+                loadingText.setText(loadArray[replacer]);
+                loadingText.setTextColor(Color.WHITE);
+            }
+            if (era4UpgradeEquipped) { // Facebook fact/zucc alien
+                loadIcon.setImageResource(R.drawable.zucc_creation);
+                String[] loadArray = new String[4];
+                double random = (Math.random() * (loadArray.length - 1));
+                int replacer = (int) Math.ceil(random);
+                loadArray[0] = "Facebook 1";
+                loadArray[1] = "Facebook 2";
+                loadArray[2] = "Facebook 3";
+                loadArray[3] = "Facebook 4";
+                TextView loadingText = findViewById(R.id.loadingScreenTextView);
+                loadingText.setText(loadArray[replacer]);
+                loadingText.setTextColor(Color.WHITE);
+            }
+            if (era5UpgradeEquipped) { // it just works guy, bethesda stuff
+                loadIcon.setImageResource(R.drawable.howard_creation);
+                String[] loadArray = new String[4];
+                double random = (Math.random() * (loadArray.length - 1));
+                int replacer = (int) Math.ceil(random);
+                loadArray[0] = "Bethesda 1";
+                loadArray[1] = "Bethesda 2";
+                loadArray[2] = "Bethesda 3";
+                loadArray[3] = "Bethesda 4";
+                TextView loadingText = findViewById(R.id.loadingScreenTextView);
+                loadingText.setText(loadArray[replacer]);
+                loadingText.setTextColor(Color.WHITE);
+            }
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    mainMenuButtonReinitializer();
+                    Log.i("Runner", "Ok so we're in the other loading thing");
+                }
+            }, loadTime * 1000);//4.5 sec delay before start
+            Log.i("Runner", "Outside the other loading thing");
+        } else {
+            mainMenuButtonReinitializer();
+        }
     }
 
 
@@ -768,7 +845,8 @@ public class MainActivity extends AppCompatActivity {
                 time.cancel();
             }
             leftClickerGame = true;
-            mainMenuButtonReinitializer();
+            fromClickerGameToMainMenuLoadScreen();
+            //mainMenuButtonReinitializer();
         });
 
         // Sadly this button is gone :(
