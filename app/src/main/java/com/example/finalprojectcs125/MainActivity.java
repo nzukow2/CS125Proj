@@ -123,6 +123,11 @@ public class MainActivity extends AppCompatActivity {
      */
     boolean soundEffectsEnabled = true;
 
+    /** goingbackToMainMenu
+     *
+     */
+    boolean goingBackToMainMenu = false;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -476,12 +481,13 @@ public class MainActivity extends AppCompatActivity {
                 String[] loadArray = new String[4];
                 double random = (Math.random() * (loadArray.length - 1));
                 int replacer = (int) Math.ceil(random);
-                loadArray[0] = "GAY";
-                loadArray[1] = "GAY";
-                loadArray[2] = "GAY";
-                loadArray[3] = "GAY";
+                loadArray[0] = "GAY1";
+                loadArray[1] = "GAY2";
+                loadArray[2] = "GAY3";
+                loadArray[3] = "GAY4";
                 TextView loadingText = findViewById(R.id.loadingScreenTextView);
                 loadingText.setText(loadArray[replacer]);
+                loadingText.setTextColor(Color.WHITE);
             }
             if (era1UpgradeEquipped) { // Turing Machine/turing facts
                 loadIcon.setImageResource(R.drawable.turing_machine);
@@ -494,6 +500,7 @@ public class MainActivity extends AppCompatActivity {
                 loadArray[3] = "Turing 4";
                 TextView loadingText = findViewById(R.id.loadingScreenTextView);
                 loadingText.setText(loadArray[replacer]);
+                loadingText.setTextColor(Color.WHITE);
             }
             if (era2UpgradeEquipped) { // geoff fact & dogs
                 // TODO: 2019-12-09 CHANGE THIS IMMEIDAT:KA<FL !!!!!!!!!!!!!
@@ -507,6 +514,7 @@ public class MainActivity extends AppCompatActivity {
                 loadArray[3] = "Dog 4";
                 TextView loadingText = findViewById(R.id.loadingScreenTextView);
                 loadingText.setText(loadArray[replacer]);
+                loadingText.setTextColor(Color.WHITE);
             }
             if (era3UpgradeEquipped) { // Tesla stuff
                 loadIcon.setImageResource(R.drawable.musk_creation);
@@ -519,6 +527,7 @@ public class MainActivity extends AppCompatActivity {
                 loadArray[3] = "Tesla 4";
                 TextView loadingText = findViewById(R.id.loadingScreenTextView);
                 loadingText.setText(loadArray[replacer]);
+                loadingText.setTextColor(Color.WHITE);
             }
             if (era4UpgradeEquipped) { // Facebook fact/zucc alien
                 loadIcon.setImageResource(R.drawable.zucc_creation);
@@ -531,6 +540,7 @@ public class MainActivity extends AppCompatActivity {
                 loadArray[3] = "Facebook 4";
                 TextView loadingText = findViewById(R.id.loadingScreenTextView);
                 loadingText.setText(loadArray[replacer]);
+                loadingText.setTextColor(Color.WHITE);
             }
             if (era5UpgradeEquipped) { // it just works guy, bethesda stuff
                 loadIcon.setImageResource(R.drawable.howard_creation);
@@ -543,19 +553,31 @@ public class MainActivity extends AppCompatActivity {
                 loadArray[3] = "Bethesda 4";
                 TextView loadingText = findViewById(R.id.loadingScreenTextView);
                 loadingText.setText(loadArray[replacer]);
+                loadingText.setTextColor(Color.WHITE);
             }
             new Handler().postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    Intent main = new Intent(MainActivity.this, MainActivity.class);
-                    clickerGameTransition();
+                    if (goingBackToMainMenu) {
+                        mainMenuButtonReinitializer();
+                    } else {
+                        clickerGameTransition();
+                    }
                     Log.i("Runner", "Ok charles we're doing it");
                 }
             }, loadTime * 1000);//4.5 sec delay before start
             Log.i("Runner", "Charles you left me :(");
         } else {
-            clickerGameTransition();
+            if (goingBackToMainMenu) {
+                mainMenuButtonReinitializer();
+            } else {
+                clickerGameTransition();
+            }
         }
+    }
+
+    public void fromClickerGameToMainMenuLoadScreen() {
+
     }
 
 
@@ -611,6 +633,7 @@ public class MainActivity extends AppCompatActivity {
     public void mainMenuButtonReinitializer() {
         // TODO: 2019-12-07 add transition loading here 
         setContentView(R.layout.activity_main);
+        goingBackToMainMenu = false;
         leftClickerGame = true;
         TextView title = findViewById(R.id.title);
         title.setTextColor(Color.WHITE);
@@ -703,6 +726,7 @@ public class MainActivity extends AppCompatActivity {
     public void clickerGameTransition() {
         // TODO: 2019-12-07 add transition loading here
         setContentView(R.layout.clickergame_gaming);
+        goingBackToMainMenu = true;
         leftClickerGame = false;
         currentEraButton = findViewById(R.id.clicker);
         //MediaPlayer upsong = MediaPlayer.create(this, R.raw.still_feel);
@@ -740,7 +764,8 @@ public class MainActivity extends AppCompatActivity {
                 time.cancel();
             }
             leftClickerGame = true;
-            mainMenuButtonReinitializer();
+            attemptatttempt();
+            //mainMenuButtonReinitializer();
         });
 
         Button gotoSettingsButton = findViewById(R.id.gotoSettingsFromClickerAppButton);
@@ -1357,7 +1382,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        // TODO: 2019-12-05 Find a way to hide the Enter name here when we initially click
         thankYouNameInput.setOnClickListener(ef -> {
             thankYouNameInput.setText("");
         });
@@ -1382,8 +1406,6 @@ public class MainActivity extends AppCompatActivity {
         TextView thankYouMessage = findViewById(R.id.thankyouMessage);
         thankYouMessage.setText(""); // clears the text box each time the screen is accessed & button is pressed
 
-        // TODO: 2019-12-05 Make it so the setText is more smooth (not long & clunky, too many lines etc.)
-
 
         if (compareName.equals("Nathaniel Zukowski")) {
             points = 1000000000; //bil
@@ -1392,20 +1414,20 @@ public class MainActivity extends AppCompatActivity {
         }
 
         if (compareName.equals("Angel Canty")) {
-            points = 1000000000;
+            points = 1000000000; //bil
             thankYouMessage.setText("Hey! I also made this game!");
             CS125Staff = true;
         }
 
         if (compareName.equals("Geoff Challen")) {
-            points = 378456738;
+            points = 378456738; // 378M points and some
             Log.i("SecretNameMethod","---------------");
             Log.i("SecretNameMethod","JDHSBKLMDSFNSD our points are: " + points);
             CS125Staff = true;
             thankYouMessage.setText("Thanks for the great semester!");
         }
         if (compareName.equals("Ben Nordick")) {
-            points = 3928407;
+            points = 39284407; // 39M points and some
             CS125Staff = true;
             thankYouMessage.setText("Thanks for making the MP and helping others in office hours, on the forum and irl!");
             // Thank you message
@@ -1507,23 +1529,48 @@ public class MainActivity extends AppCompatActivity {
         caArray[83] = "Daniel Gleason";
         caArray[84] = "Nikhil Garg";
         caArray[85] = "Rima Bouhal";
+
+        String[] cdArray = new String[12];
+        cdArray[0] = "Anush Sandeep";
+        cdArray[1] = "Arjun V. Nair";
+        cdArray[2] = "Bailey Tincher";
+        cdArray[3] = "Harsh Deep";
+        cdArray[4] = "Jonathan Shobrook";
+        cdArray[5] = "Kyle Begovich";
+        cdArray[6] = "Leo Loubieres";
+        cdArray[7] = "Max Kopinsky";
+        cdArray[8] = "Nick Husin";
+        cdArray[9] = "Nitish Poddar";
+        cdArray[10] = "Sathwik Pochampally";
+        cdArray[11] = "Satvik Sethia";
+
+
         for (int i = 0; i < taArray.length; i ++) { // TA thankyou array
             if (taArray[i].equals(compareName)) {
-                points = 1000000; // million points
+                points = 1000000; //Million points
                 CS125Staff = true;
                 thankYouMessage.setText("CS125 TAs get it done, and in doing so help students get " +
-                        "what they've got to get done done as well. In other words, thank you! " + "AWARDED: 1000000pts");
+                        "what they've got to get done done as well. In other words, thank you! " + "AWARDED: 1,000,000pts");
             }
         }
         for (int i = 0; i < caArray.length; i++) { // CA thankyou array
             if (caArray[i].equals(compareName)) {
                 CS125Staff = true;
-                points = 500000; //half a million points
+                points = 500000; //Half a million points
                 thankYouMessage.setText(" CS125 CAs are the life jackets keeping students " +
                         "afloat while they learn" +
-                        " to swim their way through this ocean of a course. Thank you! AWARDED: 1000000pts");
+                        " to swim their way through this ocean of a course. Thank you! AWARDED: 500,000pts");
             }
         }
+        for (int i = 0; i < cdArray.length; i++) { // CD thankyou array
+            if (cdArray[i].equals(compareName)) {
+                CS125Staff = true;
+                points = 500000; //Half a million points
+                thankYouMessage.setText("CS125 CDs develop the course! Without you guys, I don't know what this course would've been! Thank you! " +
+                        "AWARDED: 500,000pts");
+            }
+        }
+        // TODO: 2019-12-09 Just double check that the thankyous look clean (added CD array)
         if (CS125Staff == false) {
             System.out.println("Not CS125 staff!");
             //thankYouMessage.setText("");

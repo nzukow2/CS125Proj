@@ -24,7 +24,6 @@
         android:layout_height="47dp"
         android:layout_marginBottom="84dp"
         android:fontFamily="cursive"
-        android:text="productions"
         android:textAlignment="center"
         android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/pbar"
