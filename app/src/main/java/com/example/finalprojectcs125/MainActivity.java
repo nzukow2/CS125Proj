@@ -420,10 +420,10 @@ public class MainActivity extends AppCompatActivity {
                 String[] loadArray = new String[4];
                 double random = (Math.random() * (loadArray.length - 1));
                 int replacer = (int) Math.ceil(random);
-                loadArray[0] = "GAY1";
-                loadArray[1] = "GAY2";
-                loadArray[2] = "GAY3";
-                loadArray[3] = "GAY4";
+                loadArray[0] = "GAY";
+                loadArray[1] = "GAY";
+                loadArray[2] = "GAY";
+                loadArray[3] = "GAY";
                 TextView loadingText = findViewById(R.id.loadingScreenTextView);
                 loadingText.setText(loadArray[replacer]);
                 loadingText.setTextColor(Color.WHITE);
@@ -657,7 +657,6 @@ public class MainActivity extends AppCompatActivity {
     public void clickerGameTransition() {
         // TODO: 2019-12-07 add transition loading here
         setContentView(R.layout.clickergame_gaming);
-        goingBackToMainMenu = true;
         leftClickerGame = false;
         currentEraButton = findViewById(R.id.clicker);
         //MediaPlayer upsong = MediaPlayer.create(this, R.raw.still_feel);
@@ -695,8 +694,7 @@ public class MainActivity extends AppCompatActivity {
                 time.cancel();
             }
             leftClickerGame = true;
-            attemptatttempt();
-            //mainMenuButtonReinitializer();
+            mainMenuButtonReinitializer();
         });
 
         Button gotoSettingsButton = findViewById(R.id.gotoSettingsFromClickerAppButton);
