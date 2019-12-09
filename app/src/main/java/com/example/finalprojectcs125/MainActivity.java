@@ -428,7 +428,7 @@ public class MainActivity extends AppCompatActivity {
             }
             if (era2UpgradeEquipped) { // geoff fact & dogs
                 // TODO: 2019-12-09 CHANGE THIS IMMEIDAT:KA<FL !!!!!!!!!!!!!
-                loadIcon.setImageResource(R.drawable.background2);
+                loadIcon.setImageResource(R.drawable.challen_creation);
                 String[] loadArray = new String[4];
                 double random = (Math.random() * (loadArray.length - 1));
                 int replacer = (int) Math.ceil(random);
