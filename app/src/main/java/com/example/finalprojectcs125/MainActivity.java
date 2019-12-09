@@ -266,30 +266,35 @@ public class MainActivity extends AppCompatActivity {
          * Android plugin that enables links
          */
         TextView Url1 = findViewById(R.id.txt2);
-        Url1.setTextColor(Color.WHITE);
         Url1.setText("- https://www.britannica.com/biography/Alan-Turing");
+        Url1.setTextColor(Color.WHITE);
         Linkify.addLinks(Url1, Linkify.WEB_URLS);
+        Url1.setLinkTextColor(Color.WHITE);
 
         TextView Url2 = findViewById(R.id.txt3);
-        Url2.setTextColor(Color.WHITE);
         Url2.setText("- https://cs.illinois.edu/directory/profile/challen");
+        Url2.setTextColor(Color.WHITE);
         Linkify.addLinks(Url2, Linkify.WEB_URLS);
+        Url2.setLinkTextColor(Color.WHITE);
 
         TextView Url3 = findViewById(R.id.txt4);
-        Url3.setTextColor(Color.WHITE);
         Url3.setText("- https://www.thoughtco.com/mark-zuckerberg-biography-1991135");
+        Url3.setTextColor(Color.WHITE);
         Linkify.addLinks(Url3, Linkify.WEB_URLS);
+        Url3.setLinkTextColor(Color.WHITE);
 
 
         TextView Url4= findViewById(R.id.txt5);
-        Url4.setTextColor(Color.WHITE);
         Url4.setText("- https://www.biography.com/business-figure/elon-musk ");
+        Url4.setTextColor(Color.WHITE);
         Linkify.addLinks(Url4, Linkify.WEB_URLS);
+        Url4.setLinkTextColor(Color.WHITE);
 
         TextView Url5 = findViewById(R.id.txt6);
-        Url5.setTextColor(Color.WHITE);
         Url5.setText("- https://www.famousbirthsdeaths.com/todd-howard-bio-net-worth-facts/");
-        Linkify.addLinks(Url4, Linkify.WEB_URLS);
+        Url5.setTextColor(Color.WHITE);
+        Linkify.addLinks(Url5, Linkify.WEB_URLS);
+        Url5.setLinkTextColor(Color.WHITE);
 
         Button infoReturn = findViewById(R.id.inforeturn);
         infoReturn.setTextColor(Color.WHITE);
@@ -481,10 +486,10 @@ public class MainActivity extends AppCompatActivity {
                 String[] loadArray = new String[4];
                 double random = (Math.random() * (loadArray.length - 1));
                 int replacer = (int) Math.ceil(random);
-                loadArray[0] = "legend says that MP1's final function was the hardest of the FA19 semester.";
-                loadArray[1] = "HINT: on some days, the forums > office hours. Choose wisely.";
-                loadArray[2] = "DID YOU KNOW?: CS 225 is the more difficult  'sequel' to CS 125. You've been warned.";
-                loadArray[3] = "DID YOU KNOW?: The CS125 banner is the official class emblem. Code in its honor! ";
+                loadArray[0] = "GAY";
+                loadArray[1] = "GAY";
+                loadArray[2] = "GAY";
+                loadArray[3] = "GAY";
                 TextView loadingText = findViewById(R.id.loadingScreenTextView);
                 loadingText.setText(loadArray[replacer]);
                 loadingText.setTextColor(Color.WHITE);
@@ -726,7 +731,6 @@ public class MainActivity extends AppCompatActivity {
     public void clickerGameTransition() {
         // TODO: 2019-12-07 add transition loading here
         setContentView(R.layout.clickergame_gaming);
-        goingBackToMainMenu = true;
         leftClickerGame = false;
         currentEraButton = findViewById(R.id.clicker);
         //MediaPlayer upsong = MediaPlayer.create(this, R.raw.still_feel);
@@ -764,19 +768,13 @@ public class MainActivity extends AppCompatActivity {
                 time.cancel();
             }
             leftClickerGame = true;
-            attemptatttempt();
-            //mainMenuButtonReinitializer();
+            mainMenuButtonReinitializer();
         });
 
+        // Sadly this button is gone :(
         Button gotoSettingsButton = findViewById(R.id.gotoSettingsFromClickerAppButton);
         gotoSettingsButton.setBackgroundColor(Color.RED);
-        gotoSettingsButton.setOnClickListener(eggwukjnsgu -> {
-            if (!firstimeforeverything) {
-                time.cancel();
-            }
-            leftClickerGame = true;
-            settingsMenuTransition();
-        });
+        gotoSettingsButton.setVisibility(View.GONE);
 
         TextView yourPoints = findViewById(R.id.clickerAppPointsTextView);
         yourPoints.setText(" TOTAL POINTS: " + points);
