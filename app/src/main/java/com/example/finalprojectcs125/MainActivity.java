@@ -395,7 +395,76 @@ public class MainActivity extends AppCompatActivity {
 
     public void attemptatttempt() {
         setContentView(R.layout.activity_load);
-        if (loadTime != 0) {
+
+
+        if (loadTime != 0) { //If we need to load
+
+            if (era0UpgradeEquipped) { // cs125 logo
+                String[] loadArray = new String[4];
+                double random = (Math.random() * (loadArray.length - 1));
+                int replacer = (int) Math.ceil(random);
+                loadArray[0] = "Cs 1";
+                loadArray[1] = "Cs 2";
+                loadArray[2] = "Cs 3";
+                loadArray[3] = "Cs 4";
+                TextView loadingText = findViewById(R.id.loadingScreenTextView);
+                loadingText.setText(loadArray[replacer]);
+            }
+            if (era1UpgradeEquipped) { // Turing Machine/turing facts
+                String[] loadArray = new String[4];
+                double random = (Math.random() * (loadArray.length - 1));
+                int replacer = (int) Math.ceil(random);
+                loadArray[0] = "Turing 1";
+                loadArray[1] = "Turing 2";
+                loadArray[2] = "Turing 3";
+                loadArray[3] = "Turing 4";
+                TextView loadingText = findViewById(R.id.loadingScreenTextView);
+                loadingText.setText(loadArray[replacer]);
+            }
+            if (era2UpgradeEquipped) { // geoff fact & dogs
+                String[] loadArray = new String[4];
+                double random = (Math.random() * (loadArray.length - 1));
+                int replacer = (int) Math.ceil(random);
+                loadArray[0] = "Dog 1";
+                loadArray[1] = "Dog 2";
+                loadArray[2] = "Dog 3";
+                loadArray[3] = "Dog 4";
+                TextView loadingText = findViewById(R.id.loadingScreenTextView);
+                loadingText.setText(loadArray[replacer]);
+            }
+            if (era3UpgradeEquipped) { // Tesla stuff
+                String[] loadArray = new String[4];
+                double random = (Math.random() * (loadArray.length - 1));
+                int replacer = (int) Math.ceil(random);
+                loadArray[0] = "Tesla 1";
+                loadArray[1] = "Tesla 2";
+                loadArray[2] = "Tesla 3";
+                loadArray[3] = "Tesla 4";
+                TextView loadingText = findViewById(R.id.loadingScreenTextView);
+                loadingText.setText(loadArray[replacer]);
+            }
+            if (era4UpgradeEquipped) { // Facebook fact/zucc alien
+                String[] loadArray = new String[4];
+                double random = (Math.random() * (loadArray.length - 1));
+                int replacer = (int) Math.ceil(random);
+                loadArray[0] = "Facebook 1";
+                loadArray[1] = "Facebook 2";
+                loadArray[2] = "Facebook 3";
+                loadArray[3] = "Facebook 4";
+                TextView loadingText = findViewById(R.id.loadingScreenTextView);
+                loadingText.setText(loadArray[replacer]);
+            }
+            if (era5UpgradeEquipped) { // it just works guy, bethesda stuff
+                String[] loadArray = new String[4];
+                double random = (Math.random() * (loadArray.length - 1));
+                int replacer = (int) Math.ceil(random);
+                loadArray[0] = "Bethesda 1";
+                loadArray[1] = "Bethesda 2";
+                loadArray[2] = "Bethesda 3";
+                loadArray[3] = "Bethesda 4";
+                TextView loadingText = findViewById(R.id.loadingScreenTextView);
+                loadingText.setText(loadArray[replacer]);
+            }
             new Handler().postDelayed(new Runnable() {
                 @Override
                 public void run() {
