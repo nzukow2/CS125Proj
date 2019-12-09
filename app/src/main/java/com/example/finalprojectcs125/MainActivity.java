@@ -318,9 +318,9 @@ public class MainActivity extends AppCompatActivity {
         Animation animation;
         animation = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.feedback_layout);
         feedtext.setText("CREDITS\n" + "DEVELOPERS:\n" + "ANGEL CANTY\n" +
-                "Lord-Manipulator of human-computer interaction(UI)\n" + "Animations Coder\n" +
-                "Front-End Coordinator\n" + "framework assistant\n" +"NATE Z\n" +"Lord-Architect of software framework(Code Structure/Groundwork)\n"
-                + "Master-Scrutinizer-Debugger\n" + "Back-End Coordinator\n" + "Animations assistant");
+                "Lord-Manipulator of human-computer interaction(UI)\n" + "Master-scheduler\n" +"Master Animations Coder\n" +
+                "Front-End Coordinator\n" + "framework assistant\n" +"NATE ZUKOW \n" +"Lord-Architect of software framework(Code Structure/Groundwork)\n"
+                + "Master-Scrutinizer\n" +  "Debugger\n" + "Back-End Coordinator\n" + "Animations assistant");
         feedtext.startAnimation(animation);
 
        // TextView thanjs = findViewById(R.layout.feedback_layout);
@@ -486,10 +486,10 @@ public class MainActivity extends AppCompatActivity {
                 String[] loadArray = new String[4];
                 double random = (Math.random() * (loadArray.length - 1));
                 int replacer = (int) Math.ceil(random);
-                loadArray[0] = "GAY";
-                loadArray[1] = "GAY";
-                loadArray[2] = "GAY";
-                loadArray[3] = "GAY";
+                loadArray[0] = "HINT: on some some days, Forums > Office Hours. Choose wisely.";
+                loadArray[1] = "Legend says that the majority of students didn't finish MP1 in FA19.";
+                loadArray[2] = "CS 225 is a more difficult version of CS125, and its sequel. You've been warned.";
+                loadArray[3] = "HINT: On CBTF quizzes, try tackling code, and switching off periodically to multiple choice. ";
                 TextView loadingText = findViewById(R.id.loadingScreenTextView);
                 loadingText.setText(loadArray[replacer]);
                 loadingText.setTextColor(Color.WHITE);
@@ -499,10 +499,10 @@ public class MainActivity extends AppCompatActivity {
                 String[] loadArray = new String[4];
                 double random = (Math.random() * (loadArray.length - 1));
                 int replacer = (int) Math.ceil(random);
-                loadArray[0] = "Turing 1";
-                loadArray[1] = "Turing 2";
-                loadArray[2] = "Turing 3";
-                loadArray[3] = "Turing 4";
+                loadArray[0] = "Alan Turing is considered by most to be the father of modern Computer Science.";
+                loadArray[1] = "DID YOU KNOW?: Despite his hand in saving Britain, Turing was prosecuted and castrated due to his sexuality.";
+                loadArray[2] = "HINT: To change clicker, access the 'HEROES' menu from the upgrades.";
+                loadArray[3] = "DID YOU KNOW?: Alan Turing created the first computer-based chess game.";
                 TextView loadingText = findViewById(R.id.loadingScreenTextView);
                 loadingText.setText(loadArray[replacer]);
                 loadingText.setTextColor(Color.WHITE);
@@ -999,35 +999,35 @@ public class MainActivity extends AppCompatActivity {
 
         TextView upgradeText1 = findViewById(R.id.upgradeText1);
         upgradeText1.setTextColor(Color.WHITE);
-        upgradeText1.setText("Increases PPC by: 2");
+        upgradeText1.setText(" Kotlin Increases PPC by: 2 (COST:100)");
 
         TextView upgradeText2 = findViewById(R.id.upgradeText2);
         upgradeText2.setTextColor(Color.WHITE);
-        upgradeText2.setText("Increases PPC by: 4");
+        upgradeText2.setText(" Java  Increases PPC by: 4 (COST:500)");
 
         TextView upgradeText3 = findViewById(R.id.upgradeText3);
         upgradeText3.setTextColor(Color.WHITE);
-        upgradeText3.setText("Increases PPC by: 6");
+        upgradeText3.setText("Python Increases PPC by: 6 (COST:1000)");
 
         TextView upgradeText4 = findViewById(R.id.upgradeText4);
         upgradeText4.setTextColor(Color.WHITE);
-        upgradeText4.setText("Increases PPC by: 8");
+        upgradeText4.setText("C++ Increases PPC by: 8 (COST:2000PTS)");
 
         TextView upgradeText5 = findViewById(R.id.upgradeText5);
         upgradeText5.setTextColor(Color.WHITE);
-        upgradeText5.setText("Upgrade5Text");
+        upgradeText5.setText("i5 processor: Loadscreen time = good (COST:4000PTS)");
 
         TextView upgradeText6 = findViewById(R.id.upgradeText6);
         upgradeText6.setTextColor(Color.WHITE);
-        upgradeText6.setText("Upgrade6Text");
+        upgradeText6.setText("i7 processor: Loadscreen time = fast (COST:6000PTS)");
 
         TextView upgradeText7 = findViewById(R.id.upgradeText7);
         upgradeText7.setTextColor(Color.WHITE);
-        upgradeText7.setText("Upgrade7Text");
+        upgradeText7.setText("i9 processor: Loadscreen time = Amazing (COST:8000PTS)");
 
         TextView upgradeText8 = findViewById(R.id.upgradeText8);
         upgradeText8.setTextColor(Color.WHITE);
-        upgradeText8.setText("Upgrade8Text");
+        upgradeText8.setText("Equip ThreadRipper.(COST:10000PTS) ");
         // vvv These set the text for if the upgrade has been purchased (global boolean) vvv
 
 
@@ -1098,6 +1098,10 @@ public class MainActivity extends AppCompatActivity {
 
     public void clickerUpgradePageTwoTransition() {
         //MediaPlayer upsong2 = MediaPlayer.create(this, R.raw.upgrades_song2);
+        MediaPlayer upsong = MediaPlayer.create(this, R.raw.upgrades_song);
+        upsong.setLooping(true);
+        upsong.setVolume(1000,1000);
+        upsong.stop();
         MediaPlayer upsong2 = MediaPlayer.create(this, R.raw.upgrades_song2);
         upsong2.setLooping(true);
         upsong2.setVolume(1000,1000);
