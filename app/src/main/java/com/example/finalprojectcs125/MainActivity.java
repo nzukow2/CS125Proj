@@ -104,7 +104,7 @@ public class MainActivity extends AppCompatActivity {
     /** loadTime
      * The amount of time in seconds the user will need to wait until the page loads
      */
-    int loadTime = 10;
+    public static int loadTime = 10;
 
     /**
      *
@@ -143,16 +143,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        /*
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                Intent load = new Intent(MainActivity.this, LoadActivity.class);
-                startActivity(load);
-                finish();
-            }
-        },loadTime);
-         */
 
         /**
          * adds music
@@ -230,8 +220,12 @@ public class MainActivity extends AppCompatActivity {
         Button clickerGameButton = findViewById(R.id.clickergameButton);
         clickerGameButton.setBackgroundColor(Color.RED);
         clickerGameButton.setOnClickListener(iw -> {
+            attemptatttempt();
+            /*
             setContentView(R.layout.clickergame_gaming);
             clickerGameTransition();
+
+             */
         });
 
         // Takes us to the settingsButton
@@ -399,6 +393,23 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+    public void attemptatttempt() {
+        setContentView(R.layout.activity_load);
+        if (loadTime != 0) {
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    Intent main = new Intent(MainActivity.this, MainActivity.class);
+                    clickerGameTransition();
+                    Log.i("Runner", "Ok charles we're doing it");
+                }
+            }, loadTime * 1000);//4.5 sec delay before start
+            Log.i("Runner", "Charles you left me :(");
+        } else {
+            clickerGameTransition();
+        }
+    }
+
 
     public void settingsMenuTransition() {
         // TODO: 2019-12-07 add transition loading here
@@ -509,7 +520,7 @@ public class MainActivity extends AppCompatActivity {
         Button clickerGameButton = findViewById(R.id.clickergameButton);
         clickerGameButton.setBackgroundColor(Color.RED);
         clickerGameButton.setOnClickListener(iw -> {
-            clickerGameTransition();
+            attemptatttempt();
         });
 
         TextView menuTextPoints = findViewById(R.id.menuPointsTextView);
@@ -1103,10 +1114,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public void loadingscreenTransition() {
-        setContentView(R.layout.loadingscreen_loader);
-        // This is where we'll put the code for the loading screen to do stuff!
-    }
+
 
 
     /** Below this block is work that has to do with the secretNameMethod & its transitions
