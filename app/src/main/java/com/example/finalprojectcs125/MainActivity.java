@@ -266,30 +266,35 @@ public class MainActivity extends AppCompatActivity {
          * Android plugin that enables links
          */
         TextView Url1 = findViewById(R.id.txt2);
-        Url1.setTextColor(Color.WHITE);
         Url1.setText("- https://www.britannica.com/biography/Alan-Turing");
+        Url1.setTextColor(Color.WHITE);
         Linkify.addLinks(Url1, Linkify.WEB_URLS);
+        Url1.setLinkTextColor(Color.WHITE);
 
         TextView Url2 = findViewById(R.id.txt3);
-        Url2.setTextColor(Color.WHITE);
         Url2.setText("- https://cs.illinois.edu/directory/profile/challen");
+        Url2.setTextColor(Color.WHITE);
         Linkify.addLinks(Url2, Linkify.WEB_URLS);
+        Url2.setLinkTextColor(Color.WHITE);
 
         TextView Url3 = findViewById(R.id.txt4);
-        Url3.setTextColor(Color.WHITE);
         Url3.setText("- https://www.thoughtco.com/mark-zuckerberg-biography-1991135");
+        Url3.setTextColor(Color.WHITE);
         Linkify.addLinks(Url3, Linkify.WEB_URLS);
+        Url3.setLinkTextColor(Color.WHITE);
 
 
         TextView Url4= findViewById(R.id.txt5);
-        Url4.setTextColor(Color.WHITE);
         Url4.setText("- https://www.biography.com/business-figure/elon-musk ");
+        Url4.setTextColor(Color.WHITE);
         Linkify.addLinks(Url4, Linkify.WEB_URLS);
+        Url4.setLinkTextColor(Color.WHITE);
 
         TextView Url5 = findViewById(R.id.txt6);
-        Url5.setTextColor(Color.WHITE);
         Url5.setText("- https://www.famousbirthsdeaths.com/todd-howard-bio-net-worth-facts/");
-        Linkify.addLinks(Url4, Linkify.WEB_URLS);
+        Url5.setTextColor(Color.WHITE);
+        Linkify.addLinks(Url5, Linkify.WEB_URLS);
+        Url5.setLinkTextColor(Color.WHITE);
 
         Button infoReturn = findViewById(R.id.inforeturn);
         infoReturn.setTextColor(Color.WHITE);
@@ -766,15 +771,10 @@ public class MainActivity extends AppCompatActivity {
             mainMenuButtonReinitializer();
         });
 
+        // Sadly this button is gone :(
         Button gotoSettingsButton = findViewById(R.id.gotoSettingsFromClickerAppButton);
         gotoSettingsButton.setBackgroundColor(Color.RED);
-        gotoSettingsButton.setOnClickListener(eggwukjnsgu -> {
-            if (!firstimeforeverything) {
-                time.cancel();
-            }
-            leftClickerGame = true;
-            settingsMenuTransition();
-        });
+        gotoSettingsButton.setVisibility(View.GONE);
 
         TextView yourPoints = findViewById(R.id.clickerAppPointsTextView);
         yourPoints.setText(" TOTAL POINTS: " + points);
