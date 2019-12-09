@@ -456,7 +456,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-
     /** mainMenuButtonReinitializer
      * Reinitializes all the buttons and stuff on the main menu!
      */
