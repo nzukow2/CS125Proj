@@ -104,6 +104,7 @@ public class MainActivity extends AppCompatActivity {
      * The amount of time in seconds the user will need to wait until the page loads
      */
     int loadTime = 10;
+    int load = 4000;
 
     /**
      *
@@ -130,6 +131,15 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         // TODO: 2019-12-07 brief transition when starting app 
         setContentView(R.layout.activity_main);
+        //new Handler().postDelayed(new Runnable() {
+          //  @Override
+          //  public void run() {
+          //      Intent load = new Intent(MainActivity.this, LoadActivity.class);
+            //    startActivity(load);
+            //    finish();
+           // }
+        //
+        //},load);
 
         VideoView video = (VideoView) findViewById(R.id.videoView);
         Uri uri = Uri.parse("android.resource://"+getPackageName()+"/"+R.raw.vid);
@@ -142,14 +152,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                Intent load = new Intent(MainActivity.this, LoadActivity.class);
-                startActivity(load);
-                finish();
-            }
-        },loadTime);
+
 
         /**
          * adds music
