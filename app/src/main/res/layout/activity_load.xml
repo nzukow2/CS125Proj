@@ -23,9 +23,9 @@
         android:layout_width="213dp"
         android:layout_height="47dp"
         android:layout_marginBottom="84dp"
-        android:fontFamily="cursive"
+        android:fontFamily="@font/audiowide"
         android:textAlignment="center"
-        android:textSize="24sp"
+        android:textSize="12sp"
         app:layout_constraintBottom_toTopOf="@+id/pbar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

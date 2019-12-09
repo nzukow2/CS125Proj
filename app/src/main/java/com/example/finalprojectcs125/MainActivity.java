@@ -481,10 +481,10 @@ public class MainActivity extends AppCompatActivity {
                 String[] loadArray = new String[4];
                 double random = (Math.random() * (loadArray.length - 1));
                 int replacer = (int) Math.ceil(random);
-                loadArray[0] = "GAY1";
-                loadArray[1] = "GAY2";
-                loadArray[2] = "GAY3";
-                loadArray[3] = "GAY4";
+                loadArray[0] = "legend says that MP1's final function was the hardest of the FA19 semester.";
+                loadArray[1] = "HINT: on some days, the forums > office hours. Choose wisely.";
+                loadArray[2] = "DID YOU KNOW?: CS 225 is the more difficult  'sequel' to CS 125. You've been warned.";
+                loadArray[3] = "DID YOU KNOW?: The CS125 banner is the official class emblem. Code in its honor! ";
                 TextView loadingText = findViewById(R.id.loadingScreenTextView);
                 loadingText.setText(loadArray[replacer]);
                 loadingText.setTextColor(Color.WHITE);
