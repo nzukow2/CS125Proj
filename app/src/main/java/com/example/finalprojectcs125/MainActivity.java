@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Handler;
 import android.text.Layout;
+import android.text.util.Linkify;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,6 +22,7 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.VideoView;
 
@@ -220,6 +222,13 @@ public class MainActivity extends AppCompatActivity {
             secretNameMethodTransition();
         });
 
+        Button info = findViewById(R.id.info);
+        info.setBackgroundColor(Color.RED);
+        info.setTextColor(Color.WHITE);
+        info.setOnClickListener(e -> {
+            infoTransition();
+        });
+
         // Takes us to the clicker game
         Button clickerGameButton = findViewById(R.id.clickergameButton);
         clickerGameButton.setBackgroundColor(Color.RED);
@@ -239,12 +248,57 @@ public class MainActivity extends AppCompatActivity {
             settingsMenuTransition();
         });
 
-        TextView menuTextPoints = findViewById(R.id.menuPointsTextView);
-        menuTextPoints.setTextColor(Color.WHITE);
-        menuTextPoints.setText("You have: " + points + " points");
+      //  TextView menuTextPoints = findViewById(R.id.menuPointsTextView);
+       // menuTextPoints.setTextColor(Color.WHITE);
+       // menuTextPoints.setText("You have: " + points + " points");
 
     }
+    public void infoTransition() {
+        setContentView(R.layout.activity_info);
 
+
+        //Button info = findViewById(R.id.info);
+        //info.setBackgroundColor(Color.RED);
+        //info.setTextColor(Color.WHITE);
+        TextView heroes = findViewById(R.id.txt1);
+        heroes.setTextColor(Color.WHITE);
+        /**
+         * Android plugin that enables links
+         */
+        TextView Url1 = findViewById(R.id.txt2);
+        Url1.setTextColor(Color.WHITE);
+        Url1.setText("- https://www.britannica.com/biography/Alan-Turing");
+        Linkify.addLinks(Url1, Linkify.WEB_URLS);
+
+        TextView Url2 = findViewById(R.id.txt3);
+        Url2.setTextColor(Color.WHITE);
+        Url2.setText("- https://cs.illinois.edu/directory/profile/challen");
+        Linkify.addLinks(Url2, Linkify.WEB_URLS);
+
+        TextView Url3 = findViewById(R.id.txt4);
+        Url3.setTextColor(Color.WHITE);
+        Url3.setText("- https://www.thoughtco.com/mark-zuckerberg-biography-1991135");
+        Linkify.addLinks(Url3, Linkify.WEB_URLS);
+
+
+        TextView Url4= findViewById(R.id.txt5);
+        Url4.setTextColor(Color.WHITE);
+        Url4.setText("- https://www.biography.com/business-figure/elon-musk ");
+        Linkify.addLinks(Url4, Linkify.WEB_URLS);
+
+        TextView Url5 = findViewById(R.id.txt6);
+        Url5.setTextColor(Color.WHITE);
+        Url5.setText("- https://www.famousbirthsdeaths.com/todd-howard-bio-net-worth-facts/");
+        Linkify.addLinks(Url4, Linkify.WEB_URLS);
+
+        Button infoReturn = findViewById(R.id.inforeturn);
+        infoReturn.setTextColor(Color.WHITE);
+        infoReturn.setBackgroundColor(Color.RED);
+        infoReturn.setOnClickListener(qq -> {
+            mainMenuButtonReinitializer();
+        });
+
+    }
     /** feedbackTransition
      * transitions us to the feedbackMenu and initializes all the buttons
      */
@@ -413,6 +467,13 @@ public class MainActivity extends AppCompatActivity {
 
     public void attemptatttempt() {
         setContentView(R.layout.activity_load);
+        final ProgressBar pbar = findViewById(R.id.pbar);
+        int a = 1000000;
+        pbar.setProgress(a);
+        //pbar.setVisibility(View.VISIBLE);
+        ProgressBar v =  findViewById(R.id.pbar);
+        v.getIndeterminateDrawable().setColorFilter(Color.RED,
+                android.graphics.PorterDuff.Mode.MULTIPLY);
         if (loadTime != 0) { //If we need to load
             ImageView loadIcon = findViewById(R.id.loadIcon); // Initialize the imageview
             if (era0UpgradeEquipped) { // cs125 logo
@@ -611,6 +672,14 @@ public class MainActivity extends AppCompatActivity {
             settingsMenuTransition();
         });
 
+        Button info = findViewById(R.id.info);
+        info.setBackgroundColor(Color.RED);
+        info.setTextColor(Color.WHITE);
+        info.setOnClickListener(d -> {
+            infoTransition();
+        });
+
+
         // Reinitializes the feedbackButton
         Button feedbackButton = findViewById(R.id.creditsButton);
         feedbackButton.setBackgroundColor(Color.RED);
@@ -624,9 +693,9 @@ public class MainActivity extends AppCompatActivity {
             attemptatttempt();
         });
 
-        TextView menuTextPoints = findViewById(R.id.menuPointsTextView);
-        menuTextPoints.setTextColor(Color.WHITE);
-        menuTextPoints.setText("You have: " + points + " points");
+        ///TextView menuTextPoints = findViewById(R.id.menuPointsTextView);
+        ///menuTextPoints.setTextColor(Color.WHITE);
+       /// menuTextPoints.setText("You have: " + points + " points");
 
         //VideoView video = (VideoView) findViewById(R.id.videoView);
         //Uri uri = Uri.parse("android.resource://"+getPackageName()+"/"+R.raw.vid);
@@ -929,27 +998,35 @@ public class MainActivity extends AppCompatActivity {
         });
 
         TextView upgradeText1 = findViewById(R.id.upgradeText1);
-        upgradeText1.setText("student powerup");
+        upgradeText1.setTextColor(Color.WHITE);
+        upgradeText1.setText("Increases PPC by: 2");
 
         TextView upgradeText2 = findViewById(R.id.upgradeText2);
-        upgradeText2.setText("10xer student powerup");
+        upgradeText2.setTextColor(Color.WHITE);
+        upgradeText2.setText("Increases PPC by: 4");
 
         TextView upgradeText3 = findViewById(R.id.upgradeText3);
-        upgradeText3.setText("CA powerup");
+        upgradeText3.setTextColor(Color.WHITE);
+        upgradeText3.setText("Increases PPC by: 6");
 
         TextView upgradeText4 = findViewById(R.id.upgradeText4);
-        upgradeText4.setText("TA powerup");
+        upgradeText4.setTextColor(Color.WHITE);
+        upgradeText4.setText("Increases PPC by: 8");
 
         TextView upgradeText5 = findViewById(R.id.upgradeText5);
+        upgradeText5.setTextColor(Color.WHITE);
         upgradeText5.setText("Upgrade5Text");
 
         TextView upgradeText6 = findViewById(R.id.upgradeText6);
+        upgradeText6.setTextColor(Color.WHITE);
         upgradeText6.setText("Upgrade6Text");
 
         TextView upgradeText7 = findViewById(R.id.upgradeText7);
+        upgradeText7.setTextColor(Color.WHITE);
         upgradeText7.setText("Upgrade7Text");
 
         TextView upgradeText8 = findViewById(R.id.upgradeText8);
+        upgradeText8.setTextColor(Color.WHITE);
         upgradeText8.setText("Upgrade8Text");
         // vvv These set the text for if the upgrade has been purchased (global boolean) vvv
 
