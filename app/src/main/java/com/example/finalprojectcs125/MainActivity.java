@@ -128,7 +128,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        // TODO: 2019-12-07 brief transition when starting app 
+        // TODO: 2019-12-07 brief transition when starting app
         setContentView(R.layout.activity_main);
 
         VideoView video = (VideoView) findViewById(R.id.videoView);
@@ -142,6 +142,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        /*
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
@@ -150,13 +151,14 @@ public class MainActivity extends AppCompatActivity {
                 finish();
             }
         },loadTime);
+         */
 
         /**
          * adds music
          */
         song = MediaPlayer.create(this, R.raw.song);
         song.setLooping(true);
-        song.setVolume(100,100);
+        song.setVolume(1000,1000);
         song.start();
         //MediaPlayer ring= MediaPlayer.create(MainActivity.this,R.raw.song);
         // ring.start();
@@ -167,7 +169,7 @@ public class MainActivity extends AppCompatActivity {
         if (currentView.equals(clickup) && musicEnabled) { //credits menu music
             song2 = MediaPlayer.create(this, R.raw.songupgrades);
             song2.setLooping(true);
-            song2.setVolume(100,100);
+            song2.setVolume(1000,1000);
             song2.start();
         } else {
             if (musicEnabled) {
