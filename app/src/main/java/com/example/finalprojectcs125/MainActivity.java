@@ -18,8 +18,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.VideoView;
 
@@ -66,8 +64,6 @@ public class MainActivity extends AppCompatActivity {
     public TextView timerio;
     public  TextView clicksio;
     public  Button empezario;
-    public ImageButton clickerio;
-    boolean BackgroundColorChanger = true;
     /**
      * music
      */
@@ -111,11 +107,6 @@ public class MainActivity extends AppCompatActivity {
      *
      */
     boolean firstimeforeverything = true;
-
-    /** darkMode
-     * boolean that checks if we are in darkmode ( toggle in settings )
-     */
-    boolean darkMode = false;
 
     /** musicEnabled
      * tells us if the user wants to hear music
@@ -531,17 +522,6 @@ public class MainActivity extends AppCompatActivity {
         returnToMainMenu.setOnClickListener(eggwugu -> {
             mainMenuButtonReinitializer();
         });
-
-        Switch darkModeSwitch = findViewById(R.id.darkModeSwitch);
-        darkModeSwitch.setOnClickListener(gnijs -> {
-            Log.i("Test","The darkmode switch has been toggled!");
-            if (darkMode) {
-                darkMode = false;
-            } else {
-                darkMode = true;
-            }
-            // TODO: 2019-12-05 add code here that will make the game go in darkmode! Do we need to store a boolean?
-        });
     }
 
 
@@ -636,12 +616,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.clickergame_gaming);
         leftClickerGame = false;
         currentEraButton = findViewById(R.id.clicker);
-        ConstraintLayout clickerGamebackGround = findViewById(R.id.j);
-        if (darkMode) {
-            clickerGamebackGround.setBackgroundColor(Color.BLACK);
-        } else {
-            clickerGamebackGround.setBackgroundColor(Color.WHITE);
-        }
+
 
         if (era0UpgradeEquipped) {
             currentEraButton.setImageResource(R.drawable.background0);
