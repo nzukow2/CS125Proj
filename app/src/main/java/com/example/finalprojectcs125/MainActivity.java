@@ -103,7 +103,7 @@ public class MainActivity extends AppCompatActivity {
     /** loadTime
      * The amount of time in seconds the user will need to wait until the page loads
      */
-    int loadTime = 10;
+    public static int loadTime = 10;
 
     /**
      *
@@ -142,16 +142,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        /*
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                Intent load = new Intent(MainActivity.this, LoadActivity.class);
-                startActivity(load);
-                finish();
-            }
-        },loadTime);
-         */
 
         /**
          * adds music
@@ -1083,7 +1073,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void loadingscreenTransition() {
-        setContentView(R.layout.loadingscreen_loader);
+        setContentView(R.layout.activity_load);
         // This is where we'll put the code for the loading screen to do stuff!
     }
 
