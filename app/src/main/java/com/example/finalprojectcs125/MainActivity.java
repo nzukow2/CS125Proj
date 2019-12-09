@@ -104,7 +104,6 @@ public class MainActivity extends AppCompatActivity {
      * The amount of time in seconds the user will need to wait until the page loads
      */
     int loadTime = 10;
-    int load = 4000;
 
     /**
      *
@@ -129,17 +128,8 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        // TODO: 2019-12-07 brief transition when starting app 
+        // TODO: 2019-12-07 brief transition when starting app
         setContentView(R.layout.activity_main);
-        //new Handler().postDelayed(new Runnable() {
-          //  @Override
-          //  public void run() {
-          //      Intent load = new Intent(MainActivity.this, LoadActivity.class);
-            //    startActivity(load);
-            //    finish();
-           // }
-        //
-        //},load);
 
         VideoView video = (VideoView) findViewById(R.id.videoView);
         Uri uri = Uri.parse("android.resource://"+getPackageName()+"/"+R.raw.vid);
@@ -152,14 +142,23 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
+        /*
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                Intent load = new Intent(MainActivity.this, LoadActivity.class);
+                startActivity(load);
+                finish();
+            }
+        },loadTime);
+         */
 
         /**
          * adds music
          */
         song = MediaPlayer.create(this, R.raw.song);
         song.setLooping(true);
-        song.setVolume(100,100);
+        song.setVolume(1000,1000);
         song.start();
         //MediaPlayer ring= MediaPlayer.create(MainActivity.this,R.raw.song);
         // ring.start();
@@ -168,9 +167,9 @@ public class MainActivity extends AppCompatActivity {
         View currentView = this.findViewById(android.R.id.content);
         ConstraintLayout clickup = findViewById(R.id.clickup);
         if (currentView.equals(clickup) && musicEnabled) { //credits menu music
-            song2 = MediaPlayer.create(this, R.raw.songupgrades);
+            song2 = MediaPlayer.create(this, R.raw.upgrades_song);
             song2.setLooping(true);
-            song2.setVolume(100,100);
+            song2.setVolume(1000,1000);
             song2.start();
         } else {
             if (musicEnabled) {
