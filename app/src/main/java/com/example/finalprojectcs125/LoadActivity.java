@@ -42,12 +42,12 @@ public class LoadActivity extends AppCompatActivity {
         String[] loadArray = new String[8];
         double random = (Math.random() * (loadArray.length - 1));
         int replacer = (int) Math.ceil(random);
-        loadArray[0] = "Welcome, Coder aspirant";
-        loadArray[1] = "Please wait, coder Aspirant";
-        loadArray[2] = "Hello there, coder aspirant";
+        loadArray[0] = "Welcome, Coder aspirant.";
+        loadArray[1] = "Please wait, coder Aspirant.";
+        loadArray[2] = "Hello there, coder aspirant.";
         loadArray[3] = "Ready to click, coder aspirant?";
         loadArray[4] = "greetings, coder aspirant.";
-        loadArray[5] = "We've been expecting you, coder aspirant";
+        loadArray[5] = "We've been expecting you, coder aspirant.";
         loadArray[6] = "Hola. Bienvenido, aspirante.";
         loadArray[7] = "Ready, aspirant ?";
 

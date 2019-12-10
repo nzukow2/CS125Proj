@@ -8,6 +8,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Handler;
+import android.text.Layout;
 import android.text.util.Linkify;
 import android.util.Log;
 import android.view.View;
@@ -473,13 +474,14 @@ public class MainActivity extends AppCompatActivity {
             ImageView loadIcon = findViewById(R.id.loadIcon); // Initialize the imageview
             if (era0UpgradeEquipped) { // cs125 logo
                 loadIcon.setImageResource(R.drawable.background0);
-                String[] loadArray = new String[4];
+                String[] loadArray = new String[5];
                 double random = (Math.random() * (loadArray.length - 1));
                 int replacer = (int) Math.ceil(random);
                 loadArray[0] = "HINT: on some some days, Forums > Office Hours. Choose wisely.";
                 loadArray[1] = "Legend says that the majority of students didn't finish MP1 in FA19.";
                 loadArray[2] = "CS 225 is a more difficult version of CS125, and its sequel. You've been warned.";
                 loadArray[3] = "HINT: On CBTF quizzes, try tackling the code, then switching off , periodically to multiple choice. ";
+                loadArray[4] = "Albeit an intro course, CS125 is the hardest of all entry-level CS classes, far-suprpassing 105,100, or 107.";
                 TextView loadingText = findViewById(R.id.loadingScreenTextView);
                 loadingText.setText(loadArray[replacer]);
                 loadingText.setTextColor(Color.WHITE);
@@ -576,13 +578,14 @@ public class MainActivity extends AppCompatActivity {
             ImageView loadIcon = findViewById(R.id.loadIcon); // Initialize the imageview
             if (era0UpgradeEquipped) { // cs125 logo
                 loadIcon.setImageResource(R.drawable.background0);
-                String[] loadArray = new String[4];
+                String[] loadArray = new String[5];
                 double random = (Math.random() * (loadArray.length - 1));
                 int replacer = (int) Math.ceil(random);
                 loadArray[0] = "GAY";
                 loadArray[1] = "GAY";
                 loadArray[2] = "GAY";
                 loadArray[3] = "GAY";
+                loadArray[4] = "Albeit an intro course, CS125 is the hardest of all entry-level CS classes, far-suprpassing 105,100, or 107.";
                 TextView loadingText = findViewById(R.id.loadingScreenTextView);
                 loadingText.setText(loadArray[replacer]);
                 loadingText.setTextColor(Color.WHITE);
@@ -1287,9 +1290,6 @@ public class MainActivity extends AppCompatActivity {
             era5UpgradeEquipped = false;
             clickerUpgradePageTwoTransition();
         });
-
-
-
 
 
 
