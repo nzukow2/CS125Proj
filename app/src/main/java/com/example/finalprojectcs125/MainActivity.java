@@ -691,6 +691,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        MediaPlayer howAboutNo = MediaPlayer.create(this, R.raw.how_about_no);
         Button muteSoundEffectsButton = findViewById(R.id.muteSoundEffectsButton);
         muteSoundEffectsButton.setOnClickListener(egg -> {
             if (soundEffectsEnabled) {
@@ -698,8 +699,10 @@ public class MainActivity extends AppCompatActivity {
             } else {
                 soundEffectsEnabled = true;
             }
+            howAboutNo.setLooping(false);
+            howAboutNo.setVolume(1500,1500);
+            howAboutNo.start();
         });
-
         Button resetPointsButton = findViewById(R.id.resetPointsButton);
         resetPointsButton.setOnClickListener(eg -> {
             points = 0;
@@ -708,6 +711,7 @@ public class MainActivity extends AppCompatActivity {
 
         Button returnToMainMenu = findViewById(R.id.returnToMainMenuFromSettings);
         returnToMainMenu.setOnClickListener(eggwugu -> {
+            howAboutNo.stop();
             mainMenuButtonReinitializer();
         });
     }
