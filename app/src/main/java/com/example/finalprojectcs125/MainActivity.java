@@ -1425,6 +1425,7 @@ public class MainActivity extends AppCompatActivity {
         if (era5UpgradeEquipped) {
             era5Upgrade.setText("Equipped");
         }
+        //TextView
 
     }
 
