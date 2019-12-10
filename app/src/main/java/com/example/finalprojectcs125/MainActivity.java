@@ -798,7 +798,110 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-
+    public void attemptatttempyt() {
+        setContentView(R.layout.activity_load);
+        final ProgressBar pbar = findViewById(R.id.pbar);
+        int a = 1000000;
+        pbar.setProgress(a);
+        //pbar.setVisibility(View.VISIBLE);
+        ProgressBar v =  findViewById(R.id.pbar);
+        v.getIndeterminateDrawable().setColorFilter(Color.RED,
+                android.graphics.PorterDuff.Mode.MULTIPLY);
+        if (loadTime != 0) { //If we need to load
+            ImageView loadIcon = findViewById(R.id.loadIcon); // Initialize the imageview
+            if (era0UpgradeEquipped) { // cs125 logo
+                loadIcon.setImageResource(R.drawable.background0);
+                String[] loadArray = new String[6];
+                double random = (Math.random() * (loadArray.length - 1));
+                int replacer = (int) Math.ceil(random);
+                loadArray[0] = "HINT: on some some days, Forums > Office Hours. Choose wisely.";
+                loadArray[1] = "Legend says that the majority of students didn't finish MP1 in FA19.";
+                loadArray[2] = "CS 225 is a more difficult version of CS 125, and thus,  its sequel. You've been warned.";
+                loadArray[3] = "HINT: On CBTF quizzes, try tackling the code before switching off , periodically, to multiple choice. ";
+                loadArray[4] = "HINT: Be weary of neglecting a single grade source in CS 125. HW, quizzes, attendance--they are all important.";
+                loadArray[5] = "DID YOU KNOW?: Of the Beginner-level CS courses, CS 125 is the most difficult. Tell all your friends.";
+                TextView loadingText = findViewById(R.id.loadingScreenTextView);
+                loadingText.setText(loadArray[replacer]);
+                loadingText.setTextColor(Color.WHITE);
+            }
+            if (era1UpgradeEquipped) { // Turing Machine/turing facts
+                loadIcon.setImageResource(R.drawable.turing_machine);
+                String[] loadArray = new String[4];
+                double random = (Math.random() * (loadArray.length - 1));
+                int replacer = (int) Math.ceil(random);
+                loadArray[0] = "Alan Turing is considered by most to be the father of modern Computer Science.";
+                loadArray[1] = "DID YOU KNOW?: Despite his hand in saving Britain, Turing was prosecuted and castrated due to his sexuality.";
+                loadArray[2] = "HINT: To change clicker, access the 'HEROES' menu from the upgrades.";
+                loadArray[3] = "DID YOU KNOW?: Alan Turing created the first computer-based chess game.";
+                TextView loadingText = findViewById(R.id.loadingScreenTextView);
+                loadingText.setText(loadArray[replacer]);
+                loadingText.setTextColor(Color.WHITE);
+            }
+            if (era2UpgradeEquipped) { // geoff fact & dogs
+                // TODO: 2019-12-09 CHANGE THIS IMMEIDAT:KA<FL !!!!!!!!!!!!!
+                loadIcon.setImageResource(R.drawable.chuchu1v1);
+                String[] loadArray = new String[6];
+                double random = (Math.random() * (loadArray.length - 1));
+                int replacer = (int) Math.ceil(random);
+                loadArray[0] = "DID YOU KNOW?: Geoffrey Challen received a Phd. In CS from Harvard in 2010.";
+                loadArray[1] = "Geoffrey Challen is the CS 125 professor at the University of Illinois, Urbana-Champaign.";
+                loadArray[2] = "A professor at heart, Geoff tracks attendance of his class with flawless efficiency.";
+                loadArray[3] = "HINT: Geoff holds office hours. In case of CS-induced distress, see him.";
+                TextView loadingText = findViewById(R.id.loadingScreenTextView);
+                loadingText.setText(loadArray[replacer]);
+                loadingText.setTextColor(Color.WHITE);
+            }
+            if (era3UpgradeEquipped) { // Tesla stuff
+                loadIcon.setImageResource(R.drawable.musk_creation);
+                String[] loadArray = new String[4];
+                double random = (Math.random() * (loadArray.length - 1));
+                int replacer = (int) Math.ceil(random);
+                loadArray[0] = "DID YOU KNOW?: At age 9, Elon musk taught himself to code, then read an entire Enyclopedia.";
+                loadArray[1] = "DID YOU KNOW?: After only two days of attendance, Elon musk abandoned his pursuance of a Stanford Degree in Physics.";
+                loadArray[2] = "DID YOU KNOW?: portions of Iron Man 2 were filmed at SpaceX headquarters.";
+                loadArray[3] = "A citizen of three nations, and CEO of two companies, musk is an inventor, engineer, and businessman.";
+                TextView loadingText = findViewById(R.id.loadingScreenTextView);
+                loadingText.setText(loadArray[replacer]);
+                loadingText.setTextColor(Color.WHITE);
+            }
+            if (era4UpgradeEquipped) { // Facebook fact/zucc alien
+                loadIcon.setImageResource(R.drawable.zucc_creation);
+                String[] loadArray = new String[4];
+                double random = (Math.random() * (loadArray.length - 1));
+                int replacer = (int) Math.ceil(random);
+                loadArray[0] = "DID YOU KNOW?: As a teen, Mark Zuckerburg once rejected a hiring offer from Microsoft.";
+                loadArray[1] = "DID YOU KNOW?: Zuckerburg dropped out of Harvard so he could manage the site he created, Facebook.";
+                loadArray[2] = "DID YOU KNOW?: Zuckerburg is one of the world's youngest billionares.";
+                loadArray[3] = "Mark Zuckerburg is a renownded  business man and Computer Scientist.";
+                TextView loadingText = findViewById(R.id.loadingScreenTextView);
+                loadingText.setText(loadArray[replacer]);
+                loadingText.setTextColor(Color.WHITE);
+            }
+            if (era5UpgradeEquipped) { // it just works guy, bethesda stuff
+                loadIcon.setImageResource(R.drawable.howard_creation);
+                String[] loadArray = new String[4];
+                double random = (Math.random() * (loadArray.length - 1));
+                int replacer = (int) Math.ceil(random);
+                loadArray[0] = "Todd Howard is a renowned Video-Game Designer and the top executive at Bethesda Softworks.";
+                loadArray[1] = "Todd Howard led the  development of legendary Videogames like Oblivion, Skyrim, and Fallout 3.";
+                loadArray[2] = "Howard's most recent creation, Fallout 76, is one of the most heavily-criticized videoGames ever made.";
+                loadArray[3] = "Howard is quoted as saying that the purpose of his games were to allow the player to live another life, in another world.";
+                TextView loadingText = findViewById(R.id.loadingScreenTextView);
+                loadingText.setText(loadArray[replacer]);
+                loadingText.setTextColor(Color.WHITE);
+            }
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    clickerGameTransition();
+                    Log.i("Runner", "Ok charles we're doing it");
+                }
+            }, loadTime * 1000);//4.5 sec delay before start
+            Log.i("Runner", "Charles you left me :(");
+        } else {
+            clickerGameTransition();
+        }
+    }
     public void settingsMenuTransition() {
         // TODO: 2019-12-07 add transition loading here
         setContentView(R.layout.setting_menu);
@@ -867,7 +970,7 @@ public class MainActivity extends AppCompatActivity {
         title.setBackgroundColor(Color.TRANSPARENT);
         Animation anim = new AlphaAnimation(0.0f, 1.0f);
         anim.setDuration(100); //blink duration
-        anim.setStartOffset(1100);
+        anim.setStartOffset(1500);
         anim.setRepeatMode(Animation.REVERSE);
         anim.setRepeatCount(Animation.INFINITE);
         title.startAnimation(anim);
@@ -1023,8 +1126,8 @@ public class MainActivity extends AppCompatActivity {
 
         TextView yourPoints = findViewById(R.id.clickerAppPointsTextView);
         yourPoints.setText(" TOTAL POINTS: " + points);
-        yourPoints.setTextColor(Color.BLACK);
-        yourPoints.setBackgroundColor(Color.RED);
+        yourPoints.setTextColor(Color.WHITE);
+        yourPoints.setBackgroundColor(Color.TRANSPARENT);
 
         TextView pointsPerClicks = findViewById((R.id.ppc));
         pointsPerClicks.setTextColor(Color.WHITE);
@@ -1404,6 +1507,7 @@ public class MainActivity extends AppCompatActivity {
         }
         era0Upgrade.setOnClickListener(neutral -> {
             era0Upgrade.setText("Equipped");
+            era0Upgrade.setTextColor(Color.RED);
             era0Upgrade.setEnabled(false);
             era0UpgradeEquipped = true; // THIS UPGRADE equipped
             era1UpgradeEquipped = false;
