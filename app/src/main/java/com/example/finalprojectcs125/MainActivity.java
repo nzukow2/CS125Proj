@@ -1,6 +1,7 @@
 package com.example.finalprojectcs125;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.media.MediaPlayer;
@@ -8,10 +9,11 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Handler;
-import android.text.Layout;
 import android.text.util.Linkify;
 import android.util.Log;
 import android.view.View;
+import android.view.animation.AccelerateDecelerateInterpolator;
+import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.view.inputmethod.InputMethodManager;
@@ -19,6 +21,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.VideoView;
@@ -141,7 +144,8 @@ public class MainActivity extends AppCompatActivity {
                 mp.setLooping(true);
             }
         });
-
+        //ImageView imtired = findViewById(R.id.keybd);
+       // imtired.
 
         /**
          * adds music
@@ -170,10 +174,16 @@ public class MainActivity extends AppCompatActivity {
                 song.start();
             }
         }
-
         TextView title = findViewById(R.id.title);
         title.setTextColor(Color.WHITE);
-        title.setBackgroundColor(Color.RED);
+        title.setBackgroundColor(Color.TRANSPARENT);
+        Animation anim = new AlphaAnimation(0.0f, 1.0f);
+        anim.setDuration(100); //blink duration
+        anim.setStartOffset(1100);
+        anim.setRepeatMode(Animation.REVERSE);
+        anim.setRepeatCount(Animation.INFINITE);
+        title.startAnimation(anim);
+
 
 
 
@@ -303,16 +313,132 @@ public class MainActivity extends AppCompatActivity {
         // TODO: 2019-12-07 add transition func here 
         setContentView(R.layout.feedback_layout);
         TextView feedtext = findViewById(R.id.feedtext);
+        feedtext.setBackgroundColor(Color.BLACK);
+        feedtext.setTextColor(Color.WHITE);
         feedtext.setVisibility(View.VISIBLE);
         /**
          * credits?
          */
+
+        String[] taArray = new String[8];
+        taArray[0] = "Aabhas Chauhan";
+        taArray[1] = "Heather Huynh";
+        taArray[2] = "Jishnu Dey";
+        taArray[3] = "Mingkun Gao";
+        taArray[4] = "Mohammed Hassan";
+        taArray[5] = "Nerla Jean-Louis";
+        taArray[6] = "Silas Hsu";
+        taArray[7] = "Vinith Krishnan";
+
+        String[] caArray = new String[86];
+        caArray[0] = "Alan Andrade";
+        caArray[1] = "Alex Nickl";
+        caArray[2] = "Andre Castaneda";
+        caArray[3] = "Ang Li";
+        caArray[4] = "Archisha Majee";
+        caArray[5] = "Arden Wen";
+        caArray[6] = "Ashay Mehta";
+        caArray[7] = "Ben Sutter";
+        caArray[8] = "Benedict Austriaco";
+        caArray[9] = "Blair Wang";
+        caArray[10] = "Calen Resh";
+        caArray[11] = "Charudutt Kher";
+        caArray[12] = "Chris Kull";
+        caArray[13] = "Colleen McConnell";
+        caArray[14] = "David Ruvinskiy";
+        caArray[15] = "Dylan Ott";
+        caArray[16] = "Emilia Kedainis";
+        caArray[17] = "Eric Liu";
+        caArray[18] = "Filip Matasic";
+        caArray[19] = "Gabriella Xue";
+        caArray[20] = "Geon Kim";
+        caArray[21] = "Husnain Raza";
+        caArray[22] = "Hyosang Ahn";
+        caArray[23] = "Isabel Ruiz";
+        caArray[24] = "Isaiah Delgado";
+        caArray[25] = "Jack Gentile";
+        caArray[26] = "Jack Shao";
+        caArray[27] = "Jeffrey Aguirre";
+        caArray[28] = "Jessie Yang";
+        caArray[29] = "Jiacheng Guo";
+        caArray[30] = "Jiahe Su";
+        caArray[31] = "Jiaqi Cao";
+        caArray[32] = "Jiaqi Cheng";
+        caArray[33] = "John Weng";
+        caArray[34] = "Jonathan Kim";
+        caArray[35] = "Jordan Parker";
+        caArray[36] = "Joseph Wang";
+        caArray[37] = "Long Phan";
+        caArray[38] = "Matt Angel";
+        caArray[39] = "Matt Forrest";
+        caArray[40] = "Matthew Augustyn";
+        caArray[41] = "Matthew Lezak";
+        caArray[42] = "Matthew Pham";
+        caArray[43] = "Megan Wang";
+        caArray[44] = "Mona Liao";
+        caArray[45] = "Moritz Kraemer";
+        caArray[46] = "Nanyi Yang";
+        caArray[47] = "Nima Shafikhani";
+        caArray[48] = "Ning Wan";
+        caArray[49] = "Pranav Raman";
+        caArray[50] = "Quentin Wetzel";
+        caArray[51] = "Quinn Collins";
+        caArray[52] = "Ridha Alkhabaz";
+        caArray[53] = "Rochelle Tham";
+        caArray[54] = "Ruisong Li";
+        caArray[55] = "Ryan O'Neall";
+        caArray[56] = "Sarod Nori";
+        caArray[57] = "Shirley Wang";
+        caArray[58] = "Shruthi Kondin";
+        caArray[59] = "Snehal Somalraju";
+        caArray[60] = "Wajid Siddiqui";
+        caArray[61] = "Waleed Khan";
+        caArray[62] = "Wall Sun";
+        caArray[63] = "Wangqi Xiang";
+        caArray[64] = "Wei Shen";
+        caArray[65] = "Xavier Higgins";
+        caArray[66] = "Xiaohan Wang";
+        caArray[67] = "Xiaoying Zhu";
+        caArray[68] = "Yan Yan";
+        caArray[69] = "Yixuan Jia";
+        caArray[70] = "Youcheng Cai";
+        caArray[71] = "Yu Du";
+        caArray[72] = "Yunwen Zhu";
+        caArray[73] = "Yuxin Wang";
+        caArray[74] = "Zach Hamilton";
+        caArray[75] = "Zaitian Wang";
+        caArray[76] = "Zepei Li";
+        caArray[77] = "Zihan Shan";
+        caArray[78] = "Zihan Xu"; // Last CA ----
+        caArray[79] = "Ahmad Dinkins"; // Office hours captains vvv
+        caArray[80] = "Ajay Tatachar";
+        caArray[81] = "Amirthavarshini Sureshbabu";
+        caArray[82] = "Catherine Yuan";
+        caArray[83] = "Daniel Gleason";
+        caArray[84] = "Nikhil Garg";
+        caArray[85] = "Rima Bouhal";
+
+
         Animation animation;
         animation = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.feedback_layout);
-        feedtext.setText("CREDITS\n" + "DEVELOPERS:\n" + "ANGEL CANTY\n" +
+        /*
+        feedtext.animate().scaleY(2f).setInterpolator(new AccelerateDecelerateInterpolator()).setDuration(-10);
+        todo add the CDs and test that everyone is present
+        feedtext.setText("CREDITS\n\n" + "DEVELOPERS:\n\n" + "ANGEL CANTY\n" +
                 "Lord-Manipulator of human-computer interaction(UI)\n" + "Master-Scheduler\n" +"Master Animations Coder\n" +
-                "Front-End Coordinator\n" + "framework assistant\n" +"NATE ZUKOW \n" +"Lord-Architect of software framework(Code Structure/Groundwork)\n"
-                + "Master-Scrutinizer\n" +  "Master Debugger\n" + "Back-End Coordinator\n" + "Animations assistant");
+                "Front-End Coordinator\n" + "framework assistant\n\n" +"NATHANIEL ZUKOWSKI \n" +"Lord-Architect of software framework(Code Structure/Groundwork)\n"
+                + "Master-Scrutinizer\n" +  "Master Debugger\n" + "Back-End Coordinator\n" + "Animations assistant\n\n" +
+                "\nTeaching Assistants\n" + "\n" + taArray[0] + "\n" + taArray[1] + "\n" + taArray[2] + "\n" + taArray[3] + "\n" + taArray[4] + "\n" + taArray[5] + "\n" + taArray[6] + "\n" + taArray[7] + "\n" +
+                "Course Assistants\n\n" + "\n" +caArray[0] + "\n" +caArray[1] + "\n" +caArray[2] + "\n" +caArray[3] + "\n" +caArray[4] + "\n" +caArray[5] + "\n" +caArray[6] + "\n" +caArray[7] + "\n" +caArray[8] + "\n" +caArray[9] + "\n" +caArray[10] + "\n" +caArray[11] + "\n" +caArray[12] + "\n" +caArray[13] + "\n" +caArray[14] + "\n" +caArray[15] + "\n" +caArray[16] + "\n" +caArray[17] + "\n" +caArray[18] + "\n" +caArray[19] + "\n" +caArray[20] + "\n" +caArray[21] + "\n" +caArray[22] + "\n" +caArray[23] + "\n" +caArray[24] + "\n" +caArray[25] + "\n" +caArray[26] + "\n" +caArray[27] + "\n" +caArray[28] + "\n" +caArray[29] + "\n" +caArray[30] + "\n" +caArray[31] + "\n" +caArray[32] + "\n" +caArray[33] + "\n" +caArray[34] + "\n" +caArray[35] + "\n" +caArray[36] + "\n" +caArray[37] + "\n" +caArray[38] + "\n" +caArray[39] + "\n" +caArray[40] + "\n" +caArray[41] + "\n" +caArray[42] + "\n" +caArray[43] + "\n" +caArray[44] + "\n" +caArray[45] + "\n" +caArray[46] + "\n" +caArray[47] + "\n" +caArray[48] + "\n" +caArray[49] + "\n" +caArray[50] + "\n" +caArray[51] + "\n" +caArray[52] + "\n" +caArray[53] + "\n" +caArray[54] + "\n" +caArray[55] + "\n" +caArray[56] + "\n" +caArray[57] + "\n" +caArray[58] + "\n" +caArray[59] + "\n" +caArray[60] + "\n" +caArray[61] + "\n" +caArray[62] + "\n" +caArray[63] + "\n" +caArray[64] + "\n" +caArray[65] + "\n" +caArray[66] + "\n" +caArray[67] + "\n" +caArray[68] + "\n" +caArray[69] + "\n" +caArray[70] + "\n" +caArray[71] + "\n" +caArray[72] + "\n" +caArray[73] + "\n" +caArray[74] + "\n" +caArray[75] + "\n" +caArray[76] + "\n" +caArray[77] + "\n" +caArray[78] + "\n" +caArray[79] + "\n" +caArray[80] + "\n" +caArray[81] + "\n" +caArray[82] + "\n" +caArray[83] + "\n" +caArray[84] + "\n" +caArray[85] + "\n" +
+                "\n" + "Course Developers\n\n" );
+         */
+        // TODO: 2019-12-09 Fix the text looking warped
+        feedtext.setText("CREDITS:\n\n\n" + "DEVELOPERS:\n\n" + "ANGEL CANTY\n" +
+                        "-Lord-Manipulator of human-computer interaction(UI)\n" + "-Master-Scheduler\n" +"-Master Animations/'Cool feats' Coder\n" +
+                        "-Front-End Coordinator\n" + "-framework assistant\n\n" +"NATHANIEL ZUKOWSKI \n" +"-Lord-Architect of software framework/groundwork\n" +
+                         "-Master-Scrutinizer\n" +  "-Master Debugger\n" + "-Back-End Coordinator\n"
+                + "Animations assistant\n\n" + "SPECIAL THANKS TO ALL CAs, TAs, and CDs, ESPECIALLY THE SUPER-HELPFUL ONES\n" + "You know who you are. :)\n\n" + "WE DO NOT OWN ANY MUSIC OR IMAGES. \n\n" +
+                "'We're going to make it happen. As God is my bloody witness, I'm hell-bent on making it work. - Elon Musk'\"\n\n " + "CS major or not, fight to make  CS work for you.\n\n" + "Code on, Aspirant.");
         feedtext.startAnimation(animation);
 
        // TextView thanjs = findViewById(R.layout.feedback_layout);
@@ -328,6 +454,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         Button returnMain = findViewById(R.id.returnMain);
+        returnMain.setBackgroundColor(Color.RED);
         returnMain.setOnClickListener(f -> { //Returns to mainMenu from feedback screen
             setContentView(R.layout.activity_main);
             if (musicEnabled) {
@@ -339,7 +466,6 @@ public class MainActivity extends AppCompatActivity {
             }
             mainMenuButtonReinitializer();
         });
-
     }
 
     /** clickerGame
@@ -365,6 +491,7 @@ public class MainActivity extends AppCompatActivity {
         /**
          * this textView shows the # of clicks the user has
          */
+
         clicksio = findViewById(R.id.clicks);
         clicksio.setBackgroundColor(Color.RED);
         clicksio.setTextColor(Color.BLACK);
@@ -407,8 +534,8 @@ public class MainActivity extends AppCompatActivity {
                 TextView clickerapppTs = findViewById(R.id.clickerAppPointsTextView);
                 empezario.setVisibility(View.VISIBLE);
                 song2.stop();
-                clickerapppTs.setTextColor(Color.BLACK);
-                clickerapppTs.setBackgroundColor(Color.RED);
+                clickerapppTs.setTextColor(Color.WHITE);
+                clickerapppTs.setBackgroundColor(Color.TRANSPARENT);
                 empezario.setEnabled(true);
                 currentEraButton.setEnabled(false);
                 String[] coercionArray = new String[9];
@@ -430,6 +557,7 @@ public class MainActivity extends AppCompatActivity {
                 if (leftClickerGame == false) {
                     TextView clickerappPts = findViewById(R.id.clickerAppPointsTextView);
                     clickerappPts.setText("Total points: " + points);
+                    clickerappPts.setTextColor(Color.TRANSPARENT);
                     // TODO: 2019-12-07 Ensure this bug is gone
                 }
             }
@@ -474,14 +602,15 @@ public class MainActivity extends AppCompatActivity {
             ImageView loadIcon = findViewById(R.id.loadIcon); // Initialize the imageview
             if (era0UpgradeEquipped) { // cs125 logo
                 loadIcon.setImageResource(R.drawable.background0);
-                String[] loadArray = new String[5];
+                String[] loadArray = new String[6];
                 double random = (Math.random() * (loadArray.length - 1));
                 int replacer = (int) Math.ceil(random);
                 loadArray[0] = "HINT: on some some days, Forums > Office Hours. Choose wisely.";
                 loadArray[1] = "Legend says that the majority of students didn't finish MP1 in FA19.";
-                loadArray[2] = "CS 225 is a more difficult version of CS125, and its sequel. You've been warned.";
-                loadArray[3] = "HINT: On CBTF quizzes, try tackling the code, then switching off , periodically to multiple choice. ";
-                loadArray[4] = "Albeit an intro course, CS125 is the hardest of all entry-level CS classes, far-suprpassing 105,100, or 107.";
+                loadArray[2] = "CS 225 is a more difficult version of CS 125, and thus,  its sequel. You've been warned.";
+                loadArray[3] = "HINT: On CBTF quizzes, try tackling the code before switching off , periodically, to multiple choice. ";
+                loadArray[4] = "HINT: Be weary of neglecting a single grade source in CS 125. HW, quizzes, attendance--they are all important.";
+                loadArray[5] = "DID YOU KNOW?: Of the Beginner-level CS courses, CS 125 is the most difficult. Tell all your friends.";
                 TextView loadingText = findViewById(R.id.loadingScreenTextView);
                 loadingText.setText(loadArray[replacer]);
                 loadingText.setTextColor(Color.WHITE);
@@ -502,13 +631,13 @@ public class MainActivity extends AppCompatActivity {
             if (era2UpgradeEquipped) { // geoff fact & dogs
                 // TODO: 2019-12-09 CHANGE THIS IMMEIDAT:KA<FL !!!!!!!!!!!!!
                 loadIcon.setImageResource(R.drawable.chuchu1v1);
-                String[] loadArray = new String[4];
+                String[] loadArray = new String[6];
                 double random = (Math.random() * (loadArray.length - 1));
                 int replacer = (int) Math.ceil(random);
                 loadArray[0] = "DID YOU KNOW?: Geoffrey Challen received a Phd. In CS from Harvard in 2010.";
-                loadArray[1] = "Geoffrey Challen is the CS125 professor at the University of Illinois, Urbana-Champaign.";
-                loadArray[2] = "A professor at heart, Challen tracks attendance of his class with flawless efficiency.";
-                loadArray[3] = "HINT: Challen holds office hours. In case of CS-induced distress, see him.";
+                loadArray[1] = "Geoffrey Challen is the CS 125 professor at the University of Illinois, Urbana-Champaign.";
+                loadArray[2] = "A professor at heart, Geoff tracks attendance of his class with flawless efficiency.";
+                loadArray[3] = "HINT: Geoff holds office hours. In case of CS-induced distress, see him.";
                 TextView loadingText = findViewById(R.id.loadingScreenTextView);
                 loadingText.setText(loadArray[replacer]);
                 loadingText.setTextColor(Color.WHITE);
@@ -521,7 +650,7 @@ public class MainActivity extends AppCompatActivity {
                 loadArray[0] = "DID YOU KNOW?: At age 9, Elon musk taught himself to code, then read an entire Enyclopedia.";
                 loadArray[1] = "DID YOU KNOW?: After only two days of attendance, Elon musk abandoned his pursuance of a Stanford Degree in Physics.";
                 loadArray[2] = "DID YOU KNOW?: portions of Iron Man 2 were filmed at SpaceX headquarters.";
-                loadArray[3] = "A citizen of three nations, and CEO of two companies, musk is an inventor, engineer, and businessman";
+                loadArray[3] = "A citizen of three nations, and CEO of two companies, musk is an inventor, engineer, and businessman.";
                 TextView loadingText = findViewById(R.id.loadingScreenTextView);
                 loadingText.setText(loadArray[replacer]);
                 loadingText.setTextColor(Color.WHITE);
@@ -532,9 +661,9 @@ public class MainActivity extends AppCompatActivity {
                 double random = (Math.random() * (loadArray.length - 1));
                 int replacer = (int) Math.ceil(random);
                 loadArray[0] = "DID YOU KNOW?: As a teen, Mark Zuckerburg once rejected a hiring offer from Microsoft.";
-                loadArray[1] = "DID YOU KNOW?: Zuckerburg dropped out of Harvard for the site he created, Facebook.";
+                loadArray[1] = "DID YOU KNOW?: Zuckerburg dropped out of Harvard so he could manage the site he created, Facebook.";
                 loadArray[2] = "DID YOU KNOW?: Zuckerburg is one of the world's youngest billionares.";
-                loadArray[3] = "Mark Zuckerburg is a renownded  business man Computer Scientist.";
+                loadArray[3] = "Mark Zuckerburg is a renownded  business man and Computer Scientist.";
                 TextView loadingText = findViewById(R.id.loadingScreenTextView);
                 loadingText.setText(loadArray[replacer]);
                 loadingText.setTextColor(Color.WHITE);
@@ -544,8 +673,8 @@ public class MainActivity extends AppCompatActivity {
                 String[] loadArray = new String[4];
                 double random = (Math.random() * (loadArray.length - 1));
                 int replacer = (int) Math.ceil(random);
-                loadArray[0] = "Todd Howard is a renowned Video-Game Designer and the top executive at Bethesda Softworks,";
-                loadArray[1] = "Todd Howard led the  development of legendary Videogames like Oblivion, Skyrim, and Fallout 3";
+                loadArray[0] = "Todd Howard is a renowned Video-Game Designer and the top executive at Bethesda Softworks.";
+                loadArray[1] = "Todd Howard led the  development of legendary Videogames like Oblivion, Skyrim, and Fallout 3.";
                 loadArray[2] = "Howard's most recent creation, Fallout 76, is one of the most heavily-criticized videoGames ever made.";
                 loadArray[3] = "Howard is quoted as saying that the purpose of his games were to allow the player to live another life, in another world.";
                 TextView loadingText = findViewById(R.id.loadingScreenTextView);
@@ -578,14 +707,15 @@ public class MainActivity extends AppCompatActivity {
             ImageView loadIcon = findViewById(R.id.loadIcon); // Initialize the imageview
             if (era0UpgradeEquipped) { // cs125 logo
                 loadIcon.setImageResource(R.drawable.background0);
-                String[] loadArray = new String[5];
+                String[] loadArray = new String[6];
                 double random = (Math.random() * (loadArray.length - 1));
                 int replacer = (int) Math.ceil(random);
-                loadArray[0] = "GAY";
-                loadArray[1] = "GAY";
-                loadArray[2] = "GAY";
-                loadArray[3] = "GAY";
-                loadArray[4] = "Albeit an intro course, CS125 is the hardest of all entry-level CS classes, far-suprpassing the difficulty of 105,100, or 107.";
+                loadArray[0] = "HINT: on some some days, Forums > Office Hours. Choose wisely.";
+                loadArray[1] = "Legend says that the majority of students didn't finish MP1 in FA19.";
+                loadArray[2] = "CS 225 is a more difficult version of CS 125, and thus, its sequel. You've been warned.";
+                loadArray[3] = "HINT: On CBTF quizzes, try tackling the code before switching off , periodically, to multiple choice. ";
+                loadArray[4] = "HINT: Be weary of neglecting a single grade source in CS125. HW, quizzes, attendance--they are all important.";
+                loadArray[5] = "DID YOU KNOW?: Of the Beginner-level CS courses, CS125 is the most difficult. Tell all your friends.";
                 TextView loadingText = findViewById(R.id.loadingScreenTextView);
                 loadingText.setText(loadArray[replacer]);
                 loadingText.setTextColor(Color.WHITE);
@@ -595,24 +725,23 @@ public class MainActivity extends AppCompatActivity {
                 String[] loadArray = new String[4];
                 double random = (Math.random() * (loadArray.length - 1));
                 int replacer = (int) Math.ceil(random);
-                loadArray[0] = "Turing 1";
-                loadArray[1] = "Turing 2";
-                loadArray[2] = "Turing 3";
-                loadArray[3] = "Turing 4";
+                loadArray[0] = "Alan Turing is considered by most to be the father of modern Computer Science.";
+                loadArray[1] = "DID YOU KNOW?: Despite his hand in saving Britain, Turing was prosecuted and castrated due to his sexuality.";
+                loadArray[2] = "HINT: To change clicker, access the 'HEROES' menu from the upgrades.";
+                loadArray[3] = "DID YOU KNOW?: Alan Turing created the first computer-based chess game.";
                 TextView loadingText = findViewById(R.id.loadingScreenTextView);
                 loadingText.setText(loadArray[replacer]);
                 loadingText.setTextColor(Color.WHITE);
             }
             if (era2UpgradeEquipped) { // geoff fact & dogs
-                // TODO: 2019-12-09 CHANGE THIS IMMEIDAT:KA<FL !!!!!!!!!!!!!
                 loadIcon.setImageResource(R.drawable.chuchu1v1);
                 String[] loadArray = new String[4];
                 double random = (Math.random() * (loadArray.length - 1));
                 int replacer = (int) Math.ceil(random);
-                loadArray[0] = "Dog 1";
-                loadArray[1] = "Dog 2";
-                loadArray[2] = "Dog 3";
-                loadArray[3] = "Dog 4";
+                loadArray[0] = "DID YOU KNOW?: Geoffrey Challen received a Phd. In CS from Harvard in 2010.";
+                loadArray[1] = "Geoffrey Challen is the CS 125 professor at the University of Illinois, Urbana-Champaign.";
+                loadArray[2] = "A professor at heart, Geoff tracks attendance of his class with flawless efficiency.";
+                loadArray[3] = "HINT: Geoff holds office hours. In case of CS-induced distress, see him.";
                 TextView loadingText = findViewById(R.id.loadingScreenTextView);
                 loadingText.setText(loadArray[replacer]);
                 loadingText.setTextColor(Color.WHITE);
@@ -622,10 +751,10 @@ public class MainActivity extends AppCompatActivity {
                 String[] loadArray = new String[4];
                 double random = (Math.random() * (loadArray.length - 1));
                 int replacer = (int) Math.ceil(random);
-                loadArray[0] = "Tesla 1";
-                loadArray[1] = "Tesla 2";
-                loadArray[2] = "Tesla 3";
-                loadArray[3] = "Tesla 4";
+                loadArray[0] = "DID YOU KNOW?: At age 9, Elon musk taught himself to code, then read an entire Enyclopedia.";
+                loadArray[1] = "DID YOU KNOW?: After only two days of attendance, Elon musk abandoned his pursuance of a Stanford Degree in Physics.";
+                loadArray[2] = "DID YOU KNOW?: portions of Iron Man 2 were filmed at SpaceX headquarters.";
+                loadArray[3] = "A citizen of three nations, and CEO of two companies, musk is an inventor, engineer, and businessman";
                 TextView loadingText = findViewById(R.id.loadingScreenTextView);
                 loadingText.setText(loadArray[replacer]);
                 loadingText.setTextColor(Color.WHITE);
@@ -635,10 +764,10 @@ public class MainActivity extends AppCompatActivity {
                 String[] loadArray = new String[4];
                 double random = (Math.random() * (loadArray.length - 1));
                 int replacer = (int) Math.ceil(random);
-                loadArray[0] = "Facebook 1";
-                loadArray[1] = "Facebook 2";
-                loadArray[2] = "Facebook 3";
-                loadArray[3] = "Facebook 4";
+                loadArray[0] = "DID YOU KNOW?: As a teen, Mark Zuckerburg once rejected a hiring offer from Microsoft.";
+                loadArray[1] = "DID YOU KNOW?: Zuckerburg dropped out of Harvard so he could manage the site he created, Facebook.";
+                loadArray[2] = "DID YOU KNOW?: Zuckerburg is one of the world's youngest billionares.";
+                loadArray[3] = "Mark Zuckerburg is a renownded  business man and Computer Scientist.";
                 TextView loadingText = findViewById(R.id.loadingScreenTextView);
                 loadingText.setText(loadArray[replacer]);
                 loadingText.setTextColor(Color.WHITE);
@@ -648,10 +777,10 @@ public class MainActivity extends AppCompatActivity {
                 String[] loadArray = new String[4];
                 double random = (Math.random() * (loadArray.length - 1));
                 int replacer = (int) Math.ceil(random);
-                loadArray[0] = "Bethesda 1";
-                loadArray[1] = "Bethesda 2";
-                loadArray[2] = "Bethesda 3";
-                loadArray[3] = "Bethesda 4";
+                loadArray[0] = "Todd Howard is a renowned Video-Game Designer and the top executive at Bethesda Softworks,";
+                loadArray[1] = "Todd Howard led the  development of legendary Videogames like Oblivion, Skyrim, and Fallout 3";
+                loadArray[2] = "Howard's most recent creation, Fallout 76, is one of the most heavily-criticized videoGames ever made.";
+                loadArray[3] = "Howard is quoted as saying that the purpose of his games were to allow the player to live another life, in another world.";
                 TextView loadingText = findViewById(R.id.loadingScreenTextView);
                 loadingText.setText(loadArray[replacer]);
                 loadingText.setTextColor(Color.WHITE);
@@ -676,9 +805,11 @@ public class MainActivity extends AppCompatActivity {
         leftClickerGame = true;
 
         TextView settingsMenuTextView = findViewById(R.id.settingsMenuPointsDisplay);
+        settingsMenuTextView.setTextColor(Color.WHITE);
         settingsMenuTextView.setText("Your points are: " + points);
 
         Button muteMusicButton = findViewById(R.id.muteMusicButton);
+        muteMusicButton.setBackgroundColor(Color.RED);
         muteMusicButton.setOnClickListener(ef -> {
             if (musicEnabled) {
                 musicEnabled = false;
@@ -696,6 +827,7 @@ public class MainActivity extends AppCompatActivity {
 
         MediaPlayer howAboutNo = MediaPlayer.create(this, R.raw.how_about_no);
         Button muteSoundEffectsButton = findViewById(R.id.muteSoundEffectsButton);
+        muteSoundEffectsButton.setBackgroundColor(Color.RED);
         muteSoundEffectsButton.setOnClickListener(egg -> {
             if (soundEffectsEnabled) {
                 soundEffectsEnabled = false;
@@ -707,12 +839,14 @@ public class MainActivity extends AppCompatActivity {
             howAboutNo.start();
         });
         Button resetPointsButton = findViewById(R.id.resetPointsButton);
+        resetPointsButton.setBackgroundColor(Color.RED);
         resetPointsButton.setOnClickListener(eg -> {
             points = 0;
             settingsMenuTextView.setText("Your points are: " + points);
         });
 
         Button returnToMainMenu = findViewById(R.id.returnToMainMenuFromSettings);
+        returnToMainMenu.setBackgroundColor(Color.RED);
         returnToMainMenu.setOnClickListener(eggwugu -> {
             howAboutNo.stop();
             mainMenuButtonReinitializer();
@@ -730,7 +864,13 @@ public class MainActivity extends AppCompatActivity {
         leftClickerGame = true;
         TextView title = findViewById(R.id.title);
         title.setTextColor(Color.WHITE);
-        title.setBackgroundColor(Color.RED);
+        title.setBackgroundColor(Color.TRANSPARENT);
+        Animation anim = new AlphaAnimation(0.0f, 1.0f);
+        anim.setDuration(100); //blink duration
+        anim.setStartOffset(1100);
+        anim.setRepeatMode(Animation.REVERSE);
+        anim.setRepeatCount(Animation.INFINITE);
+        title.startAnimation(anim);
 
         VideoView video= (VideoView) findViewById(R.id.videoView);
         Uri uri = Uri.parse("android.resource://"+getPackageName()+"/"+R.raw.vid);
@@ -825,23 +965,35 @@ public class MainActivity extends AppCompatActivity {
         upsong.setLooping(true);
         upsong.setVolume(1000,1000);
         upsong.stop();
+
+
+
         if (musicEnabled) {
             song.start();
         }
 
         if (era0UpgradeEquipped) {
-            currentEraButton.setImageResource(R.drawable.background0);
+            currentEraButton.setImageResource(R.drawable.background0); //CS125 clicker icon
+            // TODO: 2019-12-09 CS125 background
         } else if (era1UpgradeEquipped) {
-            currentEraButton.setImageResource(R.drawable.background1);
+            currentEraButton.setImageResource(R.drawable.background1); //Turing clicker icon
+            //ImageView a = findViewById(R.id.imageView5);
+            //a.setImageResource(R.drawable.background0);
+            // TODO: 2019-12-09 Turing background
         } else if (era2UpgradeEquipped) {
-            currentEraButton.setImageResource(R.drawable.background2);
+            currentEraButton.setImageResource(R.drawable.background2); //Geoff clicker icon
+            // TODO: 2019-12-09 Geoff background
         } else if (era3UpgradeEquipped) {
-            currentEraButton.setImageResource(R.drawable.background3);
+            currentEraButton.setImageResource(R.drawable.background3); //Musk clicker icon
+            // TODO: 2019-12-09 Musk background
         } else if (era4UpgradeEquipped) {
-            currentEraButton.setImageResource(R.drawable.background4);
+            currentEraButton.setImageResource(R.drawable.background4); //Zucc clicker icon
+            // TODO: 2019-12-09 Zucc background
         } else if (era5UpgradeEquipped) {
-            currentEraButton.setImageResource(R.drawable.background5);
+            currentEraButton.setImageResource(R.drawable.background5); //Todd clicker icon
+            // TODO: 2019-12-09 Todd background
         }
+
         TextView timey = findViewById(R.id.timer);
         timey.setBackgroundColor(Color.RED);
         timey.setTextColor(Color.BLACK);
@@ -854,6 +1006,7 @@ public class MainActivity extends AppCompatActivity {
 
         Button returnToMainMenuButton = findViewById(R.id.gotoMainMenuFromClickerAppButton);
         returnToMainMenuButton.setBackgroundColor(Color.RED);
+        returnToMainMenuButton.setTextColor(Color.BLACK);
         returnToMainMenuButton.setOnClickListener(egg -> {
             if (!firstimeforeverything) {
                 time.cancel();
@@ -874,8 +1027,8 @@ public class MainActivity extends AppCompatActivity {
         yourPoints.setBackgroundColor(Color.RED);
 
         TextView pointsPerClicks = findViewById((R.id.ppc));
-        pointsPerClicks.setTextColor(Color.BLACK);
-        pointsPerClicks.setBackgroundColor(Color.RED);
+        pointsPerClicks.setTextColor(Color.WHITE);
+        pointsPerClicks.setBackgroundColor(Color.TRANSPARENT);
         pointsPerClicks.setText("CLICK VALUE: " + pointsPerClick);
 
         Button upgradePointsButton = findViewById(R.id.gotoUpgradesFromClickerAppButton);
@@ -937,6 +1090,8 @@ public class MainActivity extends AppCompatActivity {
             upsong2.setLooping(true);
             upsong2.setVolume(1000,1000);
             retard = MediaPlayer.create(this, R.raw.upgrades_song2);
+            retard.setLooping(true);
+            retard.setVolume(10000,10000);
             if (musicEnabled) {
                 retard.start();
             }
@@ -1090,6 +1245,8 @@ public class MainActivity extends AppCompatActivity {
             upgrade8.setEnabled(false);
             upgrade8.setText("PURCHASED");
             upgrade8Purchased = true;
+            //Intent a = new Intent()
+            //setContentView(R.layout.setting_menu);
         });
 
         Button returnToClickerApp = findViewById(R.id.returnToClickerApp);
@@ -1108,15 +1265,15 @@ public class MainActivity extends AppCompatActivity {
 
         TextView upgradeText1 = findViewById(R.id.upgradeText1);
         upgradeText1.setTextColor(Color.WHITE);
-        upgradeText1.setText(" Kotlin Increases PPC by: 2 (COST:100)");
+        upgradeText1.setText(" Kotlin Increases PPC by: 2 (COST:100PTS)");
 
         TextView upgradeText2 = findViewById(R.id.upgradeText2);
         upgradeText2.setTextColor(Color.WHITE);
-        upgradeText2.setText(" Java  Increases PPC by: 4 (COST:500)");
+        upgradeText2.setText(" Java  Increases PPC by: 4 (COST:500PTS)");
 
         TextView upgradeText3 = findViewById(R.id.upgradeText3);
         upgradeText3.setTextColor(Color.WHITE);
-        upgradeText3.setText("Python Increases PPC by: 6 (COST:1000)");
+        upgradeText3.setText("Python Increases PPC by: 6 (COST:1000PTS)");
 
         TextView upgradeText4 = findViewById(R.id.upgradeText4);
         upgradeText4.setTextColor(Color.WHITE);
@@ -1230,7 +1387,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.clickerupgrades2_menu);
         Button backtoUpgradePageOne = findViewById(R.id.returnToUpgradePg1);
         backtoUpgradePageOne.setBackgroundColor(Color.RED);
-        backtoUpgradePageOne.setTextColor(Color.BLACK);
         backtoUpgradePageOne.setOnClickListener(eee -> {
             retard.stop();
             clickerUpgradePageOneTransition();
@@ -1243,6 +1399,7 @@ public class MainActivity extends AppCompatActivity {
 
         if (!era0UpgradeEquipped) {
             era0Upgrade.setText("Equip?");
+            era0Upgrade.setTextColor(Color.RED);
             era0Upgrade.setEnabled(true);
         }
         era0Upgrade.setOnClickListener(neutral -> {
@@ -1269,16 +1426,20 @@ public class MainActivity extends AppCompatActivity {
         // If the upgrade is not equipped AND the upgrade has been purchased
         if (!era1UpgradeEquipped && era1UpgradeBought) {
             era1Upgrade.setText("Equip?");
+            era1Upgrade.setTextColor(Color.RED);
             era1Upgrade.setEnabled(true);
         }
         // If the upgrade has not been equipped
         if (!era1UpgradeBought && points >= 5000) {
             era1Upgrade.setEnabled(true);
+            era1Upgrade.setTextColor(Color.RED);
             era1Upgrade.setText("BUY?");
         }
 
         era1Upgrade.setOnClickListener(e -> {
             if (!era1UpgradeBought) {
+                //TextView test = findViewById(R.id.test);
+               /// test.setText("PURCHASED BABY@!!!!");
                 points = points - 5000;
                 era1UpgradeBought = true;
                 era1UpgradeEquipped = true;
@@ -1295,12 +1456,16 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+
+
+
         // 10k
         Button era2Upgrade = findViewById(R.id.clickerButtonChange2);
         era2Upgrade.setEnabled(false);
 
         // If the upgrade is not equipped AND the upgrade has been purchased
         if (!era2UpgradeEquipped && era2UpgradeBought) {
+            era2Upgrade.setTextColor(Color.RED);
             era2Upgrade.setText("Equip?");
             era2Upgrade.setEnabled(true);
         }
@@ -1308,6 +1473,7 @@ public class MainActivity extends AppCompatActivity {
         // If the upgrade has not been equipped
         if (!era2UpgradeBought && points >= 10000) {
             era2Upgrade.setEnabled(true);
+            era2Upgrade.setTextColor(Color.RED);
             era2Upgrade.setText("BUY?");
         }
 
@@ -1325,15 +1491,6 @@ public class MainActivity extends AppCompatActivity {
             era4UpgradeEquipped = false;
             era5UpgradeEquipped = false;
             clickerUpgradePageTwoTransition();
-
-            TextView a = findViewById(R.id.era0description);
-            a.setTextColor(Color.WHITE);
-            TextView b = findViewById(R.id.era1description);
-            TextView c = findViewById(R.id.era2description);
-            TextView d = findViewById(R.id.era3description);
-            TextView e = findViewById(R.id.era4description);
-            TextView f = findViewById(R.id.era5description);
-
         });
 
 
@@ -1349,12 +1506,14 @@ public class MainActivity extends AppCompatActivity {
 
         if (!era3UpgradeEquipped && era3UpgradeBought) {
             era3Upgrade.setText("Equip?");
+            era1Upgrade.setTextColor(Color.RED);
             era3Upgrade.setEnabled(true);
         }
 
         // If the upgrade has not been equipped
         if (!era3UpgradeBought && points >= 15000) {
             era3Upgrade.setEnabled(true);
+            era1Upgrade.setTextColor(Color.RED);
             era3Upgrade.setText("BUY?");
         }
 
@@ -1387,12 +1546,14 @@ public class MainActivity extends AppCompatActivity {
         // If the upgrade is not equipped AND the upgrade has been purchased
         if (!era4UpgradeEquipped && era4UpgradeBought) {
             era4Upgrade.setText("Equip?");
+            era1Upgrade.setTextColor(Color.RED);
             era4Upgrade.setEnabled(true);
         }
 
         // If the upgrade has not been equipped
         if (!era4UpgradeBought && points >= 20000) {
             era4Upgrade.setEnabled(true);
+            era1Upgrade.setTextColor(Color.RED);
             era4Upgrade.setText("BUY?");
         }
 
@@ -1423,6 +1584,7 @@ public class MainActivity extends AppCompatActivity {
         // If the upgrade is not equipped AND the upgrade has been purchased
         if (!era5UpgradeEquipped && era5UpgradeBought) {
             era5Upgrade.setText("Equip?");
+            era1Upgrade.setTextColor(Color.RED);
             era5Upgrade.setEnabled(true);
         }
 
@@ -1430,6 +1592,7 @@ public class MainActivity extends AppCompatActivity {
         if (!era5UpgradeBought && points >= 25000) {
             era5Upgrade.setEnabled(true);
             era5Upgrade.setText("BUY?");
+            era1Upgrade.setTextColor(Color.RED);
         }
 
         era5Upgrade.setOnClickListener(eeee -> {
@@ -1494,6 +1657,7 @@ public class MainActivity extends AppCompatActivity {
 
         Button submitNameButton = findViewById(R.id.submitNameButton);
         EditText thankYouNameInput = findViewById(R.id.thankyouNameInput);
+        //thankYouNameInput.setBackgroundColor(Color.RED);
 
         // When we click submit - call the secretPoints method & clear the text box
         submitNameButton.setOnClickListener(l -> {
@@ -1530,8 +1694,11 @@ public class MainActivity extends AppCompatActivity {
     public void secretNameMethod(String compareName) {
         boolean CS125Staff = false;
 
+
         TextView thankYouMessage = findViewById(R.id.thankyouMessage);
         thankYouMessage.setText(""); // clears the text box each time the screen is accessed & button is pressed
+        thankYouMessage.setTextColor(Color.GREEN);
+        //thankYouMessage.setBackground();
 
 
         if (compareName.equals("Nathaniel Zukowski")) {
@@ -1547,16 +1714,16 @@ public class MainActivity extends AppCompatActivity {
         }
 
         if (compareName.equals("Geoff Challen")) {
-            points = 378456738; // 378M points and some
+            points = 999999999; // 378M points and some
             Log.i("SecretNameMethod","---------------");
             Log.i("SecretNameMethod","JDHSBKLMDSFNSD our points are: " + points);
             CS125Staff = true;
-            thankYouMessage.setText("Thanks for the great semester!");
+            thankYouMessage.setText("There's no explanation needed here. Sir, please take some points.\n" + "AWARDED: INFINITE POINTS.");
         }
         if (compareName.equals("Ben Nordick")) {
             points = 39284407; // 39M points and some
             CS125Staff = true;
-            thankYouMessage.setText("Thanks for making the MP and helping others in office hours, on the forum and irl!");
+            thankYouMessage.setText("Ah, the Nordick god of CS Thunder himself. Take some points.\n" + "AWARDED: ALOT OF POINTS.");
             // Thank you message
         }
         String[] taArray = new String[8];
@@ -1676,17 +1843,17 @@ public class MainActivity extends AppCompatActivity {
             if (taArray[i].equals(compareName)) {
                 points = 1000000; //Million points
                 CS125Staff = true;
-                thankYouMessage.setText("CS125 TAs get it done, and in doing so help students get " +
-                        "what they've got to get done done as well. In other words, thank you! " + "AWARDED: 1,000,000pts");
+                thankYouMessage.setText("CS 125 TAs get it done, and in doing so help students get " +
+                        "what they've got to get done done as well. In other words--thank you! " + "AWARDED: 1,000,000pts.");
             }
         }
         for (int i = 0; i < caArray.length; i++) { // CA thankyou array
             if (caArray[i].equals(compareName)) {
                 CS125Staff = true;
                 points = 500000; //Half a million points
-                thankYouMessage.setText(" CS125 CAs are the life jackets keeping students " +
+                thankYouMessage.setText(" CS 125 CAs are the life jackets keeping students " +
                         "afloat while they learn" +
-                        " to swim their way through this ocean of a course. Thank you! AWARDED: 500,000pts");
+                        " to swim their way through this ocean of a course. Thank you! AWARDED: 500,000pts.");
             }
         }
         for (int i = 0; i < cdArray.length; i++) { // CD thankyou array
@@ -1694,13 +1861,13 @@ public class MainActivity extends AppCompatActivity {
                 CS125Staff = true;
                 points = 500000; //Half a million points
                 thankYouMessage.setText("CS125 CDs develop the course! Without you guys, I don't know what this course would've been! Thank you! " +
-                        "AWARDED: 500,000pts");
+                        "AWARDED: 500,000pts.");
             }
         }
         // TODO: 2019-12-09 Just double check that the thankyous look clean (added CD array)
         if (CS125Staff == false) {
-            System.out.println("Not CS125 staff!");
-            //thankYouMessage.setText("");
+            System.out.println("WRONG PASSCODE. CHEATS DENIED");
+            thankYouMessage.setText("WRONG PASSCODE: CHEATS DENIED.");
         }
     }
 }

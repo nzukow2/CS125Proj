@@ -99,9 +99,10 @@
             android:layout_width="330dp"
             android:layout_height="50dp"
             android:layout_marginTop="29dp"
+            android:background="@android:color/transparent"
             android:fontFamily="@font/audiowide"
             android:fontStyle="italic"
-            android:text="CS HEROES: THE LORDS OF COMPUTING"
+            android:text="CS HEROES: LORDS  OF COMPUTING"
             android:textAlignment="center"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:textSize="18sp"
@@ -116,12 +117,35 @@
             android:layout_height="46dp"
             android:layout_marginTop="14dp"
             android:layout_marginBottom="53dp"
-            android:text="MORE INFO"
+            android:text="EXTRAS"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.506"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/secretButton" />
+
+        <ImageView
+            android:id="@+id/maus"
+            android:layout_width="114dp"
+            android:layout_height="138dp"
+            android:layout_marginEnd="4dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.499"
+            app:srcCompat="@drawable/maus" />
+
+        <ImageView
+            android:id="@+id/keybd"
+            android:layout_width="198dp"
+            android:layout_height="70dp"
+            android:layout_marginBottom="11dp"
+            android:background="@android:color/transparent"
+            app:layout_constraintBottom_toTopOf="@+id/clickergameButton"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="parent"
+            app:srcCompat="@drawable/keyboard" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

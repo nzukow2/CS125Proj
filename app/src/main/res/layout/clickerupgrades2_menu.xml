@@ -13,37 +13,53 @@
         <Button
             android:id="@+id/clickerButtonChange1"
             android:layout_width="116dp"
-            android:layout_height="78dp"
-            android:layout_marginBottom="23dp"
+            android:layout_height="89dp"
+            android:layout_marginBottom="13dp"
+            android:background="@drawable/background1"
             android:text="Turing"
+            android:textSize="18sp"
             app:layout_constraintBottom_toTopOf="@+id/clickerButtonChange2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent" />
 
         <Button
             android:id="@+id/clickerButtonChange2"
             android:layout_width="116dp"
-            android:layout_height="78dp"
-            android:layout_marginBottom="27dp"
+            android:layout_height="89dp"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/background2"
             android:text="Geoff"
+            android:textSize="18sp"
             app:layout_constraintBottom_toTopOf="@+id/clickerButtonChange3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.006"
             app:layout_constraintStart_toStartOf="parent" />
 
         <Button
             android:id="@+id/clickerButtonChange3"
             android:layout_width="116dp"
-            android:layout_height="78dp"
-            android:layout_marginBottom="24dp"
+            android:layout_height="89dp"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/background3"
             android:text="Musk"
+            android:textSize="18sp"
             app:layout_constraintBottom_toTopOf="@+id/clickerButtonChange4"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent" />
 
         <Button
             android:id="@+id/clickerButtonChange4"
             android:layout_width="116dp"
-            android:layout_height="78dp"
-            android:layout_marginBottom="23dp"
+            android:layout_height="89dp"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/background4"
             android:text="Zuckerburg"
+            android:textSize="18sp"
             app:layout_constraintBottom_toTopOf="@+id/clickerButtonChange5"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.006"
             app:layout_constraintStart_toStartOf="parent" />
 
         <Button
@@ -58,172 +74,132 @@
         <Button
             android:id="@+id/clickerButtonChange5"
             android:layout_width="116dp"
-            android:layout_height="78dp"
-            android:layout_marginBottom="12dp"
+            android:layout_height="89dp"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/background5"
             android:text="Howard"
+            android:textSize="18sp"
             app:layout_constraintBottom_toTopOf="@+id/returnToUpgradePg1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.006"
             app:layout_constraintStart_toStartOf="parent" />
 
         <Button
             android:id="@+id/clickerButtonChange0"
             android:layout_width="116dp"
-            android:layout_height="78dp"
+            android:layout_height="89dp"
             android:layout_marginTop="68dp"
             android:layout_marginBottom="21dp"
+            android:background="@drawable/background0"
             android:text="Equipped"
+            android:textSize="18sp"
             app:layout_constraintBottom_toTopOf="@+id/clickerButtonChange1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.006"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.454" />
 
         <TextView
             android:id="@+id/era0description"
-            android:layout_width="146dp"
-            android:layout_height="30dp"
-            android:layout_marginTop="97dp"
-            android:layout_marginEnd="15dp"
-            android:text="Leave Python at the door, it's time for CS125. "
+            android:layout_width="263dp"
+            android:layout_height="89dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="15dp"
+            android:text="-- Leave Python at the door, it's time for CS125.\n\n Click the banner under which CS 125  students code.\n\n  EQUIPS: CS 125 clicker ( DEFAULT)."
             android:textAlignment="center"
             android:textColor="#FDECE0E0"
             android:textSize="12sp"
+            app:layout_constraintBottom_toTopOf="@+id/era1description"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintStart_toEndOf="@+id/clickerButtonChange0" />
 
         <TextView
             android:id="@+id/era1description"
-            android:layout_width="141dp"
-            android:layout_height="33dp"
-            android:layout_marginStart="42dp"
-            android:layout_marginTop="68dp"
-            android:layout_marginBottom="62dp"
-            android:text="Enigma doesn't stand a chance. "
+            android:layout_width="266dp"
+            android:layout_height="89dp"
+            android:layout_marginStart="17dp"
+            android:layout_marginEnd="12dp"
+            android:layout_marginBottom="13dp"
+            android:text="-- Enigma doesn't stand a chance.\n \n Click the father of modern Computer Science. \n\n EQUIPS: Alan Turing clicker."
             android:textAlignment="center"
             android:textColor="@color/colorAccent"
             android:textSize="12sp"
             app:layout_constraintBottom_toTopOf="@+id/era2description"
-            app:layout_constraintStart_toEndOf="@+id/imageView2"
-            app:layout_constraintTop_toBottomOf="@+id/era0description" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/clickerButtonChange1" />
 
         <TextView
             android:id="@+id/era2description"
-            android:layout_width="141dp"
-            android:layout_height="33dp"
-            android:layout_marginStart="41dp"
-            android:layout_marginTop="62dp"
-            android:layout_marginEnd="16dp"
-            android:text="You can call him Geoff"
+            android:layout_width="263dp"
+            android:layout_height="89dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginBottom="8dp"
+            android:text="-- You can  (only)  call  him Geoff.\n\n Click the father of CS 125.\n\nEQUIPS: Geoff Clicker."
+            android:textAlignment="center"
             android:textColor="@color/colorAccent"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toTopOf="@+id/era3description"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/imageView4"
-            app:layout_constraintTop_toBottomOf="@+id/era1description" />
+            app:layout_constraintStart_toEndOf="@+id/clickerButtonChange2" />
 
         <TextView
             android:id="@+id/era3description"
-            android:layout_width="141dp"
-            android:layout_height="33dp"
-            android:layout_marginStart="42dp"
-            android:layout_marginTop="70dp"
-            android:layout_marginBottom="70dp"
-            android:text="OneThere is one engineer to rule them all"
+            android:layout_width="263dp"
+            android:layout_height="89dp"
+            android:layout_marginStart="17dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:text='--  "And he forged one engineer to rule them all.."\n\n Click the father of modern Innovation. \n\n  EQUIPS: Elon Musk clicker.'
+            android:textAlignment="center"
             android:textColor="@color/colorAccent"
             android:textSize="12sp"
             app:layout_constraintBottom_toTopOf="@+id/era4description"
-            app:layout_constraintStart_toEndOf="@+id/imageView6"
-            app:layout_constraintTop_toBottomOf="@+id/era2description" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/clickerButtonChange3" />
 
         <TextView
             android:id="@+id/era4description"
-            android:layout_width="141dp"
-            android:layout_height="33dp"
-            android:layout_marginStart="39dp"
-            android:layout_marginTop="70dp"
-            android:layout_marginEnd="15dp"
-            android:text="Congress' worse nightmare"
+            android:layout_width="263dp"
+            android:layout_height="89dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="8dp"
+            android:text="-- Just because he dropped out doesn't mean you should too. \n\n Click the father of Social media\n\n EQUIPS: Mark Zuckerburg clicker"
+            android:textAlignment="center"
             android:textColor="@color/colorAccent"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toTopOf="@+id/era5description"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/imageView7"
-            app:layout_constraintTop_toBottomOf="@+id/era3description" />
+            app:layout_constraintStart_toEndOf="@+id/clickerButtonChange4" />
 
         <TextView
             android:id="@+id/era5description"
-            android:layout_width="141dp"
-            android:layout_height="33dp"
-            android:layout_marginTop="64dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="36dp"
-            android:text="It just works!"
+            android:layout_width="263dp"
+            android:layout_height="89dp"
+            android:layout_marginStart="18dp"
+            android:layout_marginEnd="12dp"
+            android:layout_marginBottom="8dp"
+            android:text='--  "It just works!"\n\nClick the father of pretty worlds with ugly bugs and glitches.\n\n EQUIPS: Todd Howard clicker'
+            android:textAlignment="center"
             android:textColor="@color/colorAccent"
+            android:textSize="12sp"
             app:layout_constraintBottom_toTopOf="@+id/returnToUpgradePg1"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/era4description" />
+            app:layout_constraintStart_toEndOf="@+id/clickerButtonChange5" />
 
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="77dp"
-            android:layout_height="59dp"
-            android:layout_marginStart="23dp"
-            android:layout_marginTop="80dp"
-            android:layout_marginEnd="156dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toEndOf="@+id/clickerButtonChange0"
+        <TextView
+            android:id="@+id/test"
+            android:layout_width="323dp"
+            android:layout_height="32dp"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/audiowide"
+            android:text="Available Unlocks:"
+            android:textColor="@android:color/white"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/background0" />
-
-        <ImageView
-            android:id="@+id/imageView2"
-            android:layout_width="77dp"
-            android:layout_height="59dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="44dp"
-            android:layout_marginEnd="81dp"
-            app:layout_constraintEnd_toStartOf="@+id/era1description"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toEndOf="@+id/clickerButtonChange1"
-            app:layout_constraintTop_toBottomOf="@+id/imageView"
-            app:srcCompat="@drawable/background1" />
-
-        <ImageView
-            android:id="@+id/imageView4"
-            android:layout_width="77dp"
-            android:layout_height="59dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="36dp"
-            app:layout_constraintStart_toEndOf="@+id/clickerButtonChange2"
-            app:layout_constraintTop_toBottomOf="@+id/imageView2"
-            app:srcCompat="@drawable/background2" />
-
-        <ImageView
-            android:id="@+id/imageView6"
-            android:layout_width="77dp"
-            android:layout_height="59dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="49dp"
-            android:layout_marginBottom="47dp"
-            app:layout_constraintBottom_toTopOf="@+id/imageView7"
-            app:layout_constraintStart_toEndOf="@+id/clickerButtonChange3"
-            app:layout_constraintTop_toBottomOf="@+id/imageView4"
-            app:layout_constraintVertical_bias="1.0"
-            app:srcCompat="@drawable/background3" />
-
-        <ImageView
-            android:id="@+id/imageView7"
-            android:layout_width="77dp"
-            android:layout_height="59dp"
-            android:layout_marginStart="23dp"
-            android:layout_marginBottom="184dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/clickerButtonChange4"
-            app:srcCompat="@drawable/background4" />
-
-        <ImageView
-            android:id="@+id/imageView8"
-            android:layout_width="77dp"
-            android:layout_height="59dp"
-            android:layout_marginStart="23dp"
-            android:layout_marginBottom="22dp"
-            app:layout_constraintBottom_toTopOf="@+id/returnToUpgradePg1"
-            app:layout_constraintStart_toEndOf="@+id/clickerButtonChange5"
-            app:srcCompat="@drawable/background5" />
+            tools:layout_editor_absoluteX="40dp" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </LinearLayout>

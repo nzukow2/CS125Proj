@@ -7,40 +7,48 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@color/colorPrimary">
 
         <Button
             android:id="@+id/resetPointsButton"
             android:layout_width="166dp"
             android:layout_height="47dp"
             android:layout_marginStart="112dp"
-            android:layout_marginBottom="124dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="32dp"
+            android:layout_marginBottom="264dp"
             android:text="resetPointsButton"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintEnd_toStartOf="@+id/musicTextView"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/muteSoundEffectsButton" />
 
         <Button
             android:id="@+id/muteMusicButton"
             android:layout_width="166dp"
             android:layout_height="47dp"
             android:layout_marginStart="112dp"
-            android:layout_marginTop="420dp"
-            android:layout_marginBottom="15dp"
+            android:layout_marginEnd="133dp"
             android:text="muteMusicButton"
-            app:layout_constraintBottom_toTopOf="@+id/muteSoundEffectsButton"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="1.0" />
+            app:layout_constraintVertical_bias="0.38" />
 
         <Button
             android:id="@+id/muteSoundEffectsButton"
             android:layout_width="166dp"
             android:layout_height="47dp"
-            android:layout_marginStart="112dp"
-            android:layout_marginBottom="192dp"
+            android:layout_marginStart="110dp"
+            android:layout_marginEnd="135dp"
             android:text="muteSoundEffects"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <Button
             android:id="@+id/returnToMainMenuFromSettings"
@@ -56,9 +64,11 @@
             android:id="@+id/settingsMenuPointsDisplay"
             android:layout_width="192dp"
             android:layout_height="67dp"
-            android:layout_marginStart="100dp"
-            android:layout_marginTop="240dp"
+            android:layout_marginTop="16dp"
             android:text="Your points here!"
+            android:textAlignment="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.456"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 

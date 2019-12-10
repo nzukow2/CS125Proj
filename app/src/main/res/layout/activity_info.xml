@@ -13,8 +13,9 @@
         android:layout_height="35dp"
         android:layout_marginTop="31dp"
         android:fontFamily="@font/carter_one"
-        android:text="Who are the CS heroes? Learn more about them here"
+        android:text="Who are the CS heroes? Learn more about them."
         android:textAlignment="center"
+        android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
