@@ -875,7 +875,7 @@ public class MainActivity extends AppCompatActivity {
             //MediaPlayer upsong = MediaPlayer.create(this, R.raw.upgrades_song);
             //upsong.setLooping(true);
             //upsong.setVolume(1000,1000);
-            upsong.stop();
+            //upsong.stop();
             clickerUpgradePageOneTransition();
         });
 
@@ -916,6 +916,12 @@ public class MainActivity extends AppCompatActivity {
         gotoUpgradePageTwo.setBackgroundColor(Color.RED);
         gotoUpgradePageTwo.setOnClickListener(letsGo -> {
             upsong.stop();
+
+            MediaPlayer upsong2 = MediaPlayer.create(this, R.raw.upgrades_song2);
+            upsong2.setLooping(true);
+            upsong2.setVolume(1000,1000);
+            retard = MediaPlayer.create(this, R.raw.upgrades_song2);
+            retard.start();
             clickerUpgradePageTwoTransition();
         });
 
@@ -1179,25 +1185,32 @@ public class MainActivity extends AppCompatActivity {
 
     public ImageButton currentEraButton;
 
+    MediaPlayer retard;
+
     public void clickerUpgradePageTwoTransition() {
         //MediaPlayer upsong2 = MediaPlayer.create(this, R.raw.upgrades_song2);
+        /*
         MediaPlayer upsong = MediaPlayer.create(this, R.raw.upgrades_song);
         upsong.setLooping(true);
         upsong.setVolume(1000,1000);
         upsong.stop();
+         */
+
+
+        /*
         MediaPlayer upsong2 = MediaPlayer.create(this, R.raw.upgrades_song2);
         upsong2.setLooping(true);
         upsong2.setVolume(1000,1000);
         upsong2.start();
+         */
 
 
 
-        //upsong2.setLooping(true);
-        //upsong2.setVolume(1000,1000);
+
         setContentView(R.layout.clickerupgrades2_menu);
         Button backtoUpgradePageOne = findViewById(R.id.returnToUpgradePg1);
         backtoUpgradePageOne.setOnClickListener(eee -> {
-            upsong2.stop();
+            retard.stop();
             clickerUpgradePageOneTransition();
         });
 
