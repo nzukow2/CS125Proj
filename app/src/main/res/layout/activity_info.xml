@@ -9,11 +9,11 @@
 
     <TextView
         android:id="@+id/txt1"
-        android:layout_width="251dp"
-        android:layout_height="26dp"
+        android:layout_width="275dp"
+        android:layout_height="35dp"
         android:layout_marginTop="31dp"
         android:fontFamily="@font/carter_one"
-        android:text="Who are the CS heroes?"
+        android:text="Who are the CS heroes? Learn more about them here"
         android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

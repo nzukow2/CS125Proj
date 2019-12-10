@@ -198,8 +198,8 @@ public class MainActivity extends AppCompatActivity {
         welcomeArray[3] = "Welcome to my CS125 app!";
         welcomeArray[4] = "Hello there :D";
         welcomeArray[5] = "Hey guys, welcome to my CS125 Project walkthrough :)";
-        TextView welcomeText = findViewById(R.id.welcomeText);
-        welcomeText.setText(welcomeArray[replacer]); //sets the welcome text
+       // TextView welcomeText = findViewById(R.id.welcomeText);
+        //welcomeText.setText(welcomeArray[replacer]); //sets the welcome text
         // End of welcome text setting stuff!
 
 
@@ -309,9 +309,9 @@ public class MainActivity extends AppCompatActivity {
         Animation animation;
         animation = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.feedback_layout);
         feedtext.setText("CREDITS\n" + "DEVELOPERS:\n" + "ANGEL CANTY\n" +
-                "Lord-Manipulator of human-computer interaction(UI)\n" + "Master-scheduler\n" +"Master Animations Coder\n" +
+                "Lord-Manipulator of human-computer interaction(UI)\n" + "Master-Scheduler\n" +"Master Animations Coder\n" +
                 "Front-End Coordinator\n" + "framework assistant\n" +"NATE ZUKOW \n" +"Lord-Architect of software framework(Code Structure/Groundwork)\n"
-                + "Master-Scrutinizer\n" +  "Debugger\n" + "Back-End Coordinator\n" + "Animations assistant");
+                + "Master-Scrutinizer\n" +  "Master Debugger\n" + "Back-End Coordinator\n" + "Animations assistant");
         feedtext.startAnimation(animation);
 
        // TextView thanjs = findViewById(R.layout.feedback_layout);
@@ -736,8 +736,8 @@ public class MainActivity extends AppCompatActivity {
         welcomeArray[3] = "Welcome to my CS125 app!";
         welcomeArray[4] = "Hello there :D";
         welcomeArray[5] = "Hey guys, welcome to my CS125 Project walkthrough :)";
-        TextView welcomeText = findViewById(R.id.welcomeText);
-        welcomeText.setText(welcomeArray[replacer]);
+        //TextView welcomeText = findViewById(R.id.welcomeText);
+       // welcomeText.setText(welcomeArray[replacer]);
 
         // Reinitializes the secretButton
         Button secretButton = findViewById(R.id.secretButton);
@@ -810,9 +810,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.clickergame_gaming);
         leftClickerGame = false;
         currentEraButton = findViewById(R.id.clicker);
-        //MediaPlayer upsong = MediaPlayer.create(this, R.raw.still_feel);
-        //song.setLooping(true);
-        //song.setVolume(1000,1000);
+        MediaPlayer upsong = MediaPlayer.create(this, R.raw.still_feel);
+        upsong.setLooping(true);
+        upsong.setVolume(1000,1000);
+        upsong.stop();
         song.start();
 
         if (era0UpgradeEquipped) {
@@ -871,6 +872,10 @@ public class MainActivity extends AppCompatActivity {
                 time.cancel();
             }
             leftClickerGame = true;
+            //MediaPlayer upsong = MediaPlayer.create(this, R.raw.upgrades_song);
+            //upsong.setLooping(true);
+            //upsong.setVolume(1000,1000);
+            upsong.stop();
             clickerUpgradePageOneTransition();
         });
 
@@ -888,7 +893,7 @@ public class MainActivity extends AppCompatActivity {
         song2.setVolume(1000,1000);
         //song2.start();
         attackButton.setOnClickListener(yoyo -> {
-            song2.start();
+            //song2.start();
             attackButton.setEnabled(false);
             clickerGame();
         });
@@ -907,7 +912,7 @@ public class MainActivity extends AppCompatActivity {
         upsong.start();
 
         Button gotoUpgradePageTwo = findViewById(R.id.upgradePageOneToTwo);
-        gotoUpgradePageTwo.setTextColor(Color.WHITE);
+        gotoUpgradePageTwo.setTextColor(Color.BLACK);
         gotoUpgradePageTwo.setBackgroundColor(Color.RED);
         gotoUpgradePageTwo.setOnClickListener(letsGo -> {
             upsong.stop();
@@ -1065,7 +1070,7 @@ public class MainActivity extends AppCompatActivity {
 
         Button returnToClickerApp = findViewById(R.id.returnToClickerApp);
         returnToClickerApp.setBackgroundColor(Color.RED);
-        returnToClickerApp.setTextColor(Color.WHITE);
+        returnToClickerApp.setTextColor(Color.BLACK);
         returnToClickerApp.setOnClickListener(egggg -> {
             upsong.stop();
             song = MediaPlayer.create(this, R.raw.song);

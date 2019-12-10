@@ -7,18 +7,6 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/thanks"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:layout_marginTop="556dp"
-        android:text="Down below are our emails. Feel free to give us constructive criticism!"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
         android:id="@+id/feedtext"
         android:layout_width="wrap_content"
         android:layout_height="0dp"

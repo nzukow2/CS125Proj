@@ -15,13 +15,12 @@
         app:layout_constraintTop_toTopOf="parent" />
 
 
-
     <ImageView
 
         android:id="@+id/imageView3"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:scaleType="fitCenter"
+        android:scaleType="center"
         android:src="@drawable/background0"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -79,59 +78,37 @@
             style="@style/Widget.AppCompat.Button.Colored"
             android:layout_width="168dp"
             android:layout_height="48dp"
-            android:layout_marginTop="48dp"
             android:layout_marginBottom="12dp"
             android:text="Play"
             app:layout_constraintBottom_toTopOf="@+id/settingsButton"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.51"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/welcomeText"
-            app:layout_constraintVertical_bias="1.0" />
-
-        <TextView
-            android:id="@+id/welcomeText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="163dp"
-            android:layout_marginTop="302dp"
-            android:layout_marginEnd="171dp"
-            android:layout_marginBottom="97dp"
-            android:text="Hello World!"
-            app:layout_constraintBottom_toTopOf="@+id/settingsButton"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintStart_toStartOf="parent" />
 
         <VideoView
             android:id="@+id/videoView"
-            android:layout_width="331dp"
-            android:layout_height="276dp"
-            android:layout_marginTop="84dp"
-            android:layout_marginBottom="18dp"
-            app:layout_constraintBottom_toTopOf="@+id/welcomeText"
+            android:layout_width="391dp"
+            android:layout_height="591dp"
+            android:layout_marginTop="19dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.496"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/title" />
 
         <TextView
             android:id="@+id/title"
-            android:layout_width="175dp"
-            android:layout_height="43dp"
+            android:layout_width="330dp"
+            android:layout_height="50dp"
             android:layout_marginTop="29dp"
-            android:layout_marginBottom="21dp"
-            android:fontFamily="serif"
+            android:fontFamily="@font/audiowide"
             android:fontStyle="italic"
-            android:text="CS HEROES: LORDS OF THE CLICK"
+            android:text="CS HEROES: THE LORDS OF COMPUTING"
             android:textAlignment="center"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            app:layout_constraintBottom_toTopOf="@+id/videoView"
+            android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.491"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.631" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <Button
             android:id="@+id/info"
