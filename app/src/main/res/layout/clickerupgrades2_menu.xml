@@ -77,14 +77,15 @@
 
         <TextView
             android:id="@+id/era0description"
-            android:layout_width="141dp"
-            android:layout_height="33dp"
-            android:layout_marginStart="40dp"
+            android:layout_width="146dp"
+            android:layout_height="30dp"
             android:layout_marginTop="97dp"
             android:layout_marginEnd="15dp"
-            android:text="TextView"
+            android:text="Leave Python at the door, it's time for CS125. "
+            android:textAlignment="center"
+            android:textColor="#FDECE0E0"
+            android:textSize="12sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/imageView"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
@@ -94,7 +95,10 @@
             android:layout_marginStart="42dp"
             android:layout_marginTop="68dp"
             android:layout_marginBottom="62dp"
-            android:text="TextView"
+            android:text="Enigma doesn't stand a chance. "
+            android:textAlignment="center"
+            android:textColor="@color/colorAccent"
+            android:textSize="12sp"
             app:layout_constraintBottom_toTopOf="@+id/era2description"
             app:layout_constraintStart_toEndOf="@+id/imageView2"
             app:layout_constraintTop_toBottomOf="@+id/era0description" />
@@ -106,7 +110,8 @@
             android:layout_marginStart="41dp"
             android:layout_marginTop="62dp"
             android:layout_marginEnd="16dp"
-            android:text="TextView"
+            android:text="You can call him Geoff"
+            android:textColor="@color/colorAccent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/imageView4"
             app:layout_constraintTop_toBottomOf="@+id/era1description" />
@@ -118,7 +123,9 @@
             android:layout_marginStart="42dp"
             android:layout_marginTop="70dp"
             android:layout_marginBottom="70dp"
-            android:text="TextView"
+            android:text="OneThere is one engineer to rule them all"
+            android:textColor="@color/colorAccent"
+            android:textSize="12sp"
             app:layout_constraintBottom_toTopOf="@+id/era4description"
             app:layout_constraintStart_toEndOf="@+id/imageView6"
             app:layout_constraintTop_toBottomOf="@+id/era2description" />
@@ -130,7 +137,8 @@
             android:layout_marginStart="39dp"
             android:layout_marginTop="70dp"
             android:layout_marginEnd="15dp"
-            android:text="TextView"
+            android:text="Congress' worse nightmare"
+            android:textColor="@color/colorAccent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/imageView7"
             app:layout_constraintTop_toBottomOf="@+id/era3description" />
@@ -142,7 +150,8 @@
             android:layout_marginTop="64dp"
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="36dp"
-            android:text="TextView"
+            android:text="It just works!"
+            android:textColor="@color/colorAccent"
             app:layout_constraintBottom_toTopOf="@+id/returnToUpgradePg1"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/era4description" />

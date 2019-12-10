@@ -585,7 +585,7 @@ public class MainActivity extends AppCompatActivity {
                 loadArray[1] = "GAY";
                 loadArray[2] = "GAY";
                 loadArray[3] = "GAY";
-                loadArray[4] = "Albeit an intro course, CS125 is the hardest of all entry-level CS classes, far-suprpassing 105,100, or 107.";
+                loadArray[4] = "Albeit an intro course, CS125 is the hardest of all entry-level CS classes, far-suprpassing the difficulty of 105,100, or 107.";
                 TextView loadingText = findViewById(R.id.loadingScreenTextView);
                 loadingText.setText(loadArray[replacer]);
                 loadingText.setTextColor(Color.WHITE);
@@ -1229,6 +1229,8 @@ public class MainActivity extends AppCompatActivity {
 
         setContentView(R.layout.clickerupgrades2_menu);
         Button backtoUpgradePageOne = findViewById(R.id.returnToUpgradePg1);
+        backtoUpgradePageOne.setBackgroundColor(Color.RED);
+        backtoUpgradePageOne.setTextColor(Color.BLACK);
         backtoUpgradePageOne.setOnClickListener(eee -> {
             retard.stop();
             clickerUpgradePageOneTransition();
@@ -1323,6 +1325,15 @@ public class MainActivity extends AppCompatActivity {
             era4UpgradeEquipped = false;
             era5UpgradeEquipped = false;
             clickerUpgradePageTwoTransition();
+
+            TextView a = findViewById(R.id.era0description);
+            a.setTextColor(Color.WHITE);
+            TextView b = findViewById(R.id.era1description);
+            TextView c = findViewById(R.id.era2description);
+            TextView d = findViewById(R.id.era3description);
+            TextView e = findViewById(R.id.era4description);
+            TextView f = findViewById(R.id.era5description);
+
         });
 
 
