@@ -479,7 +479,7 @@ public class MainActivity extends AppCompatActivity {
                 loadArray[0] = "HINT: on some some days, Forums > Office Hours. Choose wisely.";
                 loadArray[1] = "Legend says that the majority of students didn't finish MP1 in FA19.";
                 loadArray[2] = "CS 225 is a more difficult version of CS125, and its sequel. You've been warned.";
-                loadArray[3] = "HINT: On CBTF quizzes, try tackling code, and switching off periodically to multiple choice. ";
+                loadArray[3] = "HINT: On CBTF quizzes, try tackling the code, then switching off , periodically to multiple choice. ";
                 TextView loadingText = findViewById(R.id.loadingScreenTextView);
                 loadingText.setText(loadArray[replacer]);
                 loadingText.setTextColor(Color.WHITE);
@@ -503,10 +503,10 @@ public class MainActivity extends AppCompatActivity {
                 String[] loadArray = new String[4];
                 double random = (Math.random() * (loadArray.length - 1));
                 int replacer = (int) Math.ceil(random);
-                loadArray[0] = "Dog 1";
-                loadArray[1] = "Dog 2";
-                loadArray[2] = "Dog 3";
-                loadArray[3] = "Dog 4";
+                loadArray[0] = "DID YOU KNOW?: Geoffrey Challen received a Phd. In CS from Harvard in 2010.";
+                loadArray[1] = "Geoffrey Challen is the CS125 professor at the University of Illinois, Urbana-Champaign.";
+                loadArray[2] = "A professor at heart, Challen tracks attendance of his class with flawless efficiency.";
+                loadArray[3] = "HINT: Challen holds office hours. In case of CS-induced distress, see him.";
                 TextView loadingText = findViewById(R.id.loadingScreenTextView);
                 loadingText.setText(loadArray[replacer]);
                 loadingText.setTextColor(Color.WHITE);
@@ -516,10 +516,10 @@ public class MainActivity extends AppCompatActivity {
                 String[] loadArray = new String[4];
                 double random = (Math.random() * (loadArray.length - 1));
                 int replacer = (int) Math.ceil(random);
-                loadArray[0] = "Tesla 1";
-                loadArray[1] = "Tesla 2";
-                loadArray[2] = "Tesla 3";
-                loadArray[3] = "Tesla 4";
+                loadArray[0] = "DID YOU KNOW?: At age 9, Elon musk taught himself to code, then read an entire Enyclopedia.";
+                loadArray[1] = "DID YOU KNOW?: After only two days of attendance, Elon musk abandoned his pursuance of a Stanford Degree in Physics.";
+                loadArray[2] = "DID YOU KNOW?: portions of Iron Man 2 were filmed at SpaceX headquarters.";
+                loadArray[3] = "A citizen of three nations, and CEO of two companies, musk is an inventor, engineer, and businessman";
                 TextView loadingText = findViewById(R.id.loadingScreenTextView);
                 loadingText.setText(loadArray[replacer]);
                 loadingText.setTextColor(Color.WHITE);
@@ -529,10 +529,10 @@ public class MainActivity extends AppCompatActivity {
                 String[] loadArray = new String[4];
                 double random = (Math.random() * (loadArray.length - 1));
                 int replacer = (int) Math.ceil(random);
-                loadArray[0] = "Facebook 1";
-                loadArray[1] = "Facebook 2";
-                loadArray[2] = "Facebook 3";
-                loadArray[3] = "Facebook 4";
+                loadArray[0] = "DID YOU KNOW?: As a teen, Mark Zuckerburg once rejected a hiring offer from Microsoft.";
+                loadArray[1] = "DID YOU KNOW?: Zuckerburg dropped out of Harvard for the site he created, Facebook.";
+                loadArray[2] = "DID YOU KNOW?: Zuckerburg is one of the world's youngest billionares.";
+                loadArray[3] = "Mark Zuckerburg is a renownded  business man Computer Scientist.";
                 TextView loadingText = findViewById(R.id.loadingScreenTextView);
                 loadingText.setText(loadArray[replacer]);
                 loadingText.setTextColor(Color.WHITE);
@@ -542,10 +542,10 @@ public class MainActivity extends AppCompatActivity {
                 String[] loadArray = new String[4];
                 double random = (Math.random() * (loadArray.length - 1));
                 int replacer = (int) Math.ceil(random);
-                loadArray[0] = "Bethesda 1";
-                loadArray[1] = "Bethesda 2";
-                loadArray[2] = "Bethesda 3";
-                loadArray[3] = "Bethesda 4";
+                loadArray[0] = "Todd Howard is a renowned Video-Game Designer and the top executive at Bethesda Softworks,";
+                loadArray[1] = "Todd Howard led the  development of legendary Videogames like Oblivion, Skyrim, and Fallout 3";
+                loadArray[2] = "Howard's most recent creation, Fallout 76, is one of the most heavily-criticized videoGames ever made.";
+                loadArray[3] = "Howard is quoted as saying that the purpose of his games were to allow the player to live another life, in another world.";
                 TextView loadingText = findViewById(R.id.loadingScreenTextView);
                 loadingText.setText(loadArray[replacer]);
                 loadingText.setTextColor(Color.WHITE);
@@ -1148,7 +1148,7 @@ public class MainActivity extends AppCompatActivity {
         if(upgrade3Purchased) { // Points per click upgrade 3
             upgrade3.setText("PURCHASED");
         } else {
-            upgrade3.setText("Py. Upgrade");
+            upgrade3.setText("PY. Upgrade");
         }
         // -------------------------------
         if(upgrade4Purchased) { // Points per click upgrade 4
