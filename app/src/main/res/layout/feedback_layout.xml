@@ -12,6 +12,7 @@
         android:layout_height="0dp"
         android:layout_marginTop="290dp"
         android:text="Down below are our emails. Feel free to give us constructive criticism!"
+        android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"

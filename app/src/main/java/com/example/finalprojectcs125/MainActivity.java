@@ -11,6 +11,7 @@ import android.os.Handler;
 import android.text.util.Linkify;
 import android.util.Log;
 import android.view.View;
+import android.view.animation.AccelerateDecelerateInterpolator;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.view.inputmethod.InputMethodManager;
@@ -306,12 +307,124 @@ public class MainActivity extends AppCompatActivity {
         /**
          * credits?
          */
+
+        String[] taArray = new String[8];
+        taArray[0] = "Aabhas Chauhan";
+        taArray[1] = "Heather Huynh";
+        taArray[2] = "Jishnu Dey";
+        taArray[3] = "Mingkun Gao";
+        taArray[4] = "Mohammed Hassan";
+        taArray[5] = "Nerla Jean-Louis";
+        taArray[6] = "Silas Hsu";
+        taArray[7] = "Vinith Krishnan";
+
+        String[] caArray = new String[86];
+        caArray[0] = "Alan Andrade";
+        caArray[1] = "Alex Nickl";
+        caArray[2] = "Andre Castaneda";
+        caArray[3] = "Ang Li";
+        caArray[4] = "Archisha Majee";
+        caArray[5] = "Arden Wen";
+        caArray[6] = "Ashay Mehta";
+        caArray[7] = "Ben Sutter";
+        caArray[8] = "Benedict Austriaco";
+        caArray[9] = "Blair Wang";
+        caArray[10] = "Calen Resh";
+        caArray[11] = "Charudutt Kher";
+        caArray[12] = "Chris Kull";
+        caArray[13] = "Colleen McConnell";
+        caArray[14] = "David Ruvinskiy";
+        caArray[15] = "Dylan Ott";
+        caArray[16] = "Emilia Kedainis";
+        caArray[17] = "Eric Liu";
+        caArray[18] = "Filip Matasic";
+        caArray[19] = "Gabriella Xue";
+        caArray[20] = "Geon Kim";
+        caArray[21] = "Husnain Raza";
+        caArray[22] = "Hyosang Ahn";
+        caArray[23] = "Isabel Ruiz";
+        caArray[24] = "Isaiah Delgado";
+        caArray[25] = "Jack Gentile";
+        caArray[26] = "Jack Shao";
+        caArray[27] = "Jeffrey Aguirre";
+        caArray[28] = "Jessie Yang";
+        caArray[29] = "Jiacheng Guo";
+        caArray[30] = "Jiahe Su";
+        caArray[31] = "Jiaqi Cao";
+        caArray[32] = "Jiaqi Cheng";
+        caArray[33] = "John Weng";
+        caArray[34] = "Jonathan Kim";
+        caArray[35] = "Jordan Parker";
+        caArray[36] = "Joseph Wang";
+        caArray[37] = "Long Phan";
+        caArray[38] = "Matt Angel";
+        caArray[39] = "Matt Forrest";
+        caArray[40] = "Matthew Augustyn";
+        caArray[41] = "Matthew Lezak";
+        caArray[42] = "Matthew Pham";
+        caArray[43] = "Megan Wang";
+        caArray[44] = "Mona Liao";
+        caArray[45] = "Moritz Kraemer";
+        caArray[46] = "Nanyi Yang";
+        caArray[47] = "Nima Shafikhani";
+        caArray[48] = "Ning Wan";
+        caArray[49] = "Pranav Raman";
+        caArray[50] = "Quentin Wetzel";
+        caArray[51] = "Quinn Collins";
+        caArray[52] = "Ridha Alkhabaz";
+        caArray[53] = "Rochelle Tham";
+        caArray[54] = "Ruisong Li";
+        caArray[55] = "Ryan O'Neall";
+        caArray[56] = "Sarod Nori";
+        caArray[57] = "Shirley Wang";
+        caArray[58] = "Shruthi Kondin";
+        caArray[59] = "Snehal Somalraju";
+        caArray[60] = "Wajid Siddiqui";
+        caArray[61] = "Waleed Khan";
+        caArray[62] = "Wall Sun";
+        caArray[63] = "Wangqi Xiang";
+        caArray[64] = "Wei Shen";
+        caArray[65] = "Xavier Higgins";
+        caArray[66] = "Xiaohan Wang";
+        caArray[67] = "Xiaoying Zhu";
+        caArray[68] = "Yan Yan";
+        caArray[69] = "Yixuan Jia";
+        caArray[70] = "Youcheng Cai";
+        caArray[71] = "Yu Du";
+        caArray[72] = "Yunwen Zhu";
+        caArray[73] = "Yuxin Wang";
+        caArray[74] = "Zach Hamilton";
+        caArray[75] = "Zaitian Wang";
+        caArray[76] = "Zepei Li";
+        caArray[77] = "Zihan Shan";
+        caArray[78] = "Zihan Xu"; // Last CA ----
+        caArray[79] = "Ahmad Dinkins"; // Office hours captains vvv
+        caArray[80] = "Ajay Tatachar";
+        caArray[81] = "Amirthavarshini Sureshbabu";
+        caArray[82] = "Catherine Yuan";
+        caArray[83] = "Daniel Gleason";
+        caArray[84] = "Nikhil Garg";
+        caArray[85] = "Rima Bouhal";
+
+
         Animation animation;
         animation = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.feedback_layout);
-        feedtext.setText("CREDITS\n" + "DEVELOPERS:\n" + "ANGEL CANTY\n" +
+        /*
+        feedtext.animate().scaleY(2f).setInterpolator(new AccelerateDecelerateInterpolator()).setDuration(-10);
+        todo add the CDs and test that everyone is present
+        feedtext.setText("CREDITS\n\n" + "DEVELOPERS:\n\n" + "ANGEL CANTY\n" +
                 "Lord-Manipulator of human-computer interaction(UI)\n" + "Master-Scheduler\n" +"Master Animations Coder\n" +
-                "Front-End Coordinator\n" + "framework assistant\n" +"NATE ZUKOW \n" +"Lord-Architect of software framework(Code Structure/Groundwork)\n"
-                + "Master-Scrutinizer\n" +  "Master Debugger\n" + "Back-End Coordinator\n" + "Animations assistant");
+                "Front-End Coordinator\n" + "framework assistant\n\n" +"NATHANIEL ZUKOWSKI \n" +"Lord-Architect of software framework(Code Structure/Groundwork)\n"
+                + "Master-Scrutinizer\n" +  "Master Debugger\n" + "Back-End Coordinator\n" + "Animations assistant\n\n" +
+                "\nTeaching Assistants\n" + "\n" + taArray[0] + "\n" + taArray[1] + "\n" + taArray[2] + "\n" + taArray[3] + "\n" + taArray[4] + "\n" + taArray[5] + "\n" + taArray[6] + "\n" + taArray[7] + "\n" +
+                "Course Assistants\n\n" + "\n" +caArray[0] + "\n" +caArray[1] + "\n" +caArray[2] + "\n" +caArray[3] + "\n" +caArray[4] + "\n" +caArray[5] + "\n" +caArray[6] + "\n" +caArray[7] + "\n" +caArray[8] + "\n" +caArray[9] + "\n" +caArray[10] + "\n" +caArray[11] + "\n" +caArray[12] + "\n" +caArray[13] + "\n" +caArray[14] + "\n" +caArray[15] + "\n" +caArray[16] + "\n" +caArray[17] + "\n" +caArray[18] + "\n" +caArray[19] + "\n" +caArray[20] + "\n" +caArray[21] + "\n" +caArray[22] + "\n" +caArray[23] + "\n" +caArray[24] + "\n" +caArray[25] + "\n" +caArray[26] + "\n" +caArray[27] + "\n" +caArray[28] + "\n" +caArray[29] + "\n" +caArray[30] + "\n" +caArray[31] + "\n" +caArray[32] + "\n" +caArray[33] + "\n" +caArray[34] + "\n" +caArray[35] + "\n" +caArray[36] + "\n" +caArray[37] + "\n" +caArray[38] + "\n" +caArray[39] + "\n" +caArray[40] + "\n" +caArray[41] + "\n" +caArray[42] + "\n" +caArray[43] + "\n" +caArray[44] + "\n" +caArray[45] + "\n" +caArray[46] + "\n" +caArray[47] + "\n" +caArray[48] + "\n" +caArray[49] + "\n" +caArray[50] + "\n" +caArray[51] + "\n" +caArray[52] + "\n" +caArray[53] + "\n" +caArray[54] + "\n" +caArray[55] + "\n" +caArray[56] + "\n" +caArray[57] + "\n" +caArray[58] + "\n" +caArray[59] + "\n" +caArray[60] + "\n" +caArray[61] + "\n" +caArray[62] + "\n" +caArray[63] + "\n" +caArray[64] + "\n" +caArray[65] + "\n" +caArray[66] + "\n" +caArray[67] + "\n" +caArray[68] + "\n" +caArray[69] + "\n" +caArray[70] + "\n" +caArray[71] + "\n" +caArray[72] + "\n" +caArray[73] + "\n" +caArray[74] + "\n" +caArray[75] + "\n" +caArray[76] + "\n" +caArray[77] + "\n" +caArray[78] + "\n" +caArray[79] + "\n" +caArray[80] + "\n" +caArray[81] + "\n" +caArray[82] + "\n" +caArray[83] + "\n" +caArray[84] + "\n" +caArray[85] + "\n" +
+                "\n" + "Course Developers\n\n" );
+         */
+        // TODO: 2019-12-09 Fix the text looking warped
+        feedtext.setText("CREDITS\n\n\n" + "DEVELOPERS\n\n" + "ANGEL CANTY\n" +
+                        "Lord-Manipulator of human-computer interaction(UI)\n" + "Master-Scheduler\n" +"Master Animations Coder\n" +
+                        "Front-End Coordinator\n" + "framework assistant\n\n" +"NATHANIEL ZUKOWSKI \n" +"Lord-Architect of software framework\n" + "Layer of Code Structure & Groundwork\n"
+                        + "Master-Scrutinizer\n" +  "Master Debugger\n" + "Back-End Coordinator\n" + "Animations assistant\n\n");
         feedtext.startAnimation(animation);
 
        // TextView thanjs = findViewById(R.layout.feedback_layout);
@@ -338,7 +451,6 @@ public class MainActivity extends AppCompatActivity {
             }
             mainMenuButtonReinitializer();
         });
-
     }
 
     /** clickerGame
@@ -601,7 +713,6 @@ public class MainActivity extends AppCompatActivity {
                 loadingText.setTextColor(Color.WHITE);
             }
             if (era2UpgradeEquipped) { // geoff fact & dogs
-                // TODO: 2019-12-09 CHANGE THIS IMMEIDAT:KA<FL !!!!!!!!!!!!!
                 loadIcon.setImageResource(R.drawable.chuchu1v1);
                 String[] loadArray = new String[4];
                 double random = (Math.random() * (loadArray.length - 1));
@@ -827,18 +938,25 @@ public class MainActivity extends AppCompatActivity {
         }
 
         if (era0UpgradeEquipped) {
-            currentEraButton.setImageResource(R.drawable.background0);
+            currentEraButton.setImageResource(R.drawable.background0); //CS125 clicker icon
+            // TODO: 2019-12-09 CS125 background
         } else if (era1UpgradeEquipped) {
-            currentEraButton.setImageResource(R.drawable.background1);
+            currentEraButton.setImageResource(R.drawable.background1); //Turing clicker icon
+            // TODO: 2019-12-09 Turing background
         } else if (era2UpgradeEquipped) {
-            currentEraButton.setImageResource(R.drawable.background2);
+            currentEraButton.setImageResource(R.drawable.background2); //Geoff clicker icon
+            // TODO: 2019-12-09 Geoff background
         } else if (era3UpgradeEquipped) {
-            currentEraButton.setImageResource(R.drawable.background3);
+            currentEraButton.setImageResource(R.drawable.background3); //Musk clicker icon
+            // TODO: 2019-12-09 Musk background
         } else if (era4UpgradeEquipped) {
-            currentEraButton.setImageResource(R.drawable.background4);
+            currentEraButton.setImageResource(R.drawable.background4); //Zucc clicker icon
+            // TODO: 2019-12-09 Zucc background
         } else if (era5UpgradeEquipped) {
-            currentEraButton.setImageResource(R.drawable.background5);
+            currentEraButton.setImageResource(R.drawable.background5); //Todd clicker icon
+            // TODO: 2019-12-09 Todd background
         }
+
         TextView timey = findViewById(R.id.timer);
         timey.setBackgroundColor(Color.RED);
         timey.setTextColor(Color.BLACK);
