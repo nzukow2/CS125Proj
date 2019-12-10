@@ -318,20 +318,24 @@ public class MainActivity extends AppCompatActivity {
        // Animation thankks;
        // thankks =AnimationUtils.loadAnimation(getApplicationContext(), R.anim.feedback_layout);
        /// thanks.setText()
-        song.stop();
-        song2 = MediaPlayer.create(this, R.raw.still_feel);
-        song2.setLooping(true);
-        song2.setVolume(1000,1000);
-        song2.start();
+        if (musicEnabled) {
+            song.stop();
+            song2 = MediaPlayer.create(this, R.raw.still_feel);
+            song2.setLooping(true);
+            song2.setVolume(1000, 1000);
+            song2.start();
+        }
 
         Button returnMain = findViewById(R.id.returnMain);
         returnMain.setOnClickListener(f -> { //Returns to mainMenu from feedback screen
             setContentView(R.layout.activity_main);
-            song2.stop();
-            song = MediaPlayer.create(this, R.raw.song);
-            song.setLooping(true);
-            song.setVolume(1000,1000);
-            song.start();
+            if (musicEnabled) {
+                song2.stop();
+                song = MediaPlayer.create(this, R.raw.song);
+                song.setLooping(true);
+                song.setVolume(1000, 1000);
+                song.start();
+            }
             mainMenuButtonReinitializer();
         });
 
@@ -814,7 +818,9 @@ public class MainActivity extends AppCompatActivity {
         upsong.setLooping(true);
         upsong.setVolume(1000,1000);
         upsong.stop();
-        song.start();
+        if (musicEnabled) {
+            song.start();
+        }
 
         if (era0UpgradeEquipped) {
             currentEraButton.setImageResource(R.drawable.background0);
@@ -875,7 +881,7 @@ public class MainActivity extends AppCompatActivity {
             //MediaPlayer upsong = MediaPlayer.create(this, R.raw.upgrades_song);
             //upsong.setLooping(true);
             //upsong.setVolume(1000,1000);
-            upsong.stop();
+            //upsong.stop();
             clickerUpgradePageOneTransition();
         });
 
@@ -906,16 +912,27 @@ public class MainActivity extends AppCompatActivity {
         a.setBackgroundColor(Color.BLACK);
 
         song.stop();
+
         MediaPlayer upsong = MediaPlayer.create(this, R.raw.upgrades_song);
-        upsong.setLooping(true);
-        upsong.setVolume(1000,1000);
-        upsong.start();
+        if (musicEnabled) {
+            upsong.setLooping(true);
+            upsong.setVolume(1000, 1000);
+            upsong.start();
+        }
 
         Button gotoUpgradePageTwo = findViewById(R.id.upgradePageOneToTwo);
         gotoUpgradePageTwo.setTextColor(Color.BLACK);
         gotoUpgradePageTwo.setBackgroundColor(Color.RED);
         gotoUpgradePageTwo.setOnClickListener(letsGo -> {
             upsong.stop();
+
+            MediaPlayer upsong2 = MediaPlayer.create(this, R.raw.upgrades_song2);
+            upsong2.setLooping(true);
+            upsong2.setVolume(1000,1000);
+            retard = MediaPlayer.create(this, R.raw.upgrades_song2);
+            if (musicEnabled) {
+                retard.start();
+            }
             clickerUpgradePageTwoTransition();
         });
 
@@ -1076,7 +1093,9 @@ public class MainActivity extends AppCompatActivity {
             song = MediaPlayer.create(this, R.raw.song);
             song.setLooping(true);
             song.setVolume(1000,1000);
-            song.start();
+            if (musicEnabled) {
+                song.start();
+            }
             clickerGameTransition();
         });
 
@@ -1179,25 +1198,32 @@ public class MainActivity extends AppCompatActivity {
 
     public ImageButton currentEraButton;
 
+    MediaPlayer retard;
+
     public void clickerUpgradePageTwoTransition() {
         //MediaPlayer upsong2 = MediaPlayer.create(this, R.raw.upgrades_song2);
+        /*
         MediaPlayer upsong = MediaPlayer.create(this, R.raw.upgrades_song);
         upsong.setLooping(true);
         upsong.setVolume(1000,1000);
         upsong.stop();
+         */
+
+
+        /*
         MediaPlayer upsong2 = MediaPlayer.create(this, R.raw.upgrades_song2);
         upsong2.setLooping(true);
         upsong2.setVolume(1000,1000);
         upsong2.start();
+         */
 
 
 
-        //upsong2.setLooping(true);
-        //upsong2.setVolume(1000,1000);
+
         setContentView(R.layout.clickerupgrades2_menu);
         Button backtoUpgradePageOne = findViewById(R.id.returnToUpgradePg1);
         backtoUpgradePageOne.setOnClickListener(eee -> {
-            upsong2.stop();
+            retard.stop();
             clickerUpgradePageOneTransition();
         });
 
