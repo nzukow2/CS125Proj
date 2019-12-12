@@ -6,6 +6,7 @@
     android:layout_height="match_parent">
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/set"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/colorPrimary">
@@ -16,13 +17,12 @@
             android:layout_height="47dp"
             android:layout_marginStart="112dp"
             android:layout_marginTop="32dp"
-            android:layout_marginEnd="32dp"
             android:layout_marginBottom="264dp"
-            android:text="resetPointsButton"
+            android:text="Reset Points"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/musicTextView"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/muteSoundEffectsButton" />
+            app:layout_constraintTop_toBottomOf="@+id/muteSoundEffectsButton"
+            app:layout_constraintVertical_bias="1.0" />
 
         <Button
             android:id="@+id/muteMusicButton"
@@ -30,7 +30,7 @@
             android:layout_height="47dp"
             android:layout_marginStart="112dp"
             android:layout_marginEnd="133dp"
-            android:text="muteMusicButton"
+            android:text="Mute Music "
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -43,7 +43,7 @@
             android:layout_height="47dp"
             android:layout_marginStart="110dp"
             android:layout_marginEnd="135dp"
-            android:text="muteSoundEffects"
+            android:text="Mute Effects"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
@@ -54,8 +54,6 @@
             android:id="@+id/returnToMainMenuFromSettings"
             android:layout_width="413dp"
             android:layout_height="48dp"
-            android:layout_marginStart="5dp"
-            android:layout_marginBottom="3dp"
             android:text="Return to main menu"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
@@ -72,31 +70,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/musicTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:layout_marginTop="448dp"
-            android:layout_marginEnd="42dp"
-            android:text="TextView"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/muteMusicButton"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/soundEffectTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:layout_marginTop="41dp"
-            android:layout_marginEnd="42dp"
-            android:layout_marginBottom="153dp"
-            android:text="TextView"
-            app:layout_constraintBottom_toTopOf="@+id/returnToMainMenuFromSettings"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/muteSoundEffectsButton"
-            app:layout_constraintTop_toBottomOf="@+id/musicTextView" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </LinearLayout>

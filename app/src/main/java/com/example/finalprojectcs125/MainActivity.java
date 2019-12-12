@@ -74,6 +74,7 @@ public class MainActivity extends AppCompatActivity {
      */
     MediaPlayer song;
     MediaPlayer song2;
+    MediaPlayer hack;
     /**
      * checks if X upgrade has been purchased.
      */
@@ -247,6 +248,12 @@ public class MainActivity extends AppCompatActivity {
         Button settingsMenuButton = findViewById(R.id.settingsButton);
         settingsMenuButton.setBackgroundColor(Color.RED);
         settingsMenuButton.setOnClickListener(heyooo -> {
+            hack = MediaPlayer.create(this, R.raw.hacking);
+            hack.setLooping(true);
+            hack.setVolume(1000, 1000);
+            if (musicEnabled) {
+                hack.start();
+            }
             settingsMenuTransition();
         });
 
@@ -268,32 +275,32 @@ public class MainActivity extends AppCompatActivity {
          * Android plugin that enables links
          */
         TextView Url1 = findViewById(R.id.txt2);
-        Url1.setText("- https://www.britannica.com/biography/Alan-Turing");
+        Url1.setText("ALAN TURING ----> https://www.britannica.com/biography/Alan-Turing");
         Url1.setTextColor(Color.WHITE);
         Linkify.addLinks(Url1, Linkify.WEB_URLS);
         Url1.setLinkTextColor(Color.WHITE);
 
         TextView Url2 = findViewById(R.id.txt3);
-        Url2.setText("- https://cs.illinois.edu/directory/profile/challen");
+        Url2.setText("GEOFF ----> https://cs.illinois.edu/directory/profile/challen");
         Url2.setTextColor(Color.WHITE);
         Linkify.addLinks(Url2, Linkify.WEB_URLS);
         Url2.setLinkTextColor(Color.WHITE);
 
         TextView Url3 = findViewById(R.id.txt4);
-        Url3.setText("- https://www.thoughtco.com/mark-zuckerberg-biography-1991135");
+        Url3.setText(" MARK ZUCKERBURG ----> https://www.thoughtco.com/mark-zuckerberg-biography-1991135");
         Url3.setTextColor(Color.WHITE);
         Linkify.addLinks(Url3, Linkify.WEB_URLS);
         Url3.setLinkTextColor(Color.WHITE);
 
 
         TextView Url4= findViewById(R.id.txt5);
-        Url4.setText("- https://www.biography.com/business-figure/elon-musk ");
+        Url4.setText("ELON MUSK ----> https://www.biography.com/business-figure/elon-musk ");
         Url4.setTextColor(Color.WHITE);
         Linkify.addLinks(Url4, Linkify.WEB_URLS);
         Url4.setLinkTextColor(Color.WHITE);
 
         TextView Url5 = findViewById(R.id.txt6);
-        Url5.setText("- https://www.famousbirthsdeaths.com/todd-howard-bio-net-worth-facts/");
+        Url5.setText("TODD HOWARD ----> https://www.famousbirthsdeaths.com/todd-howard-bio-net-worth-facts/");
         Url5.setTextColor(Color.WHITE);
         Linkify.addLinks(Url5, Linkify.WEB_URLS);
         Url5.setLinkTextColor(Color.WHITE);
@@ -312,8 +319,10 @@ public class MainActivity extends AppCompatActivity {
     public void feedbackTransition() {
         // TODO: 2019-12-07 add transition func here 
         setContentView(R.layout.feedback_layout);
+        ConstraintLayout e = findViewById(R.id.feedback);
+        e.setBackgroundColor(Color.BLACK);
         TextView feedtext = findViewById(R.id.feedtext);
-        feedtext.setBackgroundColor(Color.BLACK);
+        feedtext.setBackgroundColor(Color.TRANSPARENT);
         feedtext.setTextColor(Color.WHITE);
         feedtext.setVisibility(View.VISIBLE);
         /**
@@ -421,9 +430,8 @@ public class MainActivity extends AppCompatActivity {
 
         Animation animation;
         animation = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.feedback_layout);
-        /*
-        feedtext.animate().scaleY(2f).setInterpolator(new AccelerateDecelerateInterpolator()).setDuration(-10);
-        todo add the CDs and test that everyone is present
+        //feedtext.animate().scaleY(2f).setInterpolator(new AccelerateDecelerateInterpolator()).setDuration(10);
+        /*todo add the CDs and test that everyone is present
         feedtext.setText("CREDITS\n\n" + "DEVELOPERS:\n\n" + "ANGEL CANTY\n" +
                 "Lord-Manipulator of human-computer interaction(UI)\n" + "Master-Scheduler\n" +"Master Animations Coder\n" +
                 "Front-End Coordinator\n" + "framework assistant\n\n" +"NATHANIEL ZUKOWSKI \n" +"Lord-Architect of software framework(Code Structure/Groundwork)\n"
@@ -557,7 +565,7 @@ public class MainActivity extends AppCompatActivity {
                 if (leftClickerGame == false) {
                     TextView clickerappPts = findViewById(R.id.clickerAppPointsTextView);
                     clickerappPts.setText("Total points: " + points);
-                    clickerappPts.setTextColor(Color.TRANSPARENT);
+                    clickerappPts.setTextColor(Color.WHITE);
                     // TODO: 2019-12-07 Ensure this bug is gone
                 }
             }
@@ -565,10 +573,10 @@ public class MainActivity extends AppCompatActivity {
         currentEraButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View x) {
-                clix++;
+                clix += pointsPerClick;
                 points += pointsPerClick;
                 Log.i("Points","Points per click is: " + pointsPerClick);
-                clicksio.setText("Clicks: " + clix);
+                clicksio.setText("POINTS: " + clix);
                 //timerio.setText("Time: 0");
 
             }
@@ -579,7 +587,7 @@ public class MainActivity extends AppCompatActivity {
         clix = 0;
         tiempo = 30;
         timerio.setText("Time: " + tiempo);
-        clicksio.setText("Clicks: " + clix);
+        clicksio.setText("POINTS: " + clix);
         if (tiempo <= 30 && tiempo > 0) {
             finished.setText("click away!");
         }
@@ -735,13 +743,14 @@ public class MainActivity extends AppCompatActivity {
             }
             if (era2UpgradeEquipped) { // geoff fact & dogs
                 loadIcon.setImageResource(R.drawable.chuchu1v1);
-                String[] loadArray = new String[4];
+                String[] loadArray = new String[5];
                 double random = (Math.random() * (loadArray.length - 1));
                 int replacer = (int) Math.ceil(random);
                 loadArray[0] = "DID YOU KNOW?: Geoffrey Challen received a Phd. In CS from Harvard in 2010.";
                 loadArray[1] = "Geoffrey Challen is the CS 125 professor at the University of Illinois, Urbana-Champaign.";
                 loadArray[2] = "A professor at heart, Geoff tracks attendance of his class with flawless efficiency.";
                 loadArray[3] = "HINT: Geoff holds office hours. In case of CS-induced distress, see him.";
+                loadArray[4] = "Ben Nordick, Geoffrey Challen's right hand man, is a master of both biology and software development.";
                 TextView loadingText = findViewById(R.id.loadingScreenTextView);
                 loadingText.setText(loadArray[replacer]);
                 loadingText.setTextColor(Color.WHITE);
@@ -754,7 +763,7 @@ public class MainActivity extends AppCompatActivity {
                 loadArray[0] = "DID YOU KNOW?: At age 9, Elon musk taught himself to code, then read an entire Enyclopedia.";
                 loadArray[1] = "DID YOU KNOW?: After only two days of attendance, Elon musk abandoned his pursuance of a Stanford Degree in Physics.";
                 loadArray[2] = "DID YOU KNOW?: portions of Iron Man 2 were filmed at SpaceX headquarters.";
-                loadArray[3] = "A citizen of three nations, and CEO of two companies, musk is an inventor, engineer, and businessman";
+                loadArray[3] = "A citizen of three nations, and CEO of two companies, musk is an inventor, engineer, and businessman.";
                 TextView loadingText = findViewById(R.id.loadingScreenTextView);
                 loadingText.setText(loadArray[replacer]);
                 loadingText.setTextColor(Color.WHITE);
@@ -764,7 +773,7 @@ public class MainActivity extends AppCompatActivity {
                 String[] loadArray = new String[4];
                 double random = (Math.random() * (loadArray.length - 1));
                 int replacer = (int) Math.ceil(random);
-                loadArray[0] = "DID YOU KNOW?: As a teen, Mark Zuckerburg once rejected a hiring offer from Microsoft.";
+                loadArray[0] = "DID YOU KNOW?: As a teen, Mark Zuckerburg once rejected an offer to be hired by Microsoft.";
                 loadArray[1] = "DID YOU KNOW?: Zuckerburg dropped out of Harvard so he could manage the site he created, Facebook.";
                 loadArray[2] = "DID YOU KNOW?: Zuckerburg is one of the world's youngest billionares.";
                 loadArray[3] = "Mark Zuckerburg is a renownded  business man and Computer Scientist.";
@@ -774,13 +783,14 @@ public class MainActivity extends AppCompatActivity {
             }
             if (era5UpgradeEquipped) { // it just works guy, bethesda stuff
                 loadIcon.setImageResource(R.drawable.howard_creation);
-                String[] loadArray = new String[4];
+                String[] loadArray = new String[5];
                 double random = (Math.random() * (loadArray.length - 1));
                 int replacer = (int) Math.ceil(random);
                 loadArray[0] = "Todd Howard is a renowned Video-Game Designer and the top executive at Bethesda Softworks,";
                 loadArray[1] = "Todd Howard led the  development of legendary Videogames like Oblivion, Skyrim, and Fallout 3";
                 loadArray[2] = "Howard's most recent creation, Fallout 76, is one of the most heavily-criticized videoGames ever made.";
                 loadArray[3] = "Howard is quoted as saying that the purpose of his games were to allow the player to live another life, in another world.";
+                loadArray[4] = "Howard's most eagerly-awaited release, Elder scrolls 6, is currently being developed by Howards' Bethesda softworks.";
                 TextView loadingText = findViewById(R.id.loadingScreenTextView);
                 loadingText.setText(loadArray[replacer]);
                 loadingText.setTextColor(Color.WHITE);
@@ -840,13 +850,14 @@ public class MainActivity extends AppCompatActivity {
             if (era2UpgradeEquipped) { // geoff fact & dogs
                 // TODO: 2019-12-09 CHANGE THIS IMMEIDAT:KA<FL !!!!!!!!!!!!!
                 loadIcon.setImageResource(R.drawable.chuchu1v1);
-                String[] loadArray = new String[6];
+                String[] loadArray = new String[5];
                 double random = (Math.random() * (loadArray.length - 1));
                 int replacer = (int) Math.ceil(random);
                 loadArray[0] = "DID YOU KNOW?: Geoffrey Challen received a Phd. In CS from Harvard in 2010.";
                 loadArray[1] = "Geoffrey Challen is the CS 125 professor at the University of Illinois, Urbana-Champaign.";
                 loadArray[2] = "A professor at heart, Geoff tracks attendance of his class with flawless efficiency.";
                 loadArray[3] = "HINT: Geoff holds office hours. In case of CS-induced distress, see him.";
+                loadArray[4] = "Ben Nordick, Geoffrey Challen's right hand man, is a master of both biology and software development.";
                 TextView loadingText = findViewById(R.id.loadingScreenTextView);
                 loadingText.setText(loadArray[replacer]);
                 loadingText.setTextColor(Color.WHITE);
@@ -869,8 +880,8 @@ public class MainActivity extends AppCompatActivity {
                 String[] loadArray = new String[4];
                 double random = (Math.random() * (loadArray.length - 1));
                 int replacer = (int) Math.ceil(random);
-                loadArray[0] = "DID YOU KNOW?: As a teen, Mark Zuckerburg once rejected a hiring offer from Microsoft.";
-                loadArray[1] = "DID YOU KNOW?: Zuckerburg dropped out of Harvard so he could manage the site he created, Facebook.";
+                loadArray[0] = "DID YOU KNOW?: As a teen, Mark Zuckerburg once rejected an offer to be hired by Microsoft.";
+                loadArray[1] = "DID YOU KNOW?: Mark Zuckerburg dropped out of Harvard so he could manage the site he created, Facebook.";
                 loadArray[2] = "DID YOU KNOW?: Zuckerburg is one of the world's youngest billionares.";
                 loadArray[3] = "Mark Zuckerburg is a renownded  business man and Computer Scientist.";
                 TextView loadingText = findViewById(R.id.loadingScreenTextView);
@@ -879,13 +890,14 @@ public class MainActivity extends AppCompatActivity {
             }
             if (era5UpgradeEquipped) { // it just works guy, bethesda stuff
                 loadIcon.setImageResource(R.drawable.howard_creation);
-                String[] loadArray = new String[4];
+                String[] loadArray = new String[5];
                 double random = (Math.random() * (loadArray.length - 1));
                 int replacer = (int) Math.ceil(random);
                 loadArray[0] = "Todd Howard is a renowned Video-Game Designer and the top executive at Bethesda Softworks.";
                 loadArray[1] = "Todd Howard led the  development of legendary Videogames like Oblivion, Skyrim, and Fallout 3.";
                 loadArray[2] = "Howard's most recent creation, Fallout 76, is one of the most heavily-criticized videoGames ever made.";
                 loadArray[3] = "Howard is quoted as saying that the purpose of his games were to allow the player to live another life, in another world.";
+                loadArray[4] = "Howard's most eagerly-awaited release, Elder scrolls 6, is currently being developed by Howards' Bethesda softworks.";
                 TextView loadingText = findViewById(R.id.loadingScreenTextView);
                 loadingText.setText(loadArray[replacer]);
                 loadingText.setTextColor(Color.WHITE);
@@ -906,6 +918,8 @@ public class MainActivity extends AppCompatActivity {
         // TODO: 2019-12-07 add transition loading here
         setContentView(R.layout.setting_menu);
         leftClickerGame = true;
+        ConstraintLayout set = findViewById(R.id.set);
+        set.setBackgroundColor(Color.BLACK);
 
         TextView settingsMenuTextView = findViewById(R.id.settingsMenuPointsDisplay);
         settingsMenuTextView.setTextColor(Color.WHITE);
@@ -970,7 +984,7 @@ public class MainActivity extends AppCompatActivity {
         title.setBackgroundColor(Color.TRANSPARENT);
         Animation anim = new AlphaAnimation(0.0f, 1.0f);
         anim.setDuration(100); //blink duration
-        anim.setStartOffset(1500);
+        anim.setStartOffset(2000);
         anim.setRepeatMode(Animation.REVERSE);
         anim.setRepeatCount(Animation.INFINITE);
         title.startAnimation(anim);
@@ -1149,7 +1163,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         TextView click = findViewById(R.id.clicks);
-        click.setText("CLICKS: 0");
+        click.setText("POINTS: 0");
         click.setTextColor(Color.BLACK);
         click.setBackgroundColor(Color.RED);
 
@@ -1173,6 +1187,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.clickerupgrades_menu);
         ConstraintLayout a = (ConstraintLayout) findViewById(R.id.clickup);
         a.setBackgroundColor(Color.BLACK);
+        TextView rank = findViewById(R.id.rank);
 
         song.stop();
 
@@ -1205,17 +1220,18 @@ public class MainActivity extends AppCompatActivity {
         Button upgrade1 = findViewById(R.id.upgrade1);
         //upgrade1.setBackgroundColor(Color.BLACK);
         //upgrade1.setTextColor(Color.WHITE);
-        if (points < 100 || upgrade1Purchased) {
+        if (points < 1000|| upgrade1Purchased) {
             upgrade1.setEnabled(false);
-        } else if (points >= 100 && !upgrade1Purchased){
+        } else if (points >= 1000 && !upgrade1Purchased){
             upgrade1.setEnabled(true);
         }
 
         upgrade1.setOnClickListener(e -> {
             pointsPerClick += 2;
-            points = points - 100;
+            points = points - 1000;
             upgrade1.setEnabled(false);
-            upgrade1.setText("PURCHASED");
+            upgrade1.setText("UPGRADE ADDED.");
+            rank.setText("SYSTEM UPGRADED. CURRENT RANK: Coder Learner\n" + "(CHEAT CODE AWARDED: ABCZ)");
             upgrade1Purchased = true;
         });
 
@@ -1223,34 +1239,39 @@ public class MainActivity extends AppCompatActivity {
         Button upgrade2 = findViewById(R.id.upgrade2);
         //upgrade2.setBackgroundColor(Color.BLACK);
         //upgrade2.setTextColor(Color.WHITE);
-        if (points < 500 || upgrade2Purchased) {
+        if (points < 2000 || upgrade2Purchased) {
             upgrade2.setEnabled(false);
-        } else if (points >= 500 && !upgrade2Purchased){
+        } else if (points >= 2000 && !upgrade2Purchased){
             upgrade2.setEnabled(true);
         }
         upgrade2.setOnClickListener(e -> {
             pointsPerClick += 4;
-            points = points - 500;
+            points = points - 2000;
             upgrade2.setEnabled(false);
-            upgrade2.setText("PURCHASED");
+            upgrade2.setText("UPGRADE ADDED");
+            rank.setText("SYSTEM UPGRADED. CURRENT RANK: Coder Novice\n" + "(CHEAT CODE AWARDED: SWTCW)");
             upgrade2Purchased = true;
         });
+        if (upgrade1Purchased) {
+            rank.setText("SYSTEM UPGRADED. CURRENT RANK: Coder Learner\n" + "(CHEAT CODE AWARDED: ABCZ)");
+        }
 
         // X upgrade - costs 1000
         Button upgrade3 = findViewById(R.id.upgrade3);
         //upgrade3.setBackgroundColor(Color.BLACK);
        // upgrade3.setTextColor(Color.WHITE);
-        if (points < 1000 || upgrade3Purchased) {
+        if (points < 3000 || upgrade3Purchased) {
             upgrade3.setEnabled(false);
-        } else if (points >= 1000 && !upgrade3Purchased){
+        } else if (points >= 3000 && !upgrade3Purchased){
             upgrade3.setEnabled(true);
         }
 
             upgrade3.setOnClickListener(e -> {
                 pointsPerClick += 6;
-                points = points - 1000;
+                points = points - 3000;
                 upgrade3.setEnabled(false);
-                upgrade3.setText("PURCHASED");
+                upgrade3.setText("UPGRADE ADDED");
+                rank.setText("SYSTEM UPGRADED. CURRENT RANK: Coder\n" + "(CHEAT CODE AWARDED: M*ash4078)");
                 upgrade3Purchased = true;
             });
 
@@ -1258,16 +1279,17 @@ public class MainActivity extends AppCompatActivity {
         Button upgrade4 = findViewById(R.id.upgrade4);
         //upgrade4.setBackgroundColor(Color.BLACK);
         //upgrade4.setTextColor(Color.BLACK);
-        if (points < 2000 || upgrade4Purchased) {
+        if (points < 4000 || upgrade4Purchased) {
             upgrade4.setEnabled(false);
-        } else if (points >= 2000 && !upgrade4Purchased){
+        } else if (points >= 4000 && !upgrade4Purchased){
             upgrade4.setEnabled(true);
         }
         upgrade4.setOnClickListener(e -> {
             pointsPerClick += 8;
-            points = points - 2000;
+            points = points - 4000;
             upgrade4.setEnabled(false);
-            upgrade4.setText("PURCHASED");
+            upgrade4.setText("UPGRADE ADDED");
+            rank.setText("SYSTEM UPGRADED. CURRENT RANK: Coder Master\n" + "(CHEAT CODE AWARDED: callofhalo)");
             upgrade4Purchased = true;
         });
 
@@ -1287,7 +1309,7 @@ public class MainActivity extends AppCompatActivity {
             Log.i("Loadtime","The loadtime is: " + loadTime);
             points = points - 4000;
             upgrade5.setEnabled(false);
-            upgrade5.setText("PURCHASED");
+            upgrade5.setText("UPGRADE ADDED");
             upgrade5Purchased = true;
         });
 
@@ -1307,7 +1329,7 @@ public class MainActivity extends AppCompatActivity {
             Log.i("Loadtime","The loadtime is: " + loadTime);
             points = points - 6000;
             upgrade6.setEnabled(false);
-            upgrade6.setText("PURCHASED");
+            upgrade6.setText("UPGRADE ADDED");
             upgrade6Purchased = true;
         });
 
@@ -1328,7 +1350,7 @@ public class MainActivity extends AppCompatActivity {
             Log.i("Loadtime","The loadtime is: " + loadTime);
             points = points - 8000;
             upgrade7.setEnabled(false);
-            upgrade7.setText("PURCHASED");
+            upgrade7.setText("UPGRADE ADDED");
             upgrade7Purchased = true;
         });
 
@@ -1346,7 +1368,7 @@ public class MainActivity extends AppCompatActivity {
             Log.i("Loadtime","The loadtime is: " + loadTime);
             points = points - 10000;
             upgrade8.setEnabled(false);
-            upgrade8.setText("PURCHASED");
+            upgrade8.setText("UPGRADE ADDED");
             upgrade8Purchased = true;
             //Intent a = new Intent()
             //setContentView(R.layout.setting_menu);
@@ -1368,19 +1390,19 @@ public class MainActivity extends AppCompatActivity {
 
         TextView upgradeText1 = findViewById(R.id.upgradeText1);
         upgradeText1.setTextColor(Color.WHITE);
-        upgradeText1.setText(" Kotlin Increases PPC by: 2 (COST:100PTS)");
+        upgradeText1.setText("Java Increases PPC by: 2 (COST:1000PTS)");
 
         TextView upgradeText2 = findViewById(R.id.upgradeText2);
         upgradeText2.setTextColor(Color.WHITE);
-        upgradeText2.setText(" Java  Increases PPC by: 4 (COST:500PTS)");
+        upgradeText2.setText("Kotlin  Increases PPC by: 4 (COST:2000PTS)");
 
         TextView upgradeText3 = findViewById(R.id.upgradeText3);
         upgradeText3.setTextColor(Color.WHITE);
-        upgradeText3.setText("Python Increases PPC by: 6 (COST:1000PTS)");
+        upgradeText3.setText("Python Increases PPC by: 6 (COST:3000PTS)");
 
         TextView upgradeText4 = findViewById(R.id.upgradeText4);
         upgradeText4.setTextColor(Color.WHITE);
-        upgradeText4.setText("C++ Increases PPC by: 8 (COST:2000PTS)");
+        upgradeText4.setText("C++ Increases PPC by: 8 (COST:4000PTS)");
 
         TextView upgradeText5 = findViewById(R.id.upgradeText5);
         upgradeText5.setTextColor(Color.WHITE);
@@ -1396,20 +1418,20 @@ public class MainActivity extends AppCompatActivity {
 
         TextView upgradeText8 = findViewById(R.id.upgradeText8);
         upgradeText8.setTextColor(Color.WHITE);
-        upgradeText8.setText("Equip ThreadRipper.(COST:10000PTS) ");
+        upgradeText8.setText("ThreadRipper: Loadscreens? What are those? (COST:10000PTS) ");
         // vvv These set the text for if the upgrade has been purchased (global boolean) vvv
 
 
         if (upgrade1Purchased) { // Points per click upgrade 1
             upgrade1.setText("PURCHASED");
         } else {
-            upgrade1.setText("Kotlin Upgrade"); // TODO: 2019-12-07 Change text here for powerup button name & same for below
+            upgrade1.setText("Java Upgrade"); // TODO: 2019-12-07 Change text here for powerup button name & same for below
         }
         // -------------------------------
         if (upgrade2Purchased) { // Points per click upgrade 2
             upgrade2.setText("PURCHASED");
         } else {
-            upgrade2.setText("Java Upgrade");
+            upgrade2.setText("Kotlin Upgrade");
         }
         // -------------------------------
         if(upgrade3Purchased) { // Points per click upgrade 3
@@ -1489,7 +1511,7 @@ public class MainActivity extends AppCompatActivity {
 
         setContentView(R.layout.clickerupgrades2_menu);
         Button backtoUpgradePageOne = findViewById(R.id.returnToUpgradePg1);
-        backtoUpgradePageOne.setBackgroundColor(Color.RED);
+        //backtoUpgradePageOne.setBackgroundColor(Color.RED);
         backtoUpgradePageOne.setOnClickListener(eee -> {
             retard.stop();
             clickerUpgradePageOneTransition();
@@ -1502,12 +1524,12 @@ public class MainActivity extends AppCompatActivity {
 
         if (!era0UpgradeEquipped) {
             era0Upgrade.setText("Equip?");
-            era0Upgrade.setTextColor(Color.RED);
+            //era0Upgrade.setTextColor(Color.RED);
             era0Upgrade.setEnabled(true);
         }
         era0Upgrade.setOnClickListener(neutral -> {
             era0Upgrade.setText("Equipped");
-            era0Upgrade.setTextColor(Color.RED);
+            //era0Upgrade.setTextColor(Color.RED);
             era0Upgrade.setEnabled(false);
             era0UpgradeEquipped = true; // THIS UPGRADE equipped
             era1UpgradeEquipped = false;
@@ -1530,13 +1552,13 @@ public class MainActivity extends AppCompatActivity {
         // If the upgrade is not equipped AND the upgrade has been purchased
         if (!era1UpgradeEquipped && era1UpgradeBought) {
             era1Upgrade.setText("Equip?");
-            era1Upgrade.setTextColor(Color.RED);
+            //era1Upgrade.setTextColor(Color.RED);
             era1Upgrade.setEnabled(true);
         }
         // If the upgrade has not been equipped
         if (!era1UpgradeBought && points >= 5000) {
             era1Upgrade.setEnabled(true);
-            era1Upgrade.setTextColor(Color.RED);
+            //era1Upgrade.setTextColor(Color.RED);
             era1Upgrade.setText("BUY?");
         }
 
@@ -1569,7 +1591,7 @@ public class MainActivity extends AppCompatActivity {
 
         // If the upgrade is not equipped AND the upgrade has been purchased
         if (!era2UpgradeEquipped && era2UpgradeBought) {
-            era2Upgrade.setTextColor(Color.RED);
+           // era2Upgrade.setTextColor(Color.RED);
             era2Upgrade.setText("Equip?");
             era2Upgrade.setEnabled(true);
         }
@@ -1577,7 +1599,7 @@ public class MainActivity extends AppCompatActivity {
         // If the upgrade has not been equipped
         if (!era2UpgradeBought && points >= 10000) {
             era2Upgrade.setEnabled(true);
-            era2Upgrade.setTextColor(Color.RED);
+          //  era2Upgrade.setTextColor(Color.RED);
             era2Upgrade.setText("BUY?");
         }
 
@@ -1610,14 +1632,14 @@ public class MainActivity extends AppCompatActivity {
 
         if (!era3UpgradeEquipped && era3UpgradeBought) {
             era3Upgrade.setText("Equip?");
-            era1Upgrade.setTextColor(Color.RED);
+            //era1Upgrade.setTextColor(Color.RED);
             era3Upgrade.setEnabled(true);
         }
 
         // If the upgrade has not been equipped
         if (!era3UpgradeBought && points >= 15000) {
             era3Upgrade.setEnabled(true);
-            era1Upgrade.setTextColor(Color.RED);
+           // era1Upgrade.setTextColor(Color.RED);
             era3Upgrade.setText("BUY?");
         }
 
@@ -1650,14 +1672,14 @@ public class MainActivity extends AppCompatActivity {
         // If the upgrade is not equipped AND the upgrade has been purchased
         if (!era4UpgradeEquipped && era4UpgradeBought) {
             era4Upgrade.setText("Equip?");
-            era1Upgrade.setTextColor(Color.RED);
+           // era1Upgrade.setTextColor(Color.RED);
             era4Upgrade.setEnabled(true);
         }
 
         // If the upgrade has not been equipped
         if (!era4UpgradeBought && points >= 20000) {
             era4Upgrade.setEnabled(true);
-            era1Upgrade.setTextColor(Color.RED);
+            //era1Upgrade.setTextColor(Color.RED);
             era4Upgrade.setText("BUY?");
         }
 
@@ -1688,7 +1710,7 @@ public class MainActivity extends AppCompatActivity {
         // If the upgrade is not equipped AND the upgrade has been purchased
         if (!era5UpgradeEquipped && era5UpgradeBought) {
             era5Upgrade.setText("Equip?");
-            era1Upgrade.setTextColor(Color.RED);
+           // era1Upgrade.setTextColor(Color.RED);
             era5Upgrade.setEnabled(true);
         }
 
@@ -1696,7 +1718,7 @@ public class MainActivity extends AppCompatActivity {
         if (!era5UpgradeBought && points >= 25000) {
             era5Upgrade.setEnabled(true);
             era5Upgrade.setText("BUY?");
-            era1Upgrade.setTextColor(Color.RED);
+           // era1Upgrade.setTextColor(Color.RED);
         }
 
         era5Upgrade.setOnClickListener(eeee -> {
@@ -1758,6 +1780,14 @@ public class MainActivity extends AppCompatActivity {
     public void secretNameMethodTransition() {
         // Sets the screen and ensures that the
         setContentView(R.layout.secret_thankyou);
+        song.stop();
+        hack = MediaPlayer.create(this, R.raw.hacking);
+        hack.setLooping(true);
+        hack.setVolume(1000, 1000);
+        if (musicEnabled) {
+            hack.start();
+        }
+
 
         Button submitNameButton = findViewById(R.id.submitNameButton);
         EditText thankYouNameInput = findViewById(R.id.thankyouNameInput);
@@ -1785,6 +1815,13 @@ public class MainActivity extends AppCompatActivity {
         Button returnToMain = findViewById(R.id.returnToMainMenuFromSecret);
         returnToMain.setOnClickListener(f -> { //Returns to mainMenu from secret thankyou screen
             //setContentView(R.layout.activity_main);
+            hack.stop();
+            song = MediaPlayer.create(this, R.raw.song);
+            song.setLooping(true);
+            song.setVolume(1000, 1000);
+            if (musicEnabled) {
+                song.start();
+            }
             System.out.println("!!!!points are: " + points);
             mainMenuButtonReinitializer();
         });
@@ -1797,23 +1834,20 @@ public class MainActivity extends AppCompatActivity {
      */
     public void secretNameMethod(String compareName) {
         boolean CS125Staff = false;
-
-
         TextView thankYouMessage = findViewById(R.id.thankyouMessage);
         thankYouMessage.setText(""); // clears the text box each time the screen is accessed & button is pressed
         thankYouMessage.setTextColor(Color.GREEN);
         //thankYouMessage.setBackground();
 
-
         if (compareName.equals("Nathaniel Zukowski")) {
             points = 1000000000; //bil
-            thankYouMessage.setText("Hey! I made this game!");
+            thankYouMessage.setText("DEVELOPER CODE RECOGNIZED: INFINITE POINTS AWARDED.");
             CS125Staff = true;
         }
 
         if (compareName.equals("Angel Canty")) {
             points = 1000000000; //bil
-            thankYouMessage.setText("Hey! I also made this game!");
+            thankYouMessage.setText("DEVELOPER CODE RECOGNIZED: INFINITE POINTS AWARDED.");
             CS125Staff = true;
         }
 
@@ -1972,6 +2006,27 @@ public class MainActivity extends AppCompatActivity {
         if (CS125Staff == false) {
             System.out.println("WRONG PASSCODE. CHEATS DENIED");
             thankYouMessage.setText("WRONG PASSCODE: CHEATS DENIED.");
+        }
+        String firstcode = "SWTCW";
+        String seconndcode = "ABCZ";
+        String thirdcode = "M*ash4078";
+        String fourthcode = "callofhalo";
+        if (compareName.equals(firstcode)) {
+            thankYouMessage.setText("You're a coder student now. Practice often. Be willing to lose sleep, friends, or even your mind, if necessary. Do what it takes to " +
+                    "start yourself off on the right foot. This is the way. Start with java -- you'll thank me later.");
+        }
+        if (compareName.equals(seconndcode)) {
+            thankYouMessage.setText("So you're a coder novice now, well done. Kotlin is where your journey should take you next. Begin thinking algorithmically -- " +
+                    "in your sleep, in class, while your date is rambling on about his/her day. Become one with the way of the Algorithm. This is the way.");
+        }
+        if (compareName.equals(thirdcode)) {
+            thankYouMessage.setText("Congratulations, you're an offical coder now. Read 'Coders', by Clive Thompson -- it'll help you enter the mindeset of a Coder. " +
+                    "Take a break from convoluted syntax and try learning Python. This is the way.");
+        }
+        if(compareName.equals(fourthcode)) {
+            thankYouMessage.setText("You've made it. There is little more I can teach you. " +
+                    "You have fought hard to become a Coder Master. Learn C++, for it is there that your greatest challenge awaits. Impart upon others the knowledge that I have imparted upon you, " +
+                    "and in doing so increase the ranks of our order of those who code. Goodbye now, Coder Master. Remember -- this is the way.");
         }
     }
 }

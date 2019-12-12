@@ -24,13 +24,10 @@
             android:id="@+id/upgradePageOneToTwo"
             android:layout_width="160dp"
             android:layout_height="65dp"
-            android:layout_marginTop="75dp"
             android:layout_marginBottom="4dp"
             android:text="Heroes"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/upgradeText8"
-            app:layout_constraintVertical_bias="1.0" />
+            app:layout_constraintEnd_toEndOf="parent" />
 
         <Button
             android:id="@+id/upgrade1"
@@ -99,10 +96,11 @@
             android:layout_height="49dp"
             android:layout_marginStart="16dp"
             android:layout_marginEnd="251dp"
-            android:layout_marginBottom="25dp"
+            android:layout_marginBottom="296dp"
             android:text="Button"
-            app:layout_constraintBottom_toTopOf="@+id/upgrade7"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent" />
 
         <Button
@@ -111,10 +109,11 @@
             android:layout_height="49dp"
             android:layout_marginStart="16dp"
             android:layout_marginEnd="251dp"
-            android:layout_marginBottom="24dp"
+            android:layout_marginBottom="20dp"
             android:text="Button"
             app:layout_constraintBottom_toTopOf="@+id/upgrade8"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent" />
 
         <Button
@@ -123,10 +122,11 @@
             android:layout_height="49dp"
             android:layout_marginStart="16dp"
             android:layout_marginEnd="251dp"
-            android:layout_marginBottom="72dp"
+            android:layout_marginBottom="36dp"
             android:text="Button"
-            app:layout_constraintBottom_toTopOf="@+id/returnToClickerApp"
+            app:layout_constraintBottom_toTopOf="@+id/rank"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
@@ -197,44 +197,52 @@
         <TextView
             android:id="@+id/upgradeText6"
             android:layout_width="144dp"
-            android:layout_height="54dp"
-            android:layout_marginStart="93dp"
-            android:layout_marginTop="32dp"
-            android:layout_marginEnd="16dp"
+            android:layout_height="47dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="12dp"
+            android:layout_marginBottom="22dp"
             android:text="TextView"
             android:textSize="12sp"
+            app:layout_constraintBottom_toTopOf="@+id/upgradeText7"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toEndOf="@+id/upgrade6"
             app:layout_constraintTop_toBottomOf="@+id/upgradeText5" />
 
         <TextView
             android:id="@+id/upgradeText7"
             android:layout_width="147dp"
             android:layout_height="47dp"
-            android:layout_marginStart="96dp"
-            android:layout_marginTop="28dp"
             android:layout_marginEnd="12dp"
+            android:layout_marginBottom="18dp"
             android:text="TextView"
             android:textSize="12sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.75"
-            app:layout_constraintStart_toEndOf="@+id/upgrade7"
-            app:layout_constraintTop_toBottomOf="@+id/upgradeText6" />
+            app:layout_constraintBottom_toTopOf="@+id/upgradeText8"
+            app:layout_constraintEnd_toEndOf="parent" />
 
         <TextView
             android:id="@+id/upgradeText8"
-            android:layout_width="143dp"
-            android:layout_height="35dp"
-            android:layout_marginStart="93dp"
-            android:layout_marginTop="32dp"
-            android:layout_marginEnd="15dp"
+            android:layout_width="159dp"
+            android:layout_height="47dp"
+            android:layout_marginBottom="38dp"
             android:text="TextView"
             android:textSize="12sp"
+            app:layout_constraintBottom_toTopOf="@+id/rank"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <TextView
+            android:id="@+id/rank"
+            android:layout_width="365dp"
+            android:layout_height="41dp"
+            android:layout_marginStart="21dp"
+            android:layout_marginEnd="25dp"
+            android:layout_marginBottom="84dp"
+            android:text="SYSTEM UPGRADES ARE IRREVERSIBLE. (Why wouldn't they be?)\n YOUR RANK: CODER ASPIRANT."
+            android:textAlignment="center"
+            android:textColor="@color/colorAccent"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toEndOf="@+id/upgrade8"
-            app:layout_constraintTop_toBottomOf="@+id/upgradeText7" />
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </LinearLayout>
