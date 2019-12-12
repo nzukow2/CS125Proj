@@ -624,6 +624,7 @@ public class MainActivity extends AppCompatActivity {
                 loadingText.setText(loadArray[replacer]);
                 loadingText.setTextColor(Color.WHITE);
             }
+
             if (era1UpgradeEquipped) { // Turing Machine/turing facts
                 loadIcon.setImageResource(R.drawable.turing_machine);
                 String[] loadArray = new String[4];
